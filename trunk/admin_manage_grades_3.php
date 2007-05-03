@@ -1,0 +1,269 @@
+<?
+//*
+// admin_manage_grades_3.php
+// Admin Section
+// Edit grades for student
+//v1.5 01-01-06 properly display terms, change header to Terms
+//*
+
+//Check if admin is logged in
+session_start();
+if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
+  {
+    header ("Location: index.php?action=notauth");
+	exit;
+}
+
+//Include global functions
+include_once "common.php";
+//Initiate database functions
+include_once "ez_sql.php";
+// config
+include_once "configuration.php";
+
+$menustudent=1;
+
+$web_user=$_SESSION['UserId'];
+$current_year=$_SESSION['CurrentYear'];
+
+//Get student id
+$studentid=get_param("studentid");
+//Get action
+$action=get_param("action");
+//Get list of Terms
+$sSQL="SELECT * FROM grade_terms ORDER BY grade_terms_id";
+$termcodes=$db->get_results($sSQL);
+
+if ($action=="edit"){
+	//Get attendace id
+	$gradeid=get_param("gradeid");
+	//Gather info from db
+	$sSQL="SELECT studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, grade_history.grade_history_quarter, grade_names.grade_names_desc AS desc1, grade_names_1.grade_names_desc AS desc2, grade_names_2.grade_names_desc AS desc3, grade_history.grade_history_notes, grade_history_comment1, grade_history_comment2, grade_history_comment3, web_users.web_users_flname, grade_history.grade_history_grade, grade_history.grade_history_effort, grade_history.grade_history_conduct FROM ((((((studentbio INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grade_history ON studentbio.studentbio_id = grade_history.grade_history_student) INNER JOIN web_users ON grade_history.grade_history_user = web_users.web_users_id) INNER JOIN school_years ON grade_history.grade_history_year = school_years.school_years_id) INNER JOIN grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) INNER JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id=$gradeid";
+	$grade=$db->get_row($sSQL);
+	$slname=$grade->studentbio_lname;
+	$sfname=$grade->studentbio_fname;
+	$user=$grade->web_users_flname;
+	$cyear=$grade->school_years_desc;
+	$sschool=$grade->school_names_desc;
+
+	//get the custom fields associated with this grade event added by Joshua
+	$custom_grade_sql = "SELECT * from custom_grade_history, custom_fields 
+		WHERE (custom_grade_history.custom_field_id = custom_fields.custom_field_id)
+		AND (custom_grade_history.grade_history_id = '$gradeid')";
+	$custom_grade_fields = $db->get_results($custom_grade_sql);
+
+}else{
+	//Get student names
+	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id=$studentid";
+	$student=$db->get_row($sSQL);
+	$slname=$student->studentbio_lname;
+	$sfname=$student->studentbio_fname;
+	$sschoolid=$student->studentbio_school;;
+	//Get user name
+	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id=$web_user";
+	$user=$db->get_var($sSQL);
+	//Get Year
+	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year";
+	$cyear=$db->get_var($sSQL);
+	//Get School
+	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
+	$sschool=$db->get_var($sSQL);
+
+};
+//Get list of grade codes
+$gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_desc");
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title><? echo _BROWSER_TITLE?></title>
+<style type="text/css" media="all">@import "student.css";</style>
+<link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<script type="text/javascript" language="JavaScript" src="sms.js"></script>
+</head>
+
+<body><img src="images/<? echo _LOGO?>" border="0">
+
+<div id="Header">
+<table width="100%">
+  <tr>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><? echo _ADMIN_MANAGE_GRADES_3_UPPER?></td>
+  </tr>
+</table>
+</div>
+
+<div id="Content">
+	<h1><? echo _ADMIN_MANAGE_GRADES_3_TITLE?></h1>
+	<br>
+	<h2><? echo $sfname. " " .$slname ; ?></h2>
+	<br>
+	<h2><? echo _ADMIN_MANAGE_GRADES_3_INSERTED?><? echo $user; ?></h2>
+	<table border="1" cellpadding="0" cellspacing="0" width="100%">
+	<form name="attendance" method="POST" action="admin_manage_grades_4.php">
+	  <tr class="trform">
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_SCHOOL?></td>
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_YEAR?></td>
+	  </tr>
+	  <tr class="tblcont">
+	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
+	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	  </tr>
+	  <tr class="trform">
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_TERM?></td>
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_GRADE?></td>
+	  </tr>
+	  <tr class="tblcont">
+	    <td width="50%" class="tdinput">
+		  <select name="quarter">
+		<? //Display terms from table
+		foreach($termcodes as $termcode){
+		?>
+		<option value="<? echo $termcode->grade_terms_id; ?>" <? 
+if($termcode->grade_terms_id==$grade->grade_history_quarter){echo 
+"selected=selected";};?>> <? echo $termcode->grade_terms_desc; ?></option> 
+<? }; ?>
+		   </select>
+		</td>
+		<td width="50%" class="tdinput">
+			<input type="text" name="grade" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_grade);};?>">
+		</td>
+	  </tr>
+	  <tr class="trform">
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_EFFORT?></td>
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_CONDUCT?></td>
+	  </tr>
+	  <tr class="tblcont">
+		<td width="50%" class="tdinput">
+			<input type="text" name="effort" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_effort);};?>">
+		</td>
+		<td width="50%" class="tdinput">
+			<input type="text" name="conduct" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_conduct);};?>">
+		</td>	    
+	  </tr>
+	  <tr class="trform">
+	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_COMMENTS?></td>
+	    <td width="50%">&nbsp;</td>
+	  </tr>
+	  <tr class="tblcont">
+		<td width="100%" class="tdinput" colspan="2">
+			  <select name="comment1">
+			   <?
+			   //Display grades codes from table
+			   foreach($gradecodes as $gradecode){
+			   ?>
+		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment1){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?
+			   };
+			   ?>
+			   </select>
+		</td>
+		</tr>
+		<tr class="tblcont">
+		<td width="100%" class="tdinput" colspan="2">
+			  <select name="comment2">
+			   <?
+			   //Display grades codes from table
+			   foreach($gradecodes as $gradecode){
+			   ?>
+		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment2){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?
+			   };
+			   ?>
+			   </select>
+		</td>
+	  </tr>
+	  <tr class="tblcont">
+	    <td width="100%" class="tdinput" colspan="2">
+			  <select name="comment3">
+			   <?
+			   //Display grades codes from table
+			   foreach($gradecodes as $gradecode){
+			   ?>
+		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment3){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?
+			   };
+			   ?>
+			   </select>
+		</td>
+	  </tr>
+	  <tr class="trform">
+	    <td width="100%" colspan="2">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_NOTES?></td>
+	  </tr>
+	  <tr class="tdinput">
+	    <td width="100%" colspan="2">&nbsp;<textarea name="gradenotes" cols="40" rows="5"><? if($action=="edit"){echo strip($grade->grade_history_notes);};?></textarea></td>
+	  </tr>
+	  <?
+	  if($action=="new"){
+	  ?>
+	  <tr>
+	    <td width="100%" colspan="2" class="tdinput">&nbsp;Notify Contacts :<input type="checkbox" name="notify" value="1" checked=checked></td>
+		<input type="hidden" name="sschool" value="<? echo $sschoolid; ?>">
+	  </tr>
+	  <?
+	  };
+	  ?>
+
+    <? //custom fields added by Joshua
+    	//get all the custom field names for the select loops
+     $cfSQL = "SELECT * FROM custom_fields";
+     $custom_fields = $db->get_results($cfSQL);
+
+	?> <tr class="trform"><td colspan=2><? echo _ADMIN_MANAGE_GRADES_3_CUSTOM_FIELDS?></td></tr>
+	<tr><td colspan=2><table width="100%"> <?
+
+    	if($custom_grade_fields && $custom_grade_fields != NULL) {
+		foreach($custom_grade_fields as $custom_grade_field) {
+			?> <tr><td><select name="custom_fields[<?
+			echo($custom_grade_field->custom_grade_history_id);
+			?>]"><option value="0"><? echo _ADMIN_MANAGE_GRADES_3_DELETE?>...</option><?
+			foreach($custom_fields as $custom_field) {
+				?><option value="<? echo($custom_field->custom_field_id);
+				?>" <?
+				if($custom_field->custom_field_id == $custom_grade_field->custom_field_id) {
+					echo" selected";
+				}
+				?>><?
+				echo($custom_field->name);
+				?></option><?
+			}
+			?></select></td><td><input type="text" name="custom_grade_fields[<?
+	    		echo($custom_grade_field->custom_grade_history_id);
+	    		?>]" value="<? echo($custom_grade_field->data);
+	    		?>" size=70></td></tr> <?
+		} 
+	}
+	?><tr><td><select name="new_custom_field_id">
+	<option value="0" selected><? echo _ADMIN_MANAGE_GRADES_3_ADD_NEW?>...</option><?
+	foreach($custom_fields as $custom_field) {
+		?><option value="<?echo($custom_field->custom_field_id);
+		?>"><? echo($custom_field->name);
+		?></option><?
+	} 
+	?></td><td><input type="text" name="new_custom_field_data" size=70>
+	</td></tr></table></td></tr><?
+	//end custom fields
+	?>
+
+	</table>
+	<br>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_MANAGE_GRADES_3_BACK?></a></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_MANAGE_GRADES_3_UPDATE;}else{echo _ADMIN_MANAGE_GRADES_3_ADD;};?>" class="frmbut"></td>
+	  </tr>
+	  <input type="hidden" name="gradeid" value="<? echo $gradeid; ?>">
+	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	</table>
+	</form>
+</div>
+<? include "admin_menu.inc.php"; ?>
+</body>
+
+</html>
