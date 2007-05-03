@@ -1,0 +1,192 @@
+<?
+//*
+// admin_student_1.php
+// Admin Section
+// Form to search for student or choose to add add a new one
+//*
+
+//Check if admin is logged in
+session_start();
+if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
+  {
+    header ("Location: index.php?action=notauth");
+	exit;
+}
+
+//Include global functions
+include_once "common.php";
+//Initiate database functions
+include_once "ez_sql.php";
+// config
+include_once "configuration.php";
+
+//Gather all information for drop-downs from basic tables
+$sSQL="SELECT * FROM school_names ORDER BY school_names_desc";
+$schools = $db->get_results($sSQL);
+
+$sSQL="SELECT * FROM ethnicity ORDER BY ethnicity_desc";
+$ethnicities = $db->get_results($sSQL);
+
+$sSQL="SELECT * FROM grades ORDER BY grades_desc";
+$grades = $db->get_results($sSQL);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title><? echo _BROWSER_TITLE?></title>
+<style type="text/css" media="all">@import "student.css";</style>
+<SCRIPT language="JavaScript">
+/* Javascript function to check if field is empty */
+function submitform(fldName, frmNumb)
+{
+  var f = document.forms[frmNumb];
+  var t = f.elements[fldName]; 
+  if (t.value!="") 
+	return true;
+  else
+	alert("<? echo _ENTER_VALUE?>");
+	return false;
+}
+
+
+</script>
+<link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script type="text/javascript" language="JavaScript" src="sms.js"></script>
+</head>
+
+<body> <img src="images/<? echo _LOGO?>" border="0">
+
+<div id="Header">
+<table width="100%">
+  <tr>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><? echo _ADMIN_STUDENT_1_UPPER?></td>
+  </tr>
+</table>
+</div>
+
+<div id="Content">
+	<h1><? echo _ADMIN_STUDENT_1_TITLE?></h1>
+	<br>
+	<a href="admin_add_student_1.php" class="ahead"><? echo _ADMIN_STUDENT_1_ADD_NEW?></a>
+	<br>
+	<h2><? echo _ADMIN_STUDENT_1_SUBTITLE?></h2>
+	<br>
+	<table border="0" cellpadding="1" cellspacing="1" width="100%">
+	  <tr>
+	    <td width="100%" height="45">
+	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
+	        <tr class="trform">
+	          <td width="50%">&nbsp;<? echo _ADMIN_STUDENT_1_BY_INTERNAL?></td>
+	          <td width="50%">&nbsp;<? echo _ADMIN_STUDENT_1_BY_NAME?></td>
+		    </tr>
+	        <tr>
+			   <form name="srchid" method="POST" action="admin_student_2.php" onsubmit="return submitform('internalid', 0);">
+		       <td width="50%" class="tdinput">
+	           <input type="text" onChange="capitalizeMe(this)" name="internalid" size="22"><input type="submit" value="<? echo _ADMIN_STUDENT_1_SEARCH?>" name="submit" class="frmbut">
+			   <input type="hidden" name="action" value="srchid">
+	          </td>
+			  </form>
+			  <form name="srchlname" method="POST" action="admin_student_2.php" onsubmit="return submitform('slname', 1);">
+		      <td width="50%" class="tdinput">
+		        <input type="text" onChange="capitalizeMe(this)" name="slname" size="25"><input type="submit" value="<? echo _ADMIN_STUDENT_1_SEARCH?>" name="submit" class="frmbut">
+			    <input type="hidden" name="action" value="srchlname">
+	          </td>
+				</form>
+			    </tr>
+	      </table>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td width="100%" height="21">
+	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
+		    <tr class="trform">
+	          <td width="100%" colspan="4">&nbsp;<? echo _ADMIN_STUDENT_1_OR_BY?></td>
+	        </tr>
+		    <tr>
+			  <form name="srchall" method="POST" action="admin_student_2.php">
+	          <td width="100%" class="tdinput" colspan="4">
+			    <select size="1" name="school">
+				   <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_SCHOOL?></option>
+				   <?
+				   //Display Schools from table
+				   foreach($schools as $school){
+				   ?>
+                    <option value="<? echo $school->school_names_id; ?>"><? echo $school->school_names_desc; ?></option>
+				   <?
+				   };
+				   ?>
+                </select>
+			    <select name="grade">
+				   <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_GRADE?></option>
+				   <?
+				   //Display grades from table
+				   foreach($grades as $grade){
+				   ?>
+			       <option value="<? echo $grade->grades_id; ?>"><? echo $grade->grades_desc; ?></option>
+				   <?
+				   };
+				   ?>
+			    </select>
+			     <select size="1" name="gender">
+				    <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_GENDER?></option>
+					<option value="male"><? echo _MALE?></option>
+					<option value="female"><? echo _FEMALE?></option>
+	             </select> 
+			     <select size="1" name="ethnicity">
+				   <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_ETHNICITY?></option>
+				   <?
+				   //Display Ethnicities from table
+				   foreach($ethnicities as $ethnicity){
+				   ?>
+                    <option value="<? echo $ethnicity->ethnicity_id; ?>"><? echo $ethnicity->ethnicity_desc; ?></option>
+				   <?
+				   };
+				   ?>
+                 </select>
+		      </td>
+	        </tr>
+		    <tr class="trform">
+	          <td width="25%" class="tdinput">
+			  &nbsp;<? echo _ADMIN_STUDENT_1_ACTIVE?>: <input type="radio" value="1" name="active" checked=checked> <? echo _YES?> <input type="radio" value="" name="active"> <? echo _NO?></td>
+	          <td width="25%" class="tdinput">
+	          &nbsp;<? echo _ADMIN_STUDENT_1_HOMED?>: <input type="radio" value="1" name="homed"> <? echo _YES?> <input type="radio" value="" name="homed" checked=checked> <? echo _NO?></td>
+			  <td width="25%" class="tdinput">			  
+			  &nbsp;<? echo _ADMIN_STUDENT_1_SPED?>: <input type="radio" value="1" name="sped"> <? echo _YES?> <input type="radio" value="" name="sped" checked=checked> <? echo _NO?></td>
+			  <td width="25%" class="tdinput" align="center">			  
+	          <input type="submit" value="<? echo _ADMIN_STUDENT_1_SEARCH?>" name="submit" class="frmbut">
+			  <input type="hidden" name="action" value="srchall"></td>
+			  </form>
+	        </tr>
+			  </table>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td width="100%">
+	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
+		    <tr class="trform">
+	          <td width="100%" colspan="4">&nbsp;<? echo _ADMIN_STUDENT_1_BY_LAST?></td>
+	        </tr>
+			<tr>
+				<td width="100%" align="center">
+				<?
+				for($letters = 'A'; $letters != 'AA'; $letters++)
+				{
+				    echo "<a href='admin_student_2.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
+				}
+				?> 
+				</td>
+			</tr>
+		</table>
+	  </td>
+	</tr>
+	</table>
+</div>
+<? include "admin_menu.inc.php"; ?>
+</body>
+
+</html>
+
