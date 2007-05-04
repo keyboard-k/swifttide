@@ -43,7 +43,7 @@ if (!$act) {
 if ($_POST['genrep']) {
 //	echo "select grade_history_quarter from grade_history where grade_history_student = ".$_POST['studentid'];
 $studentid=get_param("studentid");
-echo "studentid is $studentid";
+// echo "studentid is $studentid";
 $q = mysql_query("select DISTINCT * from grade_history where grade_history_student = ".$_POST['studentid'] ." group by grade_history_quarter");
 	if (mysql_num_rows($q)) {
                 echo "<div id=\"Content\"><h1><? echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1><br /><? echo _GENERATE_REPORT_CARD_NEW_TITLE2?>:<br /><br />";

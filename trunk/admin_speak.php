@@ -267,7 +267,7 @@ function cnfremove(id) {
 	?>
 	<h3><? echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<? include "admin_menu.inc.php"; ?>
 </body>
 
 </html>
