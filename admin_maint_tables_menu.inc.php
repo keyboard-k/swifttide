@@ -32,16 +32,15 @@ include_once "configuration.php";
 			</TR><TR>
 				<TD><a href="admin_grades.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_GRADE?>"><? echo _ADMIN_MAINT_TABLES_MENU_GRADE_TEXT?></a></TD></TR>
 			<TR>    <TD><a href="admin_rooms.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_ROOMS?>"><? echo _ADMIN_MAINT_TABLES_MENU_ROOMS_TEXT?></a></TD></TR>
+			<TR><TD ALIGN="left">---</TD></TR>
 			<TR>    <TD><a href="admin_terms.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_TERMS?>"><? echo _ADMIN_MAINT_TABLES_MENU_TERMS_TEXT?></a></TD></TR>
-			<TR>	<TD><a href="admin_school_years.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_YEARS?>"><? echo _ADMIN_MAINT_TABLES_MENU_YEARS_TEXT?></a></TD></TR><TR>
-				<TD><a href="admin_ethnicity.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_ETH?>"><? echo _ADMIN_MAINT_TABLES_MENU_ETH_TEXT?></a></TD>
-			</TR>
-			<TR>
-				<TD><a href="admin_sgrades.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_COMM?>"><? echo _ADMIN_MAINT_TABLES_MENU_COMM_TEXT?></a></TD>
-			</TR>
+			<TR>	<TD><a href="admin_school_years.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_YEARS?>"><? echo _ADMIN_MAINT_TABLES_MENU_YEARS_TEXT?></a></TD></TR>
+			<TR>	<TD><a href="admin_ethnicity.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_ETH?>"><? echo _ADMIN_MAINT_TABLES_MENU_ETH_TEXT?></a></TD></TR>
+			<TR>	<TD><a href="admin_sgrades.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_COMM?>"><? echo _ADMIN_MAINT_TABLES_MENU_COMM_TEXT?></a></TD></TR>
 			<TR>
 				<TD><a href="admin_attendance_codes.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_ATT?>"><? echo _ADMIN_MAINT_TABLES_MENU_ATT_TEXT?></a></TD>
 			</TR>
+			<TR><TD ALIGN="left">---</TD></TR>
 			<TR>
 				<TD><a href="admin_infraction_codes.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_INFR?>"><? echo _ADMIN_MAINT_TABLES_MENU_INFR_TEXT?></a></TD>
 			</TR>
@@ -58,7 +57,7 @@ include_once "configuration.php";
 			<TR>
 				<TD><a href="admin_custom_fields.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_CUS?>"><? echo _ADMIN_MAINT_TABLES_MENU_CUS_TEXT?></a></TD>
 			</TR></TABLE></TD></TR>
-			<tr><td><hr></td></tr>
+			<TR><TD ALIGN="left">---</TD></TR>
 			<TR>    <TD><a href="admin_exams_types.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES?>"><? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES_TEXT?></a></TD></TR>
 			<TR>    <TD><a href="admin_speak.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_SPEAK?>"><? echo _ADMIN_MAINT_TABLES_MENU_SPEAK_TEXT?></a></TD></TR>
 			<tr><td><hr></td></tr>

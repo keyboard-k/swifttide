@@ -3,6 +3,7 @@
 /*				Coded by NubKnacker
 /**********************************************/
 //v1.5 by Doug, get term names to display, spelling errors cleaned up
+//doug 043007 fix stupid terms again lol
 
 include 'pdfclass.php';
 
@@ -41,12 +42,15 @@ if (!$act) {
 <?php
 if ($_POST['genrep']) {
 //	echo "select grade_history_quarter from grade_history where grade_history_student = ".$_POST['studentid'];
-	$q = mysql_query("select DISTINCT * from grade_history where grade_history_student = ".$_POST['studentid'] ." group by grade_history_quarter");
+$studentid=get_param("studentid");
+echo "studentid is $studentid";
+$q = mysql_query("select DISTINCT * from grade_history where grade_history_student = ".$_POST['studentid'] ." group by grade_history_quarter");
 	if (mysql_num_rows($q)) {
                 echo "<div id=\"Content\"><h1><? echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1><br /><? echo _GENERATE_REPORT_CARD_NEW_TITLE2?>:<br /><br />";
 		while ($r=mysql_fetch_array($q)) {
 			//get actual term names, much prettier
-                $term_name=mysql_query("SELECT grade_terms_desc FROM grade_terms WHERE grade_terms_id=$r[grade_history_quarter]");
+                $term_name=$db->get_var("SELECT grade_terms_desc FROM 
+grade_terms WHERE grade_terms_id=$r[grade_history_quarter]");
                          echo "<a href='generatereportcardnew.php?act=1&studentid=".$_POST['studentid']."&reportid=".$r['grade_history_quarter']."'>$term_name</a><br /><br />";
 		}
 	} else {

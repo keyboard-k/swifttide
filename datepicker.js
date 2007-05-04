@@ -532,7 +532,7 @@ function show_calendar() {
 	else
 		p_year = arguments[2];
 	if (arguments[3] == null)
-		p_format = "MM/DD/YYYY";
+		p_format = "YYYY/MM/DD";
 	else
 		p_format = arguments[3];
 

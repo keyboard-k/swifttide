@@ -32,7 +32,7 @@ $action=get_param("action");
 
 $schoolid=get_param("schoolid");
 $roomid=get_param("roomid");
-$examdate=date("Y-m-d", strtotime(get_param("examdate")));
+// $examdate=date("Y-m-d", strtotime(get_param("examdate")));
 $subjectid=get_param("typeid");
 $typeid=get_param("typeid");
 
@@ -72,7 +72,7 @@ ORDER BY school_names_desc, school_rooms_desc, exams_date";
 // echo $sSQL;
 
 //Set paging appearence
-$ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
+$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
 <td width=10%>" . _TEACHER_EXAMS_1_ROOM . "</td>
 <td width=20%>" . _TEACHER_EXAMS_1_DATE . "</td>
@@ -135,32 +135,19 @@ function cnfremove(id) {
 </div>
 
 <div id="Content">
-        <?
-	if(!strlen($msgFormErr)){
-	?>
 	<h1><? echo _TEACHER_EXAMS_1_TITLE?></h1>
 	<br>
 	<?
 	$ezr->display();
 	?>
 	<br>
-	<table border="0" cellpadding="0" cellspacing="0" width="80%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
 	    <td width="50%">&nbsp;</td>
 	    <td width="50%" align="right"><a
 	    href="teacher_exams_3.php?action=new" class="aform"><? echo _TEACHER_EXAMS_1_ADD?></a></td>
 	</tr>
 	</table>
-        <?
-	}else{
-	?>
-	<h1><? echo _ERROR?></h1>
-        <br>
-        <h3><? echo $msgFormErr; ?></h3>
-	<br>
-	<?
-	}
-	?>
 </div>
 <? include "teacher_menu.inc.php"; ?>
 </body>

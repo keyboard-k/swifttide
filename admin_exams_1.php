@@ -32,9 +32,11 @@ $action=get_param("action");
 
 $schoolid=get_param("schoolid");
 $roomid=get_param("roomid");
-$examdate=date("Y-m-d", strtotime(get_param("examdate")));
+if (get_param("examdate")) { $examdate=date("Y-m-d", strtotime(get_param("examdate"))); }
 $subjectid=get_param("typeid");
 $typeid=get_param("typeid");
+
+$msgFormErr = "";
 
 if (!strlen($action))
         $action="none";
@@ -51,6 +53,9 @@ $subjectcodes=$db->get_results($sSQL);
 //get list of exam types
 $sSQL="SELECT * FROM exams_types ORDER BY exams_types_id ASC";
 $examstypes=$db->get_results($sSQL);
+//get list of teachers
+$sSQL="SELECT * FROM teachers ORDER BY teachers_id ASC";
+$teachers=$db->get_results($sSQL);
 
 if ($action=="remove") {
 	$id_to_delete = get_param("examid");
@@ -60,13 +65,14 @@ if ($action=="remove") {
 
 //Get current listing of exams
 $sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, 
-grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date 
-FROM (((((exams 
+grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date, teachers_id, teachers_fname, teachers_lname 
+FROM ((((((exams 
 INNER JOIN school_names ON exams_schoolid=school_names_id) 
 INNER JOIN school_rooms ON exams_roomid=school_rooms_id) 
 INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id) 
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
+INNER JOIN teachers ON exams_teacherid = teachers_id) 
 WHERE exams_year=$cyear 
 ORDER BY school_names_desc, school_rooms_desc, exams_date";
 // echo $sSQL;
@@ -75,9 +81,10 @@ ORDER BY school_names_desc, school_rooms_desc, exams_date";
 $ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
 <td width=10%>" . _ADMIN_EXAMS_1_ROOM . "</td>
-<td width=20%>" . _ADMIN_EXAMS_1_DATE . "</td>
-<td width=20%>" . _ADMIN_EXAMS_1_SUBJECT . "</td>
-<td width=20%>" . _ADMIN_EXAMS_1_TYPE . "</td>
+<td width=15%>" . _ADMIN_EXAMS_1_DATE . "</td>
+<td width=15%>" . _ADMIN_EXAMS_1_SUBJECT . "</td>
+<td width=15%>" . _ADMIN_EXAMS_1_TYPE . "</td>
+<td width=15%>" . _ADMIN_EXAMS_1_TEACHER . "</td>
 <td width=15%>&nbsp;</td>
 <td width=15%>&nbsp;</td>
 </tr>"; 
@@ -87,6 +94,7 @@ $ezr->results_row = "<tr>
 <td class=paging width=20% align=center>COL3 (COL7)</td>
 <td class=paging width=20% align=center>COL4</td>
 <td class=paging width=20% align=center>COL5</td>
+<td class=paging width=20% align=center>COL10 COL11</td>
 <td class=paging width=15% align=center>
   <a href=admin_exams_2.php?examid=COL6 class=aform>&nbsp;" . _ADMIN_EXAMS_1_DETAILS . "</a></td>
 <td class=paging width=15% align=center>

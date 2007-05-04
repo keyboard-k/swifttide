@@ -60,6 +60,7 @@ if($isuser=$db->get_row($sSQL)){
 			  $tschool=$teacher->teachers_school;
 			  set_session("UserType", "T");
 			  set_session("UserId", $user_id);
+			  set_session("teacherid", $tid);
 			  set_session("tfname", $tfname);
 			  set_session("tlname", $tlname);
 			  set_session("tschool", $tschool);

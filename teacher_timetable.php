@@ -148,7 +148,7 @@ else echo '<td width=15% align=center>Error in table tbl_days</td>';
 <?
 $max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE teacher_schedule_teacherid='$id'");
 
-for ($i=1; $i<=$max_period; $i++) {	// change 10 number of periods a day
+for ($i=1; $i<=$max_period; $i++) {	// up to maximal number of periods a day
   echo '<tr><td align=center class=tblhead width=10%>' . $i . '</td>';
   for ($j=1; $j<=5; $j++) {	// 5 = number of schooldays
 
