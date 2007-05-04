@@ -83,6 +83,9 @@ title="<? echo _ADMIN_MENU_INC_HEALTH?>"><? echo _ADMIN_MENU_INC_HEALTH_TEXT?></
 		<TD><a href="admin_exams_1.php" title="<? echo _ADMIN_MENU_INC_EXAMS?>"><? echo _ADMIN_MENU_INC_EXAMS_TEXT?></a></TD>
 	</TR>
 	<TR>
+		<TD><a href="admin_speak.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_SPEAK?>"><? echo _ADMIN_MAINT_TABLES_MENU_SPEAK_TEXT?></a></TD>
+	</TR>
+	<TR>
 		<TD>
 		<TABLE>
 			<TR>

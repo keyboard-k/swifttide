@@ -1128,7 +1128,7 @@ DEFINE('_GENERATE_REPORT_CARD_NEW_QUARTER3', 'Quarter 3');
 DEFINE('_GENERATE_REPORT_CARD_NEW_QUARTER4', 'Quarter 4');
 DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE', 'Sch&uuml;ler ausw&auml;hlen');
 DEFINE('_GENERATE_REPORT_CARD_NEW_GENERATE', 'Bericht erstellen');
-DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE2', 'Bitte w&auml;hlen Sie eine Schule und eine Klasse f&uuml;r den Bericht');
+DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE2', 'Bitte w&auml;hlen Sie eine Klasse und enien Zeitraum f&uuml;r den Bericht');
 
 /** forgot_password.php */
 

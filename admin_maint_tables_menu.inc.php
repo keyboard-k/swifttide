@@ -59,7 +59,6 @@ include_once "configuration.php";
 			</TR></TABLE></TD></TR>
 			<TR><TD ALIGN="left">---</TD></TR>
 			<TR>    <TD><a href="admin_exams_types.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES?>"><? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES_TEXT?></a></TD></TR>
-			<TR>    <TD><a href="admin_speak.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_SPEAK?>"><? echo _ADMIN_MAINT_TABLES_MENU_SPEAK_TEXT?></a></TD></TR>
 			<tr><td><hr></td></tr>
 			<TR>
 				<TD> <TABLE>
