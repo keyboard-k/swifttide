@@ -15,7 +15,7 @@ include_once "configuration.php";
 				$nyear=$_SESSION['CurrentYear'];
 				$cyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$nyear");
 				?>
-			   <td class ="year">Year <? echo $cyear; ?></td>
+			   <td class ="year"><? echo _HEALTH_MENU_INC_YEAR . " $cyear"; ?></td>
 			</tr>
 			<tr>
 			   <td><hr></td>

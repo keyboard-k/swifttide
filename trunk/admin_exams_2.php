@@ -36,14 +36,14 @@ $action=get_param("action");
 $sSQL="SELECT teachers_fname, teachers_lname, teachers_school 
 FROM teachers INNER JOIN exams 
 WHERE exams_teacherid=teachers_id AND 
-      exams_id=$examid";
+      exams_id='$examid'";
 $teacher=$db->get_row($sSQL);
 $tlname=$teacher->teachers_lname;
 $tfname=$teacher->teachers_fname;
 $tschool=$teacher->teachers_school;
 
 //Get current listing of exams
-$sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'%m/%d/%Y') as examdate, 
+$sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, 
 grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_teacherid, school_years_desc 
 FROM ((((((exams 
 INNER JOIN school_years ON exams_year=school_years_id) 
@@ -102,7 +102,7 @@ $exam=$db->get_row($sSQL);
 	    <td width="35%">&nbsp;<? echo _ADMIN_EXAMS_2_TYPE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="35%">&nbsp;<? echo date(_DATE_FORMAT, strtotime($exam->examdate)); ?></td>
+	    <td width="35%">&nbsp;<? echo $exam->examdate; ?></td>
 	    <td width="30%">&nbsp;<? echo $exam->grade_subject_desc; ?></td>
 	    <td width="35%">&nbsp;<? echo $exam->exams_types_desc; ?></td>
 	  </tr>

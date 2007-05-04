@@ -50,15 +50,15 @@ if(!strlen($studentid)){
 // get schedule data
 $sSQL="SELECT school_names_desc, grade_terms_desc, 
 teacher_schedule_days, teacher_schedule_classperiod, 
-subjects_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
+grade_subject_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
 FROM (((((teacher_schedule 
 INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
 WHERE teacher_schedule_room=$sroom 
-ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, subjects_desc";
+ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, grade_subject_desc";
 
 if ($srch = $db->get_results($sSQL)){
 //Set paging appearence
@@ -130,16 +130,16 @@ $ezr->query_mysql($sSQL);
 	foreach ($terms as $term) {
 
 	$sSQL="SELECT 
-	teacher_schedule_days, teacher_schedule_classperiod, subjects_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
+	teacher_schedule_days, teacher_schedule_classperiod, grade_subject_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
 	FROM (((((teacher_schedule 
 	INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-	INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+	INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 	INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 	INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 	INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
 	WHERE teacher_schedule_room='$sroom' AND 
 	      teacher_schedule_termid=$term->teacher_schedule_termid 
-	ORDER BY days_id, teacher_schedule_classperiod, subjects_desc";
+	ORDER BY days_id, teacher_schedule_classperiod, grade_subject_desc";
 	$test = $db->get_results($sSQL);
 	if ($test) {
 	$term_desc = $db->get_row("SELECT grade_terms_desc FROM grade_terms WHERE grade_terms_id=$term->teacher_schedule_termid");
@@ -161,16 +161,18 @@ $ezr->query_mysql($sSQL);
 	</tr>
 
 	<?
-	for ($i=1; $i<=10; $i++) {      // change 10 to number of periods a day
+	$max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE teacher_schedule_room='$sroom'");
+
+	for ($i=1; $i<=$max_period; $i++) {     // change 10 number of periods a day
 	  echo '<tr><td align=center class=tblhead width=10%>' . $i . '</td>';
 	  for ($j=1; $j<=5; $j++) {       // 5 = number of schooldays
 
 	 // get schedule data
 	  $sSQL="SELECT 
-	  teacher_schedule_days, teacher_schedule_classperiod, subjects_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
+	  teacher_schedule_days, teacher_schedule_classperiod, grade_subject_desc, days_id, school_rooms_desc, days_desc, teacher_schedule_teacherid 
 	  FROM (((((teacher_schedule 
 	  INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-	  INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+	  INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 	  INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 	  INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 	  INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
@@ -178,10 +180,10 @@ $ezr->query_mysql($sSQL);
 		days_id=$j AND 
 		teacher_schedule_room=$sroom AND 
 		teacher_schedule_termid=$term->teacher_schedule_termid 
-	  ORDER BY days_id, teacher_schedule_classperiod, subjects_desc";
+	  ORDER BY days_id, teacher_schedule_classperiod, grade_subject_desc";
 
 	if ($srch = $db->get_row($sSQL)) {
-		$subject = $srch->subjects_desc;
+		$subject = $srch->grade_subject_desc;
 		$teacher = $srch->teacher_schedule_teacherid;
 		$teach = $db->get_row("SELECT teachers_fname, teachers_lname FROM teachers WHERE teachers_id=$teacher");
 		$tfname = $teach->teachers_fname;
@@ -189,7 +191,7 @@ $ezr->query_mysql($sSQL);
 
 
 //Set paging appearence
-echo "<td class=paging width=15% align=center>" . $subject . " (" . $tfname . " " . $tlname . ")</td>" . "\n";
+echo "<td class=paging width=15% align=center>" . $subject . "<br>(" . $tfname . " " . $tlname . ")</td>" . "\n";
 }
 else {
 echo '<td class=paging width=15% align=center>&nbsp;</td>';

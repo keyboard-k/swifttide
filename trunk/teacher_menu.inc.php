@@ -33,6 +33,8 @@ include_once "configuration.php";
 	<td><a href="teacher_exams_1.php" title="<?php echo _TEACHER_MENU_INC_PHP_EXAMS?>"><?php echo _TEACHER_MENU_INC_PHP_EXAMS_TEXT?></a></td>
 	</tr>
 	<tr>
+	<td><a href="teacher_speak.php" title="<?php echo _TEACHER_MENU_INC_PHP_SPEAK?>"><?php echo _TEACHER_MENU_INC_PHP_SPEAK_TEXT?></a></td>
+	</tr>
 	<tr>
 	   <td><hr></td>
 	</tr>

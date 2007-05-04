@@ -59,7 +59,7 @@ ORDER BY school_names_desc, school_rooms_desc, exams_date";
 
 if ($srch = $db->get_results($sSQL)){
 //Set paging appearence
-$ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
+$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
 <td width=20% align=center>" . _CONTACT_EXAMS_SCHOOL . "</td>
 <td width=15% align=center>" . _CONTACT_EXAMS_ROOM . "</td>

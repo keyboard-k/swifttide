@@ -41,6 +41,7 @@ $gradenotes=tosql(get_param("gradenotes"), "Text");
 $comment1=get_param("comment1");
 $comment2=get_param("comment2");
 $comment3=get_param("comment3");
+$subject=get_param("subject");
 
 //get custom fields
 $custom_grade_fields = get_param("custom_grade_fields");	//array
@@ -68,7 +69,12 @@ if(!strlen($conduct)){
 if(!strlen($msgFormErr)){
 	if($action=="update"){
 		$msgheader="Updating";
-		$sSQL="UPDATE grade_history SET grade_history_quarter=$quarter, grade_history_grade=$grade, grade_history_effort=$effort, grade_history_conduct=$conduct, grade_history_comment1=$comment1, grade_history_comment2=$comment2, grade_history_comment3=$comment3, grade_history_notes=$gradenotes WHERE grade_history_id=$gradeid";
+		$sSQL="UPDATE grade_history SET 
+grade_history_quarter=$quarter, grade_history_grade=$grade, 
+grade_history_effort=$effort, grade_history_conduct=$conduct, 
+grade_history_comment1=$comment1, grade_history_comment2=$comment2, 
+grade_history_comment3=$comment3, grade_history_notes=$gradenotes 
+grade_history_subject=$subject WHERE grade_history_id=$gradeid";
 		$db->query($sSQL);
 
 		//update custom fields added by Joshua
@@ -105,7 +111,15 @@ if(!strlen($msgFormErr)){
 		$sschool=get_param("sschool");
 		$notify=get_param("notify");
 		$msgheader="Adding";
-		$sSQL="INSERT INTO grade_history (grade_history_student, grade_history_year, grade_history_school, grade_history_quarter, grade_history_grade, grade_history_effort, grade_history_conduct, grade_history_notes, grade_history_user, grade_history_comment1, grade_history_comment2, grade_history_comment3) VALUES($studentid, $current_year, $sschool, $quarter, $grade, $effort, $conduct, $gradenotes, $web_user, $comment1, $comment2, $comment3)";
+		$sSQL="INSERT INTO grade_history 
+(grade_history_student, grade_history_year, grade_history_school, 
+grade_history_quarter, grade_history_grade, grade_history_effort, 
+grade_history_conduct, grade_history_notes, grade_history_user, 
+grade_history_comment1, grade_history_comment2, grade_history_comment3, 
+grade_history_subject) VALUES($studentid, $current_year, $sschool, 
+$quarter, $grade, 
+$effort, $conduct, $gradenotes, $web_user, $comment1, $comment2, 
+$comment3, $subject)";
 		$db->query($sSQL);
 		if ($notify==1){
 			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student=$studentid";

@@ -340,6 +340,8 @@ DEFINE('_TEACHER_MENU_INC_PHP_HOMEWORK', 'Haus&uuml;bungen aufgeben');
 DEFINE('_TEACHER_MENU_INC_PHP_HOMEWORK_TEXT', 'Haus&uuml;bungen');
 DEFINE('_TEACHER_MENU_INC_PHP_FORUM', 'Zur Diskussion');
 DEFINE('_TEACHER_MENU_INC_PHP_FORUM_TEXT', 'Forum');
+DEFINE('_TEACHER_MENU_INC_PHP_SPEAK', 'Sprechstunde verwalten');
+DEFINE('_TEACHER_MENU_INC_PHP_SPEAK_TEXT', 'Sprechstunden');
 DEFINE('_TEACHER_MENU_INC_PHP_CHANGE', 'Passwort &auml;ndern');
 DEFINE('_TEACHER_MENU_INC_PHP_CHANGE_TEXT', 'Passwort &auml;ndern');
 DEFINE('_TEACHER_MENU_INC_PHP_LOGOUT', 'Vom System abmelden');
@@ -1332,6 +1334,8 @@ DEFINE('_CONTACT_MENU_INC_HOMEWORK', 'Haus&uuml;bungen');
 DEFINE('_CONTACT_MENU_INC_HOMEWORK_TEXT', 'Haus&uuml;bungen');
 DEFINE('_CONTACT_MENU_INC_FORUM', 'Forum');
 DEFINE('_CONTACT_MENU_INC_FORUM_TEXT', 'Forum');
+DEFINE('_CONTACT_MENU_INC_SPEAK', 'Sprechstunden anzeigen');
+DEFINE('_CONTACT_MENU_INC_SPEAK_TEXT', 'Sprechstunden ');
 DEFINE('_CONTACT_MENU_INC_PASS', 'Passwort &auml;ndern');
 DEFINE('_CONTACT_MENU_INC_PASS_TEXT', 'Passwort &auml;ndern');
 DEFINE('_CONTACT_MENU_INC_LOGOUT', 'Vom System abmelden');
@@ -2743,6 +2747,7 @@ DEFINE('_ADMIN_EXAMS_1_ROOM', 'Klasse');
 DEFINE('_ADMIN_EXAMS_1_DATE', 'Datum');
 DEFINE('_ADMIN_EXAMS_1_SUBJECT', 'Fach');
 DEFINE('_ADMIN_EXAMS_1_TYPE', 'Art');
+DEFINE('_ADMIN_EXAMS_1_TEACHER', 'Lehrer');
 DEFINE('_ADMIN_EXAMS_1_DETAILS', 'Details');
 DEFINE('_ADMIN_EXAMS_1_REMOVE', 'L&ouml;schen');
 DEFINE('_ADMIN_EXAMS_1_UPPER', 'Administrator Bereich');
@@ -2872,4 +2877,22 @@ DEFINE('_ADMIN_SPEAK_PERIOD', 'Stunde');
 DEFINE('_ADMIN_SPEAK_ADD', 'Hinzuf&uuml;gen');
 DEFINE('_ADMIN_SPEAK_UPDATE_SUBJECT', 'Eintrag aktualisieren');
 DEFINE('_ADMIN_SPEAK_UPDATE', 'Aktualisieren');
+
+/** contact_speak.php */
+
+DEFINE('_CONTACT_SPEAK_TEACHER', 'Lehrer');
+DEFINE('_CONTACT_SPEAK_DAY', 'Tag');
+DEFINE('_CONTACT_SPEAK_PERIOD', 'Stunde');
+DEFINE('_CONTACT_SPEAK_UPPER', 'Konakt Bereich');
+DEFINE('_CONTACT_SPEAK_TITLE', 'Sprechstunden anzeigen');
+
+/** teacher_speak.php */
+
+DEFINE('_TEACHER_SPEAK_TEACHER', 'Lehrer');
+DEFINE('_TEACHER_SPEAK_DAY', 'Tag');
+DEFINE('_TEACHER_SPEAK_PERIOD', 'Stunde');
+DEFINE('_TEACHER_SPEAK_UPPER', 'Lehrer Bereich');
+DEFINE('_TEACHER_SPEAK_TITLE', 'Sprechstunden anzeigen');
+DEFINE('_TEACHER_SPEAK_UPDATE_SUBJECT', 'Eigenen Eintrag aktualisieren:');
+DEFINE('_TEACHER_SPEAK_UPDATE', 'Aktualisieren');
 

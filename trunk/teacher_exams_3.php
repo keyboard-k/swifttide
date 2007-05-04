@@ -60,7 +60,7 @@ if ($action=="edit"){
 	$sSQL="SELECT exams_id, exams_year, exams_schoolid, exams_roomid, 
 	exams_date, exams_subjectid, exams_typeid, exams_teacherid, 
 	school_years_desc, school_names_desc, school_rooms_desc, 
-	DATE_FORMAT(exams_date,'%m/%d/%Y') as examdate, grade_subject_desc, 
+	DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, grade_subject_desc, 
 	exams_types_desc, days_desc, exams_teacherid, exams_roomid  
 	FROM ((((((exams 
 	INNER JOIN school_years ON exams_year=school_years_id) 

@@ -4,6 +4,7 @@
 // Admin Section
 // Edit grades for student
 //v1.5 01-01-06 properly display terms, change header to Terms
+//043007 doug add subject box
 //*
 
 //Check if admin is logged in
@@ -33,6 +34,9 @@ $action=get_param("action");
 //Get list of Terms
 $sSQL="SELECT * FROM grade_terms ORDER BY grade_terms_id";
 $termcodes=$db->get_results($sSQL);
+//Get list of subjects
+$sSQL="SELECT * FROM grade_subjects ORDER BY grade_subject_desc";
+$subjects = $db->get_results($sSQL);
 
 if ($action=="edit"){
 	//Get attendace id
@@ -112,7 +116,22 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
-	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	    <td width="50%"><select name="subject">
+	   <option value="" selected=selected><? echo <? echo  
+_GRADE_STUDENT_1_CHOOSE_SUBJECT?></option>
+                                   <?
+                                   //Display subjects from table
+                                   foreach($subjects as $subject){
+                                   ?>
+<option value="<?  echo
+$subject->grade_subject_id; ?>"><? echo $subject->grade_subject_desc;
+?></option>
+                                   <?
+                                   };
+                                   ?>
+                            </select>
+		
+</td>
 	  </tr>
 	  <tr class="trform">
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_GRADES_3_TERM?></td>

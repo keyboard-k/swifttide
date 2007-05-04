@@ -45,6 +45,7 @@ $examstypes=$db->get_results($sSQL);
 $sSQL="SELECT * FROM teachers ORDER BY teachers_id ASC";
 $teachers=$db->get_results($sSQL);
 
+// DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, grade_subject_desc, 
 
 if ($action=="edit"){
 	//Gather info from db
@@ -52,7 +53,7 @@ if ($action=="edit"){
 	$sSQL="SELECT exams_id, exams_year, exams_schoolid, exams_roomid, 
 	exams_date, exams_subjectid, exams_typeid, exams_teacherid, 
 	school_years_desc, school_names_desc, school_rooms_desc, 
-	DATE_FORMAT(exams_date,'%m/%d/%Y') as examdate, grade_subject_desc, 
+	exams_date as examdate, grade_subject_desc, 
 	exams_types_desc, days_desc, exams_teacherid, exams_roomid  
 	FROM ((((((exams 
 	INNER JOIN school_years ON exams_year=school_years_id) 
@@ -67,9 +68,9 @@ if ($action=="edit"){
 	$year = $exam->school_years_desc;
 
 	$school=$exam->school_names_desc;
-	$room=$exam->romms_desc;
+	$room=$exam->school_rooms_desc;
 	$subject=$exam->grade_subject_desc;
-	$type=$exam->exams_types;
+	// $type=$exam->exams_types_id;
 
 	$sSQL="SELECT teachers_fname, teachers_lname, teachers_school 
 	FROM (teachers INNER JOIN exams ON teachers_id=exams_teacherid)";
@@ -194,7 +195,7 @@ if ($type->exams_types_id==$exam->exams_typeid){echo
 		foreach($teachers as $teach){
 		?>
 		<option value="<? echo $teach->teachers_id; ?>" <? 
-if ($teach->teachers_id==$exam->teacherid){echo 
+if ($teach->teachers_id==$exam->exams_teacherid){echo 
 "selected=selected";};?>><? echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option> 
 <? }; ?>
 		</select>

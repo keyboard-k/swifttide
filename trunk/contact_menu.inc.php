@@ -24,8 +24,6 @@ include_once "configuration.php";
 			<tr>
 			   <td><hr></td>
 			</tr>
-	<tr><td><a href="contact_timetable.php" title="<? echo _CONTACT_MENU_INC_TIMETABLE?>"><? echo _CONTACT_MENU_INC_TIMETABLE_TEXT?></a></td></tr>
-	<tr><td><a href="contact_exams.php" title="<? echo _CONTACT_MENU_INC_EXAMS?>"><? echo _CONTACT_MENU_INC_EXAMS_TEXT?></a></td></tr>
 	<tr><td><a href="contact_manage_attendance_1.php" title="<? echo _CONTACT_MENU_INC_ATT?>"><? echo _CONTACT_MENU_INC_ATT_TEXT?></a></td></tr>
 	<tr><td><a href="contact_manage_discipline_1.php" title="<? echo _CONTACT_MENU_INC_DIS?>"><? echo _CONTACT_MENU_INC_DIS_TEXT?></a></td></tr>
 	<tr><td><a href="contact_manage_grades_1.php" title="<? echo _CONTACT_MENU_INC_GRADE?>"><? echo _CONTACT_MENU_INC_GRADE_TEXT?></a></td></tr>
@@ -38,6 +36,9 @@ include_once "configuration.php";
 			<tr>
 			   <td><hr></td>
 			</tr>
+	<tr><td><a href="contact_timetable.php" title="<? echo _CONTACT_MENU_INC_TIMETABLE?>"><? echo _CONTACT_MENU_INC_TIMETABLE_TEXT?></a></td></tr>
+	<tr><td><a href="contact_exams.php" title="<? echo _CONTACT_MENU_INC_EXAMS?>"><? echo _CONTACT_MENU_INC_EXAMS_TEXT?></a></td></tr>
+	<tr><td><a href="contact_speak.php" title="<? echo _CONTACT_MENU_INC_SPEAK?>"><? echo _CONTACT_MENU_INC_SPEAK_TEXT?></a></td></tr>
 	<tr><td><a href="contact_change_password.php" title="<? echo _CONTACT_MENU_INC_PASS?>"><? echo _CONTACT_MENU_INC_PASS_TEXT?></a></td></tr>
 			<tr>
 			   <td><hr></td>
