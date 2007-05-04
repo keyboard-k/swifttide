@@ -1,0 +1,2 @@
+#summary Documentation on installing Swifttide.
+#labels Deprecated
