@@ -1,0 +1,12 @@
+#summary Documentation on installing Swifttide.
+
+#labels Deprecated
+
+
+=== System Requirements ===
+
+//To write.
+
+=== Installing Swifttide ===
+
+//To write.

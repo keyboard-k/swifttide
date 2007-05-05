@@ -1,0 +1,12 @@
+#summary Getting started with Swifttide.
+
+#labels Featured
+
+
+=== About Swifttide ===
+
+Swifttide is a school management application written in PHP language, and uses MySQL as its database server. You can manage students attendance, generate Report card on the fly, and much more.
+
+=== System Requirements ===
+
+Please refer [en_Installation]
