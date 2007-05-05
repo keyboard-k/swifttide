@@ -106,10 +106,10 @@ if ($genbatch) {
 	$pdf->SetWidths($w);
 	$pdf->SetMargins(50,30);
 	$pdf->SetLineWidth(0);
-	echo $r[grade_history_student];
 	//Start adding student data
 	while ($r = mysql_fetch_array($q)) {
-		$q1 = mysql_query("select * from studentbio where studentbio_id = '$r[grade_history_student]'");
+		// $q1 = mysql_query("select * from studentbio where studentbio_id = '$r[grade_history_student]'");
+		$q1 = mysql_query("select * from studentbio where studentbio_id = '$studentid'");
 		$r1 = mysql_fetch_array($q1);
 		$name = $r1['studentbio_fname'] . " " . $r1['studentbio_lname'];
 		$id = $r1['studentbio_id'];
@@ -191,7 +191,6 @@ if ($genbatch) {
 if ($act && $studentid) {
 	$q = mysql_query("select * from grade_history where grade_history_quarter = '$reportid'");
 	$r = mysql_fetch_array($q);
-
 	$q1 = mysql_query("select * from studentbio where studentbio_id = '$studentid'");
 	$r1 = mysql_fetch_array($q1);
 	$q2 = mysql_query("select * from school_names where school_names_id = '$r[grade_history_school]'");
@@ -256,7 +255,7 @@ if ($act && $studentid) {
 	$pdf->PrintHeader();
 	$pdf->SetFillColor(255,255,255);
 	$pdf->SetFont('Times','',11);
-	$q3 = mysql_query("select * from grade_history where grade_history_quarter = '$reportid' and grade_history_student=$studentid");
+	$q3 = mysql_query("select * from grade_history where grade_history_quarter = '$reportid' and grade_history_student='$studentid'");
 	while ($r3 = mysql_fetch_array($q3)) {
 		$q25 = mysql_query("select * from grade_subjects where grade_subject_id = $r3[grade_history_subject]");
 		$r25 = mysql_fetch_array($q25);
@@ -308,15 +307,15 @@ if ($act && $studentid) {
 		$pdf->header1 = array(_GENERATE_REPORT_CARD_NEW_COURSE,_GENERATE_REPORT_CARD_NEW_QUARTER1,_GENERATE_REPORT_CARD_NEW_QUARTER2,_GENERATE_REPORT_CARD_NEW_QUARTER3,_GENERATE_REPORT_CARD_NEW_QUARTER4);
 		$pdf->PrintHeader();
 		$pdf->SetFillColor(255,255,255);
-		$q24 = mysql_query("select DISTINCT * from grade_history where grade_history_student=$studentid and grade_history_year = ".$_SESSION['CurrentYear']."  group by grade_history_subject");
-//		echo "select DISTINCT * from grade_history where grade_history_student=$studentid and grade_history_year = ".$_SESSION['CurrentYear']."  group by grade_history_subject";
+		$q24 = mysql_query("select DISTINCT * from grade_history where grade_history_student='$studentid' and grade_history_year = ".$_SESSION['CurrentYear']."  group by grade_history_subject");
+//		echo "select DISTINCT * from grade_history where grade_history_student='$studentid' and grade_history_year = ".$_SESSION['CurrentYear']."  group by grade_history_subject";
 		while ($r24 = mysql_fetch_array($q24)) {
 			$info = array();
 //			print_r($r24);
 			$q25 = mysql_query("select * from grade_subjects where grade_subject_id = $r24[grade_history_subject]");
 			$r25 = mysql_fetch_array($q25);
 			$info[0] = $r25['grade_subject_desc'];
-			$q4 = mysql_query("select * from grade_history where grade_history_subject = $r24[grade_history_subject] and grade_history_student = $studentid and grade_history_year = ".$_SESSION['CurrentYear']. " order by grade_history_quarter");
+			$q4 = mysql_query("select * from grade_history where grade_history_subject = $r24[grade_history_subject] and grade_history_student = '$studentid' and grade_history_year = ".$_SESSION['CurrentYear']. " order by grade_history_quarter");
 //			echo "select * from grade_history where grade_history_subject = $r3[grade_history_subject] and grade_history_student = $studentid and grade_history_year = ".$_SESSION['CurrentYear']. " order by grade_history_quarter";
 			while ($r4 = @mysql_fetch_array($q4)) {
 //				print_r($r4);
