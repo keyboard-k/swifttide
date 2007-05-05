@@ -18,6 +18,12 @@ include 'common.php';
 // config
 include_once "configuration.php";
 
+$act=get_param("act");
+$studentid=get_param("studentid");
+$reportid=get_param("reportid");
+$genrep=get_param("genrep");
+$genbatch=get_param("genbatch");
+
 if (!$act) {
 ?>
 <head>
@@ -40,13 +46,14 @@ if (!$act) {
 }
 ?>
 <?php
-if ($_POST['genrep']) {
+// if ($_POST['genrep']) {
+if ($genrep) {
 //	echo "select grade_history_quarter from grade_history where grade_history_student = ".$_POST['studentid'];
 $studentid=get_param("studentid");
 // echo "studentid is $studentid";
 $q = mysql_query("select DISTINCT * from grade_history where grade_history_student = ".$_POST['studentid'] ." group by grade_history_quarter");
 	if (mysql_num_rows($q)) {
-                echo "<div id=\"Content\"><h1><? echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1><br /><? echo _GENERATE_REPORT_CARD_NEW_TITLE2?>:<br /><br />";
+                echo "<div id=\"Content\"><h1>" . _GENERATE_REPORT_CARD_NEW_TITLE . "</h1><br />" . _GENERATE_REPORT_CARD_NEW_TITLE2 . ":<br /><br />";
 		while ($r=mysql_fetch_array($q)) {
 			//get actual term names, much prettier
                 $term_name=$db->get_var("SELECT grade_terms_desc FROM 
@@ -58,7 +65,8 @@ grade_terms WHERE grade_terms_id=$r[grade_history_quarter]");
 	}
 }
 
-if ($_POST['genbatch']) {
+// if ($_POST['genbatch']) {
+if ($genbatch) {
 	$q = mysql_query("select DISTINCT * from grade_history JOIN student_grade_year ON student_grade_year_student = grade_history_student where grade_history_school = ".$_POST['sid'] ." and grade_history_quarter = ".$_POST['qid']." and student_grade_year_year = ".$_SESSION['CurrentYear']." and student_grade_year_grade= ". $_POST['gid'] ." group by grade_history_student");
 	if (mysql_errno())
 		echo (mysql_errno() . "-".mysql_error());
@@ -91,15 +99,17 @@ if ($_POST['genbatch']) {
 	$pdf->Write(1,$sname);
 	$pdf->SetXY(60,105);
 	$pdf->Write(1, _GENERATE_REPORT_CARD_NEW_WRITE);
+	$pdf->Write(1, $grade);
 	// $tmp = _GENERATE_REPORT_CARD_NEW_WRITE;
 	// $pdf->Write(1, $tmp);
 	$w=array(35,35,35,35,35,35);	
 	$pdf->SetWidths($w);
 	$pdf->SetMargins(50,30);
 	$pdf->SetLineWidth(0);
+	echo $r[grade_history_student];
 	//Start adding student data
 	while ($r = mysql_fetch_array($q)) {
-		$q1 = mysql_query("select * from studentbio where studentbio_id = $r[grade_history_student]");
+		$q1 = mysql_query("select * from studentbio where studentbio_id = '$r[grade_history_student]'");
 		$r1 = mysql_fetch_array($q1);
 		$name = $r1['studentbio_fname'] . " " . $r1['studentbio_lname'];
 		$id = $r1['studentbio_id'];
@@ -181,9 +191,10 @@ if ($_POST['genbatch']) {
 if ($act && $studentid) {
 	$q = mysql_query("select * from grade_history where grade_history_quarter = '$reportid'");
 	$r = mysql_fetch_array($q);
-	$q1 = mysql_query("select * from studentbio where studentbio_id = $r[grade_history_student]");
+
+	$q1 = mysql_query("select * from studentbio where studentbio_id = '$studentid'");
 	$r1 = mysql_fetch_array($q1);
-	$q2 = mysql_query("select * from school_names where school_names_id = $r[grade_history_school]");
+	$q2 = mysql_query("select * from school_names where school_names_id = '$r[grade_history_school]'");
 	$r2 = mysql_fetch_array($q2);
 /*
 	print_r($r);
@@ -194,6 +205,7 @@ if ($act && $studentid) {
 	echo "<br><br>";
 */
 	$name = $r1['studentbio_fname'] . " " . $r1['studentbio_lname'];
+	// echo "name=$name";
 	$school = $r2['school_names_desc'];
 	$q5 = @mysql_query("select * from studentcontact where studentcontact_id = $r1[studentbio_id]");
 	$r5 = @mysql_fetch_array($q5);
@@ -246,9 +258,9 @@ if ($act && $studentid) {
 	$pdf->SetFont('Times','',11);
 	$q3 = mysql_query("select * from grade_history where grade_history_quarter = '$reportid' and grade_history_student=$studentid");
 	while ($r3 = mysql_fetch_array($q3)) {
-		$q25 = mysql_query("select * from subjects where subjects_id = $r3[grade_history_subject]");
+		$q25 = mysql_query("select * from grade_subjects where grade_subject_id = $r3[grade_history_subject]");
 		$r25 = mysql_fetch_array($q25);
-		$info[0] = $r25['subjects_desc'];
+		$info[0] = $r25['grade_subject_desc'];
 		$q4 = mysql_query("select * from web_users where web_users_id = $r3[grade_history_user]");
 		$r4 = mysql_fetch_array($q4);
 		$info[1] = $r4['web_users_flname'];
@@ -301,9 +313,9 @@ if ($act && $studentid) {
 		while ($r24 = mysql_fetch_array($q24)) {
 			$info = array();
 //			print_r($r24);
-			$q25 = mysql_query("select * from subjects where subjects_id = $r24[grade_history_subject]");
+			$q25 = mysql_query("select * from grade_subjects where grade_subject_id = $r24[grade_history_subject]");
 			$r25 = mysql_fetch_array($q25);
-			$info[0] = $r25['subjects_desc'];
+			$info[0] = $r25['grade_subject_desc'];
 			$q4 = mysql_query("select * from grade_history where grade_history_subject = $r24[grade_history_subject] and grade_history_student = $studentid and grade_history_year = ".$_SESSION['CurrentYear']. " order by grade_history_quarter");
 //			echo "select * from grade_history where grade_history_subject = $r3[grade_history_subject] and grade_history_student = $studentid and grade_history_year = ".$_SESSION['CurrentYear']. " order by grade_history_quarter";
 			while ($r4 = @mysql_fetch_array($q4)) {
@@ -330,7 +342,8 @@ if ($act && $studentid) {
 
 
 <?php
-if (!$_POST['genrep'] && !$_POST['genbatch']) {
+// if (!$_POST['genrep'] && !$_POST['genbatch']) {
+if (!$genrep && !$genbatch) {
 ?>
 <div id="Content">
 <h1><? echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1>
@@ -347,7 +360,8 @@ if (!$_POST['genrep'] && !$_POST['genbatch']) {
 <br /><br /><br />
 <?php
 }
-if (!$_POST['genrep'] && !$_POST['genbatch']) {
+// if (!$_POST['genrep'] && !$_POST['genbatch']) {
+if (!$genrep && !$genbatch) {
 	echo "<form name='something' action = 'generatereportcardnew.php?act=1' method='POST'>
 	" . _GENERATE_REPORT_CARD_NEW_CHOOSE2 . " : <br /><select name='sid'>";
 	$q2 = mysql_query("select * from school_names");
