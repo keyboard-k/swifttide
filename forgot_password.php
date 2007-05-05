@@ -33,7 +33,7 @@ if ($action=="retrieve"){
 			};
 		};
 	};
-	if(strlen($lostpassword)){
+	if(isset($lostpassword) && (strlen($lostpassword)>1)){
 		require_once "class.phpmailer.php";
 		$mail = new PHPMailer();
 		$mail->IsSMTP();                                   // send via SMTP
