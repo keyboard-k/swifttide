@@ -1,7 +1,5 @@
 #summary Getting started with Swifttide.
 
-#labels Featured
-
 
 === About Swifttide ===
 
