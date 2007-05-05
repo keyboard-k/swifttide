@@ -1,5 +1,5 @@
 #summary Getting started with Swifttide.
-
+#labels Featured
 
 === About Swifttide ===
 
@@ -7,4 +7,4 @@ Swifttide is a school management application written in PHP language, and uses M
 
 === System Requirements ===
 
-Please refer [en_Installation]
+Please refer [en_Installation Installation Guide]
