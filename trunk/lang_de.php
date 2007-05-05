@@ -1114,7 +1114,7 @@ DEFINE('_GENERATE_REPORT_CARD_NEW_ADMIN_AREA', 'Administrator Bereich');
 DEFINE('_GENERATE_REPORT_CARD_NEW_TITLE', 'Bericht');
 DEFINE('_GENERATE_REPORT_CARD_NEW_TITLE2', 'Bitte einen Bericht ausw&auml;hlen');
 DEFINE('_GENERATE_REPORT_CARD_NEW_SUBTITLE', 'Keine Berichte.');
-DEFINE('_GENERATE_REPORT_CARD_NEW_WRITE', 'Berichte der Klasse $grade');
+DEFINE('_GENERATE_REPORT_CARD_NEW_WRITE', 'Berichte der Klasse ');
 DEFINE('_GENERATE_REPORT_CARD_NEW_NAME', 'Name');
 DEFINE('_GENERATE_REPORT_CARD_NEW_TEACHER', 'Lehrer');
 DEFINE('_GENERATE_REPORT_CARD_NEW_OVERALL', 'Gesamtnote');
@@ -1128,7 +1128,7 @@ DEFINE('_GENERATE_REPORT_CARD_NEW_QUARTER3', 'Quarter 3');
 DEFINE('_GENERATE_REPORT_CARD_NEW_QUARTER4', 'Quarter 4');
 DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE', 'Sch&uuml;ler ausw&auml;hlen');
 DEFINE('_GENERATE_REPORT_CARD_NEW_GENERATE', 'Bericht erstellen');
-DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE2', 'Bitte w&auml;hlen Sie eine Klasse und enien Zeitraum f&uuml;r den Bericht');
+DEFINE('_GENERATE_REPORT_CARD_NEW_CHOOSE2', 'Bitte w&auml;hlen Sie eine Klasse und einen Zeitraum f&uuml;r den Bericht');
 
 /** forgot_password.php */
 
