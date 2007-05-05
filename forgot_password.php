@@ -71,7 +71,7 @@ if ($action=="retrieve"){
 
 <body onLoad="document.forms.login.username.focus()">
 <div id="loginerr">
-<? echo $msgFormErr; ?>
+<? if(isset($msgFormErr)) echo $msgFormErr; ?>
 </div>
 <div id="login">
 	<form name="login" method="POST" action="forgot_password.php">
