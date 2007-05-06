@@ -4,7 +4,7 @@
 */
 
 // Set flag that this is a parent file
-define( '_VALID_MOS', 1 );
+define( '_VALID', 1 );
 
 ///////////////////////////////////////////////////
 // uncomment these 4 lines before final release !!!
