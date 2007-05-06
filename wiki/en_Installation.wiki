@@ -33,7 +33,7 @@ The school management system (SMS) comes with  an automated installation.
         of that directory into a directory within your web server's document
         root or your public HTML directory e.g.
 
-        $ mv /tmp/sms/* /var/www/html
+        $ mv /tmp/sms/\* /var/www/html
 
         Alternatively if you downloaded the file to your computer and unpacked
         it locally use a FTP program to upload all files to your server.
