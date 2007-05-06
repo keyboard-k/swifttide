@@ -131,8 +131,8 @@ if ($act && $studentid) {
 		$tab[0] = $r3['grade_history_subject'];
 		//get the subject names so it's more human
 		$shemp1=$tab[0];
-		$sSQL="SELECT subjects_desc FROM subjects WHERE 
-subjects_id=$shemp1";
+		$sSQL="SELECT grade_subject_desc FROM grade_subjects WHERE 
+grade_subject_id=$shemp1";
 		$info[0]=$db->get_var($sSQL);
 		$q4 = mysql_query("select * from web_users where web_users_id = $r3[grade_history_user]");
 		$r4 = mysql_fetch_array($q4);

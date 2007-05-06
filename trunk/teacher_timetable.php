@@ -39,16 +39,16 @@ $terms = $db->get_results($sSQL);
 // get schedule data
 $sSQL="SELECT school_names_desc, grade_terms_desc, 
 teacher_schedule_days, teacher_schedule_classperiod,
-subjects_desc, days_id, school_rooms_desc, days_desc 
+grade_subject_desc, days_id, school_rooms_desc, days_desc 
 FROM (((((teacher_schedule 
 INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
 WHERE teacher_schedule_teacherid=$id AND 
       school_names.school_names_id=$sschoolid 
-ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, subjects.subjects_desc";
+ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, grade_subjects.grade_subject_desc";
 
 if ($srch = $db->get_results($sSQL)){
 //Set paging appearence
@@ -114,17 +114,17 @@ foreach ($terms as $term) {
 // get schedule data
 $sSQL="SELECT school_names_desc, grade_terms_desc, 
 teacher_schedule_days, teacher_schedule_classperiod,
-subjects_desc, days_id, school_rooms_desc, days_desc 
+grade_subject_desc, days_id, school_rooms_desc, days_desc 
 FROM (((((teacher_schedule 
 INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
 WHERE teacher_schedule_teacherid=$id AND 
       school_names.school_names_id=$sschoolid AND 
       teacher_schedule_termid=$term->teacher_schedule_termid 
-ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, subjects.subjects_desc";
+ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, grade_subjects.grade_subject_desc";
 $test = $db->get_results($sSQL);
 if ($test) {
 $term_desc = $db->get_row("SELECT grade_terms_desc FROM grade_terms WHERE grade_terms_id=$term->teacher_schedule_termid");
@@ -154,9 +154,9 @@ for ($i=1; $i<=$max_period; $i++) {	// up to maximal number of periods a day
 
 // get schedule data
 $sSQL="SELECT 
-teacher_schedule_days, teacher_schedule_classperiod, subjects_desc, days_id, school_rooms_desc, days_desc 
+teacher_schedule_days, teacher_schedule_classperiod, grade_subject_desc, days_id, school_rooms_desc, days_desc 
 FROM (((((teacher_schedule INNER JOIN grade_terms ON teacher_schedule.teacher_schedule_termid=grade_terms.grade_terms_id) 
-INNER JOIN subjects ON teacher_schedule.teacher_schedule_subjectid=subjects.subjects_id) 
+INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_subjects.grade_subject_id) 
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
@@ -165,10 +165,10 @@ WHERE teacher_schedule_teacherid=$id AND
       teacher_schedule_termid=$term->teacher_schedule_termid AND 
       teacher_schedule_classperiod=$i AND 
       days_id='$j' 
-ORDER BY days_id, teacher_schedule_classperiod, subjects_desc";
+ORDER BY days_id, teacher_schedule_classperiod, grade_subject_desc";
 
 if ($srch = $db->get_row($sSQL)) {
-$subject = $srch->subjects_desc;
+$subject = $srch->grade_subject_desc;
 $room = $srch->school_rooms_desc;
 
 //Set paging appearence

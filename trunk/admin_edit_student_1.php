@@ -53,7 +53,7 @@ WHERE studentbio.studentbio_id=$studentid AND
 student_grade_year.student_grade_year_year = '$current_year'"; 
 
 $studentinfo=$db->get_row($sSQL);
-$sSQL="SELECT studentcontact_primary FROM studentcontact WHERE studentcontact_studentid=$studentid AND studentcontact_year='$current_year'";
+$sSQL="SELECT studentcontact_primary FROM studentcontact WHERE studentcontact_studentid='$studentid' AND studentcontact_year='$current_year'";
 $primarycontact=$db->get_var($sSQL);
 
 //Primary Contact
@@ -235,10 +235,17 @@ $studentinfo->studentbio_mi . " " . $studentinfo->studentbio_lname . " "
 $studentinfo->studentbio_gender . ")"; ?><input type="button"
 name="addc" value="<? echo _ADMIN_EDIT_STUDENT_1_ADD_CONTACT?>" class="frmbut" onclick="javascript:
 window.location='admin_add_edit_contact_1.php?studentid=<? echo
-$studentid; ?>&action=new&rback=rback';"><input type="button"
+$studentid; ?>&action=new&rback=rback';">
+<!--
+// commented out by Helmut
+// the student's schedule is constructed by the homeroom he is in
+<input type="button"
 name="viewsched" value="<? echo _ADMIN_EDIT_STUDENT_1_VIEW_SCHEDULE?>" class="frmbut"
 onclick="javascript:window.location='admin_stu_schedule.php?studentid=<?
-echo $studentid; ?>';"><input
+echo $studentid; ?>';">
+//
+-->
+<input
 type="button"
 name="addp" value="<? echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" onclick="javascript:window.location='admin_add_edit_picture.php?studentid=<? echo $studentid; ?>&action=new&rback=rback';"></h2>
 	<br>
