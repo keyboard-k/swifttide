@@ -9,7 +9,7 @@
  */
 
 // no direct access
-defined( '_VALID_MOS' ) or die( 'Restricted access' );
+defined( '_VALID' ) or die( 'Restricted access' );
 
 /**
  * Use 1 to emulate register_globals = on

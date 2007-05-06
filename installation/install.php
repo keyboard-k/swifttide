@@ -4,7 +4,7 @@
 */
 
 // Set flag that this is a parent file
-define( "_VALID_MOS", 1 );
+define( "_VALID", 1 );
 
 // if (file_exists( '../configuration.php' ) && filesize( '../configuration.php' ) > 10) {
 // 	header( 'Location: ../index.php' );

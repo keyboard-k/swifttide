@@ -12,7 +12,7 @@
 */
 
 // no direct access
-defined( '_VALID_MOS' ) or die( 'Restricted access' );
+defined( '_VALID' ) or die( 'Restricted access' );
 
 /**
 * Database connector class
