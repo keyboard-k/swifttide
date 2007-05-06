@@ -1,7 +1,9 @@
-#summary Documentation on installing Swifttide.
+#summary Documentation on installing Swifttide (SMS).
 #labels Phase-Deploy
 
 === System Requirements ===
+
+Basically, any operating system with Apache, MySQL and PHP will do.
 
 You MUST ensure that PHP has been compiled with support for MySQL and Zlib
 in order to successfully run SMS.
