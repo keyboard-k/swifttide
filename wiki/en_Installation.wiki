@@ -1,10 +1,7 @@
 #summary Documentation on installing Swifttide.
-#labels Deprecated
+#labels Phase-Deploy
 
 === System Requirements ===
-
-SERVER CONFIGURATION
---------------------
 
 You MUST ensure that PHP has been compiled with support for MySQL and Zlib
 in order to successfully run SMS.
@@ -15,13 +12,10 @@ We recommend Apache for running SMS on Windows.
 
 The school management system (SMS) comes with  an automated installation.
 
-INSTALLATION
-------------
+== 1. DOWNLOAD SMS ==
 
-1. DOWNLOAD SMS
-
-# where?        You can obtain the latest SMS release from:
-# where?                http://
+        You can obtain the latest SMS release from:
+                http://????????????????????????????
 
         Copy the tar.gz file into a working directory e.g.
 
@@ -46,7 +40,7 @@ INSTALLATION
         Make sure all PHP, CSS and JS files are sent in ASCII mode and
         image files (GIF, JPG, PNG) in BINARY mode.
 
-2. GENERATE THE SMS DATABASE
+== 2. GENERATE THE SMS DATABASE ==
 
         SMS will currently only work with MySQL. In the following examples,
         "db_user" is an example MySQL user which has the CREATE and GRANT
@@ -88,7 +82,7 @@ INSTALLATION
         Alternatively you can use your web control panel or phpMyAdmin to
         create a database for SMS.
 
-3. WEB INSTALLER
+== 3. WEB INSTALLER ==
 
         Finally point your web browser to http://localhost/installation where
         you can use the SMS web based installer for the rest of the installation.
