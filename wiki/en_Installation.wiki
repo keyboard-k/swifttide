@@ -89,6 +89,5 @@ The school management system (SMS) comes with  an automated installation.
         Finally point your web browser to http://localhost/installation where
         you can use the SMS web based installer for the rest of the installation.
 
-        *Note:*
-        Change 'localhost' with the correct location you have chosen
+        Note: Change 'localhost' with the correct location you have chosen
         to copy the SMS files to.
