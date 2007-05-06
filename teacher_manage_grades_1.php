@@ -38,16 +38,16 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 
 	//Get Subject Name
-	$sSQL="SELECT subjects_desc FROM (subjects INNER JOIN grade_history ON subjects.subjects_id = grade_history.grade_history_subject)";
+	$sSQL="SELECT grade_subject_desc FROM (grade_subjects INNER JOIN grade_history ON grade_subjects.grade_subject_id = grade_history.grade_history_subject)";
 	$subjectname=$db->get_row($sSQL);
-	$sub=$subjectname->subjects_desc;
+	$sub=$subjectname->grade_subject_desc;
 
 	//Get grade history
 	$sSQL="SELECT grade_terms.grade_terms_desc, 
 grade_history.grade_history_grade, grade_history.grade_history_effort, 
 grade_history.grade_history_conduct, grade_history.grade_history_id, 
-subjects.subjects_desc FROM ((grade_history INNER 
-JOIN grade_terms ON grade_history.grade_history_quarter=grade_terms.grade_terms_id) INNER JOIN subjects ON grade_history.grade_history_subject=subjects.subjects_id) 
+grade_subjects.grade_subject_desc FROM ((grade_history INNER 
+JOIN grade_terms ON grade_history.grade_history_quarter=grade_terms.grade_terms_id) INNER JOIN grade_subjects ON grade_history.grade_history_subject=grade_subjects.grade_subject_id) 
 WHERE 
 grade_history.grade_history_student = 
 '$studentid' ORDER BY grade_history.grade_history_quarter DESC";

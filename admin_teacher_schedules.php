@@ -123,9 +123,10 @@ $ezr->results_close = "</table>";
 $ezr->results_row = "<tr><td class=paging width=35%>COL2</td><td class=paging 
 width=35%>COL3</td><td class=paging 
 width=15% align=center><a href=admin_attendance_codes.php?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_TEACHER_SCHEDULES_EDIT . "</a></td><td class=paging width=15% align=center><a name=href_remove href=# onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_TEACHER_SCHEDULES_REMOVE . "</a></td></tr>";
-$ezr->query_mysql("SELECT classperiod, grade_subjects.grade_subject_desc FROM 
-teacher_schedules INNER JOIN grade_subjects ON grade_subjects_id=$subjectid ORDER 
-BY teacher_schedule_classperiod"); 
+$ezr->query_mysql("SELECT classperiod, grade_subjects.grade_subject_desc 
+FROM teacher_schedule 
+INNER JOIN grade_subjects ON grade_subject_id=$subjectid 
+ORDER BY teacher_schedule_classperiod");
 echo "Year is $current_year, school is $schoolid, teacher is $teacherid"; 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
