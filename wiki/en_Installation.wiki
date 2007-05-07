@@ -21,9 +21,7 @@ The school management system (SMS) comes with  an automated installation.
         You can obtain the latest SMS release from:
         http://code.google.com/p/swifttide/downloads/list
 
-Doug>Helmut, can you post the latest tarball when you can, please?  Just click NEW to create a new tarball, we're still on 1.04.
- 
-       Copy the tar.gz file into a working directory e.g.
+        Copy the tar.gz file into a working directory e.g.
 
         `$ cp command_school-104.tar.gz /tmp/sms`
 
@@ -91,10 +89,11 @@ Doug>Helmut, can you post the latest tarball when you can, please?  Just click N
 == 3. WEB INSTALLER ==
 
         Finally point your web browser to http://localhost/installation where
-        you can use the SMS web based installer for the rest of the installation.
+        you can start the SMS web based installer for the rest of the installation.
 
         Note: Change 'localhost' with the correct location you have chosen
         to copy the SMS files to.
 
 Doug> I have run the web installation WITHOUT creating the database or user first, and it seems to work.
+
 Helmut> Correct, the DB does not have to be created if the MySQL user has CREATE privileges.
