@@ -5,6 +5,8 @@
 
 Basically, any operating system with Apache, MySQL and PHP will do.
 
+Doug> At least MySQL 4.1 and PHP 4.  Earlier versions will cause problems.  For the non-technical, try www.xammp.com, you get Apache/MySQL/PHP already done for you.
+
 You MUST ensure that PHP has been compiled with support for MySQL and Zlib
 in order to successfully run SMS.
 
@@ -18,8 +20,10 @@ The school management system (SMS) comes with  an automated installation.
 
         You can obtain the latest SMS release from:
                 http://????????????????????????????
-
-        Copy the tar.gz file into a working directory e.g.
+Doug>http://code.google.com/p/swifttide/downloads/list
+Doug>Helmut, can you post the latest tarball when you can, please?  Just click NEW to create a new tarball, we're still on 1.04.
+ 
+       Copy the tar.gz file into a working directory e.g.
 
         `$ cp command_school-104.tar.gz /tmp/sms`
 
@@ -91,3 +95,5 @@ The school management system (SMS) comes with  an automated installation.
 
         Note: Change 'localhost' with the correct location you have chosen
         to copy the SMS files to.
+
+DOug> I have run the web installation WITHOUT creating the database or user first, and it seems to work.
