@@ -5,7 +5,7 @@
 
 Basically, any operating system with Apache, MySQL and PHP will do.
 
-Doug> At least MySQL 4.1 and PHP 4.  Earlier versions will cause problems.  For the non-technical, try www.xammp.com, you get Apache/MySQL/PHP already done for you.
+At least MySQL 4.1 and PHP 4.  Earlier versions will cause problems.  For the non-technical, try www.xammp.com, you get Apache/MySQL/PHP already done for you.
 
 You MUST ensure that PHP has been compiled with support for MySQL and Zlib
 in order to successfully run SMS.
@@ -19,8 +19,8 @@ The school management system (SMS) comes with  an automated installation.
 == 1. DOWNLOAD SMS ==
 
         You can obtain the latest SMS release from:
-                http://????????????????????????????
-Doug>http://code.google.com/p/swifttide/downloads/list
+        http://code.google.com/p/swifttide/downloads/list
+
 Doug>Helmut, can you post the latest tarball when you can, please?  Just click NEW to create a new tarball, we're still on 1.04.
  
        Copy the tar.gz file into a working directory e.g.
@@ -39,14 +39,14 @@ Doug>Helmut, can you post the latest tarball when you can, please?  Just click N
         of that directory into a directory within your web server's document
         root or your public HTML directory e.g.
 
-        $ mv /tmp/sms/ /var/www/html
+        `$ mv /tmp/sms/* /var/www/html`
 
         Alternatively if you downloaded the file to your computer and unpacked
         it locally use a FTP program to upload all files to your server.
         Make sure all PHP, CSS and JS files are sent in ASCII mode and
         image files (GIF, JPG, PNG) in BINARY mode.
 
-== 2. GENERATE THE SMS DATABASE ==
+== 2. CREATE THE SMS DATABASE ==
 
         SMS will currently only work with MySQL. In the following examples,
         "db_user" is an example MySQL user which has the CREATE and GRANT
@@ -61,7 +61,7 @@ Doug>Helmut, can you post the latest tarball when you can, please?  Just click N
         the initial database files.  Next you must login and set the access
         database rights e.g.
 
-        $ mysql -u db_user -p
+        `$ mysql -u db_user -p`
 
         Again, you will be asked for the 'db_user' database password.  At the
         MySQL prompt, enter following command:
@@ -77,13 +77,13 @@ Doug>Helmut, can you post the latest tarball when you can, please?  Just click N
 
         If successful, MySQL will reply with
 
-        Query OK, 0 rows affected
+        `Query OK, 0 rows affected`
 
         to activate the new permissions you must enter the command
 
         `flush privileges;`
 
-        and then enter '\q' to exit MySQL.
+        and then enter `'\q'` to exit MySQL.
 
         Alternatively you can use your web control panel or phpMyAdmin to
         create a database for SMS.
@@ -96,4 +96,5 @@ Doug>Helmut, can you post the latest tarball when you can, please?  Just click N
         Note: Change 'localhost' with the correct location you have chosen
         to copy the SMS files to.
 
-DOug> I have run the web installation WITHOUT creating the database or user first, and it seems to work.
+Doug> I have run the web installation WITHOUT creating the database or user first, and it seems to work.
+Helmut> Correct, the DB does not have to be created if the MySQL user has CREATE privileges.
