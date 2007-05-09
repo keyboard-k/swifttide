@@ -21,6 +21,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // config
 include_once "configuration.php";
+$msgFormErr="";
 
 //Check what we have to do
 $action=get_param("action");

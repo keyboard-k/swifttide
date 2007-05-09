@@ -21,6 +21,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // config
 include_once "configuration.php";
+$msgFormErr="";
 
 //Check what we have to do
 $action = get_param("action");
@@ -79,7 +80,7 @@ $ezr->results_close = "</table>";
 $ezr->results_row = "<tr>
 	<td class=paging width=70%>COL2</td>
 	<td class=paging width=15% align=center>
-	  <a href=$PHP_SELF?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_ROOMS_EDIT . "</a></td>
+	  <a href=" . $_SERVER['PHP_SELF'] . "?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_ROOMS_EDIT . "</a></td>
 	<td class=paging width=15% align=center>
 	  <a name=href_remove href=#  onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_ROOMS_REMOVE . "</a></td>
 	</tr>";

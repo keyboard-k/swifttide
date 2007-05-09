@@ -21,6 +21,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // config
 include_once "configuration.php";
+$msgFormErr="";
 
 //Check what we have to do
 $action = get_param("action");
@@ -67,7 +68,7 @@ $ezr->results_open = "<table width=65% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_close = "</table>";
 $ezr->results_row = "<tr>
 	<td class=paging width=70%>COL2</td>
-	<td class=paging width=15% align=center><a href=$PHP_SELF?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_EXAMS_TYPES_EDIT . "</a></td>
+	<td class=paging width=15% align=center><a href=" . $_SERVER['PHP_SELF'] . "?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_EXAMS_TYPES_EDIT . "</a></td>
 	<td class=paging width=15% align=center><a name=href_remove href=#  onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_EXAMS_TYPES_REMOVE . "</a></td>
 	</tr>";
 $ezr->query_mysql("SELECT * FROM exams_types ORDER BY exams_types_id");
@@ -131,7 +132,7 @@ function cnfremove(id) {
 		$ezr->display();
 		?>
 		<br>
-		<form name="manage_exams_types" method="post" action="<?echo($PHP_SELF);?>">						
+		<form name="manage_exams_types" method="post" action="<?echo($_SERVER['PHP_SELF']);?>">						
 		  <p class="pform"><? echo _ADMIN_EXAMS_TYPES_ADD_NEW?><br>
 	      <input type="text" onChange="capitalizeMe(this)" name="name" size="20">&nbsp;<A class="aform" href="javascript: submitform('name')"><? echo _ADMIN_EXAMS_TYPES_ADD?></a>
 	      <input type="hidden" name="action" value="add">
@@ -141,7 +142,7 @@ function cnfremove(id) {
 	} else {
 	?>
 		<br>
-		<form name="edit_rooms" method="post" action="<?echo($PHP_SELF);?>">
+		<form name="edit_rooms" method="post" action="<?echo($_SERVER['PHP_SELF']);?>">
 		  <p class="pform"><? echo _ADMIN_EXAMS_TYPES_UPDATE_CUSTOM?><br>
 	      <input type="text" onChange="capitalizeMe(this)" name="name" size="20" value="<?echo ($name);?>">&nbsp;<A class="aform" href="javascript: submitform('name')"><? echo _ADMIN_EXAMS_TYPES_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
