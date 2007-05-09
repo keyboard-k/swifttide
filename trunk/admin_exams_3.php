@@ -137,7 +137,7 @@ if ($action=="edit"){
 		foreach($schoolnames as $schoolname){
 		?>
 		<option value="<? echo $schoolname->school_names_id; ?>" <? 
-if ($schoolname->school_names_id==$exam->exams_schoolid){echo 
+if ($action=="edit" && $schoolname->school_names_id==$exam->exams_schoolid){echo 
 "selected=selected";};?>><? echo $schoolname->school_names_desc; ?></option> 
 <? }; ?>
 		   </select>
@@ -148,7 +148,7 @@ if ($schoolname->school_names_id==$exam->exams_schoolid){echo
 		foreach($schoolrooms as $room){
 		?>
 		<option value="<? echo $room->school_rooms_id; ?>" <? 
-if ($room->school_rooms_id==$exam->exams_roomid){echo 
+if ($action=="edit" && $room->school_rooms_id==$exam->exams_roomid){echo 
 "selected=selected";};?>><? echo $room->school_rooms_desc; ?></option> 
 <? }; ?>
 		   </select>
@@ -168,7 +168,7 @@ if ($room->school_rooms_id==$exam->exams_roomid){echo
 		foreach($subjectcodes as $subject){
 		?>
 		<option value="<? echo $subject->grade_subject_id; ?>" <? 
-if ($subject->grade_subject_id==$exam->exams_subjectid){echo 
+if ($action=="edit" && $subject->grade_subject_id==$exam->exams_subjectid){echo 
 "selected=selected";};?>><? echo $subject->grade_subject_desc; ?></option> 
 <? }; ?>
 		   </select>
@@ -179,7 +179,7 @@ if ($subject->grade_subject_id==$exam->exams_subjectid){echo
 		foreach($examstypes as $type){
 		?>
 		<option value="<? echo $type->exams_types_id; ?>" <? 
-if ($type->exams_types_id==$exam->exams_typeid){echo 
+if ($action=="edit" && $type->exams_types_id==$exam->exams_typeid){echo 
 "selected=selected";};?>><? echo $type->exams_types_desc; ?></option> 
 <? }; ?>
 		   </select>
@@ -195,7 +195,7 @@ if ($type->exams_types_id==$exam->exams_typeid){echo
 		foreach($teachers as $teach){
 		?>
 		<option value="<? echo $teach->teachers_id; ?>" <? 
-if ($teach->teachers_id==$exam->exams_teacherid){echo 
+if ($action=="edit" && $teach->teachers_id==$exam->exams_teacherid){echo 
 "selected=selected";};?>><? echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option> 
 <? }; ?>
 		</select>
