@@ -22,6 +22,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // config
 include_once "configuration.php";
+$msgFormErr = "";
 
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
@@ -39,6 +40,7 @@ $teachers=$db->get_results($sSQL);
 
 //Check what we have to do
 $action=get_param("action");
+$sort=get_param("sort");
 $id=get_param("id");
 $teacherid=get_param("teacherid");
 $day=get_param("day");
@@ -84,17 +86,31 @@ switch ($action){
 
 
 //Set paging appearence
-$ezr->query_mysql("SELECT speak_id, days_desc, speak_period, teachers_fname, teachers_lname, speak_teacherid 
+$pSQL = "SELECT speak_id, days_desc, speak_period, teachers_fname, teachers_lname, speak_teacherid 
 FROM ((speak 
 INNER JOIN teachers ON teachers_id = speak_teacherid) 
-INNER JOIN tbl_days ON days_id = speak_day) 
-ORDER BY teachers_lname, speak_day, speak_period");
+INNER JOIN tbl_days ON days_id = speak_day) ";
+switch ($sort) {
+case "teacher":
+	$order = "teachers_lname, speak_day, speak_period";
+	break;
+case "day":
+	$order = "speak_day, speak_period, teachers_lname";
+	break;
+case "period":
+	$order = "speak_period, speak_day, teachers_lname";
+	break;
+default:
+	$order = "teachers_lname, speak_day, speak_period";
+}
+$pSQL .= "ORDER BY " . $order;
+$ezr->query_mysql($pSQL);
 $ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_close = "</table>";
 $ezr->results_heading = "<tr class=tblhead>
-<td width=20%>" . _ADMIN_SPEAK_TEACHER . "</td>
-<td width=20%>" . _ADMIN_SPEAK_DAY . "</td>
-<td width=20%>" . _ADMIN_SPEAK_PERIOD . "</td>
+<td width=20%><a href=\"admin_speak.php?sort=name\">" . _ADMIN_SPEAK_TEACHER . "</a></td>
+<td width=20%><a href=\"admin_speak.php?sort=day\">" . _ADMIN_SPEAK_DAY . "</a></td>
+<td width=20%><a href=\"admin_speak.php?sort=period\">" . _ADMIN_SPEAK_PERIOD . "</a></td>
 <td width=20%>&nbsp;</td>
 <td width=20%>&nbsp;</td>
 </tr>";
