@@ -37,7 +37,7 @@ $rooms = $db->get_results($sSQL);
 
 //Gather student info
 $sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, 
-'%m/%d/%Y') as sdob, ethnicity.ethnicity_desc, 
+'" . _EXAMS_DATE . "') as sdob, ethnicity.ethnicity_desc, 
 school_names.school_names_desc, generations.generations_desc, 
 grades.grades_desc, school_rooms_desc 
 FROM (((((studentbio INNER JOIN generations ON 

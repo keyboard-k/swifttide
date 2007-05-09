@@ -33,7 +33,7 @@ if ($action=="retrieve"){
 			};
 		};
 	};
-	if(isset($lostpassword) && (strlen($lostpassword)>1)){
+	if(strlen($lostpassword)){
 		require_once "class.phpmailer.php";
 		$mail = new PHPMailer();
 		$mail->IsSMTP();                                   // send via SMTP
@@ -71,7 +71,7 @@ if ($action=="retrieve"){
 
 <body onLoad="document.forms.login.username.focus()">
 <div id="loginerr">
-<? if(isset($msgFormErr)) echo $msgFormErr; ?>
+<? echo $msgFormErr; ?>
 </div>
 <div id="login">
 	<form name="login" method="POST" action="forgot_password.php">

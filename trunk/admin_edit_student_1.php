@@ -75,12 +75,12 @@ studentcontact.studentcontact_year = '$current_year'";
 $primcontinfo=$db->get_row($sSQL);
 //Title fix, doug, 12-30-06
 $title_id=$primcontinfo->studentcontact_title;
-$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id=$title_id";
+$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='$title_id'";
 $title_desc=$db->get_var($sSQL);
 //End of doug fix
 $primarycontact=$primcontinfo->studentcontact_id;
 $sSQL="SELECT studentcontact_id FROM studentcontact WHERE 
-studentcontact_studentid=$studentid AND studentcontact_year='$current_year' AND 
+studentcontact_studentid='$studentid' AND studentcontact_year='$current_year' AND 
 studentcontact_primary=1"; 
 $primarycontact=$db->get_var($sSQL);
 
@@ -131,9 +131,9 @@ $qquery = "Select * from studentbio_pictures where studentid = $studentid order 
 $pic = $db->get_row($qquery);
 if ($pic->picturepath != NULL) {
 	//Define stuff
-	define(IMAGE_BASE, 'pictures');
-	define(MAX_WIDTH, 150);
-	define(MAX_HEIGHT, 150);
+	define('IMAGE_BASE', 'pictures');
+	define('MAX_WIDTH', 150);
+	define('MAX_HEIGHT', 150);
 
 	// Get image location
 	$image_file = $pic->picturepath;
@@ -142,6 +142,7 @@ if ($pic->picturepath != NULL) {
 	//Get image extension etc, we need it to read the image
 	$img = null;
 	$ext = strtolower(end(explode('.', $image_path)));
+	$g = 0;
 	if ($ext == 'jpg' || $ext == 'jpeg') {
 		$img = @imagecreatefromjpeg($image_path);
 	} else if ($ext == 'png') {

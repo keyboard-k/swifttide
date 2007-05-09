@@ -40,7 +40,7 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 	//Get health_immunz history
 	$sSQL="SELECT health_immunz_history.health_immunz_history_id, 
-DATE_FORMAT(health_immunz_history.health_immunz_history_date, '%m/%d/%Y') as 
+DATE_FORMAT(health_immunz_history.health_immunz_history_date, '" . _EXMS_DATE . "') as 
 disdate, health_immunz.health_immunz_desc FROM health_immunz_history 
 INNER JOIN health_immunz ON 
 health_immunz_history.health_immunz_history_code = 

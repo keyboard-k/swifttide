@@ -146,7 +146,7 @@ DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_CODE', 'Art');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_DETAILS', 'Details');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_TITLE', 'An-/Abwesenheit des Sch&uuml;lers');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Notiz hinzuf&uuml;gen');
+DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
 
 /** teacher_manage_attendance_2.php */
 
@@ -190,13 +190,13 @@ DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_FORM_ERROR', 'Bitte zuerst einen Sch&uuml;l
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_DATE', 'Datum');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_CODE', 'Art');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_DETAILS', 'Details');
-DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_TITLE', 'Betragen des Sch&uuml;lers');
-DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Notiz hinzuf&uuml;gen');
+DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_TITLE', 'Verhalten des Sch&uuml;lers');
+DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 
 /** teacher_manage_discipline_2.php */
 
-DEFINE('_TEACHER_MANAGE_DISCIPLINE_2_TITLE', 'Betragen des Sch&uuml;lers');
+DEFINE('_TEACHER_MANAGE_DISCIPLINE_2_TITLE', 'Verhalten des Sch&uuml;lers');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_2_SCHOOL', 'Schule');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_2_YEAR', 'Jahr');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_2_INFRACTION', '&Uuml;bertretung');
@@ -328,8 +328,8 @@ DEFINE('_TEACHER_MENU_INC_PHP_STUDENTS', 'Sch&uuml;ler ausw&auml;hlen');
 DEFINE('_TEACHER_MENU_INC_PHP_STUDENTS_TEXT', 'Sch&uuml;ler ausw&auml;hlen');
 DEFINE('_TEACHER_MENU_INC_PHP_ATTENDANCE', 'An-/Abwesenheit eintragen');
 DEFINE('_TEACHER_MENU_INC_PHP_ATTENDANCE_TEXT', 'An-/Abwesenheit');
-DEFINE('_TEACHER_MENU_INC_PHP_DISCIPLINE', 'Betragen verwalten');
-DEFINE('_TEACHER_MENU_INC_PHP_DISCIPLINE_TEXT', 'Betragen');
+DEFINE('_TEACHER_MENU_INC_PHP_DISCIPLINE', 'Verhalten verwalten');
+DEFINE('_TEACHER_MENU_INC_PHP_DISCIPLINE_TEXT', 'Verhalten');
 DEFINE('_TEACHER_MENU_INC_PHP_SINGLE', 'Noten eingeben');
 DEFINE('_TEACHER_MENU_INC_PHP_SINGLE_TEXT', 'Noten');
 DEFINE('_TEACHER_MENU_INC_PHP_BULK', 'Mehrere Noten gleichzeitig eingeben');
@@ -1223,7 +1223,7 @@ DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_CODE', 'Art');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_TITLE', 'An-/Abwesenheit des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Notiz hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
 
 /** contact_manage_attendance_2.php */
 
@@ -1246,7 +1246,7 @@ DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_CODE', 'Art');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_TITLE', 'Verhalten des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Notiz hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
 
 /** contact_manage_discipline_2.php */
 
@@ -1275,7 +1275,7 @@ DEFINE('_CONTACT_MANAGE_GRADES_1_EFFORT', 'Mitarbeit');
 DEFINE('_CONTACT_MANAGE_GRADES_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_GRADES_1_TITLE', 'Noten des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_GRADES_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_GRADES_1_ADD_NOTE', 'Notiz hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_GRADES_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
 
 /** contact_manage_grades_2.php */
 
@@ -1925,7 +1925,7 @@ DEFINE('_ADMIN_MANAGE_DISCIPLINE_1_ADD', 'Neuer Eintrag');
 /** admin_manage_discipline_2.php */
 
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_UPPER', 'Administrator Bereich');
-DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_TITLE', 'Betragen des Sch&uuml;lers');
+DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_TITLE', 'Verhalten des Sch&uuml;lers');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_INSERTED', 'Eintrag von ');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_SCHOOL', 'Schule');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_YEAR', 'Jahr');
@@ -1943,7 +1943,7 @@ DEFINE('_ADMIN_MANAGE_DISCIPLINE_2_EDIT', 'Eintrag editieren');
 /** admin_manage_discipline_3.php */
 
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_UPPER', 'Administrator Bereich');
-DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_TITLE', 'Betragen des Sch&uuml;lers');
+DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_TITLE', 'Verhalten des Sch&uuml;lers');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_INSERTED', 'Eintrag von ');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_SCHOOL', 'Schule');
 DEFINE('_ADMIN_MANAGE_DISCIPLINE_3_YEAR', 'Jahr');

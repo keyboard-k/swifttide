@@ -40,7 +40,7 @@ if ($action=="edit"){
 	$sSQL="SELECT health_history.health_history_id, 
 studentbio.studentbio_fname, studentbio.studentbio_lname, 
 school_names.school_names_desc, school_years.school_years_desc, 
-DATE_FORMAT(health_history.health_history_date,'%m/%d/%Y') AS disdate, 
+DATE_FORMAT(health_history.health_history_date,'" . _EXAMS_DATE . "') AS disdate, 
 health_history.health_history_action, health_history.health_history_notes, health_history.health_history_sentby, health_history.health_history_code, web_users.web_users_flname FROM (((health_history INNER JOIN studentbio ON health_history.health_history_student = studentbio.studentbio_id) INNER JOIN school_names ON health_history.health_history_school = school_names.school_names_id) INNER JOIN school_years ON health_history.health_history_year = school_years.school_years_id) INNER JOIN web_users ON health_history.health_history_user = web_users.web_users_id WHERE health_history.health_history_id=$disid";
 	$health=$db->get_row($sSQL);
 	$slname=$health->studentbio_lname;

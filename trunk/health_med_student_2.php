@@ -35,7 +35,7 @@ $disid=get_param("disid");
 $sSQL="SELECT health_med_history.health_med_history_id, 
 studentbio.studentbio_fname, studentbio.studentbio_lname, 
 school_names.school_names_desc, school_years.school_years_desc, 
-DATE_FORMAT(health_med_history.health_med_history_date,'%m/%d/%Y') AS disdate, 
+DATE_FORMAT(health_med_history.health_med_history_date,'" . _EXAMS_DATE . "') AS disdate, 
 health_medicine.health_medicine_desc, 
 health_med_history.health_med_history_reason, 
 health_med_history.health_med_history_notes, 
