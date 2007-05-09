@@ -22,8 +22,8 @@ include_once "common.php";
 // Include configuration
 include_once "configuration.php";
 
-$tfname=$_SESSION['tfname'];
-$tlname=$_SESSION['tlname'];
+// $tfname=$_SESSION['tfname'];
+// $tlname=$_SESSION['tlname'];
 $user_id=$_SESSION['UserId'];
 $action=get_param("action");
 
