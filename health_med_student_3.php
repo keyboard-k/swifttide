@@ -40,7 +40,7 @@ if ($action=="edit"){
 studentbio.studentbio_fname, studentbio.studentbio_lname, 
 school_names.school_names_desc, school_years.school_years_desc, 
 DATE_FORMAT(health_med_history.health_med_history_date, 
-'%m/%d/%Y') AS disdate, health_medicine.health_medicine_desc, 
+'" . _EXAMS_DATE . "') AS disdate, health_medicine.health_medicine_desc, 
 health_medicine.health_medicine_id, 
 health_med_history.health_med_history_notes, 
 web_users.web_users_flname FROM ((((health_med_history INNER JOIN 

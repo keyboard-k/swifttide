@@ -31,7 +31,7 @@ $menustudent=1;
 
 //Get all info to display
 //Student
-$sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, '%m/%d/%Y') as sdob, 
+$sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, '" . _EXAMS_DATE . "') as sdob, 
 ethnicity.ethnicity_desc, school_names.school_names_desc, generations.generations_desc, 
 grades.grades_desc, teachers.teachers_fname, teachers.teachers_lname, school_rooms_desc 
 FROM (((((((studentbio 
@@ -200,7 +200,7 @@ $studentid=get_param("studentid");
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	//Get health_medicine history
-	$sSQL="SELECT health_med_history.health_med_history_id, DATE_FORMAT(health_med_history.health_med_history_date, '%m/%d/%Y') as disdate, health_medicine.health_medicine_desc FROM health_med_history INNER JOIN health_medicine ON health_med_history.health_med_history_code = health_medicine.health_medicine_id WHERE health_med_history_student=$studentid AND health_med_history_year=$current_year";
+	$sSQL="SELECT health_med_history.health_med_history_id, DATE_FORMAT(health_med_history.health_med_history_date, '" . _EXAMS_DATE . "') as disdate, health_medicine.health_medicine_desc FROM health_med_history INNER JOIN health_medicine ON health_med_history.health_med_history_code = health_medicine.health_medicine_id WHERE health_med_history_student=$studentid AND health_med_history_year=$current_year";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td
@@ -242,7 +242,7 @@ $studentid=get_param("studentid");
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	//Get allergy history
-$sSQL="SELECT health_allergy_history.health_allergy_history_id, DATE_FORMAT(health_allergy_history.health_allergy_history_date, '%m/%d/%Y') as disdate, health_allergy.health_allergy_desc FROM health_allergy_history INNER JOIN health_allergy ON health_allergy_history.health_allergy_history_code = health_allergy.health_allergy_id WHERE health_allergy_history.health_allergy_history_student= $studentid AND health_allergy_history.health_allergy_history_year=$current_year ORDER BY health_allergy_history.health_allergy_history_date DESC";
+$sSQL="SELECT health_allergy_history.health_allergy_history_id, DATE_FORMAT(health_allergy_history.health_allergy_history_date, '" . _EXAMS_DATE . "') as disdate, health_allergy.health_allergy_desc FROM health_allergy_history INNER JOIN health_allergy ON health_allergy_history.health_allergy_history_code = health_allergy.health_allergy_id WHERE health_allergy_history.health_allergy_history_student= $studentid AND health_allergy_history.health_allergy_history_year=$current_year ORDER BY health_allergy_history.health_allergy_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40% align=center>" . _NURSE_INFO_3_DATE . "</td><td width=40% align=center>" . _NURSE_INFO_3_ALLERGY . "</td><td width=20% align=center>" . _NURSE_INFO_3_DETAILS . "</td></tr>";
@@ -298,7 +298,7 @@ $studentid=get_param("studentid");
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	//Get immunization history
-	$sSQL="SELECT health_immunz_history.health_immunz_history_id, DATE_FORMAT(health_immunz_history.health_immunz_history_date, '%m/%d/%Y') as disdate , health_immunz.health_immunz_desc FROM health_immunz_history INNER JOIN health_immunz ON health_immunz_history.health_immunz_history_code = health_immunz.health_immunz_id WHERE health_immunz_history.health_immunz_history_student=$studentid AND health_immunz_history.health_immunz_history_year=$current_year ORDER BY health_immunz_history.health_immunz_history_date DESC";
+	$sSQL="SELECT health_immunz_history.health_immunz_history_id, DATE_FORMAT(health_immunz_history.health_immunz_history_date, '" . _EXAMS_DATE . "') as disdate , health_immunz.health_immunz_desc FROM health_immunz_history INNER JOIN health_immunz ON health_immunz_history.health_immunz_history_code = health_immunz.health_immunz_id WHERE health_immunz_history.health_immunz_history_student=$studentid AND health_immunz_history.health_immunz_history_year=$current_year ORDER BY health_immunz_history.health_immunz_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40% align=center>" . _NURSE_INFO_3_DATE . "</td><td width=40% align=center>" . _NURSE_INFO_3_IMM . "</td><td width=20% align=center>" . _NURSE_INFO_3_DETAILS . "</td></tr>";
@@ -337,7 +337,7 @@ $studentid=get_param("studentid");
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	//Get health_visit history
-	$sSQL="SELECT health_history.health_history_id, DATE_FORMAT(health_history.health_history_date, '%m/%d/%Y') as disdate, health_codes.health_codes_desc FROM health_history INNER JOIN health_codes ON  health_history.health_history_code = health_codes.health_codes_id WHERE health_history.health_history_student=$studentid AND health_history.health_history_year=$current_year ORDER BY health_history.health_history_date DESC";
+	$sSQL="SELECT health_history.health_history_id, DATE_FORMAT(health_history.health_history_date, '" . _EXAMS_DATE . "') as disdate, health_codes.health_codes_desc FROM health_history INNER JOIN health_codes ON  health_history.health_history_code = health_codes.health_codes_id WHERE health_history.health_history_student=$studentid AND health_history.health_history_year=$current_year ORDER BY health_history.health_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40% align=center>" . _NURSE_INFO_3_DATE . "</td><td width=40% align=center>" . _NURSE_INFO_3_HEALTH . "</td><td width=20% align=center>" . _NURSE_INFO_3_DETAILS . "</td></tr>";

@@ -43,7 +43,7 @@ $tfname=$teacher->teachers_fname;
 $tschool=$teacher->teachers_school;
 
 //Get current listing of exams
-$sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'%m/%d/%Y') as examdate, 
+$sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, 
 grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_teacherid, school_years_desc 
 FROM ((((((exams 
 INNER JOIN school_years ON exams_year=school_years_id) 

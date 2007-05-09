@@ -39,7 +39,7 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 	//Get allergy history
 	$sSQL="SELECT health_allergy_history.health_allergy_history_id, 
-DATE_FORMAT(health_allergy_history.health_allergy_history_date, '%m/%d/%Y') 
+DATE_FORMAT(health_allergy_history.health_allergy_history_date, '" . _EXAMS_DATE . "') 
 as 
 disdate 
 ,health_allergy.health_allergy_desc FROM health_allergy_history 

@@ -38,7 +38,7 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 	//Get immunization history
 	$sSQL="SELECT health_immunz_history.health_immunz_history_id, 
-DATE_FORMAT(health_immunz_history.health_immunz_history_date, '%m/%d/%Y') 
+DATE_FORMAT(health_immunz_history.health_immunz_history_date, '" . _EXAMS_DATE . "') 
 as 
 disdate 
 ,health_immunz.health_immunz_desc FROM health_immunz_history 
