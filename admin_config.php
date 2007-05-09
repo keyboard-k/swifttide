@@ -116,8 +116,15 @@ if ($action=="edit"){
     </td>
   </tr>
   <tr class="trform">
-    <td width="100%" class="tdinput"><? echo _ADMIN_CONFIG_DEF_CITY?>:<input type="text" onChange="capitalizeMe(this)" name="default_city" size="20" value="<? echo strip($config->default_city); ?>"> 
-      <? echo _ADMIN_CONFIG_DEF_STATE?>:<select name="default_state">
+    <td width="100%" class="tdinput">
+    <table border=0 cellspacing="3">
+    <tr>
+      <td>
+      <? echo _ADMIN_CONFIG_DEF_CITY?>:</td>
+      <td><input type="text" onChange="capitalizeMe(this)" name="default_city" size="20" value="<? echo strip($config->default_city); ?>"></td> 
+      <td>
+      <? echo _ADMIN_CONFIG_DEF_STATE?>:</td>
+      <td><select name="default_state">
 	   <?
 	   //Display states from table
 	   foreach($states as $state){
@@ -126,7 +133,16 @@ if ($action=="edit"){
 	   <?
 	   };
 	   ?>
-	  </select><? echo _ADMIN_CONFIG_DEF_ZIP?>: <input type="text" onChange="capitalizeMe(this)" name="default_zip" size="12" value="<? echo strip($config->default_zip); ?>">  <? echo _ADMIN_CONFIG_DEF_DATE?>: <input type="text" size=10 name="default_entry_date" value="<? echo($config->default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('config.default_entry_date');"><a href="javascript:show_calendar('config.default_entry_date');"><img src="images/cal.gif" border="0" class="imma"></a>
+	  </select></td></tr>
+    <tr>
+      <td>
+      <? echo _ADMIN_CONFIG_DEF_ZIP?>:</td>
+      <td><input type="text" onChange="capitalizeMe(this)" name="default_zip" size="12" value="<? echo strip($config->default_zip); ?>"></td>
+      <td>
+      <? echo _ADMIN_CONFIG_DEF_DATE?>:</td>
+      <td><input type="text" size=10 name="default_entry_date" value="<? echo($config->default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('config.default_entry_date');"><a href="javascript:show_calendar('config.default_entry_date');"><img src="images/cal.gif" border="0" class="imma"></a>
+    </td></tr>
+    </table>
  </td>
   </tr>
   <tr>
