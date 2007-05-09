@@ -93,7 +93,7 @@ function displayReport() {
 <div id="Content">
 <h1><? echo _ADMIN_REPORTS_TITLE?></h1>
 <br>
-<form name="report_selection" method="POST" action="<?echo($PHP_SELF);?>">
+<form name="report_selection" method="POST" action="<?echo($_SERVER['PHP_SELF']);?>">
 <table border="0" cellpadding="1" cellspacing="1" width="100%">
 <tr class="trform">
 <td width="100%">
