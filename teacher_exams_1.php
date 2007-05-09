@@ -30,6 +30,8 @@ $year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_year
 //Get action
 $action=get_param("action");
 
+$sort=get_param("sort");
+
 $schoolid=get_param("schoolid");
 $roomid=get_param("roomid");
 // $examdate=date("Y-m-d", strtotime(get_param("examdate")));
@@ -60,33 +62,56 @@ if ($action=="remove") {
 
 //Get current listing of exams
 $sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, 
-grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date 
-FROM (((((exams 
+grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date, teachers_id, teachers_fname, teachers_lname 
+FROM ((((((exams 
 INNER JOIN school_names ON exams_schoolid=school_names_id) 
 INNER JOIN school_rooms ON exams_roomid=school_rooms_id) 
 INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id) 
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
-WHERE exams_year='$cyear' 
-ORDER BY school_names_desc, school_rooms_desc, exams_date";
+INNER JOIN teachers ON exams_teacherid = teachers_id)
+WHERE exams_year='$cyear' ";
+switch ($sort) {
+case "room":
+        $order = "school_rooms_desc, exams_date";
+	break;
+case "date":
+	$order = "exams_date";
+	break;
+case "subject":
+	$order = "grade_subject_desc";
+	break;
+case "type":
+	$order = "exams_types_desc";
+	break;
+case "teacher":
+	$order = "teachers_lname";
+	break;
+default:
+	$order = "school_names_desc, school_rooms_desc, exams_date";
+	break;
+}
+$sSQL .= "ORDER BY " . $order;
 // echo $sSQL;
 
 //Set paging appearence
 $ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
-<td width=10%>" . _TEACHER_EXAMS_1_ROOM . "</td>
-<td width=20%>" . _TEACHER_EXAMS_1_DATE . "</td>
-<td width=20%>" . _TEACHER_EXAMS_1_SUBJECT . "</td>
-<td width=20%>" . _TEACHER_EXAMS_1_TYPE . "</td>
+<td width=10%><a href=\"teacher_exams_1.php?sort=room\">" . _TEACHER_EXAMS_1_ROOM . "</a></td>
+<td width=15%><a href=\"teacher_exams_1.php?sort=date\">" . _TEACHER_EXAMS_1_DATE . "</a></td>
+<td width=15%><a href=\"teacher_exams_1.php?sort=subject\">" . _TEACHER_EXAMS_1_SUBJECT . "</a></td>
+<td width=15%><a href=\"teacher_exams_1.php?sort=type\">" . _TEACHER_EXAMS_1_TYPE . "</a></td>
+<td width=15%><a href=\"teacher_exams_1.php?sort=teacher\">" . _TEACHER_EXAMS_1_TEACHER . "</a></td>
 <td width=15%>&nbsp;</td>
 <td width=15%>&nbsp;</td>
 </tr>"; 
 $ezr->results_close = "</table>";
 $ezr->results_row = "<tr>
 <td class=paging width=10% align=center>COL2</td>
-<td class=paging width=20% align=center>COL3 (COL7)</td>
-<td class=paging width=20% align=center>COL4</td>
-<td class=paging width=20% align=center>COL5</td>
+<td class=paging width=15% align=center>COL3 (COL7)</td>
+<td class=paging width=15% align=center>COL4</td>
+<td class=paging width=15% align=center>COL5</td>
+<td class=paging width=15% align=center>COL10 COL11</td>
 <td class=paging width=15% align=center>
   <a href=teacher_exams_2.php?examid=COL6 class=aform>&nbsp;" . _TEACHER_EXAMS_1_DETAILS . "</a></td>
 <td class=paging width=15% align=center>

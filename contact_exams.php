@@ -22,6 +22,8 @@ include_once "ez_results.php";
 // config
 include_once "configuration.php";
 
+$sort = get_param("sort");
+
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
 
@@ -46,34 +48,55 @@ if(!strlen($studentid)){
 
 // get exams data
 $sSQL="SELECT school_names_desc, school_rooms_desc, DATE_FORMAT(exams_date,'" . _EXAMS_DATE . "') as examdate, 
-grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date 
-FROM (((((exams 
+grade_subject_desc, exams_types_desc, exams_id, days_desc, exams_date, teachers_id, teachers_fname, teachers_lname 
+FROM ((((((exams 
 INNER JOIN school_names ON exams_schoolid=school_names_id) 
 INNER JOIN school_rooms ON exams_roomid=school_rooms_id) 
 INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id) 
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
+INNER JOIN teachers ON exams_teacherid = teachers_id)
 WHERE exams_year='$cyear' AND 
-      exams_roomid='$sroom' 
-ORDER BY school_names_desc, school_rooms_desc, exams_date";
+      exams_roomid='$sroom' ";
+switch ($sort) {
+case "room":
+        $order = "school_rooms_desc, exams_date";
+	break;
+case "date":
+	$order = "exams_date";
+	break;
+case "subject":
+	$order = "grade_subject_desc";
+	break;
+case "type":
+	$order = "exams_types_desc";
+	break;
+case "teacher":
+	$order = "teachers_lname";
+	break;
+default:
+	$order = "school_names_desc, school_rooms_desc, exams_date";
+	break;
+	}
+$sSQL .= "ORDER BY " . $order;
 
 if ($srch = $db->get_results($sSQL)){
 //Set paging appearence
 $ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
-<td width=20% align=center>" . _CONTACT_EXAMS_SCHOOL . "</td>
-<td width=15% align=center>" . _CONTACT_EXAMS_ROOM . "</td>
-<td width=20% align=center>" . _CONTACT_EXAMS_DAYS . "</td>
-<td width=20% align=center>" . _CONTACT_EXAMS_SUBJECT . "</td>
-<td width=25% align=center>" . _CONTACT_EXAMS_TYPE . "</td>
+<td width=20% align=center><a href=\"contact_exams.php?sort=room\">" . _CONTACT_EXAMS_ROOM . "</a></td>
+<td width=20% align=center><a href=\"contact_exams.php?sort=date\">" . _CONTACT_EXAMS_DAYS . "</a></td>
+<td width=20% align=center><a href=\"contact_exams.php?sort=subject\">" . _CONTACT_EXAMS_SUBJECT . "</a></td>
+<td width=20% align=center><a href=\"contact_exams.php?sort=type\">" . _CONTACT_EXAMS_TYPE . "</a></td>
+<td width=20% align=center><a href=\"contact_exams.php?sort=teacher\">" . _CONTACT_EXAMS_TEACHER . "</a></td>
 </tr>";
 
 $ezr->results_row = "<tr>
-<td class=paging width=20% align=center>COL1</td>
-<td class=paging width=15% align=center>COL2</td>
-<td class=paging width=20% align=center>COL8 (COL7)</td>
+<td class=paging width=20% align=center>COL2</td>
+<td class=paging width=20% align=center>COL3 (COL7)</td>
 <td class=paging width=20% align=center>COL4</td>
-<td class=paging width=25% align=center>COL5</td>
+<td class=paging width=20% align=center>COL5</td>
+<td class=paging width=20% align=center>COL10 COL11</td>
 </tr>";
 $ezr->results_close = "</table>";
 $ezr->query_mysql($sSQL);

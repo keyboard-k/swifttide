@@ -30,6 +30,8 @@ $year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_year
 //Get action
 $action=get_param("action");
 
+$sort=get_param("sort");
+
 $schoolid=get_param("schoolid");
 $roomid=get_param("roomid");
 if (get_param("examdate")) { $examdate=date("Y-m-d", strtotime(get_param("examdate"))); }
@@ -73,18 +75,38 @@ INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id)
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
 INNER JOIN teachers ON exams_teacherid = teachers_id) 
-WHERE exams_year=$cyear 
-ORDER BY school_names_desc, school_rooms_desc, exams_date";
+WHERE exams_year=$cyear ";
+switch ($sort) {
+case "room":
+	$order = "school_rooms_desc, exams_date";
+	break;
+case "date":
+	$order = "exams_date";
+	break;
+case "subject":
+	$order = "grade_subject_desc";
+	break;
+case "type":
+	$order = "exams_types_desc";
+	break;
+case "teacher":
+	$order = "teachers_lname";
+	break;
+default:
+	$order = "school_names_desc, school_rooms_desc, exams_date";
+	break;
+}
+$sSQL .= "ORDER BY " . $order;
 // echo $sSQL;
 
 //Set paging appearence
 $ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_heading = "<tr class=tblhead>
-<td width=10%>" . _ADMIN_EXAMS_1_ROOM . "</td>
-<td width=15%>" . _ADMIN_EXAMS_1_DATE . "</td>
-<td width=15%>" . _ADMIN_EXAMS_1_SUBJECT . "</td>
-<td width=15%>" . _ADMIN_EXAMS_1_TYPE . "</td>
-<td width=15%>" . _ADMIN_EXAMS_1_TEACHER . "</td>
+<td width=10%><a href=\"admin_exams_1.php?sort=room\">" . _ADMIN_EXAMS_1_ROOM . "</a></td>
+<td width=15%><a href=\"admin_exams_1.php?sort=date\">" . _ADMIN_EXAMS_1_DATE . "</a></td>
+<td width=15%><a href=\"admin_exams_1.php?sort=subject\">" . _ADMIN_EXAMS_1_SUBJECT . "</a></td>
+<td width=15%><a href=\"admin_exams_1.php?sort=type\">" . _ADMIN_EXAMS_1_TYPE . "</a></td>
+<td width=15%><a href=\"admin_exams_1.php?sort=teacher\">" . _ADMIN_EXAMS_1_TEACHER . "</a></td>
 <td width=15%>&nbsp;</td>
 <td width=15%>&nbsp;</td>
 </tr>"; 
