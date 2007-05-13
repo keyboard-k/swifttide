@@ -42,7 +42,7 @@ if(!strlen($studentid)){
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40%>" . _ADMIN_MANAGE_DISCIPLINE_1_DATE . "</td><td width=40%>" . _ADMIN_MANAGE_DISCIPLINE_1_CODE . "</td><td width=20%>" . _ADMIN_MANAGE_DISCIPLINE_1_DETAILS . "</td></tr>"; 
 	$ezr->results_close = "</table>";
-	$ezr->results_row = "<tr><td class=paging width=40%>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=admin_manage_discipline_2.php?studentid=$studentid&disid=COL1 class=aform>&nbsp;" . _ADMIN_MANAGE_DISCIPLINE_1_DETAILS . "</a></td></tr>";
+	$ezr->results_row = "<tr><td align=center class=paging width=40%>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=admin_manage_discipline_2.php?studentid=$studentid&disid=COL1 class=aform>&nbsp;" . _ADMIN_MANAGE_DISCIPLINE_1_DETAILS . "</a></td></tr>";
 	$ezr->query_mysql($sSQL);
 	$ezr->set_qs_val("studentid",$studentid);
 };

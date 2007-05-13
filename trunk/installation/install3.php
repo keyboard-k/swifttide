@@ -169,6 +169,8 @@ function changeDirPermsMode(mode)
 				  Enter the administrator's first and last name, his email and reply-to address
 				  <br />
 				  <br/>
+				  Enter the name of the logo you want to use.
+				  If you leave the field blank, a standard logo will be used.
 				  <!--
 				  The permission settings will be used while installing SMS itself, by
 				  the SMS addon-installers and by the media manager. If you are unsure
@@ -193,7 +195,7 @@ function changeDirPermsMode(mode)
 		$root = str_replace("/install3.php","",$root);
 		$url = "http://".$root;
 	}
-?>						<td align="center"><input class="inputbox" type="text" name="siteUrl" value="<?php echo $url; ?>" size="30"/></td>
+?>						<td align="right"><input class="inputbox" type="text" name="siteUrl" value="<?php echo $url; ?>" size="30"/></td>
 					</tr>
 					<tr>
 						<td>Path</td>
@@ -208,12 +210,12 @@ function changeDirPermsMode(mode)
 		else
 			$abspath = str_replace('\installation',"",$path);
 	}
-?>						<td align="center"><input class="inputbox" type="text" name="absolutePath" value="<?php echo $abspath; ?>" size="30"/></td>
+?>						<td align="right"><input class="inputbox" type="text" name="absolutePath" value="<?php echo $abspath; ?>" size="30"/></td>
 					</tr>
 					<!--
 					<tr>
 						<td>Administrator Email</td>
-						<td align="center"><input class="inputbox" type="text" name="adminEmail" value="<?php echo "$adminEmail"; ?>" size="30" /></td>
+						<td align="right"><input class="inputbox" type="text" name="adminEmail" value="<?php echo "$adminEmail"; ?>" size="30" /></td>
 					</tr>
 					-->
   		  			<tr>
@@ -221,7 +223,7 @@ function changeDirPermsMode(mode)
   							First Name of Administrator
   							<br/>
   						</td>
-			  			<td>
+			  			<td align="right">
   							<input class="inputbox" type="text" name="DBsmtpfromname1" value="<?php echo "$DBsmtpfromname1"; ?>" size="30" />
 			  			</td>
   					</tr>
@@ -230,7 +232,7 @@ function changeDirPermsMode(mode)
   							Last Name of Administrator
   							<br/>
   						</td>
-			  			<td>
+			  			<td align="right">
   							<input class="inputbox" type="text" name="DBsmtpfromname2" value="<?php echo "$DBsmtpfromname2"; ?>" size="30" />
 			  			</td>
   					</tr>
@@ -239,7 +241,7 @@ function changeDirPermsMode(mode)
   							Email of Administrator
   							<br/>
   						</td>
-			  			<td>
+			  			<td align="right">
   							<input class="inputbox" type="text" name="DBsmtpfromemail" value="<?php echo "$DBsmtpfromemail"; ?>" size="30" />
 			  			</td>
   					</tr>
@@ -248,13 +250,17 @@ function changeDirPermsMode(mode)
   							Reply to Address
   							<br/>
   						</td>
-			  			<td>
+			  			<td align="right">
   							<input class="inputbox" type="text" name="DBsmtpreplyto" value="<?php echo "$DBsmtpreplyto"; ?>" size="30" />
 			  			</td>
   					</tr>
 					<tr>
 						<td>Administrator password</td>
-						<td align="center"><input class="inputbox" type="text" name="adminPassword" value="<?php echo mosMakePassword(8); ?>" size="30"/></td>
+						<td align="right"><input class="inputbox" type="text" name="adminPassword" value="<?php echo mosMakePassword(8); ?>" size="30"/></td>
+					</tr>
+					<tr>
+						<td>Logo</td>
+						<td align="right"><input class="file" type="file" name="logo"></td>
 					</tr>
 
 
