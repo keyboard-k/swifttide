@@ -90,17 +90,29 @@ if (file_exists( '../configuration.php' )) {
 
 	$config = "<?php\n";
 
-	$config .= "DEFINE (_VALID, 1);\n";
+	$config .= "DEFINE ('_VALID', 1);\n";
 	if ($Language) {
 		if ($Language == 1) {
-			$config .= "include \"lang_de.php\";\n\n";	
+			$config .= "include \"lang_de.php\";\n";
 		}
 		elseif ($Language == 2) {
-			$config .= "include \"lang_en.php\";\n\n";	
+			$config .= "include \"lang_en.php\";\n";
 		}
 		else { echo "Wrong language!"; }
 	}
 	else { echo "Error selecting language!\n"; }
+
+	if ($logo != "") {
+	  $config .= "DEFINE('_LOGO', '" . $logo . "');\n\n";
+	}
+	else {
+	  if (($DBSample == 1) || ($DBSample == 2)) {
+	    $config .= "DEFINE('_LOGO', 'sms_de.gif');\n\n";
+	  }
+	  else {
+	    $config .= "DEFINE('_LOGO', 'sms_en.gif');\n\n";
+	  }
+	}
 
 	$config .= "\$db_server = '{$configArray['DBhostname']}';\n";
 	$config .= "\$db_name = '{$configArray['DBname']}';\n";
@@ -114,19 +126,7 @@ if (file_exists( '../configuration.php' )) {
 	$config .= "\$SMTP_FROM_EMAIL = '{$configArray['DBsmtpfromemail']}';\n";
 	$config .= "\$SMTP_FROM_REPLYTO = '{$configArray['DBsmtpreplyto']}';\n";
 
-	if ($logo != "") {
-	  $config .= "\DEFINE('_LOGO', '" . $logo . "');\n";
-	}
-	else {
-	  if (($DBSample == 1) || ($DBSample == 2)) {
-	    $config .= "DEFINE('_LOGO', 'sms_de.gif');\n";
-	  }
-	  else {
-	    $config .= "DEFINE('_LOGO', 'sms_en.gif');\n";
-	  }
-	}
-
-	$config .= "?>";
+	$config .= "?>\n";
 
 	if ($canWrite && ($fp = fopen("../configuration.php", "w"))) {
 		fputs( $fp, $config, strlen( $config ) );

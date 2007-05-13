@@ -13,4 +13,6 @@ $SMTP_PASS = '';
 $SMTP_FROM_NAME = 'Helmut Leinfellner';
 $SMTP_FROM_EMAIL = 'h.leinfellner@sbg.at';
 $SMTP_FROM_REPLYTO = 'h.leinfellner@sbg.at';
+DEFINE ('_LOGO', 'sms_de.gif');
 ?>
+

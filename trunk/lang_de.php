@@ -22,7 +22,6 @@ DEFINE('_HOST', 'localhost');
 DEFINE('_DATE_FORMAT', 'd. m. Y');
 DEFINE('_EXAMS_DATE', '%d. %m. %Y');
 DEFINE("_CAL_FORMAT", "dd/mm/yyyy");
-DEFINE('_LOGO', 'sms_de.gif');
 DEFINE('_MONDAY', 'Mo');
 DEFINE('_TUESDAY', 'Di');
 DEFINE('_WEDNESDAY', 'Mi');
