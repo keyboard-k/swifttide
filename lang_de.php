@@ -146,7 +146,7 @@ DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_CODE', 'Art');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_DETAILS', 'Details');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_TITLE', 'An-/Abwesenheit des Sch&uuml;lers');
 DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_TEACHER_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Neuer Eintrag');
 
 /** teacher_manage_attendance_2.php */
 
@@ -191,7 +191,7 @@ DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_DATE', 'Datum');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_CODE', 'Art');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_DETAILS', 'Details');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_TITLE', 'Verhalten des Sch&uuml;lers');
-DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Neuer Eintrag');
 DEFINE('_TEACHER_MANAGE_DISCIPLINE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 
 /** teacher_manage_discipline_2.php */
@@ -297,7 +297,7 @@ DEFINE('_TEACHER_MANAGE_GRADES_3_DELETE', 'L&ouml;schen');
 DEFINE('_TEACHER_MANAGE_GRADES_3_NEW', 'Neu');
 DEFINE('_TEACHER_MANAGE_GRADES_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_TEACHER_MANAGE_GRADES_3_UPDATE', 'Eintrag aktualisieren');
-DEFINE('_TEACHER_MANAGE_GRADES_3_ADD', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_TEACHER_MANAGE_GRADES_3_ADD', 'Neuer Eintrag');
 
 /** teacher_manage_grades_4.php */
 
@@ -369,7 +369,7 @@ DEFINE('_TEACHER_SCHEDULE_1_DETAILS', 'Details');
 DEFINE('_TEACHER_SCHEDULE_1_ADMIN_AREA', 'Administrator Bereich');
 DEFINE('_TEACHER_SCHEDULE_1_TITLE', 'Lehrer Plan f&uuml;r');
 DEFINE('_TEACHER_SCHEDULE_1_BACK', 'Zur&uuml;ck zum Lehrer');
-DEFINE('_TEACHER_SCHEDULE_1_ADD', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_TEACHER_SCHEDULE_1_ADD', 'Neuer Eintrag');
 
 /** teacher_schedule_2.php */
 
@@ -396,7 +396,7 @@ DEFINE('_TEACHER_SCHEDULE_3_SELECT', 'Nummer ausw&auml;hlen');
 DEFINE('_TEACHER_SCHEDULE_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_TEACHER_SCHEDULE_3_BACK', 'Zur&uuml;ck zum Lehrer');
 DEFINE('_TEACHER_SCHEDULE_3_UPDATE', 'Eintrag aktualisieren');
-DEFINE('_TEACHER_SCHEDULE_3_ADD', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_TEACHER_SCHEDULE_3_ADD', 'Neuer Eintrag');
 
 /** teachers_homework.php */
 
@@ -503,7 +503,7 @@ DEFINE('_GRADE_STUDENT_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_GRADE_STUDENT_3_NOTIFY', 'Kontakte benachrichtigen');
 DEFINE('_GRADE_STUDENT_3_BACK', 'Zur&uuml;ck zum Sch&uuml;ler');
 DEFINE('_GRADE_STUDENT_3_UPDATE', 'Eintrag aktualisieren');
-DEFINE('_GRADE_STUDENT_3_ADD', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_GRADE_STUDENT_3_ADD', 'Neuer Eintrag');
 
 /** grade_student_4.php */
 
@@ -814,7 +814,7 @@ DEFINE('_HEALTH_MED_STUDENT_3_REASON', 'Grund');
 DEFINE('_HEALTH_MED_STUDENT_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_HEALTH_MED_STUDENT_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_HEALTH_MED_STUDENT_3_UPDATE_NOTE', 'Eintrag aktualisieren');
-DEFINE('_HEALTH_MED_STUDENT_3_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_MED_STUDENT_3_ADD_NOTE', 'Neuer Eintrag');
 
 /** health_med_student_4.php */
 
@@ -882,7 +882,7 @@ DEFINE('_HEALTH_MANAGE_3_DELETE', 'L&ouml;schen');
 DEFINE('_HEALTH_MANAGE_3_NEW', 'Neuer Eintrag');
 DEFINE('_HEALTH_MANAGE_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_HEALTH_MANAGE_3_UPDATE_NOTE', 'Eintrag aktualisieren');
-DEFINE('_HEALTH_MANAGE_3_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_MANAGE_3_ADD_NOTE', 'Neuer Eintrag');
 
 /** health_manage_4.php */
 
@@ -933,7 +933,7 @@ DEFINE('_HEALTH_IMMUNZ_STUDENT_3_REASON', 'Grund');
 DEFINE('_HEALTH_IMMUNZ_STUDENT_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_HEALTH_IMMUNZ_STUDENT_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_HEALTH_IMMUNZ_STUDENT_3_UPDATE_NOTE', 'Eintrag aktualisieren');
-DEFINE('_HEALTH_IMMUNZ_STUDENT_3_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_IMMUNZ_STUDENT_3_ADD_NOTE', 'Neuer Eintrag');
 
 /** health_immunz_student_4.php */
 
@@ -996,7 +996,7 @@ DEFINE('_HEALTH_IMMUNZ_3_REASON', 'Grund');
 DEFINE('_HEALTH_IMMUNZ_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_HEALTH_IMMUNZ_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_HEALTH_IMMUNZ_3_UPDATE_NOTE', 'Eintrag aktualisieren');
-DEFINE('_HEALTH_IMMUNZ_3_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_IMMUNZ_3_ADD_NOTE', 'Neuer Eintrag');
 
 /** health_immunz_4.php */
 
@@ -1046,7 +1046,7 @@ DEFINE('_HEALTH_ALLERGY_3_REASON', 'Grund');
 DEFINE('_HEALTH_ALLERGY_3_NOTES', 'Eintr&auml;ge');
 DEFINE('_HEALTH_ALLERGY_3_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
 DEFINE('_HEALTH_ALLERGY_3_UPDATE_NOTE', 'Eintrag aktualisieren');
-DEFINE('_HEALTH_ALLERGY_3_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_ALLERGY_3_ADD_NOTE', 'Neuer Eintrag');
 
 /** health_allergy_4.php */
 
@@ -1090,7 +1090,7 @@ DEFINE('_HEALTH_CODES_REMOVE', 'L&ouml;schen');
 DEFINE('_HEALTH_CODES_SURE', 'Sind Sie sicher?');
 DEFINE('_HEALTH_CODES_UPPER', 'Gesundheits-Bereich');
 DEFINE('_HEALTH_CODES_TITLE', 'Krankheiten verwalten');
-DEFINE('_HEALTH_CODES_NEW', 'Neuen Eintrag hinzuf&uuml;gen');
+DEFINE('_HEALTH_CODES_NEW', 'Neuer Eintrag');
 DEFINE('_HEALTH_CODES_ADD', 'Hinzuf&uuml;gen');
 DEFINE('_HEALTH_CODES_UPDATE_CODE', 'Eintrag &auml;ndern');
 DEFINE('_HEALTH_CODES_UPDATE', '&Auml;ndern');
@@ -1201,7 +1201,7 @@ DEFINE('_CONTACTS_MENU_NO_STUDENTS', 'Keine Sch&uuml;ler.');
 /** contacts_set_student.php */
 
 DEFINE('_CONTACTS_SET_STUDENT_TITLE', 'Seite f&uuml;r Eltern');
-DEFINE('_CONTACTS_SET_STUDENT_SUBTITLE', 'Bitte links die Noten des Sch&uuml;lers ausw&auml;hlen');
+DEFINE('_CONTACTS_SET_STUDENT_SUBTITLE', 'Bitte links die Eintr&auml;ge des Sch&uuml;lers ausw&auml;hlen');
 
 /** contact_change_password.php */
 
@@ -1223,7 +1223,7 @@ DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_CODE', 'Art');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_TITLE', 'An-/Abwesenheit des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_ATTENDANCE_1_ADD_NOTE', 'Neuer Eintrag');
 
 /** contact_manage_attendance_2.php */
 
@@ -1246,7 +1246,7 @@ DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_CODE', 'Art');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_TITLE', 'Verhalten des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_DISCIPLINE_1_ADD_NOTE', 'Neuer Eintrag');
 
 /** contact_manage_discipline_2.php */
 
@@ -1275,7 +1275,7 @@ DEFINE('_CONTACT_MANAGE_GRADES_1_EFFORT', 'Mitarbeit');
 DEFINE('_CONTACT_MANAGE_GRADES_1_DETAILS', 'Details');
 DEFINE('_CONTACT_MANAGE_GRADES_1_TITLE', 'Noten des Sch&uuml;lers');
 DEFINE('_CONTACT_MANAGE_GRADES_1_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_MANAGE_GRADES_1_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_CONTACT_MANAGE_GRADES_1_ADD_NOTE', 'Neuer Eintrag');
 
 /** contact_manage_grades_2.php */
 
@@ -1629,7 +1629,7 @@ DEFINE('_ADMIN_SCHEDULE_TEACH_3_SUBJECT', 'Fach');
 DEFINE('_ADMIN_SCHEDULE_TEACH_3_ROOM', 'Klasse');
 DEFINE('_ADMIN_SCHEDULE_TEACH_3_BACK', 'Zur&uuml;ck zum Lehrer Stundenplan');
 DEFINE('_ADMIN_SCHEDULE_TEACH_3_UPDATE', 'Eintrag aktualisieren');
-DEFINE('_ADMIN_SCHEDULE_TEACH_3_ADD', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_ADMIN_SCHEDULE_TEACH_3_ADD', 'Neuer Eintrag');
 DEFINE('_ADMIN_SCHEDULE_TEACH_3_DAYS', 'Tag');
 DEFINE('_ADMIN_SCHEDULE_TEACH_3_DEF_DAYS', 'Mo');
 
@@ -1726,8 +1726,8 @@ DEFINE('_ADMIN_MENU_INC_TEACHERS', 'Lehrer verwalten');
 DEFINE('_ADMIN_MENU_INC_TEACHERS_TEXT', 'Lehrer ausw&auml;hlen');
 DEFINE('_ADMIN_MENU_INC_SCHEDULE', 'Stundenplan verwalten');
 DEFINE('_ADMIN_MENU_INC_SCHEDULE_TEXT', 'Stundenplan');
-DEFINE('_ADMIN_MENU_INC_MASS', 'Emails versenden');
-DEFINE('_ADMIN_MENU_INC_MASS_TEXT', 'Emails');
+DEFINE('_ADMIN_MENU_INC_MASS', 'Massen Emails versenden');
+DEFINE('_ADMIN_MENU_INC_MASS_TEXT', 'Massen Emails');
 DEFINE('_ADMIN_MENU_INC_FORUM', 'Zur Diskussion');
 DEFINE('_ADMIN_MENU_INC_FORUM_TEXT', 'Forum');
 DEFINE('_ADMIN_MENU_INC_PASS', 'Passwort &auml;ndern');
@@ -2724,7 +2724,7 @@ DEFINE('_CONTACT_TIMETABLE_CODE', 'Art');
 DEFINE('_CONTACT_TIMETABLE_DETAILS', 'Details');
 DEFINE('_CONTACT_TIMETABLE_TITLE', 'Stundenplan des Sch&uuml;lers');
 DEFINE('_CONTACT_TIMETABLE_BACK', 'Zum Sch&uuml;ler zur&uuml;ck');
-DEFINE('_CONTACT_TIMETABLE_ADD_NOTE', 'Eintrag hinzuf&uuml;gen');
+DEFINE('_CONTACT_TIMETABLE_ADD_NOTE', 'Neuer Eintrag');
 
 /** admin_exams_types.php */
 

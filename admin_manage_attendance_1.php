@@ -40,10 +40,10 @@ if(!strlen($studentid)){
 	//Get attendance history
 	$sSQL="SELECT attendance_history.attendance_history_id, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate ,attendance_codes.attendance_codes_desc FROM attendance_history INNER JOIN attendance_codes ON  attendance_history.attendance_history_code = attendance_codes.attendance_codes_id WHERE attendance_history.attendance_history_student=$studentid AND attendance_history.attendance_history_year=$current_year ORDER BY  attendance_history.attendance_history_date DESC";
 	//Set paging appearence
-	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
+	$ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40%>" . _ADMIN_MANAGE_ATTENDANCE_1_DATE . "</td><td width=40%>" . _ADMIN_MANAGE_ATTENDANCE_1_CODE . "</td><td width=20%>" . _ADMIN_MANAGE_ATTENDANCE_1_DETAILS . "</td></tr>"; 
 	$ezr->results_close = "</table>";
-	$ezr->results_row = "<tr><td class=paging width=40%>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=admin_manage_attendance_2.php?studentid=$studentid&attid=COL1 class=aform>&nbsp;" . _ADMIN_MANAGE_ATTENDANCE_1_DETAILS . "</a></td></tr>";
+	$ezr->results_row = "<tr><td align=center class=paging width=40%>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=admin_manage_attendance_2.php?studentid=$studentid&attid=COL1 class=aform>&nbsp;" . _ADMIN_MANAGE_ATTENDANCE_1_DETAILS . "</a></td></tr>";
 	$ezr->query_mysql($sSQL);
 	$ezr->set_qs_val("studentid",$studentid);
 };

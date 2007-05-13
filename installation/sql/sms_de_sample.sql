@@ -927,9 +927,8 @@ INSERT INTO `ethnicity` (`ethnicity_id`, `ethnicity_desc`) VALUES
 (2, 'Deutschland'),
 (3, 'Albanien'),
 (4, 'Holland'),
-(5, 'Deutschland'),
-(6, 'Schweiz'),
-(7, 'Liechtenstein');
+(5, 'Schweiz'),
+(6, 'Liechtenstein');
 
 -- --------------------------------------------------------
 

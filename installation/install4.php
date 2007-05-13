@@ -32,6 +32,7 @@ $adminEmail	= mosGetParam( $_POST, 'adminEmail', '');
 $siteUrl  	= mosGetParam( $_POST, 'siteUrl', '' );
 $absolutePath	= mosGetParam( $_POST, 'absolutePath', '' );
 $adminPassword	= mosGetParam( $_POST, 'adminPassword', '');
+$logo		= mosGetParam( $_POST, 'logo', '');
 
 if($DBhostname && $DBuserName && $DBname) {
 	$configArray['DBhostname']	= $DBhostname;
@@ -112,6 +113,18 @@ if (file_exists( '../configuration.php' )) {
 	$config .= "\$SMTP_FROM_NAME = '{$configArray['DBsmtpfromname1']}" . " " . "{$configArray['DBsmtpfromname2']}';\n";
 	$config .= "\$SMTP_FROM_EMAIL = '{$configArray['DBsmtpfromemail']}';\n";
 	$config .= "\$SMTP_FROM_REPLYTO = '{$configArray['DBsmtpreplyto']}';\n";
+
+	if ($logo != "") {
+	  $config .= "\DEFINE('_LOGO', '" . $logo . "');\n";
+	}
+	else {
+	  if (($DBSample == 1) || ($DBSample == 2)) {
+	    $config .= "DEFINE('_LOGO', 'sms_de.gif');\n";
+	  }
+	  else {
+	    $config .= "DEFINE('_LOGO', 'sms_en.gif');\n";
+	  }
+	}
 
 	$config .= "?>";
 
@@ -204,6 +217,7 @@ if (file_exists( '../configuration.php' )) {
 	// }
 	// $database->setQuery( $query );
 	// $database->query();
+
 // }
 
 echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";

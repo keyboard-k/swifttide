@@ -30,12 +30,12 @@ $studentid=$_SESSION['StudentId'];
 $disid=get_param("attid");
 
 //Get info
-$sSQL="SELECT studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname FROM ((((studentbio INNER JOIN attendance_history ON studentbio.studentbio_id = attendance_history.attendance_history_student) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history_id=$attid";
+$sSQL="SELECT studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname FROM ((((studentbio INNER JOIN attendance_history ON studentbio.studentbio_id = attendance_history.attendance_history_student) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history_id='$attid'";
 $attendance=$db->get_row($sSQL);
 
 //get the custom fields associated with this attendance event added by Joshua
 $custom_attendance_sql = "SELECT * from custom_attendance_history, custom_fields 
-	WHERE (custom_attendance_history.custom_field_id = custom_fields.custom_field_id)
+	WHERE (custom_attendance_history.custom_field_id = custom_fields.custom_field_id) 
 	AND (attendance_history_id = '$attid')";
 $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 
