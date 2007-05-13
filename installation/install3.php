@@ -129,7 +129,7 @@ function changeDirPermsMode(mode)
 	</div>
 </div>
 <div id="ctr" align="center">
-	<form action="install4.php" method="post" name="form" id="form" onsubmit="return check();">
+	<form enctype="multipart/form-data" action="install4.php" method="post" name="form" id="form" onsubmit="return check();">
 	<input type="hidden" name="DBhostname" value="<?php echo "$DBhostname"; ?>" />
 	<input type="hidden" name="DBuserName" value="<?php echo "$DBuserName"; ?>" />
 	<input type="hidden" name="DBpassword" value="<?php echo "$DBpassword"; ?>" />
@@ -145,6 +145,8 @@ function changeDirPermsMode(mode)
 	<input type="hidden" name="DBSample" value="<?php echo "$DBSample"; ?>" />
 	<input type="hidden" name="DBPrefix" value="<?php echo "$DBPrefix"; ?>" />
 	<input type="hidden" name="sitename" value="<?php echo "$sitename"; ?>" />
+	<input type="hidden" name="MAX_FILE_SIZE" value="100000">
+	<input type="hidden" name="logo" value="<?php echo "$logo"; ?>" />
 	<div class="install">
 		<div id="stepbar">
 			<div class="step-off">pre-installation check</div>

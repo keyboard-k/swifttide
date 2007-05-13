@@ -32,7 +32,17 @@ $adminEmail	= mosGetParam( $_POST, 'adminEmail', '');
 $siteUrl  	= mosGetParam( $_POST, 'siteUrl', '' );
 $absolutePath	= mosGetParam( $_POST, 'absolutePath', '' );
 $adminPassword	= mosGetParam( $_POST, 'adminPassword', '');
-$logo		= mosGetParam( $_POST, 'logo', '');
+
+$uploaddir = '../pictures/';
+$logo		= $uploaddir . $_FILES['logo']['name'];
+
+if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploaddir . $_FILES['logo']['name'])) {
+	print "File is valid, and was successfully uploaded.\n";
+	print_r ($_FILES);
+} else {
+	print "Possible file upload attack!\n";
+	print_r ($_FILES);
+}
 
 if($DBhostname && $DBuserName && $DBname) {
 	$configArray['DBhostname']	= $DBhostname;
