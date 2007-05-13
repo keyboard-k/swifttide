@@ -1,7 +1,7 @@
 <?php
 DEFINE ('_VALID', 1);
 include "lang_de.php";
-DEFINE('_LOGO', '../pictures/0126.jpg');
+DEFINE('_LOGO', '../pictures/0208.jpg');
 
 $db_server = 'localhost';
 $db_name = 'new';
