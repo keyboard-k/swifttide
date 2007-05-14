@@ -2884,7 +2884,7 @@ DEFINE('_ADMIN_SPEAK_UPDATE', 'Aktualisieren');
 DEFINE('_CONTACT_SPEAK_TEACHER', 'Lehrer');
 DEFINE('_CONTACT_SPEAK_DAY', 'Tag');
 DEFINE('_CONTACT_SPEAK_PERIOD', 'Stunde');
-DEFINE('_CONTACT_SPEAK_UPPER', 'Konakt Bereich');
+DEFINE('_CONTACT_SPEAK_UPPER', 'Kontakt Bereich');
 DEFINE('_CONTACT_SPEAK_TITLE', 'Sprechstunden anzeigen');
 
 /** teacher_speak.php */

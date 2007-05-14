@@ -22,6 +22,9 @@ include_once "common.php";
 // Include configuration
 include_once "configuration.php";
 
+$tfname=$_SESSION['tfname'];
+$tlname=$_SESSION['tlname'];
+
 // Get list of rooms
 $sSQL="SELECT * FROM school_rooms ORDER BY school_rooms_id";
 $schoolrooms=$db->get_results($sSQL);
@@ -42,12 +45,12 @@ $new_homework_file_title = get_param("new_homework_file_title");
 $homework_file_id = get_param("homework_file_id");
 
 $teacher_query = "SELECT * FROM teachers, web_users 
-	WHERE (web_users.web_users_id = $_SESSION[UserId]) 
+	WHERE (web_users.web_users_id = " . $_SESSION['UserId'] . ") 
 	AND (web_users.web_users_relid = teachers.teachers_id)";
 $teacher = $db->get_row($teacher_query);
 
-$fixed_date_assigned = fix_date($date_assigned);
-$fixed_date_due = fix_date($date_due);
+if ($date_assigned) { $fixed_date_assigned = fix_date($date_assigned); }
+if ($date_due) { $fixed_date_due = fix_date($date_due); }
 
 if($action == 'add') {
 	$new_homework_query = "INSERT into homework SET 
@@ -232,7 +235,8 @@ function deleteHomeworkFile(homework_form_name, homework_file_id) {
 <script language="JavaScript" src="datepicker.js"></script>
 </head>
 
-<body>
+<body><img src="images/<? echo _LOGO?>" border="0">
+
 <div id="Header">
 <table width="95%">
   <tr>
@@ -242,7 +246,6 @@ function deleteHomeworkFile(homework_form_name, homework_file_id) {
 </table>
 </div>
 
-<img src="images/<? echo _LOGO?>" border="0">
 <!-- the homework content table -->
 <div id="Content">
 <h1><? echo _TEACHERS_HOMEWORK_TITLE?></h1>

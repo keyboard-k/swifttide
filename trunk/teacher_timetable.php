@@ -25,6 +25,7 @@ include_once "ez_results.php";
 include_once "common.php";
 // Include configuration
 include_once "configuration.php";
+$msgForErr="";
 
 $tfname=$_SESSION['tfname'];
 $tlname=$_SESSION['tlname'];
