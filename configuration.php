@@ -1,12 +1,12 @@
 <?php
 DEFINE ('_VALID', 1);
 include "lang_de.php";
-DEFINE('_LOGO', '../pictures/0208.jpg');
+DEFINE('_LOGO', 'sms_de.gif');
 
 $db_server = 'localhost';
-$db_name = 'new';
-$db_user = 'root';
-$db_password = 'ani';
+$db_name = 's2';
+$db_user = 'test';
+$db_password = 'test';
 
 $SMTP_SERVER = '213.153.32.136';
 $SMTP_USER = '';

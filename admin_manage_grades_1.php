@@ -21,6 +21,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // config
 include_once "configuration.php";
+$msgFormErr="";
 
 //Set proper menu
 $menustudent=1;
