@@ -31,8 +31,17 @@ $tfname=$_SESSION['tfname'];
 $tlname=$_SESSION['tlname'];
 $msgteachers=$db->get_var("SELECT messageto_teachers FROM tbl_config WHERE id=1");
 
+//Get list of rooms
+$sSQL="SELECT * FROM school_rooms ORDER BY school_rooms_id";
+$schoolrooms=$db->get_results($sSQL);
+
 // get students' name whose birthday is today
-$sSQL="SELECT studentbio_lname, studentbio_fname, studentbio_gender, studentbio_homeroom, studentbio_dob, CURDATE(), (YEAR(CURDATE())-YEAR(studentbio_dob)) - (RIGHT(CURDATE(),5)<RIGHT(studentbio_dob,5)) FROM studentbio WHERE (MONTH(studentbio_dob) = MONTH(CURDATE())) AND (DAY(studentbio_dob) = DAY(CURDATE()))";
+$sSQL="SELECT studentbio_lname, studentbio_fname, studentbio_gender, school_rooms_desc, studentbio_dob, CURDATE(), (YEAR(CURDATE())-YEAR(studentbio_dob)) - (RIGHT(CURDATE(),5)<RIGHT(studentbio_dob,5)) 
+FROM studentbio 
+INNER JOIN school_rooms ON studentbio_homeroom = school_rooms_id 
+WHERE (MONTH(studentbio_dob) = MONTH(CURDATE())) 
+AND (DAY(studentbio_dob) = DAY(CURDATE())) 
+ORDER BY studentbio_dob DESC";
 
 if ($srch = $db->get_results($sSQL)){
 //Set paging appearence
