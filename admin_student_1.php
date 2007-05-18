@@ -133,8 +133,8 @@ function submitform(fldName, frmNumb)
 			    </select>
 			     <select size="1" name="gender">
 				    <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_GENDER?></option>
-					<option value="male"><? echo _MALE?></option>
-					<option value="female"><? echo _FEMALE?></option>
+					<option value="<? echo _MALE?>"><? echo _MALE?></option>
+					<option value="<? echo _FEMALE?>"><? echo _FEMALE?></option>
 	             </select> 
 			     <select size="1" name="ethnicity">
 				   <option value="" selected=selected><? echo _ADMIN_STUDENT_1_BY_ETHNICITY?></option>

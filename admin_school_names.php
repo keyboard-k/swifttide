@@ -33,7 +33,7 @@ switch ($action){
 	case "remove":
 		$school_names_id=get_param("id");
 		if($norem=$db->get_results("SELECT studentbio_school FROM studentbio WHERE studentbio_school=$school_names_id")){
-			$msgFormErr=_ADMIN_SCHOOL_NAMES_FOR_ERROR;
+			$msgFormErr=_ADMIN_SCHOOL_NAMES_FORM_ERROR;
 		}else{
 			$sSQL="DELETE FROM school_names WHERE school_names_id=$school_names_id";
 			$db->query($sSQL);

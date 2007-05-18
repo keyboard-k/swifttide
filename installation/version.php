@@ -76,6 +76,7 @@ $version = $_VERSION->PRODUCT .' '. $_VERSION->RELEASE .'.'. $_VERSION->DEV_LEVE
 .' [ '.$_VERSION->CODENAME .' ] '. $_VERSION->RELDATE .' '
 . $_VERSION->RELTIME .' '. $_VERSION->RELTZ;
 
-$release = $_VERSION->RELEASE .'.'. $_VERSION->DEV_LEVEL;
+// $release = $_VERSION->RELEASE .'.'. $_VERSION->DEV_LEVEL;
+$release = $_VERSION->RELEASE;
 
 ?>
