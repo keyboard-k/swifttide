@@ -2457,6 +2457,7 @@ DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_ZIP', 'You have to provide a zip for the cont
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_PHONE', 'You have to provide at least one phone number for the contact.');
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_EMAIL', 'The value in field Email has to be a valid address.');
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_ALL', 'You have to fill in all values.');
+DEFINE('_ADMIN_ADD_STUDENT_3_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_ADD_STUDENT_3_TITLE', 'Error Adding Primary Contact');
 DEFINE('_ADMIN_ADD_STUDENT_3_ERROR_BACK', 'Please use your browser \'back\' button to correct the following error(s):');
 DEFINE('_ADMIN_ADD_STUDENT_3_TITLE_SUCCESS', 'Successfully Added New Student and Primary Contact');
