@@ -343,7 +343,7 @@ name="addp" value="<? echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" oncli
 		  <?
 		  //display custom field list by Joshua
             if(count($student_custom_fields)) {
-			?><tr><td colspan=3><h2><? echo _ADMIN_EDIT_STUDENT_1_CUTSOM_FIELDS?></h2></td></tr>
+			?><tr><td colspan=3><h2><? echo _ADMIN_EDIT_STUDENT_1_CUSTOM_FIELDS?></h2></td></tr>
 			<tr><td colspan=3><table width="100%"><?
      	     foreach($student_custom_fields as $student_custom_field) {
   				?><tr><td class="tblhead"><?

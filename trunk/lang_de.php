@@ -2457,6 +2457,7 @@ DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_ZIP', 'Bitte die PLZ der Kontaktperson eingeb
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_PHONE', 'Bitte mindestens eine Telefonnummer der Kontaktperson eingeben.');
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_EMAIL', 'Die Email Adresse mu&szlig; g&uuml;ltig sein.');
 DEFINE('_ADMIN_ADD_STUDENT_3_ENTER_ALL', 'Bitte alle Werte eingeben.');
+DEFINE('_ADMIN_ADD_STUDENT_3_UPPER', 'Administrator Bereich');
 DEFINE('_ADMIN_ADD_STUDENT_3_TITLE', 'Fehler beim Einf&uuml;gen');
 DEFINE('_ADMIN_ADD_STUDENT_3_ERROR_BACK', 'Bitte gehen Sie eine Seite zur&uuml;ck, um diese(n) Fehler zu korrigieren:');
 DEFINE('_ADMIN_ADD_STUDENT_3_TITLE_SUCCESS', 'Neuen Sch&uuml;ler und Kontaktperson erfolgreich hinzugef&uuml;gt');
