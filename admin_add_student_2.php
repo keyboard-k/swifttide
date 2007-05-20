@@ -76,7 +76,7 @@ if ($msgFormErr==""){
 	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_internalid='$internalid'";
 	$dblid=$db->get_row($sSQL);
 	if (strlen($dblid->studentbio_lname))
-		$msgFormErr.= _ADMIN_ADD_STUDENT_2_FORM_ERROR . $dblid->studentbio_fname ." ".$dblid->studentbio_lname ."<br>";
+		$msgFormErr.= _ADMIN_ADD_STUDENT_2_FORM_ERROR2 . $dblid->studentbio_fname ." ".$dblid->studentbio_lname ."<br>";
 	//Get list of states
 	$states=$db->get_results("SELECT * FROM tbl_states ORDER BY state_code");
 
