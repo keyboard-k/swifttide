@@ -2898,3 +2898,20 @@ DEFINE('_TEACHER_SPEAK_TITLE', 'Speaking Hours');
 DEFINE('_TEACHER_SPEAK_UPDATE_SUBJECT', 'Update Own Speaking Hour');
 DEFINE('_TEACHER_SPEAK_UPDATE', 'Update Speaking Hour');
 
+/** admin_books.php */
+
+DEFINE('_ADMIN_BOOKS_ADMIN_AREA', 'Administrator Area');
+DEFINE('_ADMIN_BOOKS_TITLE', 'Ordering Books');
+DEFINE('_ADMIN_BOOKS_TEXT', 'Please enter the ISBN number and the quantity of the book you want to order.');
+DEFINE('_ADMIN_BOOKS_TEXT2', 'Note that the order is binding!');
+DEFINE('_ADMIN_BOOKS_ISBN', 'ISBN Number');
+DEFINE('_ADMIN_BOOKS_QUANTITY', 'Quantity');
+DEFINE('_ADMIN_BOOKS_ORDER', 'Order now!');
+
+/** admin_books_2.php */
+
+DEFINE('_ADMIN_BOOKS_2_MESSAGE1', 'New book order!');
+DEFINE('_ADMIN_BOOKS_2_MESSAGE2', 'This book has been ordered:');
+DEFINE('_ADMIN_BOOKS_2_MESSAGE3', 'Quantity:');
+DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Book Order');
+
