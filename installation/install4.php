@@ -130,10 +130,10 @@ if (file_exists( '../configuration.php' )) {
 
 	$config .= "\$SMTP_SERVER = '{$configArray['DBsmtpserver']}';\n";
 	$config .= "\$SMTP_USER = '{$configArray['DBsmtpuser']}';\n";
-	$config .= "\$SMTP_PASS = '{$configArray['DBsmtppass']}';\n";
+	$config .= "\$SMTP_PASSWORD = '{$configArray['DBsmtppass']}';\n";
 	$config .= "\$SMTP_FROM_NAME = '{$configArray['DBsmtpfromname1']}" . " " . "{$configArray['DBsmtpfromname2']}';\n";
 	$config .= "\$SMTP_FROM_EMAIL = '{$configArray['DBsmtpfromemail']}';\n";
-	$config .= "\$SMTP_FROM_REPLYTO = '{$configArray['DBsmtpreplyto']}';\n";
+	$config .= "\$SMTP_REPLY_TO = '{$configArray['DBsmtpreplyto']}';\n";
 
 	$config .= "?>\n";
 

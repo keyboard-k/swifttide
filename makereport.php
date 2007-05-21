@@ -19,6 +19,12 @@ include_once "configuration.php";
 
 global $sort1;
 global $sort2;
+$report_type = get_param("report_type");
+$sort1 = get_param("sort1");
+$sort2 = get_param("sort2");
+// echo "report_type=$report_type";
+// echo "sort1=$sort1";
+// echo "sort2=$sort2";
 
 function getGrades() {
 	$grades = array();
@@ -74,7 +80,7 @@ studentbio.studentbio_id = student_grade_year.student_grade_year_student
 AND studentbio.studentbio_school = school_names.school_names_id AND 
 studentbio.studentbio_ethnicity = ethnicity.ethnicity_id AND 
 grades.grades_id = student_grade_year.student_grade_year_grade AND 
-studentbio.studentbio_active = '1' order by $sort1, $sort2, 
+studentbio.studentbio_active = '1' order by " . $sort1 . ", " . $sort2 . ", 
 studentbio_lname ASC");
 		} else {
 			$q = mysql_query("SELECT * FROM studentbio, 
@@ -83,7 +89,7 @@ studentbio.studentbio_id = student_grade_year.student_grade_year_student
 AND studentbio.studentbio_school = school_names.school_names_id AND 
 studentbio.studentbio_ethnicity = ethnicity.ethnicity_id AND 
 grades.grades_id = student_grade_year.student_grade_year_grade AND 
-studentbio.studentbio_active = '1' order by $sort1, studentbio_lname 
+studentbio.studentbio_active = '1' order by " . $sort1 . ", studentbio_lname 
 ASC");
 		}
 		if (mysql_errno()) {
@@ -101,7 +107,8 @@ ASC");
 			unset($sort2);
 		$start_db_date = fix_date($start_db_date);
 		$end_db_date = fix_date($end_db_date);
-		$thing = _MAKE_REPORT_THING;
+		// $thing = _MAKE_REPORT_THING;
+		$thing = "Discipline report from $start_db_date to $end_db_date";
 		$pdf=new PDF();
 		$w=array(25,30,25,25,30,55);
 		$pdf->Open();

@@ -1,6 +1,6 @@
 <?
 session_start();
-//Inizialize databse functions
+//Inizialize database functions
 include_once "ez_sql.php";
 
 //Include global functions
@@ -27,26 +27,26 @@ require_once "class.phpmailer.php";
 $mail = new PHPMailer();
 
 $mail->IsSMTP();  // send via SMTP
-$mail->Host     = SMTP_SERVER; // SMTP servers
+$mail->Host     = $SMTP_SERVER; // SMTP servers
 $mail->SMTPAuth = true;     // turn on SMTP authentication
-$mail->Username = SMTP_USER;  // SMTP username
-$mail->Password = SMTP_PASSWORD; // SMTP password
-$mail->From     = SMTP_FROM_EMAIL;
-$mail->FromName = SMTP_FROM_NAME;
-$mail->AddAddress(SMTP_FROM_EMAIL, _ADMIN_PROCESS_MASS_MAIL_GENERAL);
+$mail->Username = $SMTP_USER;  // SMTP username
+$mail->Password = $SMTP_PASSWORD; // SMTP password
+$mail->From     = $SMTP_FROM_EMAIL;
+$mail->FromName = $SMTP_FROM_NAME;
+$mail->AddAddress($SMTP_FROM_EMAIL,_ADMIN_PROCESS_MASS_MAIL_GENERAL);
 if ($mailto!="both"){
    foreach ($emails as $email){
-     $mail->AddBCC($email->email);
+     if ($emails->email != "") { $mail->AddBCC($email->email); }
    };
 }else{
    foreach ($emails_teach as $emails){
-     $mail->AddBCC($emails->email);
+     if ($emails->email != "") { $mail->AddBCC($emails->email); }
    };
    foreach ($emails_conta as $emails){
-     $mail->AddBCC($emails->email);
+     if ($emails->email != "") { $mail->AddBCC($emails->email); }
    };
 };
-$mail->AddReplyTo(SMPT_REPLY_TO,SMTP_FROM_NAME);
+$mail->AddReplyTo($SMTP_REPLY_TO,$SMTP_FROM_NAME);
 $mail->WordWrap = 70;     // set word wrap
 $mail->Subject  =  $subject;
 $mail->Body = $message;
@@ -54,4 +54,5 @@ if($mail->Send()){
 	header("Location: admin_main_menu.php");
 	exit();
 };
+echo $mail->ErrorInfo;
 ?>

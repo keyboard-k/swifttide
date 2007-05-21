@@ -9,9 +9,9 @@ $db_user = 'test';
 $db_password = 'test';
 
 $SMTP_SERVER = '213.153.32.136';
-$SMTP_USER = '';
-$SMTP_PASS = '';
+$SMTP_USER = 'test';
+$SMTP_PASSWORD = 'test';
 $SMTP_FROM_NAME = 'Helmut Leinfellner';
 $SMTP_FROM_EMAIL = 'h.leinfellner@sbg.at';
-$SMTP_FROM_REPLYTO = 'h.leinfellner@sbg.at';
+$SMTP_REPLY_TO = 'h.leinfellner@sbg.at';
 ?>
