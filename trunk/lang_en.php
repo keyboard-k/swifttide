@@ -21,6 +21,7 @@ DEFINE('_NEW', 'New');
 DEFINE('_HOST', 'localhost');
 DEFINE('_DATE_FORMAT', 'l F j, Y');
 DEFINE('_EXAMS_DATE', '%m/%d/%Y');
+DEFINE('_STUDENTBIO_DATE', '%m/%d/%Y');
 DEFINE('_CAL_FORMAT', 'MM/DD/YYYY');
 DEFINE('_MONDAY', 'Mo');
 DEFINE('_TUESDAY', 'Tu');

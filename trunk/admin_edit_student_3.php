@@ -36,8 +36,7 @@ $sSQL="SELECT * FROM school_rooms ORDER BY school_rooms_desc";
 $rooms = $db->get_results($sSQL);
 
 //Gather student info
-$sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, 
-'" . _EXAMS_DATE . "') as sdob, ethnicity.ethnicity_desc, 
+$sSQL="SELECT studentbio.*, studentbio.studentbio_dob as sdob, ethnicity.ethnicity_desc, 
 school_names.school_names_desc, generations.generations_desc, 
 grades.grades_desc, school_rooms_desc, student_grade_year_grade 
 FROM (((((studentbio INNER JOIN generations ON 
@@ -300,11 +299,9 @@ strip($studentinfo->school_rooms_desc); ?>">
 		<?php
 		//Display rooms from table
 		foreach($rooms as $room){
-		if ($_POST['homeroom'] == $room->school_rooms_id) {
-		echo "<option value=".$room->school_rooms_id." selected='selected'>".$room->school_rooms_desc."</option>";
-		} else {
-		echo "<option value=".$room->school_rooms_id.">".$room->school_rooms_desc."</option>";
-		}
+		?>
+		<option value="<? echo $room->school_rooms_id; ?>" <? if ($room->school_rooms_id==$studentinfo->studentbio_homeroom){echo "selected=selected";};?>><? echo $room->school_rooms_desc; ?></option>
+		<?
 		}
 		?>
 		</select>
@@ -321,7 +318,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 				   ?>
                 </select>
               </td>
-              <td width="25%" class="tdinput"><input type="text" onchange="this.value=this.value.toUpperCase();" name="bus" size="18" value="<? echo $studentinfo->studentbio_bus; ?>">
+              <td width="25%" class="tdinput"><input type="text" name="bus" size="18" value="<? echo $studentinfo->studentbio_bus; ?>">
               </td>
             </tr>
           </table>
