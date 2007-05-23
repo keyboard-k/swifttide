@@ -39,7 +39,7 @@ $rooms = $db->get_results($sSQL);
 $sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, 
 '" . _EXAMS_DATE . "') as sdob, ethnicity.ethnicity_desc, 
 school_names.school_names_desc, generations.generations_desc, 
-grades.grades_desc, school_rooms_desc 
+grades.grades_desc, school_rooms_desc, student_grade_year_grade 
 FROM (((((studentbio INNER JOIN generations ON 
 studentbio.studentbio_generation = generations.generations_id) 
 INNER JOIN ethnicity ON studentbio.studentbio_ethnicity = ethnicity.ethnicity_id) 
@@ -170,8 +170,8 @@ $entries = $db->get_results($entries_sql);
             <tr>
               <td width="20%" class="tdinput">
 			     <select size="1" name="gender">
-			      <option value="Male" <? if($studentinfo->studentbio_gender=='Male'){echo "selected=selected";};?>>Male</option>
-                  <option value="Female" <? if($studentinfo->studentbio_gender=='Female'){echo "selected=selected";};?>>Female</option>
+			      <option value="<? echo _MALE?>" <? if($studentinfo->studentbio_gender==_MALE){echo "selected=selected";};?>><? echo _MALE?></option>
+                  <option value="<? echo _FEMALE?>" <? if($studentinfo->studentbio_gender==_FEMALE){echo "selected=selected";};?>><? echo _FEMALE?></option>
                  </select>
               </td>
               <td width="35%" class="tdinput">
@@ -234,15 +234,18 @@ $entries = $db->get_results($entries_sql);
 	    		if($s->school_names_id == $studentinfo->studentbio_school) {echo" selected";}?>>
 	    	<?echo($s->school_names_desc);?></option><?
 	    	}
-	   ?> </select> <? echo _ADMIN_EDIT_STUDENT_3_ON?> <input type="text" name="new_action_date" size=10 value="<?
+	   ?> </select>
+	   <br>
+	   <? echo _ADMIN_EDIT_STUDENT_3_ON?> <input type="text" name="new_action_date" size=10 value="<?
 	   $default_date_sql = "SELECT default_entry_date FROM tbl_config";
 	   $default_entry_date = $db->get_var($default_date_sql);
-	   echo($default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('addstudent.new_action_date');"><a href="javascript:show_calendar('addstudent.new_action_date');"><img src="images/cal.gif" border="0" class="imma"></a> <? echo _ADMIN_EDIT_STUDENT_3_FOR_YEAR?><select name="new_action_school_year"><?
+	   echo($default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('addstudent.new_action_date');"><a href="javascript:show_calendar('addstudent.new_action_date');"><img src="images/cal.gif" border="0" class="imma"></a>
+	   <? echo _ADMIN_EDIT_STUDENT_3_FOR_YEAR?><select name="new_action_school_year"><?
 	   $syq = "SELECT * FROM school_years";
 	   $all_school_years = $db->get_results($syq);
 	   foreach($all_school_years as $sy) {
 	   	?><option value="<?echo($sy->school_years_id);?>"<?
-	   	if($sy->school_years_id == $current_year_id) {echo" selected";} ?>><?
+	   	if($sy->school_years_id == $current_year) {echo" selected";} ?>><?
 	   	echo($sy->school_years_desc);
 	   	?></option><?
 	   }
@@ -390,7 +393,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 	   //Display grades from table
 	   foreach($grades as $grade){
 	   ?>
-       <option value="<? echo $grade->grades_id; ?>" <? if ($grade->grades_id==$studentinfo->studentbio_grade){echo "selected=selected";};?>><? echo $grade->grades_desc; ?></option>
+       <option value="<? echo $grade->grades_id; ?>" <? if ($grade->grades_id==$studentinfo->student_grade_year_grade){echo "selected=selected";};?>><? echo $grade->grades_desc; ?></option>
 	   <?
 	   };
 	   ?>

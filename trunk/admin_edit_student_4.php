@@ -102,7 +102,7 @@ if (!strlen($msgFormErr)){
 		$db->query($sSQL);
 		
 		//update students custom fields added by Joshua
-		if(count($student_custom_fields) && $student_custom_field != NULL) {
+		if(count($student_custom_fields) && $student_custom_fields != NULL) {
 			while(list($custom_student_id, $custom_student_data)  = each($student_custom_fields)) {
 				if($custom_student_id == '0') {
 					//delete the field if delete is selected
