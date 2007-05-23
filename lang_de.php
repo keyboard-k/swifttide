@@ -601,6 +601,8 @@ DEFINE('_REPORT_STUDENT_HEADER', 'Bericht aktive Sch&uuml;ler');
 DEFINE('_REPORT_STUDENT_ROUTE', 'Verkehrsmittel');
 DEFINE('_REPORT_STUDENT_HOME', 'Klassenzimmer ');
 DEFINE('_REPORT_STUDENT_INTERNAL', 'Interne Nummer');
+DEFINE('_REPORT_STUDENT_DOB', 'Geburtstag');
+DEFINE('_REPORT_STUDENT_SCHOOL', 'Schule');
 DEFINE('_REPORT_STUDENT_GRADE', 'Klasse');
 DEFINE('_REPORT_STUDENT_ETHNICITY', 'Zugeh&ouml;rigkeit');
 DEFINE('_REPORT_STUDENT_NONE', 'Keine passenden Eintr&auml;ge');
@@ -1174,7 +1176,7 @@ DEFINE('_DOWN_REPORTS_ROUTE', 'Verkehrsmittel');
 DEFINE('_DOWN_REPORTS_HOME', 'Klassenzimmer');
 DEFINE('_DOWN_REPORTS_BY', 'nach');
 DEFINE('_DOWN_REPORTS_NONE', 'nicht sortiert');
-DEFINE('_DOWN_REPORTS_DOWNLOAD', 'Download Bericht');
+DEFINE('_DOWN_REPORTS_DOWNLOAD', 'PDF Bericht erstellen');
 
 /** displayforum.php */
 
@@ -1677,9 +1679,11 @@ DEFINE('_ADMIN_REPORTS_ETH', 'Nationalit&auml;t');
 DEFINE('_ADMIN_REPORTS_GENDER', 'Geschlecht');
 DEFINE('_ADMIN_REPORTS_ROUTE', 'Verkehrsmittel');
 DEFINE('_ADMIN_REPORTS_HOME', 'Klassenzimmer');
+DEFINE('_ADMIN_REPORTS_FROM', 'von');
+DEFINE('_ADMIN_REPORTS_TO', 'bis');
 DEFINE('_ADMIN_REPORTS_BY', 'nach');
 DEFINE('_ADMIN_REPORTS_NONE', 'nicht sortiert');
-DEFINE('_ADMIN_REPORTS_DOWNLOAD', 'Download Bericht');
+DEFINE('_ADMIN_REPORTS_DOWNLOAD', 'HTML Bericht erstellen');
 
 /** admin_relations.php */
 
@@ -1703,7 +1707,7 @@ DEFINE('_ADMIN_RELATIONS_UPDATE', 'Aktualisieren');
 
 DEFINE('_ADMIN_MENU_INC_YEAR', 'Jahr');
 DEFINE('_ADMIN_MENU_INC_MAINT', 'Tabellen Verwaltung');
-DEFINE('_ADMIN_MENU_INC_MAINT_TEXT', 'Zu den Tabellen ->');
+DEFINE('_ADMIN_MENU_INC_MAINT_TEXT', 'Tabellen');
 DEFINE('_ADMIN_MENU_INC_USER', 'Benutzer Logins verwalten');
 DEFINE('_ADMIN_MENU_INC_USER_TEXT', 'Benutzer Logins');
 DEFINE('_ADMIN_MENU_INC_STUDENTS', 'Sch&uuml;ler');
@@ -1734,7 +1738,7 @@ DEFINE('_ADMIN_MENU_INC_PASS_TEXT', 'Passwort');
 DEFINE('_ADMIN_MENU_INC_REP', 'HTML Berichte');
 DEFINE('_ADMIN_MENU_INC_REP_TEXT', 'HTML Berichte');
 DEFINE('_ADMIN_MENU_INC_DOWN', 'Berichte herunterladen');
-DEFINE('_ADMIN_MENU_INC_DOWN_TEXT', 'Download Berichte');
+DEFINE('_ADMIN_MENU_INC_DOWN_TEXT', 'PDF Berichte');
 DEFINE('_ADMIN_MENU_INC_GEN', 'Berichte erstellen');
 DEFINE('_ADMIN_MENU_INC_GEN_TEXT', 'Berichte');
 DEFINE('_ADMIN_MENU_INC_LOGOUT', 'Vom System abmelden');
@@ -1744,7 +1748,7 @@ DEFINE('_ADMIN_MENU_INC_LOGOUT_TEXT', 'Logout');
 
 DEFINE('_ADMIN_MENU_FORUM_INC_YEAR', 'Jahr');
 DEFINE('_ADMIN_MENU_FORUM_INC_MAINT', 'Tabellen-Verwaltung');
-DEFINE('_ADMIN_MENU_FORUM_INC_MAINT_TEXT', 'Zu den Tabellen ->');
+DEFINE('_ADMIN_MENU_FORUM_INC_MAINT_TEXT', 'Tabellen');
 DEFINE('_ADMIN_MENU_FORUM_INC_USER', 'Benutzer Logins verwalten');
 DEFINE('_ADMIN_MENU_FORUM_INC_USER_TEXT', 'Benutzer Logins');
 DEFINE('_ADMIN_MENU_FORUM_INC_STUDENTS', 'Sch&uuml;ler');
@@ -1771,7 +1775,7 @@ DEFINE('_ADMIN_MENU_FORUM_INC_PASS_TEXT', 'Passwort');
 DEFINE('_ADMIN_MENU_FORUM_INC_REP', 'HTML Berichte');
 DEFINE('_ADMIN_MENU_FORUM_INC_REP_TEXT', 'HTML Berichte');
 DEFINE('_ADMIN_MENU_FORUM_INC_DOWN', 'Berichte herunterladen');
-DEFINE('_ADMIN_MENU_FORUM_INC_DOWN_TEXT', 'Download Berichte');
+DEFINE('_ADMIN_MENU_FORUM_INC_DOWN_TEXT', 'PDF Berichte');
 DEFINE('_ADMIN_MENU_FORUM_INC_GEN', 'Berichte erstellen');
 DEFINE('_ADMIN_MENU_FORUM_INC_GEN_TEXT', 'Berichte');
 DEFINE('_ADMIN_MENU_FORUM_INC_LOGOUT', 'Vom System abmelden');

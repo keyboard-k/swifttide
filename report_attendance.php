@@ -19,8 +19,8 @@ if(!$sorted_2) $sorted_2 = $GET['sorted_2'];
 if(!$start_date) $start_date = $GET['start_date'];
 if(!$end_date) $end_date = $GET['end_date'];
 
-if($start_date) $start_db_date = fix_date($start_date);
-if($end_date) $end_db_date = fix_date($end_date);
+if($start_db_date) $start_db_date = fix_date($start_date);
+if($end_db_date) $end_db_date = fix_date($end_date);
 
 $q = "SELECT * FROM attendance_history, attendance_codes, studentbio, 
 	student_grade_year, school_names, ethnicity, grades WHERE 
