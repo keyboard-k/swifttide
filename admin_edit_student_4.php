@@ -39,8 +39,10 @@ if($sped=="")
 	$sped=0;
 $gender=get_param("gender");
 $ethnicity=get_param("ethnicity");
-$dob=strtotime(get_param("dob"));
-$dob=date("Y/m/d", $dob);
+// $dob=strtotime(get_param("dob"));
+// $dob=date("Y/m/d", $dob);
+// $dob=date("Y-m-d", strtotime(get_param("dob")));
+$dob=get_param("dob");
 $bcity=tosql(get_param("bcity"), "Text");
 $bstate=tosql(get_param("bstate"), "Text");
 $bcountry=tosql(get_param("bcountry"), "Text");
@@ -86,7 +88,7 @@ if(!strlen($sfname))
 if(!strlen($dob)){
       $msgFormErr .= _ADMIN_EDIT_STUDENT_4_ENTER_DOB . "<br>";
 }else{
-	list($year, $month, $day) = explode("/",$dob);
+	list($year, $month, $day) = explode("-",$dob);
 	if (!checkdate($month, $day, $year))
 		$msgFormErr .= _ADMIN_EDIT_STUDENT_4_FORM_ERROR . "<br>";
 };
