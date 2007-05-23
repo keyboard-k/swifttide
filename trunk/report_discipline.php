@@ -21,8 +21,8 @@ if(!$start_date) $start_date = $GET['start_date'];
 if(!$end_date) $end_date = $GET['end_date'];
 
 //fix the dates
-if($start_date) $start_db_date = fix_date($start_date);
-if($end_date) $end_db_date = fix_date($end_date);
+if($start_db_date) $start_db_date = fix_date($start_date);
+if($end_db_date) $end_db_date = fix_date($end_date);
 
 $q = "SELECT * FROM discipline_history, infraction_codes, studentbio, 
 	school_names, ethnicity, school_years, grades, student_grade_year WHERE 

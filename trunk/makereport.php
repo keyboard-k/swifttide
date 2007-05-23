@@ -25,6 +25,8 @@ $sort2 = get_param("sort2");
 // echo "report_type=$report_type";
 // echo "sort1=$sort1";
 // echo "sort2=$sort2";
+$start_db_date = get_param("start_db_date");
+$end_db_date = get_param("end_db_date");
 
 function getGrades() {
 	$grades = array();
@@ -105,8 +107,8 @@ ASC");
 	case "discipline":
 		if ($sort2 == 'none')
 			unset($sort2);
-		$start_db_date = fix_date($start_db_date);
-		$end_db_date = fix_date($end_db_date);
+		if ($start_db_date) { $start_db_date = fix_date($start_db_date); }
+		if ($end_db_date) { $end_db_date = fix_date($end_db_date); }
 		// $thing = _MAKE_REPORT_THING;
 		$thing = "Discipline report from $start_db_date to $end_db_date";
 		$pdf=new PDF();
@@ -175,8 +177,8 @@ studentbio_lname ASC";
 	case "attendance":
 		if ($sort2 == 'none') 
 			unset($sort2);
-		$start_db_date = fix_date($start_db_date);
-		if ($sort) {
+		if ($start_db_date) { $start_db_date = fix_date($start_db_date); }
+		if ($sort1) {
 			$q1 = "SELECT * FROM attendance_history, 
 attendance_codes, studentbio, student_grade_year, school_names, ethnicity, 
 grades WHERE (attendance_history.attendance_history_student = 

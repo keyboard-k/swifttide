@@ -49,8 +49,8 @@ $teacher_query = "SELECT * FROM teachers, web_users
 	AND (web_users.web_users_relid = teachers.teachers_id)";
 $teacher = $db->get_row($teacher_query);
 
-if ($date_assigned) { $fixed_date_assigned = fix_date($date_assigned); }
-if ($date_due) { $fixed_date_due = fix_date($date_due); }
+if ($fixed_date_assigned) { $fixed_date_assigned = fix_date($date_assigned); }
+if ($fixed_date_due) { $fixed_date_due = fix_date($date_due); }
 
 if($action == 'add') {
 	$new_homework_query = "INSERT into homework SET 

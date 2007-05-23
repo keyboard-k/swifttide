@@ -13,18 +13,22 @@ include_once"common.php";
 // Include configuration
 include_once "configuration.php";
 
-if(!$sorted_1) $sorted_1 = $GET['sorted_1'];
-if(!$sorted_2) $sorted_2 = $GET['sorted_2'];
+$sorted_1 = get_param("sorted_1");
+$sorted_2 = get_param("sorted_2");
 
-$q = "SELECT * FROM studentbio, student_grade_year, school_names, ethnicity, grades WHERE 
-	(studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
+// if(!$sorted_1) $sorted_1 = $GET['sorted_1'];
+// if(!$sorted_2) $sorted_2 = $GET['sorted_2'];
+
+$q = "SELECT * FROM studentbio, student_grade_year, school_names, ethnicity, grades, school_rooms 
+	WHERE (studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
 	AND (studentbio.studentbio_school = school_names.school_names_id) 
 	AND (studentbio.studentbio_ethnicity = ethnicity.ethnicity_id) 
 	AND (grades.grades_id = student_grade_year.student_grade_year_grade) 
+	AND (studentbio.studentbio_homeroom = school_rooms.school_rooms_id) 
 	AND (studentbio.studentbio_active = '1')";
-	
+
 $q .= " ORDER BY $sorted_1";
-if($sorted_2 == $sorted_1) $sorted_2 = 'none';
+// if($sorted_2 == $sorted_1) $sorted_2 = 'none';
 if($sorted_2 != 'none') $q .= ", $sorted_2";
 
 if($sorted_1 == "grades_id") $display_1 = 'grades_desc';
@@ -46,11 +50,14 @@ $r = $db->get_results($q);
 <body><?
 if(is_array($r)) {
 	echo"<table align='center' width='80%' cellpadding=5><th><? echo _REPORT_STUDENT_HEADER?></th>";
+	$ps1 = "";
+	$ps2 = "";
 	foreach($r as $s) {
 	
 		$cs1 = $s->{$sorted_1};
 		if($cs1 != $ps1) {
 			$cd1 = $s->{$display_1};
+			$heading_text_1 = "";
 			if($display_1 == 'studentbio_bus') $heading_text_1 = _REPORT_STUDENT_ROUTE;
 			else if($display_1 == 'studentbio_homeroom') $heading_text_1 = _REPORT_STUDENT_HOME;
 
@@ -61,6 +68,7 @@ if(is_array($r)) {
 			$cs2 = $s->{$sorted_2};
 			if($cs2 != $ps2) {
 				$cd2 = $s->{$display_2};
+				$heading_text_2 = "";
 				if($display_2 == 'studentbio_bus') $heading_text_2 = _REPORT_STUDENT_ROUTE;
 				else if($display_2 == 'studentbio_homeroom') $heading_text_2 = _REPORT_STUDENT_HOME;
 				echo"<tr><td align='right'><h2>$heading_text_2$cd2</h2></td></tr>";	
@@ -78,17 +86,17 @@ if(is_array($r)) {
 		echo"</tr></table></td></tr>";
 		//the static column headers
 		echo"<tr><td><table border=1 width='100%'><tr class='tblhead'>
-			<td><? echo _REPORT_STUDENT_INTERNAL?></td><td>DOB</td><td>School</td>";
+			<td>" . _REPORT_STUDENT_INTERNAL . "</td><td>" . _REPORT_STUDENT_DOB . "</td><td>" . _REPORT_STUDENT_SCHOOL . "</td>";
 		//the dynamic column headers
 		if($sorted_1 != 'grades_id' && $sorted_2 != 'grades_id') 
-			echo"<td><? echo _REPORT_STUDENT_GRADE?></td>";
+			echo"<td>" . _REPORT_STUDENT_GRADE . "</td>";
 		if($sorted_1 != 'studentbio_ethnicity' && $sorted_2 != 'studentbio_ethnicity')
-			echo"<td><? echo _REPORT_STUDENT_ETHNICITY?></td>";
+			echo"<td>" . _REPORT_STUDENT_ETHNICITY . "</td>";
 		if($sorted_1 != 'studentbio_homeroom' && $sorted_2 != 'studentbio_homeroom')
-			echo"<td><? echo _REPORT_STUDENT_HOME?></td>";
+			echo"<td>" . _REPORT_STUDENT_HOME . "</td>";
 		if($sorted_1 != 'studentbio_bus' && $sorted_2 != 'studentbio_bus')
-			echo"<td><? echo _REPORT_STUDENT_ROUTE?></td>";
-			
+			echo"<td>" . _REPORT_STUDENT_ROUTE . "</td>";
+
 		echo"</tr><tr class='tblcont'><td>$s->studentbio_internalid</td><td>$s->studentbio_dob</td>
 			<td>$s->school_names_desc</td>";
 		if($sorted_1 != 'grades_id' && $sorted_2 != 'grades_id') 
@@ -96,15 +104,15 @@ if(is_array($r)) {
 		if($sorted_1 != 'studentbio_ethnicity' && $sorted_2 != 'studentbio_ethnicity')
 			echo"<td>$s->ethnicity_desc</td>";
 		if($sorted_1 != 'studentbio_homeroom' && $sorted_2 != 'studentbio_homeroom')
-			echo"<td>$s->studentbio_homeroom</td>";
+			echo"<td>$s->school_rooms_desc</td>";
 		if($sorted_1 != 'studentbio_bus' && $sorted_2 != 'studentbio_bus')
 			echo"<td>$s->studentbio_bus</td>";
-		
+
 		echo"</tr></table></td></tr></table></td></tr></table></td></tr>";
 		$ps2 = $s->{$sorted_2};
 		$ps1 = $s->{$sorted_1};
 	}	
-		
+
 	?></table></body></html><?
 
 } else {
