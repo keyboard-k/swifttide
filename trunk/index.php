@@ -35,6 +35,7 @@ else $msgLogin="";
 //Start a session to check repetitive attempts to login
 session_start();
 $tryattempts = $_SESSION['tryattempts'];
+
 if(!strlen($tryattempts)){
 	set_session("tryattempts", "0");
 };

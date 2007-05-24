@@ -144,7 +144,7 @@ function submitform(fldName, frmNumb)
 	        <tr>
 			   <form name="srchid" method="POST" action="admin_contact_2.php">
 		       <td width="50%" class="tdinput">
-			    <select size="1" name="contact">
+			    <select size="1" name="contactid">
 				   <option value="" selected=selected><? echo _ADMIN_USERS_1_ALL_CONTACTS?></option>
 				   <?
 				   //Display Schools from table
@@ -159,13 +159,14 @@ function submitform(fldName, frmNumb)
 			   <input type="hidden" name="action" value="searchcontacts">
 	          </td>
 			  </form>
-			  <form name="srchlname" method="POST" action="admin_contact_2.php" onsubmit="return submitform('tlname', 1);">
+			  <form name="searchlname" method="POST" action="admin_contact_2.php" onsubmit="return submitform('cname', 1);">
 		      <td width="50%" class="tdinput">
-		        <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25"><input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
-			    <input type="hidden" name="action" value="srchlname">
+		        <input type="text" name="cname" size="25">
+			<input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
+			<input type="hidden" name="action" value="searchlname">
 	          </td>
-				</form>
-			    </tr>
+			  </form>
+		</tr>
 	      </table>
 	    </td>
 	  </tr>

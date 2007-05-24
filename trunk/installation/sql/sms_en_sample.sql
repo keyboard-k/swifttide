@@ -2392,6 +2392,13 @@ CREATE TABLE IF NOT EXISTS `tbl_config` (
   `default_state` char(2) default NULL,
   `default_zip` varchar(10) default NULL,
   `default_entry_date` varchar(10) default NULL,
+  `books_flname` varchar(50) default NULL,
+  `books_address` varchar(50) default NULL,
+  `books_city` varchar(30) default NULL,
+  `books_state` varchar(20) default NULL,
+  `books_zip` varchar(6) default NULL,
+  `books_country` varchar(20) default NULL,
+  `books_discount` int(5) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
