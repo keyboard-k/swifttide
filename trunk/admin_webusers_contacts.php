@@ -16,8 +16,10 @@ include_once "ez_results.php";
 // config
 include_once "configuration.php";
 
+$action=get_param("action");
 $letter=get_param("letter");
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -69,36 +71,38 @@ function submitform(fldName, frmNumb)
 			if (@mysql_num_rows($q) == 0) {
 				echo _ADMIN_WEBUSERS_CONTACTS_NO_DATA;
 			} else {
-				echo "<table width=100% cellpadding=2 cellspacing=0 border=1>";
-				while ($r = mysql_fetch_array($q)) {
-					$name = $r['studentcontact_fname']. "&nbsp;" .$r['studentcontact_lname'];
-					$cid=$r['studentcontact_id'];
-					echo "<tr>
-							<td>
-								$r[studentcontact_lname]
-							</td>
-							<td>
-								$r[studentcontact_fname]
-							</td>
-							<td>
-								<a 
-href=admin_webusers_active.php?act=1&contactid=$cid 
-class=aform>" . _ADMIN_WEBUSERS_CONTACTS_ACTIVATE . "</a>
-								/
-								<a 
-href=admin_webusers_active.php?act=0&contactid=$cid 
-class=aform>" . _ADMIN_WEBUSERS_CONTACTS_DEACTIVATE . "</a>
-							</td>
-							<td>
-								<a 
-href=admin_webusers_resetpass.php?contactid=$cid>" . _ADMIN_WEBUSERS_CONTACTS_PASS . "</a>
-							</td>
-						</tr>";
-				}
-				echo "</table>";				
+			echo "<table width=100% cellpadding=2 cellspacing=0 border=1>";
+			while ($r = mysql_fetch_array($q)) {
+				$name = $r['studentcontact_fname']. "&nbsp;" .$r['studentcontact_lname'];
+				$cid=$r['studentcontact_id'];
+				echo "<tr>
+					<td>
+						$r[studentcontact_lname]
+					</td>
+					<td>
+						$r[studentcontact_fname]
+					</td>
+					<td>
+					<a href=admin_webusers_active.php?act=1&contactid=$cid class=aform>" .
+					_ADMIN_WEBUSERS_CONTACTS_ACTIVATE . "</a>
+					</td>
+					<td>
+					<a href=admin_webusers_active.php?act=0&contactid=$cid class=aform>" .
+					_ADMIN_WEBUSERS_CONTACTS_DEACTIVATE . "</a>
+					</td>
+					<td>
+					<a href=admin_webusers_resetpass.php?contactid=$cid class=aform>" .
+					_ADMIN_WEBUSERS_CONTACTS_PASS . "</a>
+					</td>
+				</tr>";
+			}
+			echo "</table>";				
 			}
 	}
 ?>
+<br>
+<br>
+<a class="aform" href="admin_users_1.php"><? echo _ADMIN_WEBUSERS_CONTACTS_NEW?></a>
 </div>
 <? include "admin_menu.inc.php"; ?>
 </body>

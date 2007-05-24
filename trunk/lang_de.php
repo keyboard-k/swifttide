@@ -1367,6 +1367,7 @@ DEFINE('_ADMIN_WEBUSERS_CONTACTS_NO_DATA', 'Keine Daten.');
 DEFINE('_ADMIN_WEBUSERS_CONTACTS_ACTIVATE', 'Aktivieren');
 DEFINE('_ADMIN_WEBUSERS_CONTACTS_DEACTIVATE', 'De-Aktivieren');
 DEFINE('_ADMIN_WEBUSERS_CONTACTS_PASS', 'Passwort zur&uuml;cksetzen');
+DEFINE('_ADMIN_WEBUSERS_CONTACTS_NEW', 'Neue Suche');
 
 /** admin_webusers_resetpass.php */
 
@@ -1384,9 +1385,11 @@ DEFINE('_ADMIN_WEBUSERS_RESETPASS_USER3', '. Ein Email ist an den Benutzer versc
 
 DEFINE('_ADMIN_WEBUSERS_TEACHERS_ADMIN_AREA', 'Administrator Bereich');
 DEFINE('_ADMIN_WEBUSERS_TEACHERS_TITLE', 'Suchergebnis Lehrer');
+DEFINE('_ADMIN_WEBUSERS_TEACHERS_NODATA', 'Keine Lehrer gefunden.');
 DEFINE('_ADMIN_WEBUSERS_TEACHERS_ACTIVATE', 'Aktivieren');
 DEFINE('_ADMIN_WEBUSERS_TEACHERS_DEACTIVATE', 'De-Aktivieren');
 DEFINE('_ADMIN_WEBUSERS_TEACHERS_PASS', 'Passwort zur&uuml;cksetzen');
+DEFINE('_ADMIN_WEBUSERS_TEACHERS_NEW', 'Neue Suche');
 
 /** admin_users_1.php */
 

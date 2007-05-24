@@ -16,9 +16,9 @@ include_once "ez_sql.php";
 // config
 include_once "configuration.php";
 
-$teacherid=get_param("teacherid");
-$contactid =get_param("contactid");
-
+$teacherid = get_param("teacherid");
+$contactid = get_param("contactid");
+$act = get_param("act");
 
 //pq--What does this do???
 //$cid =get_param("contactid");
@@ -42,15 +42,15 @@ $contactid =get_param("contactid");
 switch ($act) {
 	case 1:
 		if ($teacherid)
-			mysql_query("update web_users SET active = 1 where web_users_type='T' and web_users_relid = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = 1 WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
 		if ($contactid)
-			mysql_query("update web_users set active = 1 where web_users_type='C' and web_users_flname LIKE '$contactid'");
+			mysql_query("UPDATE web_users SET active = 1 WHERE web_users_type='C' AND web_users_relid = '$contactid'");
 		break;
 	case 0:
 		if ($teacherid)
-			mysql_query("update web_users set active = 0 where web_users_type='T' and web_users_relid = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = 0 WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
 		if ($contactid)
-			mysql_query("update web_users set active = 0 where web_users_type='C' and web_users_flname LIKE '$contactid'");
+			mysql_query("UPDATE web_users SET active = 0 WHERE web_users_type='C' AND web_users_relid = '$contactid'");
 		break;
 }
 

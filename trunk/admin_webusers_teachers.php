@@ -18,6 +18,9 @@ include_once "ez_results.php";
 $letter=get_param("letter");
 // config
 include_once "configuration.php";
+
+$action = get_param("action");
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -68,36 +71,34 @@ function submitform(fldName, frmNumb)
 			$q = mysql_query("select * FROM teachers where teachers_lname LIKE '".$letter."%' ");
 //			$q = mysql_query("select * from web_users where web_users_type='T' and web_users_flname LIKE '% ".$letter."%'");
 			if (@mysql_num_rows($q) == 0) {
-				echo "No data found.";
+				echo _ADMIN_WEBUSERS_TEACHERS_NODATA;
 			} else {
-				echo "<table width=100% cellpadding=2 cellspacing=0 border=1>";
-				while ($r = mysql_fetch_array($q)) {
-					$z = mysql_query("SELECT web_users_relid FROM web_users WHERE web_users_relid=teachers_id");
-						echo "<tr>
-							<td>	$r[teachers_lname]
-							</td>
-							<td>
-								
-$r[teachers_fname]
-							</td>
-							<td>
-								<a 
-href=admin_webusers_active.php?act=1&teacherid=$r[teachers_id] 
-class=aform><? echo _ADMIN_WEBUSERS_TEACHERS_ACTIVATE?></a>
-								/
-								<a 
-href=admin_webusers_active.php?act=0&teacherid=$r[teachers_id] 
-class=aform><? echo _ADMIN_WEBUSERS_TEACHERS_DEACTIVATE?></a>
-							</td>
-							<td>
-								<a href=admin_webusers_resetpass.php?teacherid=$r[teachers_id]><? echo _ADMIN_WEBUSERS_TEACHERS_PASS?></a>
-							</td>
-						</tr>";
-				}
-				echo "</table>";				
+			echo "<table width=100% cellpadding=2 cellspacing=0 border=1>";
+			while ($r = mysql_fetch_array($q)) {
+				$z = mysql_query("SELECT web_users_relid FROM web_users WHERE web_users_relid=teachers_id");
+				echo "<tr>
+				<td>$r[teachers_lname]</td>
+				<td>$r[teachers_fname]</td>
+				<td>
+				<a href=admin_webusers_active.php?act=1&teacherid=$r[teachers_id] class=aform>" .
+				_ADMIN_WEBUSERS_TEACHERS_ACTIVATE . "</a>
+				</td>
+				<td>
+				<a href=admin_webusers_active.php?act=0&teacherid=$r[teachers_id] class=aform>" .
+				_ADMIN_WEBUSERS_TEACHERS_DEACTIVATE . "</a>
+				</td>
+				<td>
+				<a href=admin_webusers_resetpass.php?teacherid=$r[teachers_id] class=aform>" .
+				_ADMIN_WEBUSERS_TEACHERS_PASS . "</a>
+				</td>
+				</tr>";
+			}
+			echo "</table>";				
 			}
 	}
 ?>
+<br>
+<a class="aform" href="admin_users_1.php"><? echo _ADMIN_WEBUSERS_TEACHERS_NEW?></a>
 </div>
 <? include "admin_menu.inc.php"; ?>
 </body>
