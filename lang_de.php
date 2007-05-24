@@ -565,7 +565,7 @@ DEFINE('_SCHEDULE_TEACHER_3_PASSWORD', 'Passwort');
 /** report_attendance.php */
 
 DEFINE('_REPORT_ATTENDANCE_BROWSER_TITLE', 'Berichte: Sch&uuml;ler');
-DEFINE('_REPORT_ATTENDANCE_TITLE', 'An-/Abwesenheits-Bericht f&uuml;r ');
+DEFINE('_REPORT_ATTENDANCE_TITLE', 'An-/Abwesenheits-Bericht ');
 DEFINE('_REPORT_ATTENDANCE_ROUTE', 'Verkehrsmittel');
 DEFINE('_REPORT_ATTENDANCE_HOME', 'Klassenzimmer ');
 DEFINE('_REPORT_ATTENDANCE_NOTES', 'Eintr&auml;ge');
@@ -573,11 +573,23 @@ DEFINE('_REPORT_ATTENDANCE_SCHOOL', 'Schule');
 DEFINE('_REPORT_ATTENDANCE_INTERNAL', 'Interne Nummer');
 DEFINE('_REPORT_ATTENDANCE_DOB', 'Geburtstag');
 DEFINE('_REPORT_ATTENDANCE_NONE', 'Keine passenden Eintr&auml;ge');
+DEFINE('_REPORT_ATTENDANCE_GRADE', 'Klasse');
+DEFINE('_REPORT_ATTENDANCE_ETHNICITY', 'Nationalit&auml;t');
 
 /** report_discipline.php */
 
 DEFINE('_REPORT_DISCIPLINE_BROWSER_TITLE', 'Berichte: Sch&uuml;ler');
 DEFINE('_REPORT_DISCIPLINE_TITLE', 'Verhaltens-Bericht f&uuml;r ');
+DEFINE('_REPORT_DISCIPLINE_ROUTE', 'Verkehrsmittel');
+DEFINE('_REPORT_DISCIPLINE_HOME', 'Klassenzimmer ');
+DEFINE('_REPORT_DISCIPLINE_NOTES', 'Eintr&auml;ge');
+DEFINE('_REPORT_DISCIPLINE_SCHOOL', 'Schule');
+DEFINE('_REPORT_DISCIPLINE_INTERNAL', 'Interne Nummer');
+DEFINE('_REPORT_DISCIPLINE_ACTION', 'Konsequenz');
+DEFINE('_REPORT_DISCIPLINE_DOB', 'Geburtstag');
+DEFINE('_REPORT_DISCIPLINE_NONE', 'Keine passenden Eintr&auml;ge');
+DEFINE('_REPORT_DISCIPLINE_GRADE', 'Klasse');
+DEFINE('_REPORT_DISCIPLINE_ETHNICITY', 'Nationalit&auml;t');
 
 /** report_grades.php */
 
@@ -1173,9 +1185,10 @@ DEFINE('_DOWN_REPORTS_GRADES_ID', 'Klasse');
 DEFINE('_DOWN_REPORTS_SCHOOL', 'Schule');
 DEFINE('_DOWN_REPORTS_ETH', 'Nationalit&auml;t');
 DEFINE('_DOWN_REPORTS_GENDER', 'Geschlecht');
+DEFINE('_DOWN_REPORTS_HEADER', 'Bericht &uuml;ber aktive Sch&uuml;ler');
 DEFINE('_DOWN_REPORTS_ROUTE', 'Verkehrsmittel');
 DEFINE('_DOWN_REPORTS_HOME', 'Klassenzimmer');
-DEFINE('_DOWN_REPORTS_BY', 'nach');
+DEFINE('_DOWN_REPORTS_BY', 'und nach');
 DEFINE('_DOWN_REPORTS_NONE', 'nicht sortiert');
 DEFINE('_DOWN_REPORTS_DOWNLOAD', 'PDF Bericht erstellen');
 
@@ -1672,7 +1685,7 @@ DEFINE('_ADMIN_REPORTS_TITLE', 'Berichte im HTML Format');
 DEFINE('_ADMIN_REPORTS_STUDENTS', 'Alle aktiven Sch&uuml;ler');
 DEFINE('_ADMIN_REPORTS_ATTENDANCE', 'An-/Abwesenheit pro Tag');
 DEFINE('_ADMIN_REPORTS_DISCIPLINE', 'Verhalten');
-DEFINE('_ADMIN_REPORTS_GRADES', 'Berichte');
+DEFINE('_ADMIN_REPORTS_GRADES', 'Noten');
 DEFINE('_ADMIN_REPORTS_SORTED', 'sortiert nach');
 DEFINE('_ADMIN_REPORTS_GRADES_ID', 'Klasse');
 DEFINE('_ADMIN_REPORTS_SCHOOL', 'Schule');
