@@ -2933,3 +2933,15 @@ DEFINE('_ADMIN_BOOKS_2_MESSAGE2', 'Dieses Buch ist bestellt worden:');
 DEFINE('_ADMIN_BOOKS_2_MESSAGE3', 'Menge:');
 DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Buchbestellung');
 
+/** admin_contact_2.php */
+
+DEFINE('_ADMIN_CONTACT_2_FLIP', 'De-/Aktivieren');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR', 'Kontaktperson nicht gefunden');
+DEFINE('_ADMIN_CONTACT_2_NAME', 'Name');
+DEFINE('_ADMIN_CONTACT_2_ACTIVE', 'Aktiv');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR2', 'Keine Kontaktperson gefunden: ');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR3', 'Keine Kontaktperson gefunden: Buchstabe ');
+DEFINE('_ADMIN_CONTACT_2_UPPER', 'Administrator Bereich');
+DEFINE('_ADMIN_CONTACT_2_TITLE', 'Suchergebnis Kontaktpersonen');
+DEFINE('_ADMIN_CONTACT_2_NEW', 'Neue Suche');
+

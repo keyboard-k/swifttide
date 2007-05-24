@@ -2933,3 +2933,15 @@ DEFINE('_ADMIN_BOOKS_2_MESSAGE2', 'This book has been ordered:');
 DEFINE('_ADMIN_BOOKS_2_MESSAGE3', 'Quantity:');
 DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Book Order');
 
+/** admin_contact_2.php */
+
+DEFINE('_ADMIN_CONTACT_2_FLIP', 'De-/Activate');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR', 'Contact not found');
+DEFINE('_ADMIN_CONTACT_2_NAME', 'Name');
+DEFINE('_ADMIN_CONTACT_2_ACTIVE', 'Active');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR2', 'Contact not found: ');
+DEFINE('_ADMIN_CONTACT_2_FORM_ERROR3', 'Contact not found: Letter ');
+DEFINE('_ADMIN_CONTACT_2_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_CONTACT_2_TITLE', 'Teacher Search Result');
+DEFINE('_ADMIN_CONTACT_2_NEW', 'New Search');
+
