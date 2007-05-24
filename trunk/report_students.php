@@ -28,15 +28,17 @@ $q = "SELECT * FROM studentbio, student_grade_year, school_names, ethnicity, gra
 	AND (studentbio.studentbio_active = '1')";
 
 $q .= " ORDER BY $sorted_1";
-// if($sorted_2 == $sorted_1) $sorted_2 = 'none';
+if($sorted_2 == $sorted_1) $sorted_2 = 'none';
 if($sorted_2 != 'none') $q .= ", $sorted_2";
 
 if($sorted_1 == "grades_id") $display_1 = 'grades_desc';
 else if($sorted_1 == "studentbio_ethnicity") $display_1 = 'ethnicity_desc';
+else if($sorted_1 == "studentbio_homeroom") $display_1 = 'school_rooms_desc';
 else $display_1 = $sorted_1;
 
 if($sorted_2 == "grades_id") $display_2 = 'grades_desc';
 else if($sorted_2 == "studentbio_ethnicity") $display_2 = 'ethnicity_desc';
+else if($sorted_2 == "studentbio_homeroom") $display_2 = 'school_rooms_desc';
 else $display_2 = $sorted_2;
 
 $q .= ", studentbio_lname ASC";
@@ -49,7 +51,7 @@ $r = $db->get_results($q);
 </head>
 <body><?
 if(is_array($r)) {
-	echo"<table align='center' width='80%' cellpadding=5><th><? echo _REPORT_STUDENT_HEADER?></th>";
+	echo"<table align='center' width='80%' cellpadding=5><th><h1>" . _REPORT_STUDENT_HEADER . "</h1></th>";
 	$ps1 = "";
 	$ps2 = "";
 	foreach($r as $s) {
@@ -61,7 +63,7 @@ if(is_array($r)) {
 			if($display_1 == 'studentbio_bus') $heading_text_1 = _REPORT_STUDENT_ROUTE;
 			else if($display_1 == 'studentbio_homeroom') $heading_text_1 = _REPORT_STUDENT_HOME;
 
-			echo"<tr><td align='left'><h1>$heading_text_1$cd1</h1></td></tr>";
+			echo"<tr><td align='left'><h1>$heading_text_1 $cd1</h1></td></tr>";
 		}
 	
 		if($sorted_2 != 'none') {
@@ -71,7 +73,7 @@ if(is_array($r)) {
 				$heading_text_2 = "";
 				if($display_2 == 'studentbio_bus') $heading_text_2 = _REPORT_STUDENT_ROUTE;
 				else if($display_2 == 'studentbio_homeroom') $heading_text_2 = _REPORT_STUDENT_HOME;
-				echo"<tr><td align='right'><h2>$heading_text_2$cd2</h2></td></tr>";	
+				echo"<tr><td align='right'><h2>$heading_text_2 $cd2</h2></td></tr>";	
 			}
 		}
 	

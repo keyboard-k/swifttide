@@ -114,12 +114,13 @@ function displayReport() {
 </select>
 <? echo _ADMIN_REPORTS_BY?>
 <select name="sorted_2" onChange="javascript: changeSorted_2()">
+<option value="none"><? echo _ADMIN_REPORTS_NONE?></option>
+<option value="grades_id"><? echo _ADMIN_REPORTS_GRADES?></option>
+<option value="school_names_desc"><? echo _ADMIN_REPORTS_SCHOOL?></option>
 <option value="studentbio_ethnicity"><? echo _ADMIN_REPORTS_ETH?></option>
 <option value="studentbio_gender"><? echo _ADMIN_REPORTS_GENDER?></option>
 <option value="studentbio_bus"><? echo _ADMIN_REPORTS_ROUTE?></option>
 <option value="studentbio_homeroom"><? echo _ADMIN_REPORTS_HOME?></option>
-<option value="grades_id"><? echo _ADMIN_REPORTS_GRADES?></option>
-<option value="school_names_desc"><? echo _ADMIN_REPORTS_SCHOOL?></option>
 </select>
 </td>
 </tr>

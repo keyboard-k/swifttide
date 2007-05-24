@@ -22,6 +22,8 @@ include_once "ez_sql.php";
 include_once "configuration.php";
 
 $menustudent=1;
+$attendance = "";
+$custom_attendance_fields = "";
 
 $web_user=$_SESSION['UserId'];
 $current_year=$_SESSION['CurrentYear'];
