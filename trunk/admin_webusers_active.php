@@ -2,6 +2,8 @@
 //v1.5 doug.  write to active field, not webusers_active
 //v1.51 01-15-06.  if no entry in webusers, send them to admin_contacts, and can't reset passsword or deactivate, so display that message.
 // pq - 2007-02-22 - I didnt understand alot of what was going on here and commented out a bunch.  It wouldnt even compile.
+// 2007-05-25 fixed some bugs, Helmut
+
 session_start();
 if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
   {
@@ -42,15 +44,15 @@ $act = get_param("act");
 switch ($act) {
 	case 1:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = 1 WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='T' AND web_users_id = '$teacherid'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = 1 WHERE web_users_type='C' AND web_users_relid = '$contactid'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='C' AND web_users_id = '$contactid'");
 		break;
 	case 0:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = 0 WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='T' AND web_users_id = '$teacherid'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = 0 WHERE web_users_type='C' AND web_users_relid = '$contactid'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='C' AND web_users_id = '$contactid'");
 		break;
 }
 

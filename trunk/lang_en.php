@@ -1491,6 +1491,9 @@ DEFINE('_ADMIN_TEACHER_2_FORM_ERROR3', 'No Teachers found with Last Name ');
 DEFINE('_ADMIN_TEACHER_2_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_TEACHER_2_TITLE', 'Teacher Search Result');
 DEFINE('_ADMIN_TEACHER_2_NEW', 'New Search');
+DEFINE('_ADMIN_TEACHER_2_NAME', 'Name');
+DEFINE('_ADMIN_TEACHER_2_SCHOOL', 'School');
+DEFINE('_ADMIN_TEACHER_2_ACTIVE', 'Active');
 
 /** admin_subjects.php */
 
@@ -2938,7 +2941,8 @@ DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Book Order');
 
 /** admin_contact_2.php */
 
-DEFINE('_ADMIN_CONTACT_2_FLIP', 'De-/Activate');
+DEFINE('_ADMIN_CONTACT_2_ACTIVATE', 'Activate');
+DEFINE('_ADMIN_CONTACT_2_DEACTIVATE', 'Deactivate');
 DEFINE('_ADMIN_CONTACT_2_FORM_ERROR', 'Contact not found');
 DEFINE('_ADMIN_CONTACT_2_NAME', 'Name');
 DEFINE('_ADMIN_CONTACT_2_ACTIVE', 'Active');

@@ -1394,7 +1394,7 @@ DEFINE('_ADMIN_WEBUSERS_TEACHERS_NEW', 'Neue Suche');
 /** admin_users_1.php */
 
 DEFINE('_ADMIN_USERS_1_ADMIN_AREA', 'Administrator Bereich');
-DEFINE('_ADMIN_USERS_1_TITLE', 'Benutzer aus der Datenbank entfernen');
+DEFINE('_ADMIN_USERS_1_TITLE', 'Lehrer/Kontaktperson aktivieren oder deaktivieren');
 DEFINE('_ADMIN_USERS_1_SUBTITLE1', 'Lehrer entfernen/deaktivieren');
 DEFINE('_ADMIN_USERS_1_BY_SCHOOL', 'Nach Name der Schule');
 DEFINE('_ADMIN_USERS_1_BY_LASTNAME', 'Nach Nachname');
@@ -1481,7 +1481,8 @@ DEFINE('_ADMIN_TEACHER_1_BY_LAST', 'Oder nach Anfangsbuchstaben des Nachnamens a
 
 /** admin_teacher_2.php */
 
-DEFINE('_ADMIN_TEACHER_2_SELECT', 'Ausw&auml;hlen');
+DEFINE('_ADMIN_TEACHER_2_ACTIVATE', 'Aktivieren');
+DEFINE('_ADMIN_TEACHER_2_DEACTIVATE', 'Deaktivieren');
 DEFINE('_ADMIN_TEACHER_2_REMOVE', 'L&ouml;schen');
 DEFINE('_ADMIN_TEACHER_2_SURE', 'Sind Sie sicher?');
 DEFINE('_ADMIN_TEACHER_2_REMOVE_ERROR', 'Fehler beim L&ouml;schen');
@@ -1491,6 +1492,9 @@ DEFINE('_ADMIN_TEACHER_2_FORM_ERROR3', 'Keine Lehrer mit Nachname ');
 DEFINE('_ADMIN_TEACHER_2_UPPER', 'Administrator Bereich');
 DEFINE('_ADMIN_TEACHER_2_TITLE', 'Suchergebnis Lehrer');
 DEFINE('_ADMIN_TEACHER_2_NEW', 'Neue Suche');
+DEFINE('_ADMIN_TEACHER_2_NAME', 'Name');
+DEFINE('_ADMIN_TEACHER_2_SCHOOL', 'Schule');
+DEFINE('_ADMIN_TEACHER_2_ACTIVE', 'Aktiv');
 
 /** admin_subjects.php */
 
@@ -2938,7 +2942,8 @@ DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Buchbestellung');
 
 /** admin_contact_2.php */
 
-DEFINE('_ADMIN_CONTACT_2_FLIP', 'De-/Aktivieren');
+DEFINE('_ADMIN_CONTACT_2_ACTIVATE', 'Aktivieren');
+DEFINE('_ADMIN_CONTACT_2_DEACTIVATE', 'Deaktivieren');
 DEFINE('_ADMIN_CONTACT_2_FORM_ERROR', 'Kontaktperson nicht gefunden');
 DEFINE('_ADMIN_CONTACT_2_NAME', 'Name');
 DEFINE('_ADMIN_CONTACT_2_ACTIVE', 'Aktiv');

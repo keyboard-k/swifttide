@@ -76,47 +76,47 @@ function submitform(fldName, frmNumb)
 	        <tr class="trform">
 	          <td width="50%" colspan="1">&nbsp;<? echo _ADMIN_USERS_1_BY_SCHOOL?></td>
 	          <td width="50%" colspan="1">&nbsp;<? echo _ADMIN_USERS_1_BY_LASTNAME?></td>
-		    </tr>
+		</tr>
 	        <tr>
 		  <form name="srchid" method="POST" action="admin_teacher_2.php">
 		  <td width="50%" class="tdinput">
 		  <select size="1" name="school">
-			   <option value="" selected=selected><? echo _ADMIN_USERS_1_ALL_SCHOOLS?></option>
-				   <?
-				   //Display Schools from table
-				   foreach($schools as $school){
-				   ?>
+		    <option value="" selected=selected><? echo _ADMIN_USERS_1_ALL_SCHOOLS?></option>
+		    <?
+		    //Display Schools from table
+		    foreach($schools as $school){
+		    ?>
                     <option value="<? echo $school->school_names_id; ?>"><? echo $school->school_names_desc; ?></option>
-				   <?
-				   };
-				   ?>
+		    <?
+		    };
+		    ?>
                   </select>
-				<input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
-			   <input type="hidden" name="action" value="srchschool">
+		  <input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
+		  <input type="hidden" name="action" value="srchschool">
 	          </td>
 		  </form>
 		  <form name="srchlname" method="POST" action="admin_teacher_2.php" onsubmit="return submitform('tlname', 1);">
-		      <td width="50%" class="tdinput">
-		        <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25"><input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
-			    <input type="hidden" name="action" value="srchlname">
+		  <td width="50%" class="tdinput">
+		    <input type="text" name="tlname" size="25"><input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
+		    <input type="hidden" name="action" value="searchlname">
 	          </td>
 		  </form>
-			    </tr>
+		</tr>
 	      </table>
 	    </td>
 	  </tr>
 	  <tr>
 	    <td width="100%">
 	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
-		    <tr class="trform">
+		<tr class="trform">
 	          <td width="100%" colspan="4">&nbsp;<? echo _ADMIN_USERS_1_BY_LAST?></td>
 	        </tr>
-			<tr>
-				<td width="100%" align="center">
-				<?
+		<tr>
+		  <td width="100%" align="center">
+		    <?
 				for($letters = 'A'; $letters != 'AA'; $letters++)
 				{
-				    echo "<a href='admin_webusers_teachers.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
+				    echo "<a href='admin_teacher_2.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
 				}
 				?> 
 				</td>
@@ -142,30 +142,30 @@ function submitform(fldName, frmNumb)
 	          <td width="50%" colspan="1">&nbsp;<? echo _ADMIN_USERS_1_BY_LASTNAME?></td>
 		    </tr>
 	        <tr>
-			   <form name="srchid" method="POST" action="admin_contact_2.php">
-		       <td width="50%" class="tdinput">
-			    <select size="1" name="contactid">
-				   <option value="" selected=selected><? echo _ADMIN_USERS_1_ALL_CONTACTS?></option>
-				   <?
-				   //Display Schools from table
-				   foreach($info as $info1){
-				   ?>
-                    <option value="<? echo $info1->web_users_relid; ?>"><? echo $info1->web_users_flname; ?></option>
-				   <?
-				   };
-				   ?>
-                </select>
-				<input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
-			   <input type="hidden" name="action" value="searchcontacts">
-	          </td>
-			  </form>
-			  <form name="searchlname" method="POST" action="admin_contact_2.php" onsubmit="return submitform('cname', 1);">
-		      <td width="50%" class="tdinput">
-		        <input type="text" name="cname" size="25">
-			<input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
-			<input type="hidden" name="action" value="searchlname">
-	          </td>
-			  </form>
+		  <form name="srchid" method="POST" action="admin_contact_2.php">
+		    <td width="50%" class="tdinput">
+		      <select size="1" name="contactid">
+		      <option value="" selected=selected><? echo _ADMIN_USERS_1_ALL_CONTACTS?></option>
+		      <?
+		      //Display Schools from table
+		      foreach($info as $info1){
+		      ?>
+                      <option value="<? echo $info1->web_users_relid; ?>"><? echo $info1->web_users_flname; ?></option>
+		      <?
+		      };
+		      ?>
+                      </select>
+		      <input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
+		      <input type="hidden" name="action" value="searchcontacts">
+	            </td>
+		  </form>
+		  <form name="searchlname" method="POST" action="admin_contact_2.php" onsubmit="return submitform('cname', 1);">
+		    <td width="50%" class="tdinput">
+		      <input type="text" name="cname" size="25">
+		      <input type="submit" value="<? echo _ADMIN_USERS_1_SEARCH?>" name="submit" class="frmbut">
+		      <input type="hidden" name="action" value="searchlname">
+	            </td>
+		  </form>
 		</tr>
 	      </table>
 	    </td>
@@ -181,7 +181,7 @@ function submitform(fldName, frmNumb)
 				<?
 				for($letters = 'A'; $letters != 'AA'; $letters++)
 				{
-				    echo "<a href='admin_webusers_contacts.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
+				    echo "<a href='admin_contact_2.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
 				}
 				?> 
 				</td>
