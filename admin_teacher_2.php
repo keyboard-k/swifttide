@@ -39,28 +39,38 @@ switch ($action){
 	case "srchschool":
 		$school=get_param("school");
 		if($school==""){
-			$sSQL="SELECT teachers.teachers_lname, teachers.teachers_fname, school_names.school_names_desc, teachers.teachers_id, teachers.teachers_active FROM teachers INNER JOIN school_names ON teachers.teachers_school = school_names.school_names_id ORDER BY teachers.teachers_lname";
-		}else{
-			$sSQL="SELECT teachers.teachers_lname, 
-teachers.teachers_fname, school_names.school_names_desc, 
-teachers.teachers_id, teachers.teachers_active FROM teachers INNER JOIN school_names ON 
-teachers.teachers_school = school_names.school_names_id WHERE 
-teachers.teachers_school=$school ORDER BY 
-teachers.teachers_lname";
-		};
+			$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+			FROM ((web_users 
+			INNER JOIN teachers ON teachers_id = web_users_relid) 
+			INNER JOIN school_names ON teachers_school = school_names_id) 
+			WHERE web_users_type = 'T'";
+		} else {
+			$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+			FROM ((web_users
+			INNER JOIN teachers ON teachers_id = web_users_relid) 
+			INNER JOIN school_names ON teachers_school = school_names_id) 
+			WHERE teachers_school = '$school'
+			AND web_users_type = 'T'"; }
 		if($teach = $db->get_results($sSQL)){
 			$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 			$ezr->results_close = "</table>";
+			$ezr->results_heading = "<tr class=tblhead>
+			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
+			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
+			  <td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=20%>&nbsp;</td>
+			  <td width=20%>&nbsp;</td>
+			</tr>";
 			$ezr->results_row = "<tr>
-			<td class=paging width=30%>COL1</td>
-			<td class=paging width=30%>COL2</td>
-			<td class=paging width=20%>COL3</td>
-			<td class=paging width=10% align=center>
-			<a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL4 class=aform>&nbsp;" . _ADMIN_TEACHER_2_SELECT . "</td>
-			<!--
-			<td class=paging width=10% align=center>
-			<a name=href_remove href=# onclick=cnfremove('COL4'); class=aform>&nbsp;" . _ADMIN_TEACHER_2_REMOVE . "</a></td>
-			-->
+			<td class=paging width=20%>COL2</td>
+			<td class=paging width=20% align=center>COL3</td>
+			<td class=paging width=20% align=center>COL4</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+			  &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
 			</tr>";
 			$ezr->query_mysql($sSQL);
 		}else{
@@ -72,57 +82,81 @@ teachers.teachers_lname";
 			};
 		};
 		break;
-	case "srchlname":
+	case "searchlname":
 		$tlname=get_param("tlname");
-		$tot = $db->get_var("SELECT count(*) FROM teachers WHERE teachers_lname = '$tlname'");
-		//if ($tot==1){
-		//	$id = $db->get_var("SELECT teachers_id FROM teachers WHERE teachers_lname LIKE'%$tlname%'");
-		//	$url="admin_add_edit_teacher_1.php?action=edit&teacherid=".$id;
-		//	header("Location: $url");
-		//	exit();
-		//}else{
-			if ($tot > 0){
-				//Set paging appearence
-				$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
-				$ezr->results_close = "</table>";
-				$ezr->results_row = "<tr>
-				<td class=paging width=30%>COL1</td>
-				<td class=paging width=30%>COL2</td>
-				<td class=paging width=20%>COL3</td>
-				<td class=paging width=10% align=center><a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL4 class=aform>&nbsp;" . _ADMIN_TEACHER_2_SELECT . "</a></td>
-				<!--
-				<td class=paging width=10% align=center>
-				<a name=href_remove href=# onclick=cnfremove('COL4'); class=aform>&nbsp;" . _ADMIN_TEACHER_2_REMOVE . "</a></td>
-				-->
-				</tr>";
+                $sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+                FROM ((web_users 
+		INNER JOIN teachers ON teachers_id = web_users_relid) 
+		INNER JOIN school_names ON teachers_school = school_names_id) 
+                WHERE teachers_lname = '$tlname' 
+                AND web_users_type = 'T'";
+                if ($cont = $db->get_row($sSQL)) {
+                        //Set paging appearence
+                        $ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
+                        $ezr->results_close = "</table>";
+                        $ezr->results_heading = "<tr class=tblhead>
+			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
+			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
+			  <td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=20%>&nbsp;</td>
+			  <td width=20%>&nbsp;</td>
+			</tr>";
+                        $ezr->results_row = "<tr class=tblcont>
+                        <td class=paging width=20%>COL2</td>
+                        <td class=paging width=20% align=center>COL3</td>
+                        <td class=paging width=20% align=center>COL4</td>
+                        <td class=paging width=20% align=center>
+                          <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+                          &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
+                        <td class=paging width=20% align=center>
+                          <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+                          &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
+                        </tr>";
+                        $ezr->query_mysql($sSQL);
 
-				$sSQL="SELECT teachers.teachers_lname, teachers.teachers_fname, school_names.school_names_desc, teachers.teachers_id FROM teachers INNER JOIN school_names ON teachers.teachers_school = school_names.school_names_id WHERE teachers.teachers_lname = '$tlname' ORDER BY teachers.teachers_lname";
-				$ezr->query_mysql($sSQL);
-				$ezr->set_qs_val("tlname", $tlname);
-				$ezr->set_qs_val("action", "srchlname"); 
+			$ezr->set_qs_val("tlname", $tlname);
+                        $ezr->set_qs_val("action", "searchlname");
 			}else{
 				$msgFormErr=_ADMIN_TEACHER_2_FORM_ERROR3 . $tlname;
 			};
-		break;
+                break;
 	case "letter":
-		$letter=get_param("letter");
-		//Set paging appearence
-		$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
-		$ezr->results_close = "</table>";
-		$ezr->results_row = "<tr>
-		<td class=paging width=30%>COL1</td>
-		<td class=paging width=30%>COL2</td>
-		<td class=paging width=20%>COL3</td>
-		<td class=paging width=10% align=center><a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL4 class=aform>&nbsp;" . _ADMIN_TEACHER_2_SELECT . "</a></td>
-		<!--
-		<td class=paging width=10% align=center>
-		<a name=href_remove href=# onclick=cnfremove('COL4'); class=aform>&nbsp;" . _ADMIN_TEACHER_2_REMOVE . "</a></td>
-		-->
-		</tr>";
-		$sSQL="SELECT teachers.teachers_lname, teachers.teachers_fname, school_names.school_names_desc, teachers.teachers_id FROM teachers INNER JOIN school_names ON teachers.teachers_school = school_names.school_names_id WHERE teachers.teachers_lname LIKE '$letter%' ORDER BY teachers.teachers_lname";
-		$ezr->query_mysql($sSQL);
-		$ezr->set_qs_val("letter", $letter);
-		$ezr->set_qs_val("action", "letter"); 
+                $letter=get_param("letter");
+		$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active
+		FROM ((web_users 
+		INNER JOIN teachers ON teachers_id = web_users_relid) 
+		INNER JOIN school_names ON teachers_school = school_names_id) 
+		WHERE teachers_lname LIKE '$letter%' 
+		AND web_users_type = 'T'";
+		if ($cont = $db->get_row($sSQL)) {
+			//Set paging appearence
+			$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
+			$ezr->results_close = "</table>";
+			$ezr->results_heading = "<tr class=tblhead>
+			<td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
+			<td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
+			<td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			<td width=20%>&nbsp;</td>
+			<td width=20%>&nbsp;</td>
+			</tr>";
+			$ezr->results_row = "<tr class=tblcont>
+			<td class=paging width=20%>COL2</td>
+			<td class=paging width=20% align=center>COL3</td>
+			<td class=paging width=20% align=center>COL4</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+			  &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
+			</tr>";
+			$ezr->query_mysql($sSQL);
+
+			$ezr->set_qs_val("letter", $letter);
+			$ezr->set_qs_val("action", "letter");
+		}else{
+			$msgFormErr=_ADMIN_TEACHER_2_FORM_ERROR3 . $letter;
+		};
 		break;
 }
 ?>
@@ -179,7 +213,7 @@ function cnfremove(id) {
 	};
 	?>
 	<br>
-	<A class="aform" href="admin_teacher_1.php"><? echo _ADMIN_TEACHER_2_NEW?></a>
+	<a class="aform" href="admin_users_1.php"><? echo _ADMIN_TEACHER_2_NEW?></a>
 </div>
 <? include "admin_menu.inc.php"; ?>
 </body>
