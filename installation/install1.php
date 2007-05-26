@@ -160,24 +160,28 @@ function check() {
 			  				<em>Enter the name of your DB here.</em>
 			  			</td>
   					</tr>
-  		  			<tr>
+					<tr>
   						<td colspan="2">
 							<label for="Language">Language</label>
   							
   							<br/>
+  		  			<!--
 							<input type="radio" name="Language" id="Language" value="1" />Deutsch<br>
+					-->
 			  				<input type="radio" name="Language" id="Language" value="2" />English<br>
   						</td>
 			  			<td>
 			  				<em>Choose your language here.</em>
 			  			</td>
   					</tr>
-  		  			<tr>
+					<tr>
 			  			<td colspan=2>
 							<label for="DBSample">Database</label>
 			  				<br/>
+  		  			<!--
 							<input type="radio" name="DBSample" id="DBSample" value="1" />Deutsch, ohne Daten<br>
 			  				<input type="radio" name="DBSample" id="DBSample" value="2" />Deutsch, mit Daten<br>
+					-->
 							<input type="radio" name="DBSample" id="DBSample" value="3" />English, without data<br>
 			  				<input type="radio" name="DBSample" id="DBSample" value="4" />English, sample data<br>
 			  			</td>
