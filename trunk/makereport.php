@@ -62,8 +62,8 @@ switch ($report_type) {
 		$grades=getGrades();
 		$eth = getEthnicityDesc();
 		$sch = getSchoolNames();
-		$pdf=new PDF();
-		$w=array(20,20,20,20,20,20,20,20,20);
+		$pdf=new PDF('L');
+		$w=array(20,40,20,30,20,25,30,20,25);
 		$pdf->Open();
 		$pdf->SetWidths($w);
 		$pdf->AddPage();
