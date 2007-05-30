@@ -446,7 +446,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 		    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_EDIT_STUDENT_3_BACK?></a>
 			</td>
 			<td width="50%" align="right">
-			   <input type="submit" name="sumbit" value="<? echo _ADMIN_EDIT_STUDENT_3_UPDATE?>" class="frmbut">
+			   <input type="submit" name="submit" value="<? echo _ADMIN_EDIT_STUDENT_3_UPDATE?>" class="frmbut">
 			   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
 			</td>
 		  </tr>
