@@ -49,9 +49,11 @@ $r = $db->get_results($q);
 <head>
 <style type="text/css" media="all">@import "student.css";</style>
 </head>
-<body><?
+<body>
+<?
 if(is_array($r)) {
-	echo"<table align='center' width='80%' cellpadding=5><th><h1>" . _REPORT_STUDENT_HEADER . "</h1></th>";
+	echo"<table align='center' width='80%' cellpadding=5>
+	     <th><h1>" . _REPORT_STUDENT_HEADER . "</h1></th>";
 	$ps1 = "";
 	$ps2 = "";
 	foreach($r as $s) {
@@ -111,8 +113,8 @@ if(is_array($r)) {
 			echo"<td>$s->studentbio_bus</td>";
 
 		echo"</tr></table></td></tr></table></td></tr></table></td></tr>";
-		$ps2 = $s->{$sorted_2};
-		$ps1 = $s->{$sorted_1};
+		if ($sorted_2 != "none") { $ps2 = $s->{$sorted_2}; }
+		if ($sorted_1 != "none") { $ps1 = $s->{$sorted_1}; }
 	}	
 
 	?></table></body></html><?

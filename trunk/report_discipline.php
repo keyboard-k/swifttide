@@ -68,7 +68,12 @@ $r = $db->get_results($q);
 <body>
 <?
 if(is_array($r)) {
-	echo"<table align='center' width='80%' cellspacing=5><th align='center'>Discipline Record from $start_db_date to $end_db_date</th>";
+	echo"<table align='center' width='80%' cellspacing=5>
+	     <th align='center'><h1>" . _REPORT_DISCIPLINE_HEADER;
+	if ($start_db_date && $end_db_date)
+	{ echo _REPORT_DISCIPLINE_FROM . $start_db_date . _REPORT_DISCIPLINE_TO . $end_db_date; }
+
+	echo "</h1></th>";
 	$ps1 = "";
 	$ps2 = "";
 	foreach($r as $s) {
@@ -77,10 +82,10 @@ if(is_array($r)) {
 		if($cs1 != $ps1) {
 			$cd1 = $s->{$display_1};
 			$heading_text_1 = "";
-			if($display_1 == 'studentbio_bus') $heading_text_1 = 'Bus Route ';
-			else if($display_1 == 'studentbio_homeroom') $heading_text_1 = 'Home Room ';
+			if($display_1 == 'studentbio_bus') $heading_text_1 = _REPORT_DISCIPLINE_ROUTE;
+			else if($display_1 == 'studentbio_homeroom') $heading_text_1 = _REPORT_DISCIPLINE_HOME;
 
-			echo"<tr><td align='left'><h1>$heading_text_1$cd1</h1></td></tr>";
+			echo"<tr><td align='left'><h1>$heading_text_1 $cd1</h1></td></tr>";
 		}
 	
 		if($sorted_2 != 'none') {
@@ -88,9 +93,9 @@ if(is_array($r)) {
 			if($cs2 != $ps2) {
 				$cd2 = $s->{$display_2};
 				$heading_text_2 = "";
-				if($display_2 == 'studentbio_bus') $heading_text_2 = 'Bus Route ';
-				else if($display_2 == 'studentbio_homeroom') $heading_text_2 = 'Home Room ';
-				echo"<tr><td align='right'><h2>$heading_text_2$cd2</h2></td></tr>";	
+				if($display_2 == 'studentbio_bus') $heading_text_2 = _REPORT_DISCIPLINE_ROUTE;
+				else if($display_2 == 'studentbio_homeroom') $heading_text_2 = _REPORT_DISCIPLINE_HOME;
+				echo"<tr><td align='right'><h2>$heading_text_2 $cd2</h2></td></tr>";	
 			}
 		}
 
@@ -116,7 +121,7 @@ if(is_array($r)) {
 		
 		//the static column headers
 		echo"<tr><td><table border=1 width='100%' align='center'>
-			<tr class='tblhead'><td>" . _REPORT_DISCIPLINE_INTERNAL . "</td><td >DOB</td><td>" . _REPORT_DISCIPLINE_SCHOOL . "</td>";
+			<tr class='tblhead'><td>" . _REPORT_DISCIPLINE_INTERNAL . "</td><td>" . _REPORT_DISCIPLINE_DOB . "</td><td>" . _REPORT_DISCIPLINE_SCHOOL . "</td>";
 		//the dynamic column headers
 		if($sorted_1 != 'grades_id' && $sorted_2 != 'grades_id') 
 			echo"<td>" . _REPORT_DISCIPLINE_GRADE . "</td>";
@@ -145,5 +150,5 @@ if(is_array($r)) {
 
 	?></table></body></html><?
 } else {
-	echo"<center><h1>No matching records to display</h2></center>";
+	echo"<center><h1>" . _REPORT_DISCIPLINE_NONE . "</h2></center>";
 }
