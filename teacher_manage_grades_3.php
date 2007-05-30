@@ -93,6 +93,8 @@ grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_h
 	//Get School
 	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
 	$sschool=$db->get_var($sSQL);
+	$grade = "";
+	$custom_grade_fields = "";
 
 };
 //Get list of grade codes

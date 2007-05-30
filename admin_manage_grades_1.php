@@ -38,18 +38,36 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 	//Get grade history
 	$sSQL="SELECT grade_terms.grade_terms_desc, 
+grade_subjects.grade_subject_desc, 
 grade_history.grade_history_grade, 
 grade_history.grade_history_effort, grade_history.grade_history_conduct, 
-grade_history.grade_history_id FROM 
-(grade_history INNER JOIN grade_terms ON 
-grade_history.grade_history_quarter=grade_terms.grade_terms_id) WHERE 
-grade_history.grade_history_student 
-= '$studentid' ORDER BY grade_history.grade_history_quarter DESC";
+grade_history.grade_history_id 
+FROM ((grade_history 
+INNER JOIN grade_terms ON grade_history.grade_history_quarter=grade_terms.grade_terms_id) 
+INNER JOIN grade_subjects ON grade_history.grade_history_subject = grade_subjects.grade_subject_id) 
+WHERE grade_history.grade_history_student = '$studentid' 
+ORDER BY grade_history.grade_history_quarter DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
-	$ezr->results_heading = "<tr class=tblhead><td width=10%>" . _ADMIN_MANAGE_GRADES_1_QUARTER . "</td><td width=25%>" . _ADMIN_MANAGE_GRADES_1_GRADE . "</td><td width=25%>" . _ADMIN_MANAGE_GRADES_1_EFFORT . "</td><td width=25%>" . _ADMIN_MANAGE_GRADES_1_CONDUCT . "</td><td width=15%>" . _ADMIN_MANAGE_GRADES_1_DETAILS . "</td></tr>"; 
+	$ezr->results_heading = "<tr class=tblhead>
+	<td width=20%>" . _ADMIN_MANAGE_GRADES_1_QUARTER . "</td>
+	<td width=20%>" . _ADMIN_MANAGE_GRADES_1_SUBJECT . "</td>
+	<td width=15%>" . _ADMIN_MANAGE_GRADES_1_GRADE . "</td>
+	<td width=15%>" . _ADMIN_MANAGE_GRADES_1_EFFORT . "</td>
+	<td width=15%>" . _ADMIN_MANAGE_GRADES_1_CONDUCT . "</td>
+	<td width=15%>" . _ADMIN_MANAGE_GRADES_1_DETAILS . "</td>
+	</tr>"; 
 	$ezr->results_close = "</table>";
-	$ezr->results_row = "<tr><td class=paging width=10% align=center>COL1</td><td class=paging width=25% align=center>COL2</td><td class=paging width=25% align=center>COL3</td><td class=paging width=25% align=center>COL4</td><td class=paging width=15% align=center><a href=admin_manage_grades_2.php?studentid=$studentid&gradeid=COL5 class=aform>&nbsp;" . _ADMIN_MANAGE_GRADES_1_DETAILS . "</a></td></tr>";
+	$ezr->results_row = "<tr>
+	<td class=paging width=20% align=center>COL1</td>
+	<td class=paging width=20% align=center>COL2</td>
+	<td class=paging width=15% align=center>COL3</td>
+	<td class=paging width=15% align=center>COL4</td>
+	<td class=paging width=15% align=center>COL5</td>
+	<td class=paging width=15% align=center>
+	  <a href=admin_manage_grades_2.php?studentid=$studentid&gradeid=COL6 class=aform>
+	  &nbsp;" . _ADMIN_MANAGE_GRADES_1_DETAILS . "</a></td>
+	</tr>";
 	$ezr->query_mysql($sSQL);
 };
 ?>

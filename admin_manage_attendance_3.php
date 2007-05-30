@@ -68,6 +68,8 @@ if ($action=="edit"){
 	//Get School
 	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
 	$sschool=$db->get_var($sSQL);
+	$attendance = "";
+	$custom_attendance_fields = "";
 
 };
 //Get list of attendance codes

@@ -72,6 +72,8 @@ if ($action=="edit"){
 	//Get School
 	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
 	$sschool=$db->get_var($sSQL);
+	$grade = "";
+	$custom_grade_fields = "";
 
 };
 //Get list of grade codes
@@ -117,8 +119,8 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
 	    <td width="50%"><select name="subject">
-	   <option value="" selected=selected><? echo <? echo  
-_GRADE_STUDENT_1_CHOOSE_SUBJECT?></option>
+	   <option value="" selected=selected>
+	   <? echo _GRADE_STUDENT_1_CHOOSE_SUBJECT?></option>
                                    <?
                                    //Display subjects from table
                                    foreach($subjects as $subject){

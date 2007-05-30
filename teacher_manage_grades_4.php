@@ -25,6 +25,7 @@ include_once "common.php";
 include_once "ez_sql.php";
 // Include configuration
 include_once "configuration.php";
+$msgHeader = "";
 
 //Get student id
 $studentid=get_param("studentid");
