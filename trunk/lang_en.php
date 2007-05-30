@@ -2926,8 +2926,13 @@ DEFINE('_TEACHER_SPEAK_UPDATE', 'Update Speaking Hour');
 
 DEFINE('_ADMIN_BOOKS_ADMIN_AREA', 'Administrator Area');
 DEFINE('_ADMIN_BOOKS_TITLE', 'Ordering Books');
+DEFINE('_ADMIN_BOOKS_SUBTITLE', 'at this Store:');
 DEFINE('_ADMIN_BOOKS_TEXT', 'Please enter the ISBN number and the quantity of the book you want to order.');
 DEFINE('_ADMIN_BOOKS_TEXT2', 'Note that the order is binding!');
+DEFINE('_ADMIN_BOOKS_PHONE', 'Phone');
+DEFINE('_ADMIN_BOOKS_FAX', 'Fax');
+DEFINE('_ADMIN_BOOKS_EMAIL', 'Email');
+DEFINE('_ADMIN_BOOKS_DISCOUNT', 'Discount');
 DEFINE('_ADMIN_BOOKS_ISBN', 'ISBN Number');
 DEFINE('_ADMIN_BOOKS_QUANTITY', 'Quantity');
 DEFINE('_ADMIN_BOOKS_ORDER', 'Order now!');
