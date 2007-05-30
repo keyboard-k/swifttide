@@ -66,6 +66,8 @@ if ($action=="edit"){
 	//Get School
 	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
 	$sschool=$db->get_var($sSQL);
+	$discipline="";
+	$custom_discipline_fields = "";
 
 };
 //Get list of infraction codes

@@ -65,7 +65,7 @@ $r = $db->get_results($q);
 <body>
 <?
 if(is_array($r)) {
-	echo"<table align='center' width='80%' cellpadding=5><th align='center'><h1>" . _REPORT_ATTENDANCE_TITLE . "</h1>$start_db_date</th>";
+	echo"<table align='center' width='80%' cellpadding=5><th align='center'><h1>" . _REPORT_ATTENDANCE_TITLE . "$start_db_date</h1></th>";
 	$ps1 = "";
 	$ps2 = "";
 	foreach($r as $s) {
