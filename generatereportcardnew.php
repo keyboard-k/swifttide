@@ -108,14 +108,15 @@ if ($genbatch) {
 	$pdf->SetLineWidth(0);
 	//Start adding student data
 	while ($r = mysql_fetch_array($q)) {
-		// $q1 = mysql_query("select * from studentbio where studentbio_id = '$r[grade_history_student]'");
-		$q1 = mysql_query("select * from studentbio where studentbio_id = '$studentid'");
+		$q1 = mysql_query("select * from studentbio where studentbio_id = " . $r['grade_history_student']);
+		// had it changed to this below, now commented out again, Helmut
+		// $q1 = mysql_query("select * from studentbio where studentbio_id = '$studentid'");
 		$r1 = mysql_fetch_array($q1);
 		$name = $r1['studentbio_fname'] . " " . $r1['studentbio_lname'];
 		$id = $r1['studentbio_id'];
 //		echo $id . $name;
 //		echo "<br>select * from studentcontact where studentcontact_id = $id<br>";
-		$q5 = mysql_query("select * from studentcontact where studentcontact_id = $id");
+		$q5 = mysql_query("select * from studentcontact where studentcontact_id = '$id'");
 		$r5 = mysql_fetch_array($q5);
 		$address1 = $r5['studentcontact_address1'];
 		$address2 = $r5['studentcontact_address2'];
@@ -162,16 +163,16 @@ if ($genbatch) {
 		$pdf->PrintHeader();
 		$pdf->SetFillColor(255,255,255);
 		$pdf->SetFont('Times','',11);
-		$q3 = mysql_query("select * from grade_history where grade_history_student=$r1[studentbio_id] and grade_history_quarter = " . $_POST['qid'] ." and grade_history_year =  ".$_SESSION['CurrentYear']);
+		$q3 = mysql_query("select * from grade_history where grade_history_student=$id and grade_history_quarter = " . $_POST['qid'] ." and grade_history_year =  ".$_SESSION['CurrentYear']);
 		if (mysql_errno()) {
-			echo "select * from grade_history where grade_history_student=$r1[studentbio_id]";
+			echo "select * from grade_history where grade_history_student=" . $r1['studentbio_id'];
 			echo mysql_errno() . "-".mysql_error();
 		}
 		while ($r3 = mysql_fetch_array($q3)) {
-			$q29 = mysql_query("select * from grade_subjects where grade_subject_id = $r3[grade_history_subject]");
+			$q29 = mysql_query("select * from grade_subjects where grade_subject_id = " . $r3['grade_history_subject']);
 			$r29 = mysql_fetch_array($q29);
 			$info[0] = $r29['grade_subject_desc'];
-			$q4 = mysql_query("select * from web_users where web_users_id = $r3[grade_history_user] and web_users_type='T'");
+			$q4 = mysql_query("SELECT * FROM web_users WHERE web_users_id = " . $r3['grade_history_user'] . " AND web_users_type='T'");
 			$r4 = mysql_fetch_array($q4);
 			$info[1] = $r4['web_users_flname'];
 			$info[2] = $r3['grade_history_grade'];
