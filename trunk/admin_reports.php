@@ -129,7 +129,7 @@ function displayReport() {
 </td></tr>
 
 <tr class="trform">
-<td align="right"><input type="submit" name="submit" onClick="return displayReport()" value="<? echo _ADMIN_REPORTS_DOWNLOAD?>" class="frmbut">
+<td align="left"><input type="submit" name="submit" onClick="return displayReport()" value="<? echo _ADMIN_REPORTS_DOWNLOAD?>" class="frmbut">
 </td></tr>
 </table>
 </form>
