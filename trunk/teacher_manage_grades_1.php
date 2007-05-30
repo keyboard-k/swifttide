@@ -25,6 +25,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 //Include configuration
 include_once "configuration.php";
+$msgFormErr = "";
 
 //Get student id
 $studentid=get_param("studentid");
@@ -55,19 +56,19 @@ grade_history.grade_history_student =
 	//Set paging appearence
 	$ezr->results_open = "<table width=85% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead>
-	<td width=10% align=center>" . _TEACHER_MANAGE_GRADES_1_QUARTER . "</td>
-	<td width=20% align=center>" . _TEACHER_MANAGE_GRADES_1_GRADE . "</td>
-	<td width=20% align=center>" . _TEACHER_MANAGE_GRADES_1_EFFORT . "</td>
-	<td width=20% align=center>" . _TEACHER_MANAGE_GRADES_1_CONDUCT . "</td>
+	<td width=20% align=center>" . _TEACHER_MANAGE_GRADES_1_QUARTER . "</td>
+	<td width=15% align=center>" . _TEACHER_MANAGE_GRADES_1_GRADE . "</td>
+	<td width=15% align=center>" . _TEACHER_MANAGE_GRADES_1_EFFORT . "</td>
+	<td width=15% align=center>" . _TEACHER_MANAGE_GRADES_1_CONDUCT . "</td>
 	<td width=20% align=center>" . _TEACHER_MANAGE_GRADES_1_SUBJECT . "</td>
-	<td width=25% align=center>" . _TEACHER_MANAGE_GRADES_1_DETAILS . "</td>
+	<td width=15% align=center>" . _TEACHER_MANAGE_GRADES_1_DETAILS . "</td>
 	</tr>"; 
 	$ezr->results_close = "</table>";
 	$ezr->results_row = "<tr>
-	<td class=paging width=25% align=center>COL1</td>
-	<td class=paging width=20% align=center>COL2</td>
-	<td class=paging width=20% align=center>COL3</td>
-	<td class=paging width=20% align=center>COL4</td>
+	<td class=paging width=20% align=center>COL1</td>
+	<td class=paging width=15% align=center>COL2</td>
+	<td class=paging width=15% align=center>COL3</td>
+	<td class=paging width=15% align=center>COL4</td>
 	<td class=paging width=20% align=center>COL6</td>
 	<td class=paging width=15% align=center><a href=teacher_manage_grades_2.php?studentid=$studentid&gradeid=COL5 class=aform>&nbsp;" . _TEACHER_MANAGE_GRADES_1_DETAILS . "</a></td>
 	</tr>";

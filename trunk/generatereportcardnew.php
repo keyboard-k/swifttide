@@ -37,8 +37,8 @@ if (!$act) {
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _GENERATE_REPORT_CARD_NEW_ADMIN_AREA?></td>
+    <td width="50%" align="left"><b><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></b></td>
+    <td width="50%" align="right"><b><? echo _GENERATE_REPORT_CARD_NEW_ADMIN_AREA?></b></td>
   </tr>
 </table>
 </div>

@@ -25,6 +25,7 @@ include_once "ez_sql.php";
 include_once "ez_results.php";
 // Include configuration
 include_once "configuration.php";
+$msgFormErr = "";
 
 //Get search field info
 $action=get_param("action");
