@@ -1,6 +1,6 @@
 <?php
 DEFINE ('_VALID', 1);
-include "lang_de.php";
+include "lang_en.php";
 DEFINE('_LOGO', 'sms_de.gif');
 
 $db_server = 'localhost';
