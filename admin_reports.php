@@ -85,7 +85,7 @@ function displayReport() {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2"><b>&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></b></font></td>
-    <td width="50%"><b><? echo _ADMIN_REPORTS_UPPER?></b></td>
+    <td width="50%" align="right"><b><? echo _ADMIN_REPORTS_UPPER?></b></td>
   </tr>
 </table>
 </div>
@@ -94,7 +94,7 @@ function displayReport() {
 <h1><? echo _ADMIN_REPORTS_TITLE?></h1>
 <br>
 <form name="report_selection" method="POST" action="<?echo($_SERVER['PHP_SELF']);?>">
-<table border="0" cellpadding="1" cellspacing="1" width="80%">
+<table border="0" cellpadding="1" cellspacing="1" width="100%">
 <tr class="trform">
 <td>
 <select name="report" onChange="javascript: changeReport()">

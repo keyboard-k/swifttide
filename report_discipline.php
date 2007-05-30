@@ -40,8 +40,11 @@ $q = "SELECT * FROM discipline_history, infraction_codes, studentbio,
 	AND (school_years.school_years_id = discipline_history.discipline_history_year) 
 	AND (studentbio.studentbio_homeroom = school_rooms.school_rooms_id) ";
 
-if (($start_db_date != "") && ($end_db_date != "")) {
+if ($start_db_date != "") {
+  if ($end_db_date != "") {
 	$q .= "AND (discipline_history.discipline_history_date BETWEEN '$start_db_date' AND '$end_db_date')"; }
+  else
+	$q .= "AND (discipline_history.discipline_history_date > '$start_db_date')"; }
 
 $q .= " ORDER BY discipline_history_date, $sorted_1";
 if($sorted_2 == $sorted_1) $sorted_2 = 'none';
@@ -104,7 +107,7 @@ if(is_array($r)) {
 			<table border=1 width='100%'>
 			<tr><td><table width='100%'><tr><td>
 			<table width='100%'><tr><td class='record_heading'>
-			$s->infraction_codes_desc by $s->studentbio_fname $s->studentbio_lname 
+			$s->infraction_codes_desc " . _REPORT_DISCIPLINE_BY . " $s->studentbio_fname $s->studentbio_lname 
 			on $s->discipline_history_date</td>";
 
 		//display the students gender

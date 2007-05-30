@@ -49,8 +49,8 @@ if ($sort1) {
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _DOWN_REPORTS_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2"><b>&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></b></font></td>
+    <td width="50%" align="right"><b><? echo _DOWN_REPORTS_ADMIN_AREA?></b></td>
   </tr>
 </table>
 </div>
@@ -62,34 +62,36 @@ if ($sort1) {
 <table border="0" cellpadding="1" cellspacing="1" width="100%">
 <tr class="trform">
 <td width="100%">
-<select name="report">
+<select name="report" onChange="javascript: changeReport()">
 <option value="students" selected="selected"><? echo _DOWN_REPORTS_STUDENTS?></option>
 <option value="attendance"><? echo _DOWN_REPORTS_ATTENDANCE?></option>
 <option value="discipline"><? echo _DOWN_REPORTS_DISCIPLINE?></option>
 <!-- <option value="grades"><? echo _DOWN_REPORTS_GRADES?></option> -->
 </select>
-<? echo _DOWN_REPORTS_SORTED?> <select name="sort1">
-<option value="grades_id" selected="selected"><? echo _DOWN_REPORTS_GRADES?></option>
+<? echo _DOWN_REPORTS_SORTED?>
+<select name="sort1">
 <option value="school_names_desc"><? echo _DOWN_REPORTS_SCHOOL?></option>
+<option value="grades_id"><? echo _DOWN_REPORTS_GRADES?></option>
 <option value="studentbio_ethnicity"><? echo _DOWN_REPORTS_ETH?></option>
 <option value="studentbio_gender"><? echo _DOWN_REPORTS_GENDER?></option>
 <option value="studentbio_bus"><? echo _DOWN_REPORTS_ROUTE?></option>
 <option value="studentbio_homeroom"><? echo _DOWN_REPORTS_HOME?></option>
 </select>
-<? echo _DOWN_REPORTS_BY?> <select name="sort2">
-<option value="studentbio_ethnicity" selected="selected"><? echo _DOWN_REPORTS_ETH?></option>
+<? echo _DOWN_REPORTS_BY?>
+<select name="sort2">
+<option value="none"><? echo _ADMIN_REPORTS_NONE?></option>
+<option value="school_names_desc"><? echo _DOWN_REPORTS_SCHOOL?></option>
+<option value="grades_id"><? echo _DOWN_REPORTS_GRADES?></option>
+<option value="studentbio_ethnicity"><? echo _DOWN_REPORTS_ETH?></option>
 <option value="studentbio_gender"><? echo _DOWN_REPORTS_GENDER?></option>
 <option value="studentbio_bus"><? echo _DOWN_REPORTS_ROUTE?></option>
 <option value="studentbio_homeroom"><? echo _DOWN_REPORTS_HOME?></option>
-<option value="grades_id"><? echo _DOWN_REPORTS_GRADES?></option>
-<option value="school_names_desc"><? echo _DOWN_REPORTS_SCHOOL?></option>
 </select>
-
 </td>
 </tr>
-<tr class="trform"><td>from <input type="text" size=10 name="start_date" READONLY onclick="javascript:show_calendar('report_selection.start_date');"><a href="javascript:show_calendar('report_selection.start_date');"><img src="cal.gif" border="0" class="imma"></a> 
+<tr class="trform"><td><? echo _DOWN_REPORTS_FROM?><input type="text" size=10 name="start_date" READONLY onclick="javascript:show_calendar('report_selection.start_date');"><a href="javascript:show_calendar('report_selection.start_date');"><img src="cal.gif" border="0" class="imma"></a> 
 
-to <input type="text" size=10 name="end_date" READONLY onclick="javascript:show_calendar('report_selection.end_date');"><a href="javascript:show_calendar('report_selection.end_date');"><img src="cal.gif" border="0" class="imma"></a>
+<? echo _DOWN_REPORTS_TO?><input type="text" size=10 name="end_date" READONLY onclick="javascript:show_calendar('report_selection.end_date');"><a href="javascript:show_calendar('report_selection.end_date');"><img src="cal.gif" border="0" class="imma"></a>
 
 </td></tr><tr>
 <td width="100%" align="right"><input type="submit" name="submit" value="<? echo _DOWN_REPORTS_DOWNLOAD?>" class="frmbut">

@@ -585,6 +585,7 @@ DEFINE('_REPORT_DISCIPLINE_TO', 'to ');
 DEFINE('_REPORT_DISCIPLINE_TITLE', 'Discipline Report for ');
 DEFINE('_REPORT_DISCIPLINE_ROUTE', 'Bus Route ');
 DEFINE('_REPORT_DISCIPLINE_HOME', 'Home Room ');
+DEFINE('_REPORT_DISCIPLINE_BY', 'by');
 DEFINE('_REPORT_DISCIPLINE_NOTES', 'Notes');
 DEFINE('_REPORT_DISCIPLINE_SCHOOL', 'School');
 DEFINE('_REPORT_DISCIPLINE_INTERNAL', 'Internal ID');
@@ -739,7 +740,9 @@ DEFINE('_NURSE_STUDENT_2_NEW', 'New Search');
 
 /** makereport.php */
 
-// DEFINE("_MAKE_REPORT_THING", "Discipline report from $start_db_date to $end_db_date");
+DEFINE("_MAKE_REPORT_THING", "Discipline report");
+DEFINE('_MAKE_REPORT_FROM', ' from ');
+DEFINE('_MAKE_REPORT_TO', ' to ');
 DEFINE('_MAKE_REPORT_NAME', 'Name');
 DEFINE('_MAKE_REPORT_INFRACTION', 'Infraction');
 DEFINE('_MAKE_REPORT_DATE', 'Date');
@@ -1191,6 +1194,8 @@ DEFINE('_DOWN_REPORTS_GENDER', 'Gender');
 DEFINE('_DOWN_REPORTS_HEADER', 'Active Students Report');
 DEFINE('_DOWN_REPORTS_ROUTE', 'Bus Route');
 DEFINE('_DOWN_REPORTS_HOME', 'Home Room');
+DEFINE('_DOWN_REPORTS_FROM', 'from');
+DEFINE('_DOWN_REPORTS_TO', 'to');
 DEFINE('_DOWN_REPORTS_BY', 'By');
 DEFINE('_DOWN_REPORTS_NONE', 'None');
 DEFINE('_DOWN_REPORTS_DOWNLOAD', 'Download Report');

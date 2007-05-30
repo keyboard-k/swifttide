@@ -17,8 +17,8 @@ include 'common.php';
 // Include configuration
 include_once "configuration.php";
 
-global $sort1;
-global $sort2;
+// global $sort1;
+// global $sort2;
 $report_type = get_param("report_type");
 $sort1 = get_param("sort1");
 $sort2 = get_param("sort2");
@@ -73,18 +73,7 @@ switch ($report_type) {
 		$pdf->PrintHeader();
 		$pdf->SetFont('Arial','',8);
 		$pdf->SetFillColor(255,255,255);
-		if ($sort2 == 'none')
-			unset($sort2);
-		if ($sort2) {
-			$q = mysql_query("SELECT * FROM studentbio, 
-student_grade_year, school_names, ethnicity, grades WHERE 
-studentbio.studentbio_id = student_grade_year.student_grade_year_student 
-AND studentbio.studentbio_school = school_names.school_names_id AND 
-studentbio.studentbio_ethnicity = ethnicity.ethnicity_id AND 
-grades.grades_id = student_grade_year.student_grade_year_grade AND 
-studentbio.studentbio_active = '1' order by " . $sort1 . ", " . $sort2 . ", 
-studentbio_lname ASC");
-		} else {
+		if ($sort2 == 'none') {
 			$q = mysql_query("SELECT * FROM studentbio, 
 student_grade_year, school_names, ethnicity, grades WHERE 
 studentbio.studentbio_id = student_grade_year.student_grade_year_student 
@@ -93,6 +82,15 @@ studentbio.studentbio_ethnicity = ethnicity.ethnicity_id AND
 grades.grades_id = student_grade_year.student_grade_year_grade AND 
 studentbio.studentbio_active = '1' order by " . $sort1 . ", studentbio_lname 
 ASC");
+		} else {
+			$q = mysql_query("SELECT * FROM studentbio, 
+student_grade_year, school_names, ethnicity, grades WHERE 
+studentbio.studentbio_id = student_grade_year.student_grade_year_student 
+AND studentbio.studentbio_school = school_names.school_names_id AND 
+studentbio.studentbio_ethnicity = ethnicity.ethnicity_id AND 
+grades.grades_id = student_grade_year.student_grade_year_grade AND 
+studentbio.studentbio_active = '1' order by " . $sort1 . ", " . $sort2 . ", 
+studentbio_lname ASC");
 		}
 		if (mysql_errno()) {
 			die(mysql_errno() ."-".mysql_error());
@@ -105,12 +103,11 @@ ASC");
 		exit;
 		break;
 	case "discipline":
-		if ($sort2 == 'none')
-			unset($sort2);
 		if ($start_db_date) { $start_db_date = fix_date($start_db_date); }
-		if ($end_db_date) { $end_db_date = fix_date($end_db_date); }
-		// $thing = _MAKE_REPORT_THING;
-		$thing = "Discipline report from $start_db_date to $end_db_date";
+		if ($end_db_date)   { $end_db_date = fix_date($end_db_date); }
+		$thing = _MAKE_REPORT_THING;
+		if ($start_db_date) { $thing .= _MAKE_REPORT_FROM . $start_db_date; }
+		if ($end_db_date)   { $thing .= _MAKE_REPORT_FROM . $end_db_date; }
 		$pdf=new PDF();
 		$w=array(25,30,25,25,30,55);
 		$pdf->Open();
@@ -129,23 +126,7 @@ ASC");
 		$pdf->PrintHeader();
 		$pdf->SetFont('Arial','',8);
 		$pdf->SetFillColor(255,255,255);
-		if ($sort2) {
-			$q = "SELECT * FROM discipline_history, 
-infraction_codes, studentbio, school_names, ethnicity, school_years, 
-grades, student_grade_year WHERE 
-(discipline_history.discipline_history_student = studentbio.studentbio_id) 
-AND (discipline_history.discipline_history_code = 
-infraction_codes.infraction_codes_id) AND 
-(discipline_history.discipline_history_school = 
-school_names.school_names_id) AND (studentbio.studentbio_ethnicity = 
-ethnicity.ethnicity_id) AND (school_years.school_years_id = 
-discipline_history.discipline_history_year) AND (studentbio.studentbio_id 
-= student_grade_year.student_grade_year_student) AND (grades.grades_id = 
-student_grade_year.student_grade_year_grade)	AND 
-(discipline_history.discipline_history_date BETWEEN '$start_db_date' AND 
-'$end_db_date') ORDER BY discipline_history_date, $sort1, $sort2, 
-studentbio_lname ASC";
-		} else {
+		if ($sort2 == 'none') {
 			$q = "SELECT * FROM discipline_history, 
 infraction_codes, studentbio, school_names, ethnicity, school_years, 
 grades, student_grade_year WHERE 
@@ -161,6 +142,22 @@ student_grade_year.student_grade_year_grade)	AND
 (discipline_history.discipline_history_date BETWEEN '$start_db_date' AND 
 '$end_db_date') ORDER BY discipline_history_date, $sort1, 
 studentbio_lname ASC";
+		} else {
+			$q = "SELECT * FROM discipline_history, 
+infraction_codes, studentbio, school_names, ethnicity, school_years, 
+grades, student_grade_year WHERE 
+(discipline_history.discipline_history_student = studentbio.studentbio_id) 
+AND (discipline_history.discipline_history_code = 
+infraction_codes.infraction_codes_id) AND 
+(discipline_history.discipline_history_school = 
+school_names.school_names_id) AND (studentbio.studentbio_ethnicity = 
+ethnicity.ethnicity_id) AND (school_years.school_years_id = 
+discipline_history.discipline_history_year) AND (studentbio.studentbio_id 
+= student_grade_year.student_grade_year_student) AND (grades.grades_id = 
+student_grade_year.student_grade_year_grade)	AND 
+(discipline_history.discipline_history_date BETWEEN '$start_db_date' AND 
+'$end_db_date') ORDER BY discipline_history_date, $sort1, $sort2, 
+studentbio_lname ASC";
 		}
 //		echo $q;
 		$q1 = mysql_query($q);
@@ -175,22 +172,8 @@ studentbio_lname ASC";
 		exit;
 		break;
 	case "attendance":
-		if ($sort2 == 'none') 
-			unset($sort2);
 		if ($start_db_date) { $start_db_date = fix_date($start_db_date); }
-		if ($sort1) {
-			$q1 = "SELECT * FROM attendance_history, 
-attendance_codes, studentbio, student_grade_year, school_names, ethnicity, 
-grades WHERE (attendance_history.attendance_history_student = 
-studentbio.studentbio_id) AND (attendance_history.attendance_history_code 
-= attendance_codes.attendance_codes_id) AND (studentbio.studentbio_id = 
-student_grade_year.student_grade_year_student) AND 
-(studentbio.studentbio_school = school_names.school_names_id) AND 
-(studentbio.studentbio_ethnicity = ethnicity.ethnicity_id) AND 
-(grades.grades_id = student_grade_year.student_grade_year_grade) AND 
-(attendance_history.attendance_history_date = '$start_db_date') ORDER BY 
-$sort1, $sort2, studentbio_lname ASC";
-		} else {
+		if ($sort2 == 'none') {
 			$q1 = "SELECT * FROM attendance_history, 
 attendance_codes, studentbio, student_grade_year, school_names, ethnicity, 
 grades WHERE (attendance_history.attendance_history_student = 
@@ -202,6 +185,18 @@ student_grade_year.student_grade_year_student) AND
 (grades.grades_id = student_grade_year.student_grade_year_grade) AND 
 (attendance_history.attendance_history_date = '$start_db_date') ORDER BY 
 $sort1, studentbio_lname ASC";
+		} else {
+			$q1 = "SELECT * FROM attendance_history, 
+attendance_codes, studentbio, student_grade_year, school_names, ethnicity, 
+grades WHERE (attendance_history.attendance_history_student = 
+studentbio.studentbio_id) AND (attendance_history.attendance_history_code 
+= attendance_codes.attendance_codes_id) AND (studentbio.studentbio_id = 
+student_grade_year.student_grade_year_student) AND 
+(studentbio.studentbio_school = school_names.school_names_id) AND 
+(studentbio.studentbio_ethnicity = ethnicity.ethnicity_id) AND 
+(grades.grades_id = student_grade_year.student_grade_year_grade) AND 
+(attendance_history.attendance_history_date = '$start_db_date') ORDER BY 
+$sort1, $sort2, studentbio_lname ASC";
 		}
 		$q = mysql_query($q1);
 		$pdf=new PDF();
@@ -235,7 +230,7 @@ function compileInfoAttendance($in) {
 	$info[2] = $in['school_names_desc'];
 	$info[3] = $in['attendance_codes_desc'];
 	$info[4] = $in['attendance_history_notes'];
-	for ($i=0;$i<=8;$i++) {
+	for ($i=0;$i<=4;$i++) {
 		if (!$info[$i]) {
 			$info[$i] = '';
 		}
@@ -280,7 +275,7 @@ function compileInfoDiscipline($in) {
 	$info[3] = $in['discipline_history_reporter'];
 	$info[4] = $in['discipline_history_action'];
 	$info[5] = $in['discipline_history_notes'];
-	for ($i=0;$i<=8;$i++) {
+	for ($i=0;$i<=5;$i++) {
 		if (!$info[$i]) 
 			$info[$i] = '';
 	}
