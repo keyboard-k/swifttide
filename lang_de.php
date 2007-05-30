@@ -2927,8 +2927,13 @@ DEFINE('_TEACHER_SPEAK_UPDATE', 'Aktualisieren');
 
 DEFINE('_ADMIN_BOOKS_ADMIN_AREA', 'Administrator Bereich');
 DEFINE('_ADMIN_BOOKS_TITLE', 'B&uuml;cher bestellen');
+DEFINE('_ADMIN_BOOKS_SUBTITLE', 'B&uuml;cher-Bestellung bei:');
 DEFINE('_ADMIN_BOOKS_TEXT', 'Geben Sie hier die ISBN Nummer und St&uuml;ckzahl des Buches, das Sie bestellen wollen, an.');
 DEFINE('_ADMIN_BOOKS_TEXT2', 'Bitte beachten Sie, dass die Bestellung verbindlich ist!');
+DEFINE('_ADMIN_BOOKS_PHONE', 'Telefon');
+DEFINE('_ADMIN_BOOKS_FAX', 'Fax');
+DEFINE('_ADMIN_BOOKS_EMAIL', 'Email');
+DEFINE('_ADMIN_BOOKS_DISCOUNT', 'Rabatt');
 DEFINE('_ADMIN_BOOKS_ISBN', 'ISBN Nummer');
 DEFINE('_ADMIN_BOOKS_QUANTITY', 'St&uuml;ckzahl');
 DEFINE('_ADMIN_BOOKS_ORDER', 'Jetzt bestellen!');
