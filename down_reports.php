@@ -94,7 +94,7 @@ if ($sort1) {
 <? echo _DOWN_REPORTS_TO?><input type="text" size=10 name="end_date" READONLY onclick="javascript:show_calendar('report_selection.end_date');"><a href="javascript:show_calendar('report_selection.end_date');"><img src="cal.gif" border="0" class="imma"></a>
 
 </td></tr><tr>
-<td width="100%" align="right"><input type="submit" name="submit" value="<? echo _DOWN_REPORTS_DOWNLOAD?>" class="frmbut">
+<td width="100%" align="left"><input type="submit" name="submit" value="<? echo _DOWN_REPORTS_DOWNLOAD?>" class="frmbut">
 </td></tr>
 </table>
 </form>
