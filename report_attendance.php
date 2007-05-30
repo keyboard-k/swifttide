@@ -28,7 +28,7 @@ if($start_db_date) $start_db_date = fix_date($start_db_date);
 if($end_db_date) $end_db_date = fix_date($end_db_date);
 
 $q = "SELECT * FROM attendance_history, attendance_codes, studentbio, 
-	student_grade_year, school_names, ethnicity, grades, school_rooms 
+	student_grade_year, school_names, ethnicity, grades, school_rooms, school_years 
 	WHERE (attendance_history.attendance_history_student = studentbio.studentbio_id) 
 	AND (attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) 
 	AND (studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
@@ -138,3 +138,4 @@ if(is_array($r)) {
 } else {
 	echo"<center><h1>" . _REPORT_ATTENDANCE_NONE . "</h2></center>";
 }
+?>
