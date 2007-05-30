@@ -67,14 +67,31 @@ grade_terms WHERE grade_terms_id=$r[grade_history_quarter]");
 
 // if ($_POST['genbatch']) {
 if ($genbatch) {
-	$q = mysql_query("select DISTINCT * from grade_history JOIN student_grade_year ON student_grade_year_student = grade_history_student where grade_history_school = ".$_POST['sid'] ." and grade_history_quarter = ".$_POST['qid']." and student_grade_year_year = ".$_SESSION['CurrentYear']." and student_grade_year_grade= ". $_POST['gid'] ." group by grade_history_student");
+	$q = mysql_query("select DISTINCT * from grade_history 
+	JOIN student_grade_year ON student_grade_year_student = grade_history_student 
+	INNER JOIN studentbio ON studentbio_id = grade_history_student 
+	WHERE grade_history_school = ".$_POST['sid'] ." 
+	AND grade_history_quarter = ".$_POST['qid']." 
+	AND student_grade_year_year = ".$_SESSION['CurrentYear']." 
+	AND student_grade_year_grade= ". $_POST['gid'] ." 
+	AND studentbio_homeroom = ". $_POST['rid'] ." 
+	GROUP BY grade_history_student");
+	// echo "select DISTINCT * from grade_history 
+	// JOIN student_grade_year ON student_grade_year_student = grade_history_student 
+	// INNER JOIN studentbio ON studentbio_id = grade_history_student 
+	// WHERE grade_history_school = ".$_POST['sid'] ." 
+	// AND grade_history_quarter = ".$_POST['qid']." 
+	// AND student_grade_year_year = ".$_SESSION['CurrentYear']." 
+	// AND student_grade_year_grade= ". $_POST['gid'] ." 
+	// AND studentbio_homeroom = ". $_POST['rid'] ." 
+	// GROUP BY grade_history_student";
 	if (mysql_errno())
 		echo (mysql_errno() . "-".mysql_error());
-//	echo "select * from grade_history JOIN student_grade_year ON student_grade_year_student = grade_history_student where grade_history_school = ".$_POST['sid'] ." student_grade_year_year = 1 and student_grade_year_grade= ". $_POST['gid'] ;
 	$q12 = mysql_query("select * from school_names where school_names_id = ".$_POST['sid']);
 	$r12 = mysql_fetch_array($q12);
 	$sname = $r12['school_names_desc'];
 	$grade = $_POST['gid'];
+	$room = $db->get_var("SELECT school_rooms_desc FROM school_rooms WHERE school_rooms_id = $_POST[rid]");
 	$xc = strlen($sname);
 //	echo $xc;
 	if ($xc == 18) {
@@ -99,7 +116,8 @@ if ($genbatch) {
 	$pdf->Write(1,$sname);
 	$pdf->SetXY(60,105);
 	$pdf->Write(1, _GENERATE_REPORT_CARD_NEW_WRITE);
-	$pdf->Write(1, $grade);
+	// $pdf->Write(1, $grade);
+	$pdf->Write(1, $room);
 	// $tmp = _GENERATE_REPORT_CARD_NEW_WRITE;
 	// $pdf->Write(1, $tmp);
 	$w=array(35,35,35,35,35,35);	
@@ -374,16 +392,19 @@ if (!$genrep && !$genbatch) {
 		echo "<option value=$r1[grades_id]>$r1[grades_desc]</option>";
 	}
 	echo "</select>";
-			// CHANGE IF OTHER SCHOOL SYSTEM!
-			// FOR EXAMPLE, 2 SEMESTERS
-			echo "
-			<select name='qid'>
-				<option value=1>" . _GENERATE_REPORT_CARD_NEW_QUARTER1 . "</option>
-				<option value=2>" . _GENERATE_REPORT_CARD_NEW_QUARTER2 . "</option>
-				<option value=3>" . _GENERATE_REPORT_CARD_NEW_QUARTER3 . "</option>
-				<option value=4>" . _GENERATE_REPORT_CARD_NEW_QUARTER4 . "</option>
-			</select>";
-			echo "<input type='submit' class='frmbut' name='genbatch' value='" . _GENERATE_REPORT_CARD_NEW_GENERATE . "'></form>";
+	echo "<select name='rid'>";
+	$q1 = mysql_query("select * from school_rooms");
+	echo "<option value=none>" . _GENERATE_REPORT_CARD_NEW_NONE . "</option>";
+	while ($r1 = mysql_fetch_array($q1)) {
+		echo "<option value=$r1[school_rooms_id]>$r1[school_rooms_desc]</option>";
+	}
+	echo "</select>";
+	echo "<select name='qid'>";
+	$q1 = mysql_query("select * from grade_terms");
+	while ($r1 = mysql_fetch_array($q1)) {
+		echo "<option value=$r1[grade_terms_id]>$r1[grade_terms_desc]</option>";
+	}
+	echo "<input type='submit' class='frmbut' name='genbatch' value='" . _GENERATE_REPORT_CARD_NEW_GENERATE2 . "'></form>";
 }
 ?>
 
