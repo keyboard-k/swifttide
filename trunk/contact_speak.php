@@ -64,9 +64,9 @@ $ezr->query_mysql($pSQL);
 $ezr->results_open = "<table width=80% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_close = "</table>";
 $ezr->results_heading = "<tr class=tblhead>
-<td width=50%><a href=\"contact_speak.php?sort=name\">" . _CONTACT_SPEAK_TEACHER . "</td>
-<td width=25%><a href=\"contact_speak.php?sort=day\">" . _CONTACT_SPEAK_DAY . "</td>
-<td width=25%><a href=\"contact_speak.php?sort=period\">" . _CONTACT_SPEAK_PERIOD . "</td>
+<td width=50%><a href=\"contact_speak.php?sort=name\">" . _CONTACT_SPEAK_TEACHER . "</a></td>
+<td width=25%><a href=\"contact_speak.php?sort=day\">" . _CONTACT_SPEAK_DAY . "</a></td>
+<td width=25%><a href=\"contact_speak.php?sort=period\">" . _CONTACT_SPEAK_PERIOD . "</a></td>
 </tr>";
 $ezr->results_row = "<tr>
 <td class=paging width=50%>COL5 COL4</td>
