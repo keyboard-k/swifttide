@@ -1,6 +1,6 @@
 <?php
-include("phpforum.php");
 include_once("configuration.php");
+include("phpforum.php");
 //Patched 040807 to incorporate configuration.php
 
 class myphpforum extends phpforumPlus {
@@ -48,7 +48,7 @@ function myphpforum(){
 //-------------end-stylesheet-options--------------	
 //------------site options----------------------------
         var $welcome_msg="Welcome to our community";
-        var $site_administrator=SMTP_FROM_EMAIL;
+        var $site_administrator="";
 //------------end_site options----------------------- 
 }  
 ?>

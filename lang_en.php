@@ -2941,6 +2941,7 @@ DEFINE('_ADMIN_BOOKS_TITLE', 'Ordering Books');
 DEFINE('_ADMIN_BOOKS_SUBTITLE', 'at this Store:');
 DEFINE('_ADMIN_BOOKS_TEXT', 'Please enter the ISBN number and the quantity of the book you want to order.');
 DEFINE('_ADMIN_BOOKS_TEXT2', 'Note that the order is binding!');
+DEFINE('_ADMIN_BOOKS_TEXT2', '');
 DEFINE('_ADMIN_BOOKS_PHONE', 'Phone');
 DEFINE('_ADMIN_BOOKS_FAX', 'Fax');
 DEFINE('_ADMIN_BOOKS_EMAIL', 'Email');
