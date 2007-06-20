@@ -340,6 +340,8 @@ DEFINE('_TEACHER_MENU_INC_PHP_HOMEWORK', 'Homework');
 DEFINE('_TEACHER_MENU_INC_PHP_HOMEWORK_TEXT', 'Homework');
 DEFINE('_TEACHER_MENU_INC_PHP_FORUM', 'Discussion Board');
 DEFINE('_TEACHER_MENU_INC_PHP_FORUM_TEXT', 'Forum');
+DEFINE('_TEACHER_MENU_INC_PHP_CHAT', 'Chat');
+DEFINE('_TEACHER_MENU_INC_PHP_CHAT_TEXT', 'Chat');
 DEFINE('_TEACHER_MENU_INC_PHP_SPEAK', 'Manage own Speaking Hour');
 DEFINE('_TEACHER_MENU_INC_PHP_SPEAK_TEXT', 'Speaking Hour');
 DEFINE('_TEACHER_MENU_INC_PHP_CHANGE', 'Change Login Password');
@@ -776,6 +778,8 @@ DEFINE('_HEALTH_MENU_INC_CHANGE', 'Change Student Year');
 DEFINE('_HEALTH_MENU_INC_CHANGE_TEXT', 'Change Student Year');
 DEFINE('_HEALTH_MENU_INC_FORUM', 'Discussion Board');
 DEFINE('_HEALTH_MENU_INC_FORUM_TEXT', 'Forum');
+DEFINE('_HEALTH_MENU_INC_CHAT', 'Chat');
+DEFINE('_HEALTH_MENU_INC_CHAT_TEXT', 'Chat');
 DEFINE('_HEALTH_MENU_INC_EDIT_HEALTH', 'Edit Health Codes');
 DEFINE('_HEALTH_MENU_INC_EDIT_HEALTH_TEXT', 'Health Codes');
 DEFINE('_HEALTH_MENU_INC_EDIT_IMM', 'Edit Immunization Codes');
@@ -1334,6 +1338,8 @@ DEFINE('_CONTACT_MENU_FORUM_INC_HOMEWORK', 'Homework');
 DEFINE('_CONTACT_MENU_FORUM_INC_HOMEWORK_TEXT', 'Homework');
 DEFINE('_CONTACT_MENU_FORUM_INC_FORUM', 'Discussion Board');
 DEFINE('_CONTACT_MENU_FORUM_INC_FORUM_TEXT', 'Forum');
+DEFINE('_CONTACT_MENU_FORUM_INC_CHAT', 'Chat');
+DEFINE('_CONTACT_MENU_FORUM_INC_CHAT_TEXT', 'Chat');
 DEFINE('_CONTACT_MENU_FORUM_INC_PASS', 'Change Password');
 DEFINE('_CONTACT_MENU_FORUM_INC_PASS_TEXT', 'Change Password');
 DEFINE('_CONTACT_MENU_FORUM_INC_LOGOUT', 'Logout from System');
@@ -1359,6 +1365,8 @@ DEFINE('_CONTACT_MENU_INC_HOMEWORK', 'Homework');
 DEFINE('_CONTACT_MENU_INC_HOMEWORK_TEXT', 'Homework');
 DEFINE('_CONTACT_MENU_INC_FORUM', 'Discussion Board');
 DEFINE('_CONTACT_MENU_INC_FORUM_TEXT', 'Forum');
+DEFINE('_CONTACT_MENU_INC_CHAT', 'Chat');
+DEFINE('_CONTACT_MENU_INC_CHAT_TEXT', 'Chat');
 DEFINE('_CONTACT_MENU_INC_SPEAK', 'Manage Speaking Hours');
 DEFINE('_CONTACT_MENU_INC_SPEAK_TEXT', 'Speaking Hours');
 DEFINE('_CONTACT_MENU_INC_PASS', 'Change Password');
@@ -1764,6 +1772,8 @@ DEFINE('_ADMIN_MENU_INC_MASS', 'Send Mass Email');
 DEFINE('_ADMIN_MENU_INC_MASS_TEXT', 'Mass Email');
 DEFINE('_ADMIN_MENU_INC_FORUM', 'Discussion Board');
 DEFINE('_ADMIN_MENU_INC_FORUM_TEXT', 'Forum');
+DEFINE('_ADMIN_MENU_INC_CHAT', 'Chat');
+DEFINE('_ADMIN_MENU_INC_CHAT_TEXT', 'Chat');
 DEFINE('_ADMIN_MENU_INC_PASS', 'Change Password');
 DEFINE('_ADMIN_MENU_INC_PASS_TEXT', 'Password');
 DEFINE('_ADMIN_MENU_INC_REP', 'View Reports');
@@ -1801,6 +1811,8 @@ DEFINE('_ADMIN_MENU_FORUM_INC_MASS', 'Send Mass Email');
 DEFINE('_ADMIN_MENU_FORUM_INC_MASS_TEXT', 'Mass Email');
 DEFINE('_ADMIN_MENU_FORUM_INC_FORUM', 'Discussion Board');
 DEFINE('_ADMIN_MENU_FORUM_INC_FORUM_TEXT', 'Forum');
+DEFINE('_ADMIN_MENU_FORUM_INC_CHAT', 'Chat');
+DEFINE('_ADMIN_MENU_FORUM_INC_CHAT_TEXT', 'Chat');
 DEFINE('_ADMIN_MENU_FORUM_INC_PASS', 'Change Password');
 DEFINE('_ADMIN_MENU_FORUM_INC_PASS_TEXT', 'Password');
 DEFINE('_ADMIN_MENU_FORUM_INC_REP', 'View Reports');
@@ -2969,4 +2981,26 @@ DEFINE('_ADMIN_CONTACT_2_FORM_ERROR3', 'Contact not found: Letter ');
 DEFINE('_ADMIN_CONTACT_2_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_CONTACT_2_TITLE', 'Teacher Search Result');
 DEFINE('_ADMIN_CONTACT_2_NEW', 'New Search');
+
+/** admin_export.php */
+
+DEFINE('_ADMIN_EXPORT_NO_DATA', 'No Records found!');
+
+/** admin_chat.php */
+
+DEFINE('_ADMIN_CHAT_UPPER', 'Administrator Area - Chat');
+DEFINE('_ADMIN_CHAT_TITLE', 'Chat');
+DEFINE('_ADMIN_CHAT_TEXT', 'Please click here to enter the chat room ...');
+
+/** teacher_chat.php */
+
+DEFINE('_TEACHER_CHAT_UPPER', 'Teacher Area - Chat');
+DEFINE('_TEACHER_CHAT_TITLE', 'Chat');
+DEFINE('_TEACHER_CHAT_TEXT', 'Please click here to enter the chat room ...');
+
+/** contact_chat.php */
+
+DEFINE('_CONTACT_CHAT_UPPER', 'Contact Area - Chat');
+DEFINE('_CONTACT_CHAT_TITLE', 'Chat');
+DEFINE('_CONTACT_CHAT_TEXT', 'Please click here to enter the chat room ...');
 
