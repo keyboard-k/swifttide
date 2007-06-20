@@ -37,6 +37,7 @@ $studentid; ?>" title="<? echo _HEALTH_MENU_INC_IMM?>"><? echo _HEALTH_MENU_INC_
 			   <td><hr></td>
 			</tr>
 	<tr><td><a href="displayforum.php?forumid=SCHOOL&position=0&sort_by=date_posted&order=desc" title="<? echo _HEALTH_MENU_INC_FORUM?>"><? echo _HEALTH_MENU_INC_FORUM_TEXT?></a></td></tr>
+	<tr><td><a href="health_chat.php" title="<? echo _HEALTH_MENU_INC_CHAT?>"><? echo _HEALTH_MENU_INC_CHAT_TEXT?></a></td></tr>
 	<tr><td><a href="health_codes.php" title="<? echo _HEALTH_MENU_INC_EDIT_HEALTH?>"><? echo _HEALTH_MENU_INC_EDIT_HEALTH_TEXT?></a></td></tr>
 	<tr><td><a href="health_immunz.php" title="<? echo _HEALTH_MENU_INC_EDIT_IMM?>"><? echo _HEALTH_MENU_INC_EDIT_IMM_TEXT?></a></td></tr>
 	<tr><td><a href="health_medicine.php" title="<? echo _HEALTH_MENU_INC_EDIT_MED?>"><? echo _HEALTH_MENU_INC_EDIT_MED_TEXT?></a></td></tr>
