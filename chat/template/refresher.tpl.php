@@ -1,0 +1,1 @@
+<HTML><HEAD><?=$css_short?></HEAD><BODY onLoad="setTimeout('window.location.reload()',<?=$refresh_time?>);"></BODY></HTML>
