@@ -3004,3 +3004,9 @@ DEFINE('_CONTACT_CHAT_UPPER', 'Contact Area - Chat');
 DEFINE('_CONTACT_CHAT_TITLE', 'Chat');
 DEFINE('_CONTACT_CHAT_TEXT', 'Please click here to enter the chat room ...');
 
+/** health_chat.php */
+
+DEFINE('_HEALTH_CHAT_UPPER', 'Health Area - Chat');
+DEFINE('_HEALTH_CHAT_TITLE', 'Chat');
+DEFINE('_HEALTH_CHAT_TEXT', 'Please click here to enter the chat room ...');
+
