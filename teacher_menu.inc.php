@@ -67,6 +67,9 @@ include_once "configuration.php";
 	<tr>
 	<td><a href="displayforum.php?forumid=SCHOOL&position=0&sort_by=date_posted&order=desc" title="<?php echo _TEACHER_MENU_INC_PHP_FORUM?>"><?php echo _TEACHER_MENU_INC_PHP_FORUM_TEXT?></a></td>
 	</tr>
+	<tr>
+	<td><a href="teacher_chat.php" title="<?php echo _TEACHER_MENU_INC_PHP_CHAT?>"><?php echo _TEACHER_MENU_INC_PHP_CHAT_TEXT?></a></td>
+	</tr>
 			<tr>
 			   <td><hr></td>
 			</tr>
