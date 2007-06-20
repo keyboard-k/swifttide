@@ -1,0 +1,1 @@
+<script>parent.c("<?=$command_line?>")</script>
