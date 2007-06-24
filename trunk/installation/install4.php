@@ -39,7 +39,7 @@ $logo		= $uploaddir . $_FILES['logo']['name'];
 if (move_uploaded_file($_FILES['logo']['tmp_name'], $logo)) {
 	// print "File is valid, and was successfully uploaded.\n";
 } else {
-	print "Possible file upload attack!\n";
+	// print "Possible file upload attack!\n";
 	print_r ($_FILES);
 }
 
@@ -259,7 +259,7 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 		<div id="right">
 			<div id="step">step 4</div>
 			<div class="far-right">
-				<input class="button" type="button" name="runSite" value="View Site"
+				<input class="button" type="button" name="runSite" value="Start SMS"
 <?php
 				if ($siteUrl) {
 					echo "onClick=\"window.location.href='$siteUrl/index.php' \"";
@@ -277,6 +277,14 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 				}
 ?>/>
 -->
+				<input class="button" type="button" name="runSite" value="Install Chat"
+<?php
+				if ($siteUrl) {
+					echo "onClick=\"window.location.href='$siteUrl/chat/install/index.php' \"";
+				} else {
+					echo "onClick=\"window.location.href='".$configArray['siteURL']."/chat/install/index.php' \"";
+				}
+?>/>
 			</div>
 			<div class="clr"></div>
 			<h1>Congratulations! SMS is installed</h1>
