@@ -2725,6 +2725,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `books_email` varchar(30) default NULL,
   `books_notes` varchar(100) default NULL,
   `books_discount` int(5) default NULL,
+  `subscription_id` varchar(30) NOT NULL default '1RKBH4RC7WZR95MX5102',
   PRIMARY KEY (`books_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

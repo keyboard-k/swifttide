@@ -103,9 +103,11 @@ if (file_exists( '../configuration.php' )) {
 	if ($Language) {
 		if ($Language == 1) {
 			$config .= "include \"lang_de.php\";\n";
+			$config .= "DEFINE ('LANG', 'de');\n";
 		}
 		elseif ($Language == 2) {
 			$config .= "include \"lang_en.php\";\n";
+			$config .= "DEFINE ('LANG', 'de');\n";
 		}
 		else { echo "Wrong language!"; }
 	}
