@@ -1,5 +1,6 @@
 <?php
 DEFINE ('_VALID', 1);
+DEFINE ('_LANG', 'de');
 include "lang_en.php";
 DEFINE('_LOGO', '../images/sms_en.gif');
 

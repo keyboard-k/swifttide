@@ -2953,14 +2953,14 @@ DEFINE('_ADMIN_BOOKS_TITLE', 'Ordering Books');
 DEFINE('_ADMIN_BOOKS_SUBTITLE', 'at this Store:');
 DEFINE('_ADMIN_BOOKS_TEXT', 'Please enter the ISBN number and the quantity of the book you want to order.');
 DEFINE('_ADMIN_BOOKS_TEXT2', 'Note that the order is binding!');
-DEFINE('_ADMIN_BOOKS_TEXT2', '');
+DEFINE('_ADMIN_BOOKS_TEXT3', '');
 DEFINE('_ADMIN_BOOKS_PHONE', 'Phone');
 DEFINE('_ADMIN_BOOKS_FAX', 'Fax');
 DEFINE('_ADMIN_BOOKS_EMAIL', 'Email');
 DEFINE('_ADMIN_BOOKS_DISCOUNT', 'Discount');
 DEFINE('_ADMIN_BOOKS_ISBN', 'ISBN Number');
 DEFINE('_ADMIN_BOOKS_QUANTITY', 'Quantity');
-DEFINE('_ADMIN_BOOKS_ORDER', 'Order now!');
+DEFINE('_ADMIN_BOOKS_LOOKUP', 'Lookup book data!');
 
 /** admin_books_2.php */
 
@@ -2968,6 +2968,24 @@ DEFINE('_ADMIN_BOOKS_2_MESSAGE1', 'New book order!');
 DEFINE('_ADMIN_BOOKS_2_MESSAGE2', 'This book has been ordered:');
 DEFINE('_ADMIN_BOOKS_2_MESSAGE3', 'Quantity:');
 DEFINE('_ADMIN_BOOKS_2_SUBJECT', 'Book Order');
+DEFINE('_ADMIN_BOOKS_2_ADMIN_AREA', 'Administrator Area');
+DEFINE('_ADMIN_BOOKS_2_TITLE', 'Ordering Books');
+DEFINE('_ADMIN_BOOKS_2_SUBTITLE', 'You are ordering:');
+DEFINE('_ADMIN_BOOKS_2_ISBN', 'ISBN Number');
+DEFINE('_ADMIN_BOOKS_2_BOOKTITLE', 'Title of Book');
+DEFINE('_ADMIN_BOOKS_2_BOOKPUBLISHER', 'Publisher');
+DEFINE('_ADMIN_BOOKS_2_BOOKSUMMARY', 'Summary');
+DEFINE('_ADMIN_BOOKS_2_QUANTITY', 'Quantity');
+DEFINE('_ADMIN_BOOKS_2_ORDER', 'Order now!');
+
+/** admin_books_3.php */
+
+DEFINE('_ADMIN_BOOKS_3_QUANTITY','Quantity');
+DEFINE('_ADMIN_BOOKS_3_ISBN', 'ISBN');
+DEFINE('_ADMIN_BOOKS_3_BOOKTITLE', 'Title of Book');
+DEFINE('_ADMIN_BOOKS_3_BOOKPUBLISHER', 'Publisher');
+DEFINE('_ADMIN_BOOKS_3_BOOKSUMMARY', 'Summary');
+DEFINE('_ADMIN_BOOKS_3_SENT_TO', 'Sent to');
 
 /** admin_contact_2.php */
 
