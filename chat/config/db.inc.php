@@ -18,7 +18,7 @@ DEFINE('DBLOGIN','root');
 DEFINE('DBPASSWORD','ani');
 
 /* Database name */
-DEFINE('DBSEGMENT','s2');
+DEFINE('DBSEGMENT','s6');
 
 /* Prefix for all chat table names */
 DEFINE('PREFIX','pcpin_');
