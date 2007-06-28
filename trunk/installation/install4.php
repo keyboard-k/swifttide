@@ -34,7 +34,8 @@ $absolutePath	= mosGetParam( $_POST, 'absolutePath', '' );
 $adminPassword	= mosGetParam( $_POST, 'adminPassword', '');
 
 $uploaddir = '../images/';
-$logo		= $uploaddir . $_FILES['logo']['name'];
+$logo = "";
+if ($_FILES['logo']['name'] !== "") { $logo = $uploaddir . $_FILES['logo']['name']; }
 
 if (move_uploaded_file($_FILES['logo']['tmp_name'], $logo)) {
 	// print "File is valid, and was successfully uploaded.\n";
@@ -283,9 +284,9 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 				<input class="button" type="button" name="runSite" value="Install Chat"
 <?php
 				if ($siteUrl) {
-					echo "onClick=\"window.location.href='$siteUrl/chat/install/index.php' \"";
+					echo "onClick=\"window.location.href='$siteUrl/chat/install/index.php?db=$configArray['DBname']' \"";
 				} else {
-					echo "onClick=\"window.location.href='".$configArray['siteURL']."/chat/install/index.php' \"";
+					echo "onClick=\"window.location.href='".$configArray['siteURL']."/chat/install/index.php?db=$configArray['DBname']' \"";
 				}
 ?>/>
 			</div>

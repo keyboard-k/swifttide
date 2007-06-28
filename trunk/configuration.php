@@ -1,11 +1,11 @@
 <?php
 DEFINE ('_VALID', 1);
-include "lang_de.php";
-DEFINE ('_LANG', 'de');
-DEFINE('_LOGO', '../images/sms_de.gif');
+include "lang_en.php";
+DEFINE ('_LANG', 'en');
+DEFINE('_LOGO', '../images/');
 
 $db_server = 'localhost';
-$db_name = 's5';
+$db_name = 's6';
 $db_user = 'root';
 $db_password = 'ani';
 

@@ -15,14 +15,6 @@ $DBuserName = mosGetParam( $_POST, 'DBuserName', '' );
 $DBpassword = mosGetParam( $_POST, 'DBpassword', '' );
 $DBname  	= mosGetParam( $_POST, 'DBname', '' );
 
-$DBsmtpserver           = mosGetParam( $_POST, 'DBsmtpserver', '' );
-$DBsmtpuser             = mosGetParam( $_POST, 'DBsmtpuser', '' );
-$DBsmtppass             = mosGetParam( $_POST, 'DBsmtppass', '' );
-$DBsmtpfromname1        = mosGetParam( $_POST, 'DBsmtpfromname1', '' );
-$DBsmtpfromname2        = mosGetParam( $_POST, 'DBsmtpfromname2', '' );
-$DBsmtpfromemail        = mosGetParam( $_POST, 'DBsmtpfromemail', '' );
-$DBsmtpreplyto          = mosGetParam( $_POST, 'DBsmtpreplyto', '' );
-
 $DBPrefix       = mosGetParam( $_POST, 'DBPrefix', '' );
 $DBDel          = intval( mosGetParam( $_POST, 'DBDel', 0 ) );
 $DBBackup       = intval( mosGetParam( $_POST, 'DBBackup', 0 ) );
@@ -56,13 +48,6 @@ if (!$DBcreated){
 	$configArray['DBuserName'] = $DBuserName;
 	$configArray['DBpassword'] = $DBpassword;
 	$configArray['DBname']	 = $DBname;
-	$configArray['DBsmtpserver']	 = $DBsmtpserver;
-	$configArray['DBsmtpuser']	 = $DBsmtpuser;
-	$configArray['DBsmtppass']	 = $DBsmtppass;
-	$configArray['DBsmtpfromname1']	 = $DBsmtpfromname1;
-	$configArray['DBsmtpfromname2']	 = $DBsmtpfromname2;
-	$configArray['DBsmtpfromemail']	 = $DBsmtpfromemail;
-	$configArray['DBsmtpreplyto']	 = $DBsmtpreplyto;
 	$configArray['DBPrefix']	= $DBPrefix;
 
 	$sql = "CREATE DATABASE `$DBname`";
@@ -143,13 +128,6 @@ function db_err($step, $alert) {
 	<input type=\"hidden\" name=\"DBpassword\" value=\"$DBpassword\">
 	<input type=\"hidden\" name=\"DBDel\" value=\"$DBDel\">
 	<input type=\"hidden\" name=\"DBname\" value=\"$DBname\">
-	<input type=\"hidden\" name=\"DBsmtpserver\" value=\"$DBsmtpserver\">
-	<input type=\"hidden\" name=\"DBsmtpuser\" value=\"$DBsmtpuser\">
-	<input type=\"hidden\" name=\"DBsmtppass\" value=\"$DBsmtppass\">
-	<input type=\"hidden\" name=\"DBsmtpfromname1\" value=\"$DBsmtpfrmoname1\">
-	<input type=\"hidden\" name=\"DBsmtpfromname2\" value=\"$DBsmtpfrmoname2\">
-	<input type=\"hidden\" name=\"DBsmtpfromemail\" value=\"$DBsmtpfromemail\">
-	<input type=\"hidden\" name=\"DBsmtpreplyto\" value=\"$DBsmtpreplyto\">
 	</form>\n";
 	//echo "<script>alert(\"$alert\"); window.history.go(-1);</script>";
 	echo "<script>alert(\"$alert\"); document.location.href='install1.php';</script>";  
@@ -256,13 +234,6 @@ function check() {
 	<input type="hidden" name="DBuserName" value="<?php echo "$DBuserName"; ?>" />
 	<input type="hidden" name="DBpassword" value="<?php echo "$DBpassword"; ?>" />
 	<input type="hidden" name="DBname" value="<?php echo "$DBname"; ?>" />
-	<input type="hidden" name="DBsmtpserver" value="<?php echo "$DBsmtpserver"; ?>" />
-	<input type="hidden" name="DBsmtpuser" value="<?php echo "$DBsmtpuser"; ?>" />
-	<input type="hidden" name="DBsmtppass" value="<?php echo "$DBsmtppass"; ?>" />
-	<input type="hidden" name="DBsmtpfromname1" value="<?php echo "$DBsmtpfromname1"; ?>" />
-	<input type="hidden" name="DBsmtpfromname2" value="<?php echo "$DBsmtpfromname2"; ?>" />
-	<input type="hidden" name="DBsmtpfromemail" value="<?php echo "$DBsmtpfromemail"; ?>" />
-	<input type="hidden" name="DBsmtpreplyto" value="<?php echo "$DBsmtpreplyto"; ?>" />
 	<input type="hidden" name="Language" value="<?php echo "$Language"; ?>" />
 	<input type="hidden" name="DBSample" value="<?php echo "$DBSample"; ?>" />
 	<input type="hidden" name="DBPrefix" value="<?php echo "$DBPrefix"; ?>" />
@@ -319,7 +290,7 @@ function check() {
   						<td colspan="2">
   							SMTP Server
   							<br/>
-  							<input class="inputbox" type="text" name="DBsmtpserver" value="<?php echo "$DBsmtpserver"; ?>" />
+  							<input class="inputbox" type="text" name="DBsmtpserver" value="" />
   						</td>
 			  			<td>
 			  				<em>SMTP Server</em>
@@ -329,7 +300,7 @@ function check() {
   						<td colspan="2">
   							SMTP Username
   							<br/>
-  							<input class="inputbox" type="text" name="DBsmtpuser" value="<?php echo "$DBsmtpuser"; ?>" />
+  							<input class="inputbox" type="text" name="DBsmtpuser" value="" />
   						</td>
 			  			<td>
 			  				<em>SMTP Username</em>
@@ -339,7 +310,7 @@ function check() {
   						<td colspan="2">
   							SMTP Password
   							<br/>
-  							<input class="inputbox" type="text" name="DBsmtppass" value="<?php echo "$DBsmtppass"; ?>" />
+  							<input class="inputbox" type="text" name="DBsmtppass" value="" />
   						</td>
 			  			<td>
 			  				<em>SMTP Password</em>
