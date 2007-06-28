@@ -2,7 +2,6 @@
 DEFINE ('_VALID', 1);
 DEFINE ('_LANG', 'de');
 $language_file = "lang_" . _LANG . ".php";
-// include "lang_en.php";
 include $language_file;
 DEFINE('_LOGO', '../images/sms_de.gif');
 
