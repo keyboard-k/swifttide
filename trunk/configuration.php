@@ -1,14 +1,13 @@
 <?php
 DEFINE ('_VALID', 1);
-DEFINE ('_LANG', 'de');
-$language_file = "lang_" . _LANG . ".php";
-include $language_file;
+include "lang_en.php";
+DEFINE ('LANG', 'en');
 DEFINE('_LOGO', '../images/sms_de.gif');
 
 $db_server = 'localhost';
-$db_name = 's2';
-$db_user = 'test';
-$db_password = 'test';
+$db_name = 's5';
+$db_user = 'root';
+$db_password = 'ani';
 
 $SMTP_SERVER = '213.153.32.129';
 $SMTP_USER = '';

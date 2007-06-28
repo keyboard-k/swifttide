@@ -14,14 +14,6 @@ $DBuserName = mosGetParam( $_POST, 'DBuserName', '' );
 $DBpassword = mosGetParam( $_POST, 'DBpassword', '' );
 $DBname     = mosGetParam( $_POST, 'DBname', '' );
 
-// $DBsmtpserver  		= mosGetParam( $_POST, 'DBsmtpserver', '' );
-// $DBsmtpuser  		= mosGetParam( $_POST, 'DBsmtpuser', '' );
-// $DBsmtppass  		= mosGetParam( $_POST, 'DBsmtppass', '' );
-// $DBsmtpfromname1  	= mosGetParam( $_POST, 'DBsmtpfromname1', '' );
-// $DBsmtpfromname2  	= mosGetParam( $_POST, 'DBsmtpfromname2', '' );
-// $DBsmtpfromemail  	= mosGetParam( $_POST, 'DBsmtpfromemail', '' );
-// $DBsmtpreplyto 		= mosGetParam( $_POST, 'DBsmtpreplyto', '' );
-
 $DBPrefix  	= mosGetParam( $_POST, 'DBPrefix', 'jos_' );
 $DBDel  	= intval( mosGetParam( $_POST, 'DBDel', 0 ) );
 $DBBackup  	= intval( mosGetParam( $_POST, 'DBBackup', 0 ) );

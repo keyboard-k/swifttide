@@ -33,7 +33,7 @@ $siteUrl  	= mosGetParam( $_POST, 'siteUrl', '' );
 $absolutePath	= mosGetParam( $_POST, 'absolutePath', '' );
 $adminPassword	= mosGetParam( $_POST, 'adminPassword', '');
 
-$uploaddir = '../pictures/';
+$uploaddir = '../images/';
 $logo		= $uploaddir . $_FILES['logo']['name'];
 
 if (move_uploaded_file($_FILES['logo']['tmp_name'], $logo)) {
@@ -113,15 +113,16 @@ if (file_exists( '../configuration.php' )) {
 	}
 	else { echo "Error selecting language!\n"; }
 
-	if ($logo != "") {
+	if ($logo !== "") {
+	  echo "logo=$logo";
 	  $config .= "DEFINE('_LOGO', '" . $logo . "');\n\n";
 	}
 	else {
 	  if (($DBSample == 1) || ($DBSample == 2)) {
-	    $config .= "DEFINE('_LOGO', 'sms_de.gif');\n\n";
+	    $config .= "DEFINE('_LOGO', '../images/sms_de.gif');\n\n";
 	  }
 	  else {
-	    $config .= "DEFINE('_LOGO', 'sms_en.gif');\n\n";
+	    $config .= "DEFINE('_LOGO', '../images/sms_en.gif');\n\n";
 	  }
 	}
 
