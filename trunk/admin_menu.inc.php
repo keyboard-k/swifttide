@@ -116,6 +116,15 @@ title="<? echo _ADMIN_MENU_INC_HEALTH?>"><? echo _ADMIN_MENU_INC_HEALTH_TEXT?></
 		<TD>
 		<TABLE>
 			<TR>
+				<TH><a href="admin_books.php" title="<? echo _ADMIN_MENU_INC_BOOK?>"><? echo _ADMIN_MENU_INC_BOOK_TEXT?></a></TH>
+			</TR>
+		</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		<TABLE>
+			<TR>
 				<TH><a href="admin_change_password.php" title="<? echo _ADMIN_MENU_INC_PASS?>"><? echo _ADMIN_MENU_INC_PASS_TEXT?></a></TH>
 			</TR>
 		</TABLE>

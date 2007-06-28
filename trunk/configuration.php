@@ -1,8 +1,10 @@
 <?php
 DEFINE ('_VALID', 1);
 DEFINE ('_LANG', 'de');
-include "lang_en.php";
-DEFINE('_LOGO', '../images/sms_en.gif');
+$language_file = "lang_" . _LANG . ".php";
+// include "lang_en.php";
+include $language_file;
+DEFINE('_LOGO', '../images/sms_de.gif');
 
 $db_server = 'localhost';
 $db_name = 's2';
