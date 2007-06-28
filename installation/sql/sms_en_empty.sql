@@ -1038,3 +1038,6 @@ CREATE TABLE IF NOT EXISTS `books` (
   PRIMARY KEY (`books_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+INSERT INTO `books` (`books_id`, `books_flname`, `books_address`, `books_city`, `books_state`, `books_zip`, `books_country`, `books_phone`, `books_fax`, `books_email`, `books_notes`, `books_discount`) VALUES 
+(1, 'Versandbuchhandlung Werner März', 'Pürstling 3', 'Regau', 'Oberösterreich', '4844', 'Österreich', '07672-72072', '07672-72072-4', 'maerz@team-f.at', 'UID-Nr. ATU 56385236', 10);
+
