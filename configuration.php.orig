@@ -1,23 +1,19 @@
 <?php
-/** @version $Id: configuration.php, version 0.1 2007/03/05
-* define the language to use
-* lang_en.php = english
-* lang_de.php = german
-* all files are loading the corresponding language file
-*/
+DEFINE ('_VALID', 1);
+DEFINE ('_LANG', 'de');
+$language_file = "lang_" . _LANG . ".php";
+include $language_file;
+DEFINE('_LOGO', '../images/sms_de.gif');
 
-DEFINE (_VALID, 1);
-include "lang_de.php"; // en = English, de = German
+$db_server = 'localhost';
+$db_name = 's2';
+$db_user = 'test';
+$db_password = 'test';
 
-$db_server = "localhost";			// Database Server
-$db_name = "school_intl_de";			// Database Name
-$db_user = "test";				// DB Login
-$db_password = "test";				// DB Password
-$SMTP_SERVER = "213.153.32.126";		// SMTP Server IP
-$SMTP_USER = "";				// SMTP login
-$SMTP_PASSWORD = "";				// SMTP password
-$SMTP_FROM_NAME = "Administrator";		// SMTP From Name (School Principal?)
-$SMTP_FROM_EMAIL = "h.leinfellner@sbg.at";	// SMTP From Address
-$SMTP_REPLY_TO = "h.leinfellner@sbg.at";	// SMTP Reply-to-Address
-
+$SMTP_SERVER = '213.153.32.129';
+$SMTP_USER = '';
+$SMTP_PASSWORD = '';
+$SMTP_FROM_NAME = 'Helmut Leinfellner';
+$SMTP_FROM_EMAIL = 'h.leinfellner@sbg.at';
+$SMTP_REPLY_TO = 'h.leinfellner@sbg.at';
 ?>
