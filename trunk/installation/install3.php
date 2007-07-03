@@ -125,7 +125,7 @@ function changeDirPermsMode(mode)
 <body onload="document.form.siteUrl.focus();">
 <div id="wrapper">
 	<div id="header">
-		<!-- <div id="joomla"><img src="header_install.png" alt="SMS Installation" /></div> --
+		<!-- <div id="joomla"><img src="header_install.png" alt="SMS Installation" /></div> -->
 	</div>
 </div>
 <div id="ctr" align="center">
