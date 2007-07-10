@@ -60,7 +60,7 @@ $r = $db->get_results($q);
 ?>
 <html><title><? echo _REPORT_ATTENDANCE_BROWSER_TITLE?></title>
 <head>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-admin.css";</style>
 </head>
 <body>
 <?

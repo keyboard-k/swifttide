@@ -50,8 +50,11 @@ $studentid; ?>" title="<? echo _HEALTH_MENU_INC_IMM?>"><? echo _HEALTH_MENU_INC_
 			   <td><hr></td>
 			</tr>
 	<tr><td><a href="logout.php" title="<? echo _HEALTH_MENU_INC_LOGOUT?>"><? echo _HEALTH_MENU_INC_LOGOUT_TEXT?></a></td></tr>
-			<tr>
-			   <td><hr></td>
-			</tr>
-	<tr><td><a href="admin_student_1.php" title="<? echo _HEALTH_MENU_INC_ADMIN_AREA?>"><? echo _HEALTH_MENU_INC_ADMIN_AREA_TEXT?></a></td></tr></table></table>
+	<!--
+	<tr>
+	   <td><hr></td>
+	</tr>
+	<tr><td><a href="admin_student_1.php" title="<? echo _HEALTH_MENU_INC_ADMIN_AREA?>"><? echo _HEALTH_MENU_INC_ADMIN_AREA_TEXT?></a></td></tr>
+	-->
+	</table></table>
 </div>
