@@ -170,7 +170,7 @@ $comment3, $subject)";
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>Student Management System</title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
