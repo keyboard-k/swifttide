@@ -102,7 +102,7 @@ switch ($action){
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><? echo _BROWSER_TITLE?></title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
@@ -113,9 +113,8 @@ switch ($action){
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><? echo 
-date(_DATE_FORMAT); ?></b></font></td>
-    <td width="50%"><b><? echo _GRADE_STUDENT_2_TEACHER_AREA?></b></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="right"><? echo _GRADE_STUDENT_2_TEACHER_AREA?></td>
   </tr>
 </table>
 </div>

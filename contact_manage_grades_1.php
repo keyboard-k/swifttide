@@ -64,7 +64,7 @@ width=20%>" . _CONTACT_MANAGE_GRADES_1_EFFORT . "</td><td width=15%>" . _CONTACT
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><? echo _BROWSER_TITLE?></title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-contact.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 

@@ -131,8 +131,9 @@ $ezr->results_row = "<tr>
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><?echo _BROWSER_TITLE?></title>
+<title><? echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
+
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
 function submitform(fldName)
@@ -169,7 +170,7 @@ function cnfremove(id) {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_SPEAK_ADMIN_AREA?></td>
+    <td width="50%" align="right"><? echo _ADMIN_SPEAK_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
