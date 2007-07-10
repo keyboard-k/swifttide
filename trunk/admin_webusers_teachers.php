@@ -29,7 +29,7 @@ $action = get_param("action");
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><? echo _BROWSER_TITLE?></title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to check if field is empty */
 function submitform(fldName, frmNumb)
