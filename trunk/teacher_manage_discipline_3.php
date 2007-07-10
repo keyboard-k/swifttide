@@ -78,7 +78,7 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><?php echo _BROWSER_TITLE?></title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-teacher.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <SCRIPT LANGUAGE="JAVASCRIPT">

@@ -23,6 +23,10 @@ include_once "ez_sql.php";
 include_once "configuration.php";
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><? echo _BROWSER_TITLE?></title>
@@ -84,8 +88,8 @@ function displayReport() {
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2"><b>&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></b></font></td>
-    <td width="50%" align="right"><b><? echo _ADMIN_REPORTS_UPPER?></b></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="right"><? echo _ADMIN_REPORTS_UPPER?></td>
   </tr>
 </table>
 </div>

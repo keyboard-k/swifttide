@@ -33,7 +33,7 @@ $end_year=$db->get_var("SELECT current_year FROM tbl_config WHERE id=1");
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title><?php echo _ADMIN_MAIN_MENU_TITLE?></title>
-<style type="text/css" media="all">@import "student.css";</style>
+<style type="text/css" media="all">@import "student-teacher.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to ask confirmation before changing year */
 function confirmchange(id) {
