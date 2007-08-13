@@ -34,7 +34,7 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$id_to_delete = get_param("id");
-		$sSQL="DELETE FROM exams_types_rooms WHERE exams_types_id=$id_to_delete";
+		$sSQL="DELETE FROM exams_types WHERE exams_types_id=$id_to_delete";
 		$db->query($sSQL);
 		break;
 	case "add":
@@ -44,7 +44,7 @@ switch ($action){
 		if($tot>0){
 			$msgFormErr=_ADMIN_EXAMS_TYPES_DUP;
 		}else{
-		$cSQL="INSERT INTO exams_types (exames_types_desc) VALUES (".tosql($name, "Text").")"; 
+		$cSQL="INSERT INTO exams_types (exams_types_desc) VALUES (".tosql($name, "Text").")"; 
 		$db->query($cSQL);
 		};
 		break;
@@ -99,7 +99,7 @@ function cnfremove(id) {
 	answer = window.confirm("<? echo _ADMIN_EXAMS_TYPES_SURE?>");
 	if (answer == 1) {
 		var url;
-		url = "admin_rooms?action=remove&id=" + id;
+		url = "admin_exams_types?action=remove&id=" + id;
 		window.location = url; // other browsers
 		href_remove.href = url; // explorer 
 	}
@@ -142,7 +142,7 @@ function cnfremove(id) {
 	} else {
 	?>
 		<br>
-		<form name="edit_rooms" method="post" action="<?echo($_SERVER['PHP_SELF']);?>">
+		<form name="edit_exams_types" method="post" action="<?echo($_SERVER['PHP_SELF']);?>">
 		  <p class="pform"><? echo _ADMIN_EXAMS_TYPES_UPDATE_CUSTOM?><br>
 	      <input type="text" onChange="capitalizeMe(this)" name="name" size="20" value="<?echo ($name);?>">&nbsp;<A class="aform" href="javascript: submitform('name')"><? echo _ADMIN_EXAMS_TYPES_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
