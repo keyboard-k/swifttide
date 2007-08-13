@@ -119,6 +119,11 @@ title="<? echo _ADMIN_MENU_INC_HEALTH?>"><? echo _ADMIN_MENU_INC_HEALTH_TEXT?></
 	</TR>
 	<TR>
 		<TD>
+			<a href="admin_backup.php" title="<? echo _ADMIN_MENU_INC_BACKUP?>"><? echo _ADMIN_MENU_INC_BACKUP_TEXT?></a>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
 			<a href="admin_change_password.php" title="<? echo _ADMIN_MENU_INC_PASS?>"><? echo _ADMIN_MENU_INC_PASS_TEXT?></a>
 		</TD>
 	</TR>
