@@ -115,7 +115,7 @@ if (file_exists( '../configuration.php' )) {
 	else { echo "Error selecting language!\n"; }
 
 	if ($logo !== "") {
-	  echo "logo=$logo";
+	  // echo "logo=$logo";
 	  $config .= "DEFINE('_LOGO', '" . $logo . "');\n\n";
 	}
 	else {
@@ -280,20 +280,20 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 					echo "onClick=\"window.location.href='".$configArray['siteURL']."/administrator/index.php' \"";
 				}
 ?>/>
--->
 				<input class="button" type="button" name="runSite" value="Install Chat"
 <?php
-				if ($siteUrl) {
-					echo "onClick=\"window.location.href='$siteUrl/chat/install/index.php?db=$configArray['DBname']' \"";
-				} else {
-					echo "onClick=\"window.location.href='".$configArray['siteURL']."/chat/install/index.php?db=$configArray['DBname']' \"";
-				}
+				// if ($siteUrl) {
+				// 	echo "onClick=\"window.location.href='$siteUrl/chat/install/index.php?db=$configArray['DBname']' \"";
+				// } else {
+				// 	echo "onClick=\"window.location.href='".$configArray['siteURL']."/chat/install/index.php?db=$configArray['DBname']' \"";
+				// }
 ?>/>
+-->
 			</div>
 			<div class="clr"></div>
 			<h1>Congratulations! SMS is installed</h1>
 			<div class="install-text">
-				<p>Click the "View Site" button to start SMS site</p>
+				<p>Click the "Start SMS" button to start SMS site</p>
 			</div>
 			<div class="install-form">
 				<div class="form-block">
