@@ -6,8 +6,8 @@ DEFINE('_LOGO', '../images/sms_en.gif');
 
 $db_server = 'localhost';
 $db_name = '1212';
-$db_user = 'root';
-$db_password = 'ata';
+$db_user = 'test';
+$db_password = 'test';
 
 $SMTP_SERVER = '213.153.32.129';
 $SMTP_USER = '';
