@@ -75,6 +75,11 @@ title="<? echo _ADMIN_MENU_INC_HEALTH?>"><? echo _ADMIN_MENU_INC_HEALTH_TEXT?></
 	</TR>
 	<TR>
 		<TD>
+			<a href="admin_manage_media_1.php?studentid=<?echo $studentid; ?>" title="<? echo _ADMIN_MENU_INC_MEDIA?>"><? echo _ADMIN_MENU_INC_MEDIA_TEXT?></a>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
 			<a href="admin_change_student_year.php?studentid=<?echo $studentid; ?>" title="<? echo _ADMIN_MENU_INC_CHANGE?>"><? echo _ADMIN_MENU_INC_CHANGE_TEXT?></a>
 		</TD>
 	</TR>

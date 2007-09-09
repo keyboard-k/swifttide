@@ -5,7 +5,7 @@ DEFINE ('_LANG', 'en');
 DEFINE('_LOGO', '../images/sms_en.gif');
 
 $db_server = 'localhost';
-$db_name = '1212';
+$db_name = 's2';
 $db_user = 'test';
 $db_password = 'test';
 

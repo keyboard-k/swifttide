@@ -1760,6 +1760,8 @@ DEFINE('_ADMIN_MENU_INC_DIS', 'Discipline');
 DEFINE('_ADMIN_MENU_INC_DIS_TEXT', 'Discipline');
 DEFINE('_ADMIN_MENU_INC_GRA', 'Manage Grades Reporting');
 DEFINE('_ADMIN_MENU_INC_GRA_TEXT', 'Grades Reporting');
+DEFINE('_ADMIN_MENU_INC_MEDIA', 'Manage Media Reporting');
+DEFINE('_ADMIN_MENU_INC_MEDIA_TEXT', 'Media Reporting');
 DEFINE('_ADMIN_MENU_INC_CHANGE', 'Change Student Year');
 DEFINE('_ADMIN_MENU_INC_CHANGE_TEXT', 'Change Student Year');
 DEFINE('_ADMIN_MENU_INC_EXAMS', 'Manage Exams and Tests');
@@ -3050,4 +3052,85 @@ DEFINE('_CONTACT_CHAT_TEXT', 'Please click here to enter the chat room ...');
 DEFINE('_HEALTH_CHAT_UPPER', 'Health Area - Chat');
 DEFINE('_HEALTH_CHAT_TITLE', 'Chat');
 DEFINE('_HEALTH_CHAT_TEXT', 'Please click here to enter the chat room ...');
+
+/** admin_backup.php */
+
+DEFINE('_ADMIN_BACKUP_ERROR_OPENING_FILE', 'Fehler beim &Ouml;ffnen der Datei');
+DEFINE('_ADMIN_BACKUP_UPPER', 'Administrator Area - Backup');
+DEFINE('_ADMIN_BACKUP_TITLE', 'Backup der Datenbank');
+DEFINE('_ADMIN_BACKUP_SUBTITLE', 'Bitte ausw&auml;hlen, auf welche Art die Datenbank gespeichert werden soll:');
+DEFINE('_ADMIN_BACKUP_DOWNLOAD', 'Download');
+DEFINE('_ADMIN_BACKUP_FILE', 'Datei');
+DEFINE('_ADMIN_BACKUP_SCREEN', 'Bildschirm');
+DEFINE('_ADMIN_BACKUP_SUBMIT', 'Los');
+
+/** admin_manage_media.php */
+
+DEFINE('_ADMIN_media_CODES_UPPER', 'Media Area - Manage');
+DEFINE('_ADMIN_media_CODES_TITLE', 'Add, Delete, Edit Media');
+DEFINE('_ADMIN_media_CODES_ADD_NEW', 'Add New Media');
+DEFINE('_ADMIN_media_CODES_ADD', 'Add to Media Library');
+DEFINE('_ADMIN_media_CODES_EDIT', 'Edit');
+DEFINE('_ADMIN_media_CODES_REMOVE', 'Remove');
+
+/** admin_manage_media_1.php */
+
+DEFINE('_ADMIN_MANAGE_MEDIA_1_FORM_ERROR', 'Error deleting entry');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_FORM_ERROR_2', 'Select a Student First');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_ADD', 'Add Media Note');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_TITLE', 'Media History for Student');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_BACK', 'Back to Student');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_DATEOUT', 'Date Out');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_DATEDUE', 'Date Due');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_CODE', 'Media Name');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_DETAILS', 'Details');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_REMOVE', 'Remove');
+
+/** admin_manage_media_2.php */
+
+DEFINE('_ADMIN_MANAGE_MEDIA_2_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_TITLE', 'Media Items Due For Student');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_INSERTED', 'Note added by ');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_SCHOOL', 'School');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_YEAR', 'Year');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_DATE', 'Date Out');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_START_DATE', 'Date Due');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_END_DATE', 'Date Returned');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_INFRACTION', 'Media Title');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_NOTES', 'Notes');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_BACK', 'Go Back');
+DEFINE('_ADMIN_MANAGE_MEDIA_2_EDIT', 'Edit Entry');
+
+/**admin_manage_media_3.php */
+
+DEFINE('_ADMIN_MANAGE_MEDIA_3_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_TITLE', 'Media history for student');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_INSERTED', 'Note inserted by ');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_SCHOOL', 'School');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_YEAR', 'Year');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_INFRACTION', 'Media');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_DATE', 'Date Out');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_SELECT_INFRACTION', 'Select Media');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_START_DATE', 'Date Due');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_END_DATE', 'Date Returned');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_NOTES', 'Notes');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_CUSTOM_FIELDS', 'Custom Fields');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_DELETE', 'Delete');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_ADD', 'Add');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_BACK', 'Back to Student');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_UPDATE', 'Update Note');
+DEFINE('_ADMIN_MANAGE_MEDIA_3_NOTIFY', 'Notify Contact(s)');
+
+/**admin_manage_media_4.php */
+
+DEFINE('_ADMIN_MANAGE_MEDIA_4_ENTER_CODE', 'Bitte Code eingeben');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_ENTER_DATE', 'Bitte Start Datum eingeben');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_ENTER_START', 'Bitte Ende Datum eingeben');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_ENTER_END', 'Bitte R&uuml;ckgabedatum eingeben');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_UPPER', 'Media Bereich');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_ERROR_BACK', 'Zur&uuml;ck');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_SUBJECT', 'New media note for ');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY1', 'A new media has been borrowed by ');
+DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY2', 'Please login to the parents interface website for details. Thanks - The Principal');
 
