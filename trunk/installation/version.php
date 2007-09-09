@@ -14,7 +14,7 @@ class joomlaVersion {
 	/** @var string Product */
 	var $PRODUCT 	= 'School Management System';
 	/** @var int Main Release Level */
-	var $RELEASE 	= '1.05';
+	var $RELEASE 	= '1.06';
 	/** @var string Development Status */
 	var $DEV_STATUS = 'Stable';
 	/** @var int Sub Release Level */
