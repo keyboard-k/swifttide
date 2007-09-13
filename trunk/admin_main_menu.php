@@ -31,6 +31,11 @@ if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
 
 <body>
 <img src="images/<? echo _LOGO?>" border="0">
+
+<?php
+if (file_exists("ads.php")) { include "ads.php"; }
+?>
+
 <div id="Header">
 <table width="100%">
   <tr>
