@@ -1,7 +1,7 @@
 <?php
 DEFINE ('_VALID', 1);
-include "lang_de.php";
-DEFINE ('_LANG', 'de');
+include "lang_en.php";
+DEFINE ('_LANG', 'en');
 DEFINE('_LOGO', '../images/sms_de.gif');
 
 $db_server = 'localhost';
