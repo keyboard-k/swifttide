@@ -56,12 +56,15 @@ include_once "configuration.php";
 			<a href="displayforum.php?forumid=SCHOOL&position=0&sort_by=date_posted&order=desc" title="<? echo _ADMIN_MENU_INC_FORUM?>"><? echo _ADMIN_MENU_INC_FORUM_TEXT?></a>
 		</TD>
 	</TR>
+	<!--
 	<TR>
 		<TD>
 			<a href="admin_chat.php" title="<? echo _ADMIN_MENU_INC_CHAT?>"><? echo _ADMIN_MENU_INC_CHAT_TEXT?></a>
 		</TD>
 	</TR>
 	<TR>
+	//
+	-->
 		<TD>
 			<a href="admin_change_password.php" title="<? echo _ADMIN_MENU_INC_PASS?>"><? echo _ADMIN_MENU_INC_PASS_TEXT?></a>
 		</TD>
