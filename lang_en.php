@@ -1745,6 +1745,7 @@ DEFINE('_ADMIN_RELATIONS_UPDATE', 'Update');
 /** admin_menu.inc.php */
 
 DEFINE('_ADMIN_MENU_INC_YEAR', 'Year');
+DEFINE('_ADMIN_MENU_INC_DATA', 'Data');
 DEFINE('_ADMIN_MENU_INC_MAINT', 'Table Maintenance');
 DEFINE('_ADMIN_MENU_INC_MAINT_TEXT', 'Table Maintenance');
 DEFINE('_ADMIN_MENU_INC_USER', 'Change/Delete User Logins');
@@ -1766,6 +1767,7 @@ DEFINE('_ADMIN_MENU_INC_CHANGE', 'Change Student Year');
 DEFINE('_ADMIN_MENU_INC_CHANGE_TEXT', 'Change Student Year');
 DEFINE('_ADMIN_MENU_INC_EXAMS', 'Manage Exams and Tests');
 DEFINE('_ADMIN_MENU_INC_EXAMS_TEXT', 'Exams and Tests');
+DEFINE('_ADMIN_MENU_INC_TEACHERS_AREA', 'Teachers');
 DEFINE('_ADMIN_MENU_INC_TEACHERS', 'Manage Teachers');
 DEFINE('_ADMIN_MENU_INC_TEACHERS_TEXT', 'Teachers');
 DEFINE('_ADMIN_MENU_INC_SCHEDULE', 'Manage Schedules');
@@ -1782,6 +1784,7 @@ DEFINE('_ADMIN_MENU_INC_BACKUP', 'Backup the Database');
 DEFINE('_ADMIN_MENU_INC_BACKUP_TEXT', 'Backup');
 DEFINE('_ADMIN_MENU_INC_PASS', 'Change Password');
 DEFINE('_ADMIN_MENU_INC_PASS_TEXT', 'Password');
+DEFINE('_ADMIN_MENU_INC_REPORTS', 'Reports');
 DEFINE('_ADMIN_MENU_INC_REP', 'View Reports');
 DEFINE('_ADMIN_MENU_INC_REP_TEXT', 'Reports');
 DEFINE('_ADMIN_MENU_INC_DOWN', 'Download Reports');

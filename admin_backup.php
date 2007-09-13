@@ -72,6 +72,8 @@ case "file":
 	  fwrite($handle, $val);		// write to file
 	}
 	fclose($handle);			// close file handle
+	$param = "Location: admin_backup2.php?action=" . $action;
+	header($param);
 	break;
 
 case "screen":
