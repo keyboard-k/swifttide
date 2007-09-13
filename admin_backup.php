@@ -28,7 +28,7 @@ $action = get_param("action");
 
 if (strlen($action))
 {
-$tables = mysql_list_tables($db);
+$tables = mysql_list_tables($db_name);
 while ($td = mysql_fetch_array($tables))
 {
   $table = $td[0];
@@ -63,7 +63,7 @@ while ($td = mysql_fetch_array($tables))
 
 switch ($action) {
 case "file":
-	// write it to a file called "backup" (is there a better solution?)
+	// write it to a file called "backup.sql" (is there a better solution?)
 	if (!($handle = fopen("backup", 'r+'))) {	// open for read and write
 	  print _ADMIN_BACKUP_ERROR_OPENING_FILE;
 	}
@@ -135,8 +135,8 @@ default:
 	<form name="backup" method="post" action="<?echo($_SERVER['PHP_SELF']);?>">                       
 	  <p class="pform">
 	    <input type="radio" name="action" value="download" selected="selected"><? echo _ADMIN_BACKUP_DOWNLOAD?><BR>
-	    <input type="radio" name="action" value="file"><? echo _ADMIN_BACKUP_FILE?><BR>
-	    <input type="radio" name="action" value="screen"><? echo _ADMIN_BACKUP_SCREEN?><BR>
+	    <input type="radio" name="action" value="file"><? echo _ADMIN_BACKUP_FILE?> ("backup.sql")<BR>
+	    <!-- <input type="radio" name="action" value="screen"><? echo _ADMIN_BACKUP_SCREEN?><BR> -->
 	    <br>
 
 	    <input type="submit" name="submit" value="<? echo _ADMIN_BACKUP_SUBMIT?>"><BR>
