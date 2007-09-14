@@ -35,7 +35,21 @@ if ($action=="edit"){
 	//Get discipline id
 	$disid=get_param("disid");
 	//Gather info from db
-	$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, infraction_codes.infraction_codes_desc, infraction_codes.infraction_codes_id, DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, discipline_history.discipline_history_action, discipline_history.discipline_history_notes, discipline_history.discipline_history_reporter, web_users.web_users_flname FROM ((((discipline_history INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id WHERE discipline_history.discipline_history_id=$disid";
+	$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, 
+	school_names.school_names_desc, school_years.school_years_desc, 
+	discipline_history.discipline_history_date AS disdate, 
+	infraction_codes.infraction_codes_desc, infraction_codes.infraction_codes_id, 
+	discipline_history.discipline_history_sdate AS sdate, 
+	discipline_history.discipline_history_edate AS edate, 
+	discipline_history.discipline_history_action, discipline_history.discipline_history_notes, 
+	discipline_history.discipline_history_reporter, web_users.web_users_flname 
+	FROM ((((discipline_history 
+	INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) 
+	INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) 
+	INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) 
+	INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) 
+	INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id 
+	WHERE discipline_history.discipline_history_id=$disid";
 	$discipline=$db->get_row($sSQL);
 	$slname=$discipline->studentbio_lname;
 	$sfname=$discipline->studentbio_fname;
@@ -140,7 +154,7 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 			   ?>
 			   </select>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<? if($action=="edit"){echo $discipline->disdate;};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<? if($action=="edit"){if ($discipline->disdate > 0) echo date("Y-m-d", strtotime($discipline->disdate));};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
@@ -148,9 +162,9 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_DISCIPLINE_3_END_DATE?></td>
 	  </tr>
 	  <tr>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<? if($action=="edit"){echo $discipline->sdate;};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<? if($action=="edit"){if ($discipline->sdate > 0) echo date("Y-m-d", strtotime($discipline->sdate));};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<? if($action=="edit"){echo $discipline->edate;};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<? if($action=="edit"){if ($discipline->edate > 0) echo date("Y-m-d", strtotime($discipline->edate));};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">

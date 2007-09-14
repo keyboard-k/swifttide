@@ -31,11 +31,11 @@ $current_year=$_SESSION['CurrentYear'];
 $action=get_param("action");
 
 if ($action == "remove") {
-        $media_history_id=get_param("disid");
-	if(!($norem=$db->get_results("SELECT media_history_id FROM media_history WHERE media_history_id=$media_history_id"))){
+        $disid=get_param("disid");
+	if(!($norem=$db->get_results("SELECT media_history_id FROM media_history WHERE media_history_id=$disid"))){
 		$msgFormErr=_ADMIN_MANAGE_MEDIA_1_FORM_ERROR;
 	}else{
-		$sSQL="DELETE FROM media_history WHERE media_history_id=$media_history_id";
+		$sSQL="DELETE FROM media_history WHERE media_history_id=$disid";
 		$db->query($sSQL);
 	};
 }
@@ -52,8 +52,8 @@ if(!strlen($studentid)){
 	$sfname=$student->studentbio_fname;
 	//Get media history
 	$sSQL="SELECT media_history.media_history_id, 
-	DATE_FORMAT(media_history.media_history_dateout, '" . _EXAMS_DATE . "') as sdate, 
-	DATE_FORMAT(media_history.media_history_datedue, '" . _EXAMS_DATE . "') as disdate, 
+	DATE_FORMAT(media_history.media_history_dateout, '" . _EXAMS_DATE . "') AS disdate, 
+	DATE_FORMAT(media_history.media_history_datedue, '" . _EXAMS_DATE . "') AS sdate, 
 	media_codes.media_codes_desc 
 	FROM media_history 
 	INNER JOIN media_codes ON  media_history.media_history_code = media_codes.media_codes_id 
