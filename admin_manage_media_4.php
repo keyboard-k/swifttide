@@ -138,6 +138,7 @@ again, paste from admin_manage_discipline accordingly. */
                                 $slname=$student->studentbio_lname;
                                 require_once "class.phpmailer.php";
                                 $mail = new PHPMailer();
+				$mail->SetLanguage (_LANG, ".");
 //                      //      $mail->IsSMTP();                   // send via SMTP
 //                      //      $mail->Host     = SMTP_SERVER; // SMTP servers
 //                      //      $mail->SMTPAuth = true;     // turn on SMTP authentication
@@ -149,8 +150,7 @@ again, paste from admin_manage_discipline accordingly. */
                                 $mail->FromName = $SMTP_FROM_NAME;
 
                                 foreach($addresses as $address){
-                                        $mail->AddAddress($address->studentcontact_email, $address->studentcontact_fname." 
-".$address->studentcontact_lname);
+                                        $mail->AddAddress($address->studentcontact_email,$address->studentcontact_fname." ".$address->studentcontact_lname);
                                         };
 //                              $mail->AddReplyTo($SMTP_REPLY_TO,$SMTP_FROM_NAME);
 
