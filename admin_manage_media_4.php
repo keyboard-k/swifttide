@@ -35,9 +35,19 @@ $action=get_param("action");
 
 //Get info from form
 $discode=get_param("discode");
-$disdate=date("Y/m/d", strtotime(get_param("disdate")));
-$sdate=date("Y/m/d", strtotime(get_param("sdate")));
-$edate=date("Y/m/d", strtotime(get_param("edate")));
+
+$tmp = get_param("disdate");
+if (($tmp == "") || ($tmp == "0000-00-00")) { $disdate = ""; }
+else { $disdate=date("Y-m-d", strtotime(get_param("disdate"))); }
+
+$tmp = get_param("edate");
+if (($tmp == "") || ($tmp == "0000-00-00")) { $sdate = ""; }
+else { $sdate=date("Y-m-d", strtotime(get_param("sdate"))); }
+
+$tmp = get_param("edate");
+if (($tmp == "") || ($tmp == "0000-00-00")) { $edate = ""; }
+else { $edate=date("Y-m-d", strtotime(get_param("edate"))); }
+
 $disaction=get_param("disaction");
 $disreporter=get_param("disreporter");
 $disnotes=get_param("disnotes");
@@ -64,9 +74,9 @@ if(!strlen($disdate)){
 if(!strlen($sdate)){
 	$msgFormErr.=_ADMIN_MANAGE_MEDIA_4_ENTER_START . "<br>";
 };
-if(!strlen($edate)){
-	$msgFormErr.=_ADMIN_MANAGE_MEDIA_4_ENTER_END . "<br>";
-};
+// if(!strlen($edate)){
+// 	$msgFormErr.=_ADMIN_MANAGE_MEDIA_4_ENTER_END . "<br>";
+// };
 
 if(!strlen($msgFormErr)){
 	if($action=="update"){

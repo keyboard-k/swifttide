@@ -35,14 +35,20 @@ if ($action=="edit"){
 	//Get discipline id
 	$disid=get_param("disid");
 	//Gather info from db
-	$sSQL="SELECT media_history.media_history_id, 
-studentbio.studentbio_fname, studentbio.studentbio_lname, 
-school_names.school_names_desc, school_years.school_years_desc, 
-DATE_FORMAT(media_history.media_history_dateout,'" . _EXAMS_DATE . "') AS disdate, 
-media_codes.media_codes_desc, media_codes.media_codes_id, 
-DATE_FORMAT(media_history.media_history_datedue,'" . _EXAMS_DATE . "') AS sdate, 
-DATE_FORMAT(media_history.media_history_dateret,'" . _EXAMS_DATE . "')AS edate, 
-media_history.media_history_action, media_history.media_history_notes, media_history.media_history_reporter, web_users.web_users_flname FROM ((((media_history INNER JOIN studentbio ON media_history.media_history_student = studentbio.studentbio_id) INNER JOIN school_names ON media_history.media_history_school = school_names.school_names_id) INNER JOIN school_years ON media_history.media_history_year = school_years.school_years_id) INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) INNER JOIN web_users ON media_history.media_history_user = web_users.web_users_id WHERE media_history.media_history_id=$disid";
+	$sSQL="SELECT media_history.media_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, 
+	school_names.school_names_desc, school_years.school_years_desc, 
+	media_history.media_history_dateout AS disdate, 
+	media_codes.media_codes_desc, media_codes.media_codes_id, 
+	media_history.media_history_datedue AS sdate, 
+	media_history.media_history_dateret AS edate, 
+	media_history.media_history_action, media_history.media_history_notes, 
+	media_history.media_history_reporter, web_users.web_users_flname 
+	FROM ((((media_history INNER JOIN studentbio ON media_history.media_history_student = studentbio.studentbio_id) 
+	INNER JOIN school_names ON media_history.media_history_school = school_names.school_names_id) 
+	INNER JOIN school_years ON media_history.media_history_year = school_years.school_years_id) 
+	INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) 
+	INNER JOIN web_users ON media_history.media_history_user = web_users.web_users_id 
+	WHERE media_history.media_history_id=$disid";
 	$discipline=$db->get_row($sSQL);
 	$slname=$discipline->studentbio_lname;
 	$sfname=$discipline->studentbio_fname;
@@ -70,7 +76,9 @@ media_history.media_history_action, media_history.media_history_notes, media_his
 }
 else {
 	//Get student names
-	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school 
+	FROM studentbio 
+	WHERE studentbio_id=$studentid";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;

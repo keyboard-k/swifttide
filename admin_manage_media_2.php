@@ -32,12 +32,18 @@ $disid=get_param("disid");
 $sSQL="SELECT media_history.media_history_id, 
 studentbio.studentbio_fname, studentbio.studentbio_lname, 
 school_names.school_names_desc, school_years.school_years_desc, 
-DATE_FORMAT(media_history.media_history_dateout,'" . _EXAMS_DATE . "') 
-AS disdate, media_codes.media_codes_desc, 
-DATE_FORMAT(media_history.media_history_datedue,'" . _EXAMS_DATE . "') 
-AS sdate, DATE_FORMAT(media_history.media_history_dateret,'" . 
-_EXAMS_DATE 
-. "')AS edate, media_history.media_history_action, media_history.media_history_notes, media_history.media_history_reporter, web_users.web_users_flname FROM ((((media_history INNER JOIN studentbio ON media_history.media_history_student = studentbio.studentbio_id) INNER JOIN school_names ON media_history.media_history_school = school_names.school_names_id) INNER JOIN school_years ON media_history.media_history_year = school_years.school_years_id) INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) INNER JOIN web_users ON media_history.media_history_user = web_users.web_users_id WHERE media_history.media_history_id=$disid";
+DATE_FORMAT(media_history.media_history_dateout,'" . _EXAMS_DATE . "') AS disdate, 
+media_codes.media_codes_desc, 
+DATE_FORMAT(media_history.media_history_datedue,'" . _EXAMS_DATE . "') AS sdate, 
+DATE_FORMAT(media_history.media_history_dateret,'" . _EXAMS_DATE . "') AS edate, 
+media_history.media_history_action, media_history.media_history_notes, 
+media_history.media_history_reporter, web_users.web_users_flname 
+FROM ((((media_history INNER JOIN studentbio ON media_history.media_history_student = studentbio.studentbio_id) 
+INNER JOIN school_names ON media_history.media_history_school = school_names.school_names_id) 
+INNER JOIN school_years ON media_history.media_history_year = school_years.school_years_id) 
+INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) 
+INNER JOIN web_users ON media_history.media_history_user = web_users.web_users_id 
+WHERE media_history.media_history_id=$disid";
 
 $discipline=$db->get_row($sSQL);
 
@@ -95,15 +101,15 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<? echo $discipline->media_codes_desc ; ?></td>
-		<td width="50%">&nbsp;<? echo $discipline->disdate ; ?></td>
+	    <td width="50%">&nbsp;<? if ($discipline->disdate > 0) echo $discipline->disdate ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_MEDIA_2_START_DATE?></td>
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_MEDIA_2_END_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $discipline->sdate ; ?></td>
-	    <td width="50%">&nbsp;<? echo $discipline->edate ; ?></td>
+	    <td width="50%">&nbsp;<? if ($discipline->sdate > 0) echo $discipline->sdate ; ?></td>
+	    <td width="50%">&nbsp;<? if ($discipline->edate > 0) echo $discipline->edate ; ?></td>
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="100%" colspan="2">&nbsp;<? echo $discipline->media_history_reporter ;?></td>

@@ -29,7 +29,21 @@ $studentid=get_param("studentid");
 $disid=get_param("disid");
 
 //Get info
-$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, infraction_codes.infraction_codes_desc, DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, discipline_history.discipline_history_action, discipline_history.discipline_history_notes, discipline_history.discipline_history_reporter, web_users.web_users_flname FROM ((((discipline_history INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id WHERE discipline_history.discipline_history_id=$disid";
+$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, 
+school_names.school_names_desc, school_years.school_years_desc, 
+DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, 
+infraction_codes.infraction_codes_desc, 
+DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, 
+DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, 
+discipline_history.discipline_history_action, discipline_history.discipline_history_notes, 
+discipline_history.discipline_history_reporter, web_users.web_users_flname 
+FROM ((((discipline_history 
+INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) 
+INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) 
+INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) 
+INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) 
+INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id 
+WHERE discipline_history.discipline_history_id=$disid";
 
 $discipline=$db->get_row($sSQL);
 
@@ -85,15 +99,15 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<? echo $discipline->infraction_codes_desc ; ?></td>
-		<td width="50%">&nbsp;<? echo $discipline->disdate ; ?></td>
+		<td width="50%">&nbsp;<? if ($discipline->disdate > 0) { echo $discipline->disdate; } ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_DISCIPLINE_2_START_DATE?></td>
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_DISCIPLINE_2_END_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $discipline->sdate ; ?></td>
-		<td width="50%">&nbsp;<? echo $discipline->edate ; ?></td>
+	    <td width="50%">&nbsp;<? if ($discipline->sdate > 0) { echo $discipline->sdate; } ?></td>
+		<td width="50%">&nbsp;<? if ($discipline->edate > 0) { echo $discipline->edate; } ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="100%" colspan="2">&nbsp;<? echo _ADMIN_MANAGE_DISCIPLINE_2_ACTION?></td>
