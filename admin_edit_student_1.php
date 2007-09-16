@@ -37,8 +37,8 @@ $current_year=$_SESSION['CurrentYear'];
 
 //Get all info to display
 //Student
-$sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob,
-'" . _EXAMS_DATE . "') as sdob, ethnicity.ethnicity_desc,
+$sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob,'" . _EXAMS_DATE . "') as sdob, 
+ethnicity.ethnicity_desc, 
 school_names.school_names_desc, generations.generations_desc, 
 grades.grades_desc, teachers.teachers_fname, teachers.teachers_lname, school_rooms_desc 
 FROM ((((((studentbio INNER JOIN generations ON studentbio.studentbio_generation 
@@ -51,8 +51,8 @@ INNER JOIN teachers ON studentbio.studentbio_teacher = teachers.teachers_id)
 INNER JOIN school_rooms ON school_rooms_id=studentbio_homeroom 
 WHERE studentbio.studentbio_id=$studentid AND 
 student_grade_year.student_grade_year_year = '$current_year'"; 
-
 $studentinfo=$db->get_row($sSQL);
+
 $sSQL="SELECT studentcontact_primary FROM studentcontact WHERE studentcontact_studentid='$studentid' AND studentcontact_year='$current_year'";
 $primarycontact=$db->get_var($sSQL);
 
@@ -99,7 +99,7 @@ $entries = $db->get_results($entries_sql);
 
 //Additional Contacts
 $sSQL="SELECT contact_to_students_contact FROM contact_to_students WHERE 
-contact_to_students_contact<>'".$studentinfo->studentbio_primarycontact."' AND contact_to_students_student='".$studentid."' AND contact_to_students_year='".$current_year."'";
+contact_to_students_contact<>'$studentinfo->studentbio_primarycontact' AND contact_to_students_student='$studentid' AND contact_to_students_year=$current_year";
 
 if($addcont=$db->get_results($sSQL)){
 	$ac=1;
@@ -121,7 +121,7 @@ contact_to_students.contact_to_students_contact) INNER JOIN
 relations_codes ON contact_to_students.contact_to_students_relation = 
 relations_codes.relation_codes_id WHERE 
 contact_to_students_year=$current_year AND studentcontact.studentcontact_id 
-IN ($ylist) AND contact_to_students_student='".$studentid."'";
+IN ($ylist) AND contact_to_students_student='$studentid'";
 	$addcontlist=$db->get_results($sSQL);	
 }else{
 	$ac=0;

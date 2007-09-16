@@ -250,7 +250,7 @@ echo $termcode->grade_terms_desc;
 	  <?
 	  };
 	  ?>
-	<table>
+	</table>
 
     <? //custom fields added by Joshua
     	//get all the custom field names for the select loops
@@ -292,6 +292,7 @@ echo $termcode->grade_terms_desc;
 	</td></tr></table></td></tr><?
 	//end custom fields
 	?>
+	</form>
 
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
