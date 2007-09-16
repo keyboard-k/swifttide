@@ -3090,6 +3090,7 @@ DEFINE('_ADMIN_MEDIA_CODES_ADD', 'Add to Media Library');
 DEFINE('_ADMIN_MEDIA_CODES_EDIT', 'Edit');
 DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
 DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
+DEFINE('_ADMIN_MEDIA_CODES_SURE', 'Are you sure?');
 
 /** admin_manage_media_1.php */
 

@@ -38,7 +38,7 @@ switch ($action){
 		if($norem=$db->get_results("SELECT discipline_history_code FROM discipline_history WHERE discipline_history_code=$media_codes_id")){
 			$msgFormErr=_ADMIN_MEDIA_CODES_FORM_ERROR;
 		}else{
-			$sSQL="DELETE FROM MEDIA_codes WHERE media_codes_id=$media_codes_id";
+			$sSQL="DELETE FROM media_codes WHERE media_codes_id=$media_codes_id";
 			$db->query($sSQL);
 		};
 		break;
@@ -78,13 +78,24 @@ media_codes_id=$media_codes_id";
 
 
 //Set paging appearence
-$ezr->results_open = "<table width=65% cellpadding=2 cellspacing=0 border=1>";
+$ezr->results_open = "<table width=90% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_close = "</table>";
-$ezr->results_row = "<tr><td class=paging width=70%>COL2</td><td 
-class=paging width=15% align=center><a 
-href=admin_media_codes.php?action=edit&id=COL1 class=aform>&nbsp;" . 
-_ADMIN_MEDIA_CODES_EDIT . "</a></td><td class=paging width=15% align=center><a name=href_remove href=# onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_REMOVE . "</a></td></tr>";
-$ezr->query_mysql("SELECT media_codes_id, media_codes_desc FROM media_codes ORDER BY media_codes_desc");
+$ezr->results_heading = "<tr class=tblhead>
+	<td width=30% align=left>" . _ADMIN_MEDIA_CODES_LINE_1 . "</td>
+	<td width=20% align=left>" . _ADMIN_MEDIA_CODES_LINE_2 . "</td>
+	<td width=20% align=left>" . _ADMIN_MEDIA_CODES_LINE_3 . "</td>
+	<td width=15% align=left>&nbsp;</td>
+	<td width=15% align=left>&nbsp;</td></tr>";
+$ezr->results_row = "<tr>
+	<td class=paging width=30%>COL2</td>
+	<td class=paging width=20%>COL3</td>
+	<td class=paging width=20%>COL4</td>
+	<td class=paging width=15% align=center>
+	  <a href=admin_media_codes.php?action=edit&id=COL1 class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_EDIT . "</a></td>
+	<td class=paging width=15% align=center>
+	  <a name=href_remove href=# onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_REMOVE . "</a></td>
+	  </tr>";
+$ezr->query_mysql("SELECT media_codes_id, media_codes_desc, id1, id2 FROM media_codes ORDER BY media_codes_desc");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -131,8 +142,7 @@ function cnfremove(id) {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MEDIA_CODES_UPPER?>
-    </td>
+    <td width="50%"><? echo _ADMIN_MEDIA_CODES_UPPER?></td>
   </tr>
 </table>
 </div>
@@ -171,12 +181,12 @@ function cnfremove(id) {
 		  <td colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
-		  <td colspn="2"><a class="aform" href="javascript: submitform('medianame')">
+		  <td colspan="2"><a class="aform" href="javascript: submitform('medianame')">
 		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
 		</tr>
 		</table>
 		<input type="hidden" name="action" value="add">
-	    </form>
+		</form>
 	<?
 	}else{
 	?>
@@ -205,7 +215,7 @@ function cnfremove(id) {
 		  <td colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
-		  <td colspn="2"><a class="aform" href="javascript: submitform('editmedia')">
+		  <td colspan="2"><a class="aform" href="javascript: submitform('medianame')">
 		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
 		</tr>
 		</table>
