@@ -1,6 +1,6 @@
 <?
 //*
-// admin_manage_media.php
+// admin_media_codes.php
 // Admin Section
 // Display and Manage Books and other media
 //
@@ -36,10 +36,9 @@ switch ($action){
 	case "remove":
 		$media_codes_id=get_param("id");
 		if($norem=$db->get_results("SELECT discipline_history_code FROM discipline_history WHERE discipline_history_code=$media_codes_id")){
-			$msgFormErr=_ADMIN_media_CODES_FORM_ERROR;
+			$msgFormErr=_ADMIN_MEDIA_CODES_FORM_ERROR;
 		}else{
-			$sSQL="DELETE FROM media_codes WHERE 
-media_codes_id=$media_codes_id";
+			$sSQL="DELETE FROM MEDIA_codes WHERE media_codes_id=$media_codes_id";
 			$db->query($sSQL);
 		};
 		break;
@@ -48,17 +47,14 @@ case "add":
 		$media_codes_id1=get_param("id1");
 		$media_codes_id2=get_param("id2");
 		/*Duplicates are fine (i.e. textbooks) so don't check for them
-		$tot = $db->get_var("SELECT count(*) FROM 
-media_codes WHERE media_codes.media_codes_desc = '$media_codes_desc'");
+		$tot = $db->get_var("SELECT count(*) FROM media_codes WHERE media_codes.media_codes_desc = '$media_codes_desc'");
 		if ($tot>0){
-			$msgFormErr=_ADMIN_media_CODES_DUP;
+			$msgFormErr=_ADMIN_MEDIA_CODES_DUP;
 		}else{
 		*/	
-		$sSQL="INSERT INTO media_codes (media_codes_desc, id1, 
-id2) VALUES 
-(".tosql($media_codes_desc, "Text")." ,'$media_codes_id1', 
-'$media_codes_id2')"; 
-			$db->query($sSQL);
+		$sSQL="INSERT INTO media_codes (media_codes_desc, id1, id2) 
+		VALUES (".tosql($media_codes_desc, "Text")." ,'$media_codes_id1', '$media_codes_id2')"; 
+		$db->query($sSQL);
 		//};
 		break;
 	case "edit":
@@ -69,7 +65,7 @@ media_codes_id=$media_codes_id";
 		$media_codes_desc = $media_all->media_codes_desc;
 		$id1=$media_all->id1;
 		$id2=$media_all->id2;
-		echo $media_codes_desc, $id1, $id2;
+		// echo $media_codes_desc, $id1, $id2;
 		break;
 	case "update":
 		$media_codes_id=get_param("id");
@@ -86,8 +82,8 @@ $ezr->results_open = "<table width=65% cellpadding=2 cellspacing=0 border=1>";
 $ezr->results_close = "</table>";
 $ezr->results_row = "<tr><td class=paging width=70%>COL2</td><td 
 class=paging width=15% align=center><a 
-href=admin_manage_media.php?action=edit&id=COL1 class=aform>&nbsp;" . 
-_ADMIN_media_CODES_EDIT . "</a></td><td class=paging width=15% align=center><a name=href_remove href=# onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_media_CODES_REMOVE . "</a></td></tr>";
+href=admin_media_codes.php?action=edit&id=COL1 class=aform>&nbsp;" . 
+_ADMIN_MEDIA_CODES_EDIT . "</a></td><td class=paging width=15% align=center><a name=href_remove href=# onclick=cnfremove(COL1); class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_REMOVE . "</a></td></tr>";
 $ezr->query_mysql("SELECT media_codes_id, media_codes_desc FROM media_codes ORDER BY media_codes_desc");
 ?>
 
@@ -113,10 +109,10 @@ function submitform(fldName)
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_media_CODES_SURE?>");
+	answer = window.confirm("<? echo _ADMIN_MEDIA_CODES_SURE?>");
 	if (answer == 1) {
 		var url;
-		url = "admin_manage_media.php?action=remove&id=" + id;
+		url = "admin_media_codes.php?action=remove&id=" + id;
 		window.location = url; // other browsers
 		href_remove.href = url; // explorer 
 	}
@@ -135,14 +131,14 @@ function cnfremove(id) {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_media_CODES_UPPER?>
+    <td width="50%"><? echo _ADMIN_MEDIA_CODES_UPPER?>
     </td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_media_CODES_TITLE?></h1>
+	<h1><? echo _ADMIN_MEDIA_CODES_TITLE?></h1>
 	<br>
 	<?
 	if ($action!="edit"){ 
@@ -151,47 +147,71 @@ function cnfremove(id) {
 		$ezr->display();
 		?>
 		<br>
-		<form name="addmedia" method="post" 
-action="admin_manage_media.php">						
-		  <p class="pform"><h2><? echo 
-_ADMIN_media_CODES_ADD_NEW?></h2><br>
-		<? echo "Title of Media";?>
-	      <input type="text" onChange="capitalizeMe(this)" 
-name="medianame" size="20">&nbsp;<br><br>
-		<? echo "Identifying Aspect #1";?>
-	      <input type="text" onChange="capitalizeMe(this)" 
-name="id1" size="20">&nbsp;<br><br>
-		<?echo "Identifying Aspect #2";?>
-	      <input type="text" onChange="capitalizeMe(this)" 
-name="id2" size="20">&nbsp;<A class="aform" href="javascript: 
-submitform('medianame')"><br><br><? echo _ADMIN_media_CODES_ADD?></a>
-	      <input type="hidden" name="action" value="add">
-	      </p>
+		<form name="addmedia" method="post" action="admin_media_codes.php">						
+		<table border="0">
+		<tr>
+		  <td colspan="2"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_ADD_NEW?></h2></td>
+		</tr>
+		<tr>
+		  <td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_1;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="medianame" size="30">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_2;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="id1" size="30">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_3;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="id2" size="30"></td>
+		</tr>
+		<tr>
+		  <td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td colspn="2"><a class="aform" href="javascript: submitform('medianame')">
+		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
+		</tr>
+		</table>
+		<input type="hidden" name="action" value="add">
 	    </form>
 	<?
 	}else{
 	?>
 		<br>
-		<form name="editmedia" method="post" 
-action="admin_manage_media.php">						
-<p class="pform"><h3><? echo
-UPDATE ?></h3><br>
-                <? echo "Title of Media";?>
-              <input type="text" onChange="capitalizeMe(this)"
-name="medianame" size="20" value="<?echo $media_codes_desc; ?>"&nbsp;<br><br>
-                <? echo "Identifying Aspect #1";?>
-              <input type="text" onChange="capitalizeMe(this)"
-name="id1" size="20" value="<?echo $id1; ?>"&nbsp;<br><br>
-                <?echo "Identifying Aspect #2";?>
-              <input type="text" onChange="capitalizeMe(this)"
-name="id2" size="20" value="<?echo $id2; ?>"&nbsp;<br><br><A class="aform" 
-href="javascript:
-submitform('editmedia')"><br><br><? echo _ADMIN_media_CODES_ADD?></a>
-
-	      <input type="hidden" name="action" value="update">
-		  <input type="hidden" name="id" value="<? echo $media_codes_id; ?>">
-	      </p>
-	    </form>
+		<form name="editmedia" method="post" action="admin_media_codes.php">
+		<table border="0">
+                <tr>
+		  <td colspan="2"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_UPDATE?></h2></td>
+		</tr>
+		<tr>
+		  <td colspan="2">&nbsp;</td>
+		</tr>
+                <tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_1;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="medianame" size="30" value="<?echo $media_codes_desc; ?>">&nbsp;</td>
+		</tr>
+                <tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_2;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="id1" size="30" value="<?echo $id1; ?>">&nbsp;</td>
+		</tr>
+                <tr>
+		  <td><? echo _ADMIN_MEDIA_CODES_LINE_3;?></td>
+		  <td><input type="text" onChange="capitalizeMe(this)" name="id2" size="30" value="<?echo $id2; ?>">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td colspn="2"><a class="aform" href="javascript: submitform('editmedia')">
+		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
+		</tr>
+		</table>
+		<input type="hidden" name="action" value="update">
+		<input type="hidden" name="id" value="<? echo $media_codes_id; ?>">
+		</form>
 	<?
 	};
 	?>
