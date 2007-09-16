@@ -128,7 +128,7 @@ action="admin_add_edit_teacher_2.php?action=<? echo $action; ?>">
 		              <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25" <? if($action=="update"){echo " value=".strip($teacher->teachers_lname);}; ?>>
 	              </td>
 	              <td width="15%" class="tdinput" align="center">
-					  <input type="text" onChange="capitalizeMe(this)" size="5" name="tmi" <? if($action=="update"){echo " value=".strip($teacher->teachers_mi);}; ?>>
+					  <input type="text" onChange="capitalizeMe(this)" size="5" name="tmi" <? if($action=="update"){echo " value='".strip($teacher->teachers_mi)."'";}; ?>>
 	              </td>
 	            </tr>
 		      </table>
