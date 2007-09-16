@@ -2131,6 +2131,8 @@ DEFINE('_ADMIN_MAINT_TABLES_MENU_REL', 'Manage Relations');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_REL_TEXT', 'Relations');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_TITLES', 'Manage Titles (Mr., Mrs., etc)');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_TITLES_TEXT', 'Titles');
+DEFINE('_ADMIN_MAINT_TABLES_MENU_MEDIA', 'Manage Library');
+DEFINE('_ADMIN_MAINT_TABLES_MENU_MEDIA_TEXT', 'Library');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_CUS', 'Manage Custom Fields');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_CUS_TEXT', 'Custom Fields');
 DEFINE('_ADMIN_MAINT_TABLES_MENU_HEALTH', 'Health Codes');
@@ -3067,14 +3069,27 @@ DEFINE('_ADMIN_BACKUP_FILE', 'Datei');
 DEFINE('_ADMIN_BACKUP_SCREEN', 'Bildschirm');
 DEFINE('_ADMIN_BACKUP_SUBMIT', 'Los');
 
+/** admin_backup2.php */
+
+DEFINE('_ADMIN_BACKUP_2_FILE_OK', 'Successfully saved file');
+DEFINE('_ADMIN_BACKUP_2_SCREEN_OK', 'Screen Output successful');
+DEFINE('_ADMIN_BACKUP_2_DOWNLOAD_OK', 'Download Successfull');
+DEFINE('_ADMIN_BACKUP_2_UPPER', 'Administrator: Backup');
+DEFINE('_ADMIN_BACKUP_2_TITLE', 'Database Backup');
+DEFINE('_ADMIN_BACKUP_2_SUBTITLE', '');
+
 /** admin_manage_media.php */
 
-DEFINE('_ADMIN_media_CODES_UPPER', 'Media Area - Manage');
-DEFINE('_ADMIN_media_CODES_TITLE', 'Add, Delete, Edit Media');
-DEFINE('_ADMIN_media_CODES_ADD_NEW', 'Add New Media');
-DEFINE('_ADMIN_media_CODES_ADD', 'Add to Media Library');
-DEFINE('_ADMIN_media_CODES_EDIT', 'Edit');
-DEFINE('_ADMIN_media_CODES_REMOVE', 'Remove');
+DEFINE('_ADMIN_MEDIA_CODES_UPPER', 'Media Area - Manage');
+DEFINE('_ADMIN_MEDIA_CODES_TITLE', 'Add, Delete, Edit Media');
+DEFINE('_ADMIN_MEDIA_CODES_ADD_NEW', 'Add New Media');
+DEFINE('_ADMIN_MEDIA_CODES_LINE_1', 'Title of Media');
+DEFINE('_ADMIN_MEDIA_CODES_LINE_2', 'Identifying Aspect #1');
+DEFINE('_ADMIN_MEDIA_CODES_LINE_3', 'Identifying Aspect #2');
+DEFINE('_ADMIN_MEDIA_CODES_ADD', 'Add to Media Library');
+DEFINE('_ADMIN_MEDIA_CODES_EDIT', 'Edit');
+DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
+DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
 
 /** admin_manage_media_1.php */
 

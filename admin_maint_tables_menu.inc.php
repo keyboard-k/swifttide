@@ -57,8 +57,15 @@ include_once "configuration.php";
 			<TR>
 				<TD><a href="admin_custom_fields.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_CUS?>"><? echo _ADMIN_MAINT_TABLES_MENU_CUS_TEXT?></a></TD>
 			</TR></TABLE></TD></TR>
-			<TR><TD ALIGN="left">---</TD></TR>
-			<TR>    <TD><a href="admin_exams_types.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES?>"><? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES_TEXT?></a></TD></TR>
+			<TR>
+				<TD ALIGN="left">---</TD>
+			</TR>
+			<TR>
+				<TD><a href="admin_exams_types.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES?>"><? echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES_TEXT?></a></TD>
+			</TR>
+			<TR>
+				<TD><a href="admin_media_codes.php" title="<? echo _ADMIN_MAINT_TABLES_MENU_MEDIA?>"><? echo _ADMIN_MAINT_TABLES_MENU_MEDIA_TEXT?></a></TD>
+			</TR>
 			<tr><td><hr></td></tr>
 			<TR>
 				<TD> <TABLE>

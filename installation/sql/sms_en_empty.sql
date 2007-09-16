@@ -1041,3 +1041,42 @@ CREATE TABLE IF NOT EXISTS `books` (
 INSERT INTO `books` (`books_id`, `books_flname`, `books_address`, `books_city`, `books_state`, `books_zip`, `books_country`, `books_phone`, `books_fax`, `books_email`, `books_notes`, `books_discount`, `subscription_id`) VALUES 
 (1, 'Versandbuchhandlung Werner M&auml;rz', 'P&uuml;rstling 3', 'Regau', 'Ober&ouml;sterreich', '4844', '&Ouml;sterreich', '07672-72072', '07672-72072-4', 'maerz@team-f.at', 'UID-Nr. ATU 56385236', 10, '1RKBH4RC7WZR95MX5102');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media_codes`
+--
+
+DROP TABLE IF EXISTS `media_codes`;
+CREATE TABLE IF NOT EXISTS `media_codes` (
+  `media_codes_id` smallint(6) NOT NULL auto_increment,
+  `media_codes_desc` varchar(50) NOT NULL,
+  `id1` varchar(30) NOT NULL,
+  `id2` varchar(30) NOT NULL,
+  PRIMARY KEY  (`media_codes_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media_history`
+--
+
+DROP TABLE IF EXISTS `media_history`;
+CREATE TABLE IF NOT EXISTS `media_history` (
+  `media_history_id` int(10) unsigned NOT NULL auto_increment,
+  `media_history_student` int(10) unsigned default NULL,
+  `media_history_school` int(10) unsigned default NULL,
+  `media_history_year` int(10) unsigned default NULL,
+  `media_history_code` int(10) unsigned default NULL,
+  `media_history_dateout` date default NULL,
+  `media_history_datedue` date default NULL,
+  `media_history_dateret` date default NULL,
+  `media_history_action` varchar(50) default NULL,
+  `media_history_notes` tinytext,
+  `media_history_reporter` varchar(40) default NULL,
+  `media_history_user` int(10) unsigned default NULL,
+  PRIMARY KEY  (`media_history_id`),
+  KEY `discipline_history_student_ndx` (`media_history_student`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=903 ;
+
