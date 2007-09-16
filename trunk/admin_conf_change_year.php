@@ -76,7 +76,7 @@ studentcontact_address1, studentcontact_address2, studentcontact_city,
 studentcontact_state, studentcontact_zip, studentcontact_phone1,
 studentcontact_phone2, studentcontact_phone3, studentcontact_email,
 studentcontact_other, studentcontact_mailings, $next_year AS 
-studentcontact_year, FROM studentcontact WHERE 
+studentcontact_year FROM studentcontact WHERE 
 studentcontact_year = $current_year";
 
 mysql_query($sSQL) or die(mysql_error());
