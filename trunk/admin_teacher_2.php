@@ -8,6 +8,7 @@
 //V1.02, May 10, 2005.  Added "remove" to remove teachers from the db.
 //v1.52 12-31-05 removed the remove feature.  oh well.
 //v2.0 2007-04-24 reinstalled the remove option. Now it's a either a bug or a real feature! ;-)
+//Doug Sept 15 07.  Added the edit link, active is YES or NO, not 0 or 1.
 //
 //Check if admin is logged in
 session_start();
@@ -39,13 +40,16 @@ switch ($action){
 	case "srchschool":
 		$school=get_param("school");
 		if($school==""){
-			$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+			$sSQL = "SELECT web_users_relid, 
+web_users_flname, school_names_desc, active 
 			FROM ((web_users 
 			INNER JOIN teachers ON teachers_id = web_users_relid) 
 			INNER JOIN school_names ON teachers_school = school_names_id) 
 			WHERE web_users_type = 'T'";
 		} else {
-			$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+			$sSQL = "SELECT web_users_relid, 
+web_users_flname, 
+school_names_desc, active 
 			FROM ((web_users
 			INNER JOIN teachers ON teachers_id = web_users_relid) 
 			INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -57,20 +61,27 @@ switch ($action){
 			$ezr->results_heading = "<tr class=tblhead>
 			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			  <td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
 			  <td width=20%>&nbsp;</td>
 			  <td width=20%>&nbsp;</td>
+			  <td width=15%>&nbsp;</td>
 			</tr>";
 			$ezr->results_row = "<tr>
 			<td class=paging width=20%>COL2</td>
 			<td class=paging width=20% align=center>COL3</td>
-			<td class=paging width=20% align=center>COL4</td>
+			<td class=paging width=5% align=center>COL4</td>
 			<td class=paging width=20% align=center>
 			  <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
 			<td class=paging width=20% align=center>
 			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
+			<td class=paging width=15% align=center>
+			  <a 
+href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1 
+class=aform>
+			  &nbsp;" . _ADMIN_TEACHER_2_EDIT . "</td>
+			
 			</tr>";
 			$ezr->query_mysql($sSQL);
 		}else{
@@ -84,7 +95,8 @@ switch ($action){
 		break;
 	case "searchlname":
 		$tlname=get_param("tlname");
-                $sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active 
+                $sSQL = "SELECT web_users_relid, web_users_flname, 
+school_names_desc, active 
                 FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -97,20 +109,26 @@ switch ($action){
                         $ezr->results_heading = "<tr class=tblhead>
 			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			  <td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
 			  <td width=20%>&nbsp;</td>
 			  <td width=20%>&nbsp;</td>
+			  <td width=15%>&nbsp;</td>
 			</tr>";
                         $ezr->results_row = "<tr class=tblcont>
                         <td class=paging width=20%>COL2</td>
                         <td class=paging width=20% align=center>COL3</td>
-                        <td class=paging width=20% align=center>COL4</td>
+                        <td class=paging width=5% align=center>COL4</td>
                         <td class=paging width=20% align=center>
                           <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
                           &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
                         <td class=paging width=20% align=center>
                           <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
                           &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
+<td class=paging width=15% align=center>
+                          <a
+href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1
+class=aform>
+                          &nbsp;" . _ADMIN_TEACHER_2_EDIT . "</td>
                         </tr>";
                         $ezr->query_mysql($sSQL);
 
@@ -122,7 +140,8 @@ switch ($action){
                 break;
 	case "letter":
                 $letter=get_param("letter");
-		$sSQL = "SELECT web_users_id, web_users_flname, school_names_desc, active
+		$sSQL = "SELECT web_users_relid, web_users_flname, 
+school_names_desc, active
 		FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -135,9 +154,10 @@ switch ($action){
 			$ezr->results_heading = "<tr class=tblhead>
 			<td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			<td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			<td width=20%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			<td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
 			<td width=20%>&nbsp;</td>
 			<td width=20%>&nbsp;</td>
+			<td width=15%>&nbsp;</td>
 			</tr>";
 			$ezr->results_row = "<tr class=tblcont>
 			<td class=paging width=20%>COL2</td>
@@ -149,7 +169,12 @@ switch ($action){
 			<td class=paging width=20% align=center>
 			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
-			</tr>";
+<td class=paging width=15% align=center>
+                          <a
+href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1
+class=aform>
+                          &nbsp;" . _ADMIN_TEACHER_2_EDIT . "</td>			
+</tr>";
 			$ezr->query_mysql($sSQL);
 
 			$ezr->set_qs_val("letter", $letter);
@@ -213,7 +238,8 @@ function cnfremove(id) {
 	};
 	?>
 	<br>
-	<a class="aform" href="admin_users_1.php"><? echo _ADMIN_TEACHER_2_NEW?></a>
+	<a class="aform" href="admin_teacher_1.php"><? echo 
+_ADMIN_TEACHER_2_NEW?></a>
 </div>
 <? include "admin_menu.inc.php"; ?>
 </body>

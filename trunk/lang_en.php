@@ -1513,6 +1513,7 @@ DEFINE('_ADMIN_TEACHER_2_NEW', 'New Search');
 DEFINE('_ADMIN_TEACHER_2_NAME', 'Name');
 DEFINE('_ADMIN_TEACHER_2_SCHOOL', 'School');
 DEFINE('_ADMIN_TEACHER_2_ACTIVE', 'Active');
+DEFINE('_ADMIN_TEACHER_2_EDIT', 'Edit');
 
 /** admin_subjects.php */
 
