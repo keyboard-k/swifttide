@@ -79,17 +79,24 @@ studentbio.studentbio_lname";
 		//Set paging appearence
 		$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 		$ezr->results_close = "</table>";
-		$ezr->results_row = "<tr><td class=paging width=23%>COL2</td><td class=paging width=23%>COL3</td><td class=paging width=24%>COL4</td><td class=paging width=20%>COL5</td><td class=paging width=10% align=center><a 	href=admin_edit_student_1.php?action=edit&studentid=COL1 class=aform>&nbsp;" . _ADMIN_STUDENT_2_SELECT . "</a></td></tr>";
+		$ezr->results_row = "<tr>
+		<td class=paging width=23%>COL2</td>
+		<td class=paging width=23%>COL3</td>
+		<td class=paging width=24%>COL4</td>
+		<td class=paging width=20%>COL5</td>
+		<td class=paging width=10% align=center>
+		  <a href=admin_edit_student_1.php?action=edit&studentid=COL1 class=aform>&nbsp;" . _ADMIN_STUDENT_2_SELECT . "</a></td>
+		</tr>";
 		$sSQL="SELECT studentbio.studentbio_id, 
 studentbio.studentbio_lname, studentbio.studentbio_fname, 
-school_names.school_names_desc, grades.grades_desc FROM ((studentbio INNER 
-JOIN student_grade_year ON studentbio.studentbio_id = 
-student_grade_year.student_grade_year_student) INNER JOIN school_names ON 
-studentbio.studentbio_school = school_names.school_names_id) INNER JOIN 
-grades ON student_grade_year.student_grade_year_grade = grades.grades_id 
-WHERE studentbio.studentbio_lname LIKE '$letter%' AND 
-student_grade_year_year = '$current_year' ORDER BY 
-studentbio.studentbio_lname";
+school_names.school_names_desc, grades.grades_desc 
+FROM ((studentbio 
+INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
+INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) 
+INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id 
+WHERE studentbio.studentbio_lname LIKE '$letter%' 
+AND student_grade_year_year = '$current_year' 
+ORDER BY studentbio.studentbio_lname";
 		$ezr->query_mysql($sSQL);
 		$ezr->set_qs_val("letter", $letter);
 		$ezr->set_qs_val("action", "letter"); 	
