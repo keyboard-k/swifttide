@@ -254,9 +254,9 @@ $entries = $db->get_results($entries_sql);
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_SCHOOL?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_INTERNAL_ID?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHDATE?></td>
+              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_SCHOOL; ?></td>
+              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_INTERNAL_ID; ?></td>
+              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHDATE . " (" . _STUDENT_DATE . ")"; ?></td>
 			</tr>
 			<tr>
               <td width="50%" class="tdinput">

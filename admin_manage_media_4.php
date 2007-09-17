@@ -40,7 +40,7 @@ $tmp = get_param("disdate");
 if (($tmp == "") || ($tmp == "0000-00-00")) { $disdate = ""; }
 else { $disdate=date("Y-m-d", strtotime(get_param("disdate"))); }
 
-$tmp = get_param("edate");
+$tmp = get_param("sdate");
 if (($tmp == "") || ($tmp == "0000-00-00")) { $sdate = ""; }
 else { $sdate=date("Y-m-d", strtotime(get_param("sdate"))); }
 
