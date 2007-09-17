@@ -23,6 +23,7 @@ DEFINE('_DATE_FORMAT', 'l F j, Y');
 DEFINE('_EXAMS_DATE', '%m/%d/%Y');
 DEFINE('_STUDENTBIO_DATE', '%m/%d/%Y');
 DEFINE('_CAL_FORMAT', 'MM/DD/YYYY');
+DEFINE('_STUDENT_DATE', 'YYYY-MM-DD');
 DEFINE('_MONDAY', 'Mo');
 DEFINE('_TUESDAY', 'Tu');
 DEFINE('_WEDNESDAY', 'We');
@@ -3106,6 +3107,7 @@ DEFINE('_ADMIN_MANAGE_MEDIA_1_DATEDUE', 'Date Due');
 DEFINE('_ADMIN_MANAGE_MEDIA_1_CODE', 'Media Name');
 DEFINE('_ADMIN_MANAGE_MEDIA_1_DETAILS', 'Details');
 DEFINE('_ADMIN_MANAGE_MEDIA_1_REMOVE', 'Remove');
+DEFINE('_ADMIN_MANAGE_MEDIA_1_CHECK', 'Check which media are due');
 
 /** admin_manage_media_2.php */
 
@@ -3153,4 +3155,17 @@ DEFINE('_ADMIN_MANAGE_MEDIA_4_ERROR_BACK', 'Zur&uuml;ck');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_SUBJECT', 'New media note for ');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY1', 'A new media has been borrowed by ');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY2', 'Please login to the parents interface website for details. Thanks - The Principal');
+
+/** admin_manage_media_5.php */
+
+DEFINE('_ADMIN_MANAGE_MEDIA_5_FORM_ERROR', 'Error deleting entry');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_FORM_ERROR_2', 'Select a Student First');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_TITLE', 'Media History for Student');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_DATEOUT', 'Date Out');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_DATEDUE', 'Date Due');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_CODE', 'Media Name');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_DETAILS', 'Details');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_REMOVE', 'Remove');
+DEFINE('_ADMIN_MANAGE_MEDIA_5_CHECK', 'Check which media are due');
 

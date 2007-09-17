@@ -138,9 +138,8 @@ $disciplinecodes=$db->get_results("SELECT * FROM media_codes ORDER BY media_code
 	<h2><? echo $sfname. " " .$slname ; ?></h2>
 	<br>
 	<h2><? echo _ADMIN_MANAGE_MEDIA_3_INSERTED?><? echo $user; ?></h2>
+	<form name="discipline" method="POST" action="admin_manage_media_4.php">
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
-	<form name="discipline" method="POST" 
-action="admin_manage_media_4.php">
 	  <tr class="trform">
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_MEDIA_3_SCHOOL?></td>
 	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_MEDIA_3_YEAR?></td>
@@ -241,7 +240,6 @@ action="admin_manage_media_4.php">
 
 Gosh I hope that is the end of that block
 */?>
-	</table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
@@ -251,6 +249,8 @@ Gosh I hope that is the end of that block
 	  <input type="hidden" name="disid" value="<? echo $disid; ?>">
 	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	</table>
+
 	</table>
 	</form>
 </div>

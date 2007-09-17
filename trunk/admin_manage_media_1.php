@@ -59,7 +59,7 @@ if(!strlen($studentid)){
 	INNER JOIN media_codes ON  media_history.media_history_code = media_codes.media_codes_id 
 	WHERE media_history.media_history_student= $studentid 
 	AND media_history.media_history_year=$current_year 
-	ORDER BY media_history.media_history_datedue DESC";
+	ORDER BY media_history.media_history_datedue ASC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=90% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead>
@@ -122,12 +122,14 @@ if(!strlen($studentid)){
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="90%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_MANAGE_MEDIA_1_BACK?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform">
+	      <? echo _ADMIN_MANAGE_MEDIA_1_BACK?></a></td>
 	    <td width="50%" align="right">
 	    <a href="admin_manage_media_3.php?studentid=<? echo $studentid; ?>&action=new" class="aform">
 	    <? echo _ADMIN_MANAGE_MEDIA_1_ADD?></a></td>
 	  </tr>
 	</table>
+
 	<?
 	}else{
 	?>
