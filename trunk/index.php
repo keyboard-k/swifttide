@@ -60,7 +60,8 @@ $msgall=$db->get_var("SELECT messageto_all FROM tbl_config WHERE id=1");
 <div id="Header">
 <table width="100%">
   <tr>
-      <td align="right" width="100%"><? echo "Version " . $release; ?></td>
+      <td align="left" width="100%"><? echo "Version " . $release; ?></td>
+      <td align="right" width="100%"><? echo $reldate; ?></td>
   </tr>
 </table>
 </div>
