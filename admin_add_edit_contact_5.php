@@ -58,7 +58,7 @@ $titles=$db->get_results("SELECT * FROM tbl_titles ORDER BY title_id");
 $relations=$db->get_results("SELECT * FROM relations_codes ORDER BY relation_codes_desc");
 
 //Get student first and last name
-$student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='".$studentid."'");
+$student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='". $studentid ."'");
 $sfname=$student->studentbio_fname;
 $slname=$student->studentbio_lname;
 
