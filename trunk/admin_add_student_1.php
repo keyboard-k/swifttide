@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_student_1.php
 // Admin Section
@@ -56,7 +56,7 @@ $current_year_desc = $current_year->school_years_desc;
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <SCRIPT LANGUAGE="JAVASCRIPT">
@@ -70,19 +70,19 @@ $current_year_desc = $current_year->school_years_desc;
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_STUDENT_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_STUDENT_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_ADD_STUDENT_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_ADD_STUDENT_1_TITLE?></h1>
 	<br>
   <table border="0" cellpadding="1" cellspacing="1" width="100%">
     <tr>
@@ -90,10 +90,10 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="35%">&nbsp;<FONT COLOR=Red><? echo _ADMIN_ADD_STUDENT_1_FIRST?></FONT></td>
-              <td width="15%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_MIDDLE?></td>
-              <td width="35%">&nbsp;<FONT COLOR=Red><? echo _ADMIN_ADD_STUDENT_1_LAST?></FONT></td>
-              <td width="15%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_GEN?></td>
+              <td width="35%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_FIRST?></FONT></td>
+              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_MIDDLE?></td>
+              <td width="35%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_LAST?></FONT></td>
+              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_GEN?></td>
             </tr>
             <tr>
               <td width="35%" class="tdinput">
@@ -107,7 +107,7 @@ $current_year_desc = $current_year->school_years_desc;
               </td>
               <td width="15%" class="tdinput">
                   <select size="1" name="generation">
-				   <?
+				   <?php
 				   //Display Generations from table
 				   foreach($generations as $generation){
 						if ($_POST['generation_1'] == $generation->generations_id) {
@@ -127,11 +127,11 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
          <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="20%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_GENDER?></td>
-              <td width="35%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_ETHNICITY?></td>
-			  <td width="15%" align="center"><? echo _ADMIN_ADD_STUDENT_1_ACTIVE?></td>
-              <td width="15%" align="center"><? echo _ADMIN_ADD_STUDENT_1_HOMED?></td>
-              <td width="15%" align="center"><? echo _ADMIN_ADD_STUDENT_1_SPED?></td>
+              <td width="20%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_GENDER?></FONT></td>
+              <td width="35%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_ETHNICITY?></FONT></td>
+			  <td width="15%" align="center"><?php echo _ADMIN_ADD_STUDENT_1_ACTIVE?></td>
+              <td width="15%" align="center"><?php echo _ADMIN_ADD_STUDENT_1_HOMED?></td>
+              <td width="15%" align="center"><?php echo _ADMIN_ADD_STUDENT_1_SPED?></td>
             </tr>
             <tr>
               <td width="20%" class="tdinput">
@@ -192,14 +192,14 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="50%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_SCHOOL?></td>
-              <td width="25%">&nbsp;<FONT COLOR=Red><? echo _ADMIN_ADD_STUDENT_1_INTERNAL_ID?></FONT></td>
-              <td width="25%">&nbsp;<FONT COLOR=Red><? echo _ADMIN_ADD_STUDENT_1_BIRTHDATE?></FONT></td>
+              <td width="50%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_SCHOOL?></FONT></td>
+              <td width="25%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_INTERNAL_ID?></FONT></td>
+              <td width="25%">&nbsp;<FONT COLOR="Green"><?php echo _ADMIN_ADD_STUDENT_1_BIRTHDATE?></FONT></td>
 			</tr>
 			<tr>
               <td width="50%" class="tdinput">
 			    <select size="1" name="school">
-				   <?
+				   <?php
 				   //Display Schools from table
 				   foreach($schools as $school){
 					   if ($_POST['school_1']) {
@@ -223,9 +223,9 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_HOME?></td>
-              <td width="50%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_TEACHER?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_ROUTE?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_HOME?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_TEACHER?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_ROUTE?></td>
 			</tr>
 			<tr>
               <!--
@@ -270,9 +270,9 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="33%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_BIRTHCITY?></td>
-              <td width="33%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_BIRTHSTATE?></td>
-              <td width="34%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_BIRTHCOUNTRY?></td>
+              <td width="33%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_BIRTHCITY?></td>
+              <td width="33%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_BIRTHSTATE?></td>
+              <td width="34%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_BIRTHCOUNTRY?></td>
             </tr>
             <tr>
               <td width="33%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bcity" size="26" value="<?php echo $_POST['bcity_1'];?>">
@@ -289,8 +289,8 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="50%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLNAME?></td>
-              <td width="50%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLADDRESS?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLNAME?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLADDRESS?></td>
             </tr>
             <tr>
               <td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolname" size="33" value="<?php echo $_POST['pschoolname_1'];?>">
@@ -305,10 +305,10 @@ $current_year_desc = $current_year->school_years_desc;
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLCITY?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLSTATE?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLZIP?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLCOUNTRY?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLCITY?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLSTATE?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLZIP?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_1_PRVS_SCHOOLCOUNTRY?></td>
             </tr>
             <tr>
               <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolcity" size="26" value="<?php echo $_POST['pschoolcity_1'];?>">
@@ -325,7 +325,7 @@ $current_year_desc = $current_year->school_years_desc;
     </tr>
     <tr class="trform">
       <td width="100%">
-		<? echo _ADMIN_ADD_STUDENT_1_MESSAGE?> (<? echo $current_year_desc; ?>)&nbsp;
+		<?php echo _ADMIN_ADD_STUDENT_1_MESSAGE?> (<?php echo $current_year_desc; ?>)&nbsp;
 	   <select name="grade">
 	   <?php
 	   //Display grades from table
@@ -338,18 +338,18 @@ $current_year_desc = $current_year->school_years_desc;
 	   };
 	   ?>
 	   </select>
-	   <input type="hidden" name="current_year_id" value="<? echo $current_year_id; ?>">
+	   <input type="hidden" name="current_year_id" value="<?php echo $current_year_id; ?>">
 	  </td>
     </tr>
     <tr>
       <td width="100%" align="right">
-	   <input type="submit" name="sumbit" value="<? echo _ADMIN_ADD_STUDENT_1_ADD?>" class="frmbut">
+	   <input type="submit" name="sumbit" value="<?php echo _ADMIN_ADD_STUDENT_1_ADD?>" class="frmbut">
 	  </td>
     </tr>
 	</form>
   </table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

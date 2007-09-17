@@ -32,7 +32,7 @@ $password=tosql(get_param("password"), "Text");
 $sfname=get_param("sfname");
 $cfflname=tosql(get_param("cfflname"), "Text");
 $slname=get_param("slname");
-$back=get_param("rback");
+$rback=get_param("rback");
 $contact=$db->get_row("SELECT studentcontact_fname, studentcontact_lname FROM studentcontact WHERE studentcontact_id=$contactid");
 $flname=$contact->studentcontact_fname." ".$contact->studentcontact_lname;
 
@@ -44,12 +44,16 @@ if (!$oEmail->valida($email))
 //No errors found
 //Set as internet user
 if ($msgFormErr==""){
-	$sSQL="UPDATE contact_to_students SET contact_to_students_internet=1 WHERE 
-contact_to_students_student=$studentid AND contact_to_students_contact=$contactid AND 
-contact_to_students_year='$current_year'";
+	$sSQL="UPDATE contact_to_students 
+	SET contact_to_students_internet=1 
+	WHERE contact_to_students_student=$studentid 
+	AND contact_to_students_contact=$contactid 
+	AND contact_to_students_year='$current_year'";
 	$db->query($sSQL);
-	$sSQL="UPDATE studentcontact SET studentcontact_email=".tosql($email, "Text")." WHERE 
-studentcontact_id=$contactid AND studentcontact_year='$current_year'";
+	$sSQL="UPDATE studentcontact 
+	SET studentcontact_email=".tosql($email, "Text")." 
+	WHERE studentcontact_id=$contactid 
+	AND studentcontact_year='$current_year'";
 	$db->query($sSQL);
 	//Check if it is new or coming from student screen (if it is coming from the student screen, it is an update of existing info)
 	//Here, it's a new entry
@@ -126,7 +130,7 @@ student_id) VALUES ($contactid, $studentid)";
 	   <h2>User : <? echo $username; ?></h2>
 	   <br>
 	   <?
-		if(!strlen($back)){
+		if(!strlen($rback)){
 		?>
 	      <a href="admin_add_edit_contact_1.php?id=<? echo $studentid; ?>&action=add" class="aform"><? echo _ADMIN_ADD_CONTACT_USER_ADD?></a>
 		<?

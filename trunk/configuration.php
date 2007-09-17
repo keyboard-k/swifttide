@@ -2,8 +2,8 @@
 DEFINE ('_VALID', 1);
 include "lang_de.php";
 DEFINE ('_LANG', 'de');
-// DEFINE('_LOGO', '../images/sms_de.gif');
-DEFINE('_LOGO', '../images/School.png');
+DEFINE('_LOGO', '../images/sms_de.gif');
+// DEFINE('_LOGO', '../images/School.png');
 
 $db_server = 'localhost';
 $db_name = 's2';

@@ -71,18 +71,21 @@ INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation =
 INNER JOIN tbl_states ON tbl_states.state_code = studentcontact.studentcontact_state) 
 WHERE studentcontact.studentcontact_id='$studentinfo->studentbio_primarycontact' AND 
 studentcontact.studentcontact_year = '$current_year'";
-
 $primcontinfo=$db->get_row($sSQL);
+
 //Title fix, doug, 12-30-06
 $title_id=$primcontinfo->studentcontact_title;
 $sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='$title_id'";
 $title_desc=$db->get_var($sSQL);
 //End of doug fix
 $primarycontact=$primcontinfo->studentcontact_id;
-$sSQL="SELECT studentcontact_id FROM studentcontact WHERE 
-studentcontact_studentid='$studentid' AND studentcontact_year='$current_year' AND 
-studentcontact_primary=1"; 
-$primarycontact=$db->get_var($sSQL);
+
+// commented out by Helmut: we just got primarycontact, why a second query?
+// furthermore, it does not always yield a result?!
+// $sSQL="SELECT studentcontact_id FROM studentcontact WHERE 
+// studentcontact_studentid='$studentid' AND studentcontact_year='$current_year' AND 
+// studentcontact_primary=1"; 
+// $primarycontact=$db->get_var($sSQL);
 
 //get the custom fields for this student by Joshua
 $scfSQL = "SELECT * FROM custom_studentbio, custom_fields 
