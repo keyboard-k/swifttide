@@ -140,8 +140,7 @@ class=aform>
                 break;
 	case "letter":
                 $letter=get_param("letter");
-		$sSQL = "SELECT web_users_relid, web_users_flname, 
-school_names_desc, active
+		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active
 		FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -169,12 +168,10 @@ school_names_desc, active
 			<td class=paging width=20% align=center>
 			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
-<td class=paging width=15% align=center>
-                          <a
-href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1
-class=aform>
+			<td class=paging width=15% align=center>
+                          <a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1 class=aform>
                           &nbsp;" . _ADMIN_TEACHER_2_EDIT . "</td>			
-</tr>";
+			</tr>";
 			$ezr->query_mysql($sSQL);
 
 			$ezr->set_qs_val("letter", $letter);

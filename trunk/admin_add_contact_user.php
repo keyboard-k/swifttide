@@ -29,11 +29,10 @@ $contactid=get_param("contactid");
 $email=get_param("email");
 $username=tosql(get_param("username"), "Text");
 $password=tosql(get_param("password"), "Text");
-$sfname=get_param("sfname");
-$cfflname=tosql(get_param("cfflname"), "Text");
-$slname=get_param("slname");
+$sfname=tosql(get_param("sfname"), "Text");
+$slname=tosql(get_param("slname"), "Text");
 $rback=get_param("rback");
-$contact=$db->get_row("SELECT studentcontact_fname, studentcontact_lname FROM studentcontact WHERE studentcontact_id=$contactid");
+$contact=$db->get_row("SELECT studentcontact_fname, studentcontact_lname FROM studentcontact WHERE studentcontact_id='$contactid'");
 $flname=$contact->studentcontact_fname." ".$contact->studentcontact_lname;
 
 //Validate email
@@ -59,13 +58,16 @@ if ($msgFormErr==""){
 	//Here, it's a new entry
 	if (!strlen($rback)){
 		//check to see if this user already exists in web_users
-		//$sSQL="SELECT web_users_username, web_users_password, web_users_flname from web_users WHERE web_users_username=$username
-		$sSQL="INSERT INTO web_users (web_users_type, 
-web_users_relid, web_users_username, web_users_password, 
-web_users_flname, active) 
-VALUES ('C', $contactid, $username, $password, $cfflname, 1)";
+		//$sSQL="SELECT web_users_username, web_users_password, web_users_flname FROM web_users WHERE web_users_username=$username
+		$sSQL="INSERT INTO web_users (web_users_type, web_users_relid, 
+		web_users_username, web_users_password, web_users_flname, active) 
+		VALUES ('C', $contactid, $username, $password, '$flname', 1)";
 		$db->query($sSQL);
-		$sSQL="INSERT INTO parent_to_kids (parent_id, student_id) VALUES ($contactid, $studentid)";
+		if (!($web=$db->get_row("SELECT parent_id, student_id 
+			FROM parent_to_kids 
+			WHERE parent_id=$contactid 
+			AND student_id=$studentid"))) {
+		$sSQL="INSERT INTO parent_to_kids (parent_id, student_id) VALUES ($contactid, $studentid)"; }
 		$db->query($sSQL);
 	//here, we're coming from student info, so it's an update
 	}else{
@@ -77,7 +79,7 @@ VALUES ('C', $contactid, $username, $password, $cfflname, 1)";
 			$sSQL="INSERT INTO web_users (web_users_type, 
 web_users_relid, web_users_username, web_users_password, 
 web_users_flname, active) 
-VALUES ('C', $contactid, $username, $password, $cfflname, 1)";
+VALUES ('C', $contactid, $username, $password, '$flname', 1)";
 			$db->query($sSQL);
 			$sSQL="INSERT INTO parent_to_kids (parent_id, 
 student_id) VALUES ($contactid, $studentid)";
