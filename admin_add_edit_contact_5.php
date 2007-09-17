@@ -39,14 +39,14 @@ contact_to_students.contact_to_students_relation,
 contact_to_students.contact_to_students_residence FROM studentcontact 
 INNER JOIN contact_to_students ON studentcontact.studentcontact_id = 
 contact_to_students.contact_to_students_contact WHERE 
-contact_to_students.contact_to_students_id=$contacttostudentsid";
+contact_to_students.contact_to_students_id='".$contacttostudentsid."'";
  
 $contact=$db->get_row($sSQL); $set_state=$contact->studentcontact_state;
 $set_title=$contact->studentcontact_title;
 $set_relation=$contact->contact_to_students_relation;
 
 //Doug fix so titles are displayed and stored correctly.
-$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id=$set_title";
+$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='".$set_title."'";
 $set_title=$db->get_var($sSQL);
 //end of fix
 
@@ -58,7 +58,7 @@ $titles=$db->get_results("SELECT * FROM tbl_titles ORDER BY title_id");
 $relations=$db->get_results("SELECT * FROM relations_codes ORDER BY relation_codes_desc");
 
 //Get student first and last name
-$student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid");
+$student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='".$studentid."'");
 $sfname=$student->studentbio_fname;
 $slname=$student->studentbio_lname;
 
