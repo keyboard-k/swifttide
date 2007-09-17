@@ -19,8 +19,10 @@ include_once "ez_sql.php";
 include_once "configuration.php";
 
 $teacherid = get_param("teacherid");
+// echo "teacherid=$teacherid";
 $contactid = get_param("contactid");
 $act = get_param("act");
+// echo "act=$act";
 
 //pq--What does this do???
 //$cid =get_param("contactid");
@@ -44,15 +46,15 @@ $act = get_param("act");
 switch ($act) {
 	case 1:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='T' AND web_users_id = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='C' AND web_users_id = '$contactid'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='C' AND web_users_relid = '$contactid'");
 		break;
 	case 0:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='T' AND web_users_id = '$teacherid'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='T' AND web_users_relid = '$teacherid'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='C' AND web_users_id = '$contactid'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='C' AND web_users_relid = '$contactid'");
 		break;
 }
 
