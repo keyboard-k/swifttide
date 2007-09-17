@@ -221,7 +221,8 @@ function submitform()
 	   <input type="hidden" name="contactid" value="<? echo $contactid ; ?>">
 	   <input type="hidden" name="slname" value="<? echo $slname ; ?>">
 	   <input type="hidden" name="sfname" value="<? echo $sfname ; ?>">
-	   <input type="hidden" name="cfflname" value="<? echo $cfname." ".$clname ; ?>">
+	   <input type="hidden" name="clname" value="<? echo $clname ; ?>">
+	   <input type="hidden" name="cfname" value="<? echo $cfname ; ?>">
 	   <input type="hidden" name="rback" value="back">
 	   </form>
 	   <a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_ADD_EDIT_CONTACT_6_BACK?></a>
