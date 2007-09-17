@@ -250,7 +250,6 @@ echo $termcode->grade_terms_desc;
 	  <?
 	  };
 	  ?>
-	</table>
 
     <? //custom fields added by Joshua
     	//get all the custom field names for the select loops
@@ -292,7 +291,6 @@ echo $termcode->grade_terms_desc;
 	</td></tr></table></td></tr><?
 	//end custom fields
 	?>
-	</form>
 
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -303,6 +301,9 @@ echo $termcode->grade_terms_desc;
 	  <input type="hidden" name="gradeid" value="<? echo $gradeid; ?>">
 	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	</table>
+
+	</form>
 	</table>
 </div>
 <? include "teacher_menu.inc.php"; ?>

@@ -820,7 +820,7 @@ INSERT INTO `tbl_days` (`days_id`, `days_desc`) VALUES
 DROP TABLE IF EXISTS `tbl_states`;
 CREATE TABLE IF NOT EXISTS `tbl_states` (
   `state_code` char(2) NOT NULL default '',
-  `state_name` varchar(20) default NULL,
+  `state_name` varchar(30) default NULL,
   PRIMARY KEY  (`state_code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
