@@ -3093,6 +3093,7 @@ DEFINE('_ADMIN_MEDIA_CODES_EDIT', 'Edit');
 DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
 DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
 DEFINE('_ADMIN_MEDIA_CODES_SURE', 'Are you sure?');
+DEFINE('_ADMIN_MEDIA_CODES_CHECK', 'Check all media');
 
 /** admin_media_codes_2.php */
 
@@ -3106,6 +3107,7 @@ DEFINE('_ADMIN_MEDIA_2_CODE', 'Media Name');
 DEFINE('_ADMIN_MEDIA_2_NOTIFY', 'Notify');
 DEFINE('_ADMIN_MEDIA_2_SEND', 'Send');
 DEFINE('_ADMIN_MEDIA_2_CHECK', 'Check which media are due');
+DEFINE('_ADMIN_MEDIA_2_NOTIFYALL', 'Notify all contacts automatically');
 
 /** admin_manage_media_1.php */
 

@@ -1,8 +1,8 @@
 <?
 //*
-// admin_media_codes_2.php
+// admin_media_codes_3.php
 // Admin Section
-// Display media that are due within 7 days
+// Send notifications to contacts of media due within 7 days
 // Version 1.0 Sept 2007 Helmut
 //*
 
@@ -38,35 +38,19 @@ $action=get_param("action");
 
 	//Get media history
 	$sSQL="SELECT media_history.media_history_id, 
-	DATE_FORMAT(media_history.media_history_dateout, '" . _EXAMS_DATE . "') AS disdate, 
-	DATE_FORMAT(media_history.media_history_datedue, '" . _EXAMS_DATE . "') AS sdate, 
-	media_codes.media_codes_desc 
-	FROM media_history 
-	INNER JOIN media_codes ON  media_history.media_history_code = media_codes.media_codes_id 
+	media_codes.media_codes_desc, 
+	studentbio.studentbio_fname, studentbio.studentbio_lname, 
+	studentcontact.studentcontact_email 
+	FROM (((media_history 
+	INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) 
+	INNER JOIN studentbio ON studentbio.studentbio_id = media_history.media_history_student) 
+	INNER JOIN studentcontact ON studentcontact.studentcontact_id = studentbio.studentbio_primarycontact) 
 	WHERE media_history.media_history_year='$current_year' 
 	AND (DATEDIFF(media_history.media_history_datedue, '" . $today . "') <= 7) 
 	AND (DATEDIFF(media_history.media_history_datedue, '" . $today . "') >= 0) 
 	ORDER BY media_history.media_history_datedue ASC";
+	$tmp = $db->get_results($sSQL);
 
-	//Set paging appearence
-	$ezr->results_open = "<table width=90% cellpadding=2 cellspacing=0 border=1>";
-	$ezr->results_heading = "<tr class=tblhead>
-	<td width=20%>" . _ADMIN_MEDIA_CODES_2_DATEOUT . "</td>
-	<td width=20%>" . _ADMIN_MEDIA_CODES_2_DATEDUE . "</td>
-	<td width=35%>" . _ADMIN_MEDIA_CODES_2_CODE . "</td>
-	<td width=25%>" . _ADMIN_MEDIA_CODES_2_NOTIFY . "</td>
-	</tr>"; 
-	$ezr->results_close = "</table>";
-	$ezr->results_row = "<tr>
-	<td align=center class=paging width=20%>COL2</td>
-	<td align=center class=paging width=20%>COL3</td>
-	<td class=paging width=35% align=center>COL4</td>
-	<td class=paging width=25% align=center>
-	  <a href=admin_manage_media_3.php?disid=COL1 class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_2_SEND . "</a>
-	</td>
-	</tr>";
-	$ezr->query_mysql($sSQL);
-	$ezr->set_qs_val("studentid",$studentid);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -99,15 +83,12 @@ $action=get_param("action");
 	<h1><? echo _ADMIN_MEDIA_CODES_2_TITLE?></h1>
 	<br>
 	<?
-	$ezr->display();
+	// $ezr->display();
+	print_r($tmp);
 	?>
 	<br>
-        <table>
-	<tr>
-	  <!-- link to check if media are due within 7 days -->
-	  <td width="100%" align="left">
-	  <a href="admin_media_codes_4.php" class="aform"><? echo _ADMIN_MEDIA_CODES_2_NOTIFYALL?></a></td>
-	</tr>
+	<table>
+
 	</table>
 
 	<?
