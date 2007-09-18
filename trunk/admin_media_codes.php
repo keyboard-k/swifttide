@@ -157,31 +157,28 @@ function cnfremove(id) {
 		$ezr->display();
 		?>
 		<br>
-		<form name="addmedia" method="post" action="admin_media_codes.php">						
+		<form name="addmedia" method="post" action="admin_media_codes.php">
 		<table border="0">
 		<tr>
-		  <td colspan="2"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_ADD_NEW?></h2></td>
+		  <td colspan="3"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_ADD_NEW?></h2></td>
 		</tr>
 		<tr>
-		  <td colspan="2">&nbsp;</td>
+		  <td colspan="3">&nbsp;</td>
 		</tr>
 		<tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_1;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="medianame" size="30">&nbsp;</td>
+		  <td>&nbsp;</td>
 		</tr>
 		<tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_2;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="id1" size="30">&nbsp;</td>
+		  <td>&nbsp;</td>
 		</tr>
 		<tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_3;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="id2" size="30"></td>
-		</tr>
-		<tr>
-		  <td colspan="2">&nbsp;</td>
-		</tr>
-		<tr>
-		  <td colspan="2"><a class="aform" href="javascript: submitform('medianame')">
+		  <td><a class="aform" href="javascript: submitform('medianame')">
 		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
 		</tr>
 		</table>
@@ -194,28 +191,25 @@ function cnfremove(id) {
 		<form name="editmedia" method="post" action="admin_media_codes.php">
 		<table border="0">
                 <tr>
-		  <td colspan="2"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_UPDATE?></h2></td>
+		  <td colspan="3"><p class="pform"><h2><? echo _ADMIN_MEDIA_CODES_UPDATE?></h2></td>
 		</tr>
 		<tr>
-		  <td colspan="2">&nbsp;</td>
+		  <td colspan="3">&nbsp;</td>
 		</tr>
                 <tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_1;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="medianame" size="30" value="<?echo $media_codes_desc; ?>">&nbsp;</td>
+		  <td>&nbsp;</td>
 		</tr>
                 <tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_2;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="id1" size="30" value="<?echo $id1; ?>">&nbsp;</td>
+		  <td>&nbsp;</td>
 		</tr>
                 <tr>
 		  <td><? echo _ADMIN_MEDIA_CODES_LINE_3;?></td>
 		  <td><input type="text" onChange="capitalizeMe(this)" name="id2" size="30" value="<?echo $id2; ?>">&nbsp;</td>
-		</tr>
-		<tr>
-		  <td colspan="2">&nbsp;</td>
-		</tr>
-		<tr>
-		  <td colspan="2"><a class="aform" href="javascript: submitform('medianame')">
+		  <td><a class="aform" href="javascript: submitform('medianame')">
 		  <? echo _ADMIN_MEDIA_CODES_ADD?></a></td>
 		</tr>
 		</table>
@@ -225,11 +219,12 @@ function cnfremove(id) {
 	<?
 	};
 	?>
+	<br>
 	<table>
 	<tr>
 	  <!-- link to check if media are due within 7 days -->
 	  <td width="100%" align="left">
-	  <a href="admin_manage_media_5.php" class="aform"><? echo _ADMIN_MANAGE_MEDIA_1_CHECK?></a></td>
+	  <a href="admin_media_codes_2.php" class="aform"><? echo _ADMIN_MANAGE_MEDIA_1_CHECK?></a></td>
 	</tr>
 	</table>
 	<h3><? echo $msgFormErr; ?></h3>

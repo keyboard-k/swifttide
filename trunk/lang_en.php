@@ -3080,7 +3080,7 @@ DEFINE('_ADMIN_BACKUP_2_UPPER', 'Administrator: Backup');
 DEFINE('_ADMIN_BACKUP_2_TITLE', 'Database Backup');
 DEFINE('_ADMIN_BACKUP_2_SUBTITLE', '');
 
-/** admin_manage_media.php */
+/** admin_media_codes.php */
 
 DEFINE('_ADMIN_MEDIA_CODES_UPPER', 'Media Area - Manage');
 DEFINE('_ADMIN_MEDIA_CODES_TITLE', 'Add, Delete, Edit Media');
@@ -3093,6 +3093,19 @@ DEFINE('_ADMIN_MEDIA_CODES_EDIT', 'Edit');
 DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
 DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
 DEFINE('_ADMIN_MEDIA_CODES_SURE', 'Are you sure?');
+
+/** admin_media_codes_2.php */
+
+DEFINE('_ADMIN_MEDIA_2_FORM_ERROR', 'Error deleting entry');
+DEFINE('_ADMIN_MEDIA_2_FORM_ERROR_2', 'Select a Student First');
+DEFINE('_ADMIN_MEDIA_2_TITLE', 'Media History for Student');
+DEFINE('_ADMIN_MEDIA_2_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MEDIA_2_DATEOUT', 'Date Out');
+DEFINE('_ADMIN_MEDIA_2_DATEDUE', 'Date Due');
+DEFINE('_ADMIN_MEDIA_2_CODE', 'Media Name');
+DEFINE('_ADMIN_MEDIA_2_NOTIFY', 'Notify');
+DEFINE('_ADMIN_MEDIA_2_SEND', 'Send');
+DEFINE('_ADMIN_MEDIA_2_CHECK', 'Check which media are due');
 
 /** admin_manage_media_1.php */
 
@@ -3155,17 +3168,4 @@ DEFINE('_ADMIN_MANAGE_MEDIA_4_ERROR_BACK', 'Zur&uuml;ck');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_SUBJECT', 'New media note for ');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY1', 'A new media has been borrowed by ');
 DEFINE('_ADMIN_MANAGE_MEDIA_4_BODY2', 'Please login to the parents interface website for details. Thanks - The Principal');
-
-/** admin_manage_media_5.php */
-
-DEFINE('_ADMIN_MANAGE_MEDIA_5_FORM_ERROR', 'Error deleting entry');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_FORM_ERROR_2', 'Select a Student First');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_TITLE', 'Media History for Student');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_UPPER', 'Administrator Area');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_DATEOUT', 'Date Out');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_DATEDUE', 'Date Due');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_CODE', 'Media Name');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_DETAILS', 'Details');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_REMOVE', 'Remove');
-DEFINE('_ADMIN_MANAGE_MEDIA_5_CHECK', 'Check which media are due');
 
