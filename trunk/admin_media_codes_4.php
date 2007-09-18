@@ -84,6 +84,7 @@ $action=get_param("action");
 	<br>
 	<?
 	// $ezr->display();
+	echo "<p><b>Actual sending of Email not implemented yet. Will come soon!</b><p />";
 	print_r($tmp);
 	?>
 	<br>
