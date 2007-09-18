@@ -37,7 +37,10 @@ $action=get_param("action");
 	// echo "<b>$tage2</b>";
 
 	//Get media history
-	$sSQL="SELECT studentcontact.studentcontact_email AS email 
+	$sSQL="SELECT studentcontact.studentcontact_email AS email, 
+	media_codes.media_codes_desc AS code, 
+	studentbio.studentbio_fname AS fname, 
+	studentbio.studentbio_lname AS lname 
 	FROM (((media_history 
 	INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) 
 	INNER JOIN studentbio ON studentbio.studentbio_id = media_history.media_history_student) 
@@ -81,10 +84,7 @@ $action=get_param("action");
 	<br>
 	<?
 	// $ezr->display();
-	print_r($tmp);
-
-$message = _ADMIN_MEDIA_CODES_4_MESSAGE;
-$subject = _ADMIN_MEDIA_CODES_4_SUBJECT;
+	// print_r($emails);
 
 require_once "class.phpmailer.php";
 $mail = new PHPMailer();
@@ -99,7 +99,15 @@ $mail->FromName = $SMTP_FROM_NAME;
 $mail->AddAddress($SMTP_FROM_EMAIL,_ADMIN_PROCESS_MASS_MAIL_GENERAL);
 
 foreach ($emails as $email){
-  if ($email->email != "") { $mail->AddBCC($email->email); echo "Email: $email->email <br>"; }
+  if ($email->email != "") {
+    $mail->AddBCC($email->email);
+    $subject  = _ADMIN_MEDIA_CODES_4_SUBJECT . ": " . $email->code;
+    $message  = $email->fname . " " . $email->lname . ": ";
+    $message .= $email->code . "... " . _ADMIN_MEDIA_CODES_4_MESSAGE;
+    echo "<b>"._ADMIN_MEDIA_CODES_4_EMAIL.":</b> $email->email<br><b>" .
+               _ADMIN_MEDIA_CODES_4_SUB.":</b> $subject<br><b>" .
+	       _ADMIN_MEDIA_CODES_4_MESS.":</b> $message<br><br>";
+  }
 };
 $mail->AddReplyTo($SMTP_REPLY_TO,$SMTP_FROM_NAME);
 $mail->WordWrap = 70;     // set word wrap
