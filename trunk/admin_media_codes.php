@@ -224,7 +224,7 @@ function cnfremove(id) {
 	<tr>
 	  <!-- link to check if media are due within 7 days -->
 	  <td width="100%" align="left">
-	  <a href="admin_media_codes_2.php" class="aform"><? echo _ADMIN_MANAGE_MEDIA_1_CHECK?></a></td>
+	  <a href="admin_media_codes_2.php" class="aform"><? echo _ADMIN_MEDIA_CODES_CHECK?></a></td>
 	</tr>
 	</table>
 	<h3><? echo $msgFormErr; ?></h3>
