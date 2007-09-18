@@ -3109,6 +3109,13 @@ DEFINE('_ADMIN_MEDIA_CODES_2_SEND', 'Send');
 DEFINE('_ADMIN_MEDIA_CODES_2_CHECK', 'Check which media are due');
 DEFINE('_ADMIN_MEDIA_CODES_2_NOTIFYALL', 'Notify all contacts automatically');
 
+/** admin_media_codes_3.php */
+
+/** admin_media_codes_4.php */
+
+DEFINE('_ADMIN_MEDIA_CODES_4_MESSAGE', 'Please do not forget the return the media to the School Library. Thank you.');
+DEFINE('_ADMIN_MEDIA_CODES_4_SUBJECT', 'School Library');
+
 /** admin_manage_media_1.php */
 
 DEFINE('_ADMIN_MANAGE_MEDIA_1_FORM_ERROR', 'Error deleting entry');
