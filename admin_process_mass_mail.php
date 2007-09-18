@@ -35,8 +35,8 @@ $mail->From     = $SMTP_FROM_EMAIL;
 $mail->FromName = $SMTP_FROM_NAME;
 $mail->AddAddress($SMTP_FROM_EMAIL,_ADMIN_PROCESS_MASS_MAIL_GENERAL);
 if ($mailto!="both"){
-   foreach ($emails as $email){
-     if ($emails->email != "") { $mail->AddBCC($email->email); }
+   foreach ($emails as $emails){
+     if ($emails->email != "") { $mail->AddBCC($emails->email); }
    };
 }else{
    foreach ($emails_teach as $emails){

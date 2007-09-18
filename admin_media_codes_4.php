@@ -37,10 +37,7 @@ $action=get_param("action");
 	// echo "<b>$tage2</b>";
 
 	//Get media history
-	$sSQL="SELECT media_history.media_history_id, 
-	media_codes.media_codes_desc, 
-	studentbio.studentbio_fname, studentbio.studentbio_lname, 
-	studentcontact.studentcontact_email 
+	$sSQL="SELECT studentcontact.studentcontact_email AS email 
 	FROM (((media_history 
 	INNER JOIN media_codes ON media_history.media_history_code = media_codes.media_codes_id) 
 	INNER JOIN studentbio ON studentbio.studentbio_id = media_history.media_history_student) 
@@ -49,7 +46,7 @@ $action=get_param("action");
 	AND (DATEDIFF(media_history.media_history_datedue, '" . $today . "') <= 7) 
 	AND (DATEDIFF(media_history.media_history_datedue, '" . $today . "') >= 0) 
 	ORDER BY media_history.media_history_datedue ASC";
-	$tmp = $db->get_results($sSQL);
+	$emails = $db->get_results($sSQL);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -84,9 +81,37 @@ $action=get_param("action");
 	<br>
 	<?
 	// $ezr->display();
-	echo "<p><b>Actual sending of Email not implemented yet. Will come soon!</b><p />";
 	print_r($tmp);
-	?>
+
+$message = _ADMIN_MEDIA_CODES_4_MESSAGE;
+$subject = _ADMIN_MEDIA_CODES_4_SUBJECT;
+
+require_once "class.phpmailer.php";
+$mail = new PHPMailer();
+
+$mail->IsSMTP();  // send via SMTP
+$mail->Host     = $SMTP_SERVER; // SMTP servers
+$mail->SMTPAuth = true;     // turn on SMTP authentication
+$mail->Username = $SMTP_USER;  // SMTP username
+$mail->Password = $SMTP_PASSWORD; // SMTP password
+$mail->From     = $SMTP_FROM_EMAIL;
+$mail->FromName = $SMTP_FROM_NAME;
+$mail->AddAddress($SMTP_FROM_EMAIL,_ADMIN_PROCESS_MASS_MAIL_GENERAL);
+
+foreach ($emails as $email){
+  if ($email->email != "") { $mail->AddBCC($email->email); echo "Email: $email->email <br>"; }
+};
+$mail->AddReplyTo($SMTP_REPLY_TO,$SMTP_FROM_NAME);
+$mail->WordWrap = 70;     // set word wrap
+$mail->Subject  =  $subject;
+$mail->Body = $message;
+// if($mail->Send()){
+//         header("Location: admin_media_codes.php");
+//         exit();
+// };
+echo $mail->ErrorInfo;
+?>
+
 	<br>
 	<table>
 
