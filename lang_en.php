@@ -3097,17 +3097,17 @@ DEFINE('_ADMIN_MEDIA_CODES_CHECK', 'Check all media');
 
 /** admin_media_codes_2.php */
 
-DEFINE('_ADMIN_MEDIA_2_FORM_ERROR', 'Error deleting entry');
-DEFINE('_ADMIN_MEDIA_2_FORM_ERROR_2', 'Select a Student First');
-DEFINE('_ADMIN_MEDIA_2_TITLE', 'Media History for Student');
-DEFINE('_ADMIN_MEDIA_2_UPPER', 'Administrator Area');
-DEFINE('_ADMIN_MEDIA_2_DATEOUT', 'Date Out');
-DEFINE('_ADMIN_MEDIA_2_DATEDUE', 'Date Due');
-DEFINE('_ADMIN_MEDIA_2_CODE', 'Media Name');
-DEFINE('_ADMIN_MEDIA_2_NOTIFY', 'Notify');
-DEFINE('_ADMIN_MEDIA_2_SEND', 'Send');
-DEFINE('_ADMIN_MEDIA_2_CHECK', 'Check which media are due');
-DEFINE('_ADMIN_MEDIA_2_NOTIFYALL', 'Notify all contacts automatically');
+DEFINE('_ADMIN_MEDIA_CODES_2_FORM_ERROR', 'Error deleting entry');
+DEFINE('_ADMIN_MEDIA_CODES_2_FORM_ERROR_2', 'Select a Student First');
+DEFINE('_ADMIN_MEDIA_CODES_2_TITLE', 'Media History for Student');
+DEFINE('_ADMIN_MEDIA_CODES_2_UPPER', 'Administrator Area');
+DEFINE('_ADMIN_MEDIA_CODES_2_DATEOUT', 'Date Out');
+DEFINE('_ADMIN_MEDIA_CODES_2_DATEDUE', 'Date Due');
+DEFINE('_ADMIN_MEDIA_CODES_2_CODE', 'Media Name');
+DEFINE('_ADMIN_MEDIA_CODES_2_NOTIFY', 'Notify');
+DEFINE('_ADMIN_MEDIA_CODES_2_SEND', 'Send');
+DEFINE('_ADMIN_MEDIA_CODES_2_CHECK', 'Check which media are due');
+DEFINE('_ADMIN_MEDIA_CODES_2_NOTIFYALL', 'Notify all contacts automatically');
 
 /** admin_manage_media_1.php */
 
