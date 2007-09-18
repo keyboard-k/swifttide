@@ -3115,6 +3115,9 @@ DEFINE('_ADMIN_MEDIA_CODES_2_NOTIFYALL', 'Notify all contacts automatically');
 
 DEFINE('_ADMIN_MEDIA_CODES_4_MESSAGE', 'Please do not forget the return the media to the School Library. Thank you.');
 DEFINE('_ADMIN_MEDIA_CODES_4_SUBJECT', 'School Library');
+DEFINE('_ADMIN_MEDIA_CODES_4_EMAIL', 'Email');
+DEFINE('_ADMIN_MEDIA_CODES_4_SUB', 'Subject');
+DEFINE('_ADMIN_MEDIA_CODES_4_MESS', 'Message');
 
 /** admin_manage_media_1.php */
 
