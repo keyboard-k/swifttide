@@ -79,7 +79,7 @@ if(!strlen($residence)){
 };
 
 //Doug fix so titles are stored and displayed properly
-$sSQL="SELECT title_id FROM tbl_titles WHERE title_desc='$title'";
+$sSQL="SELECT title_id FROM tbl_titles WHERE title_desc='".$title."'";
 $title=$db->get_var($sSQL);
 //end doug fix
 
@@ -205,7 +205,7 @@ if ($msgFormErr==""){
 		  $contactid=mysql_insert_id();
 
 		  //Set primary contact in Student Bio table
-		  $sSQL="UPDATE studentbio SET studentbio_primarycontact=$contactid WHERE studentbio_id='".$studentid."'";
+		  $sSQL="UPDATE studentbio SET studentbio_primarycontact='".$contactid."' WHERE studentbio_id='".$studentid."'";
 		  $db->query($sSQL);
 
 		  //Set grade for current year

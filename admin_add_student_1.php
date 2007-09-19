@@ -37,6 +37,15 @@ $grades = $db->get_results($sSQL);
 $sSQL="SELECT teachers_id, teachers_fname, teachers_lname FROM teachers ORDER BY teachers_lname";
 $teachers=$db->get_results($sSQL);
 
+// the above SELECT statement should include a check for type='T' !
+// this we get from the web_users table
+$sSQL="SELECT teachers_id, teachers_fname, teachers_lname 
+FROM teachers 
+INNER JOIN web_users ON web_users.web_users_relid = teachers.teachers_id 
+WHERE web_users.web_users_type='T' 
+ORDER BY teachers_lname";
+$teachers=$db->get_results($sSQL);
+
 $sSQL="SELECT * FROM school_rooms ORDER BY school_rooms_desc";
 $rooms = $db->get_results($sSQL);
 

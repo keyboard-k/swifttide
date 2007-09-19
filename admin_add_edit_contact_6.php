@@ -80,9 +80,9 @@ if(strlen($email)){
 if($residence==1){
 	$sSQL="SELECT contact_to_students_residence 
 	FROM contact_to_students 
-	WHERE contact_to_students_student='".$studentid."'" 
+	WHERE contact_to_students_student='".$studentid."' 
 	AND contact_to_students_residence=1 
-	AND contact_to_students_contact<>'".$contactid."'" 
+	AND contact_to_students_contact<>'".$contactid."' 
 	AND contact_to_students_year = '".$current_year."'";
 	if($db->get_results($sSQL)){
 		$msgFormErr.=_ADMIN_ADD_EDIT_CONTACT_6_RES_DEF . "<br>";
@@ -92,8 +92,8 @@ $sSQL="SELECT relations_codes.relation_codes_unique,
 relations_codes.relation_codes_desc 
 FROM contact_to_students 
 INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id 
-WHERE relations_codes.relation_codes_id='".$relation."'" 
-AND contact_to_students_student='".$studentid."'" 
+WHERE relations_codes.relation_codes_id='".$relation."' 
+AND contact_to_students_student='".$studentid."' 
 AND contact_to_students.contact_to_students_id<>'".$contacttostudentsid."'"; 
 if($relunique=$db->get_row($sSQL)){
 	if($relunique->relation_codes_unique==1){
@@ -127,14 +127,14 @@ if ($msgFormErr==""){
 		  AND studentcontact_year='".$current_year."'"";
 		  $db->query($sSQL);
 		  $sSQL="UPDATE contact_to_students 
-		  SET contact_to_students_relation='".$relation."'", 
-		  contact_to_students_residence='".$residence."'" 
-		  WHERE contact_to_students_id='".$contacttostudentsid."'" 
+		  SET contact_to_students_relation='".$relation."', 
+		  contact_to_students_residence='".$residence."' 
+		  WHERE contact_to_students_id='".$contacttostudentsid."' 
 		  AND contact_to_students_year='".$current_year."'";
 		  $db->query($sSQL);
 		  $sSQL="SELECT contact_to_students_internet 
 		  FROM contact_to_students 
-		  WHERE contact_to_students_id='".$contacttostudentsid."'" 
+		  WHERE contact_to_students_id='".$contacttostudentsid."' 
 		  AND contact_to_students_year='".$current_year."'";
 		  $web=$db->get_var($sSQL);
 		  if($web==1){

@@ -36,10 +36,10 @@ $current_year=$_SESSION['CurrentYear'];
 $sSQL="SELECT studentcontact.*, 
 contact_to_students.contact_to_students_internet, 
 contact_to_students.contact_to_students_relation, 
-contact_to_students.contact_to_students_residence FROM studentcontact 
-INNER JOIN contact_to_students ON studentcontact.studentcontact_id = 
-contact_to_students.contact_to_students_contact WHERE 
-contact_to_students.contact_to_students_id='".$contacttostudentsid."'";
+contact_to_students.contact_to_students_residence 
+FROM studentcontact 
+INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact 
+WHERE contact_to_students.contact_to_students_id='".$contacttostudentsid."'";
  
 $contact=$db->get_row($sSQL); $set_state=$contact->studentcontact_state;
 $set_title=$contact->studentcontact_title;
