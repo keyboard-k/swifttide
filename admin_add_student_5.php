@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_student_5.php
 // Admin Section
@@ -137,7 +137,7 @@ $sSQL = "insert into studentbio (" .
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if fields are empty */
@@ -156,7 +156,7 @@ function submitform()
      x = x+"x";
 
   if (x != ""){
-	  alert('<? echo _ADMIN_ADD_STUDENT_5_ENTER_ALL?>');
+	  alert('<?php echo _ADMIN_ADD_STUDENT_5_ENTER_ALL?>');
 	  return false;
   }
   else{
@@ -169,39 +169,39 @@ function submitform()
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_STUDENT_5_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_STUDENT_5_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	   <h1><? echo _ADMIN_ADD_STUDENT_5_TITLE_SUCCESS?></h1>
+	   <h1><?php echo _ADMIN_ADD_STUDENT_5_TITLE_SUCCESS?></h1>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_STUDENT_5_STUDENT?>: <? echo $sfname." ".$slname; ?></h2>
+	   <h2><?php echo _ADMIN_ADD_STUDENT_5_STUDENT?>: <?php echo $sfname." ".$slname; ?></h2>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_STUDENT_5_CONTACT?>: <? echo $cfname." ".$clname; ?></h2>
+	   <h2><?php echo _ADMIN_ADD_STUDENT_5_CONTACT?>: <?php echo $cfname." ".$clname; ?></h2>
 	   <br>
-	   <p class="ltext"><? echo _ADMIN_ADD_STUDENT_5_MESSAGE?></p>
+	   <p class="ltext"><?php echo _ADMIN_ADD_STUDENT_5_MESSAGE?></p>
 	   <form name="addwebuser" method="POST" action="admin_add_contact_user.php" onsubmit="return submitform();">
-	   <p class="ltext"><? echo _ADMIN_ADD_STUDENT_5_EMAIL?>:&nbsp;
-	   <input type="text" onchange="this.value=this.value.toLowerCase();" name="email" value="<? echo $email; ?>" size="35"><br><br>
-	   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<? echo _ADMIN_ADD_STUDENT_5_USERNAME?>:&nbsp;<input type="text" onchange="this.value=this.value.toLowerCase();" name="username" size="10">&nbsp;
-	   <? echo _ADMIN_ADD_STUDENT_5_PASSWORD?>:&nbsp;<input type="text" onchange="this.value=this.value.toLowerCase();" name="password" size="10"></p>
-	   <input type="submit" name="submit" value="<? echo _ADMIN_ADD_STUDENT_5_SET?>" class="frmbut">
-	   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
-	   <input type="hidden" name="contactid" value="<? echo $contactid ; ?>">
-	   <input type="hidden" name="slname" value="<? echo $slname ; ?>">
-	   <input type="hidden" name="sfname" value="<? echo $sfname ; ?>">
+	   <p class="ltext"><?php echo _ADMIN_ADD_STUDENT_5_EMAIL?>:&nbsp;
+	   <input type="text" onchange="this.value=this.value.toLowerCase();" name="email" value="<?php echo $email; ?>" size="35"><br><br>
+	   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo _ADMIN_ADD_STUDENT_5_USERNAME?>:&nbsp;<input type="text" onchange="this.value=this.value.toLowerCase();" name="username" size="10">&nbsp;
+	   <?php echo _ADMIN_ADD_STUDENT_5_PASSWORD?>:&nbsp;<input type="text" onchange="this.value=this.value.toLowerCase();" name="password" size="10"></p>
+	   <input type="submit" name="submit" value="<?php echo _ADMIN_ADD_STUDENT_5_SET?>" class="frmbut">
+	   <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
+	   <input type="hidden" name="contactid" value="<?php echo $contactid ; ?>">
+	   <input type="hidden" name="slname" value="<?php echo $slname ; ?>">
+	   <input type="hidden" name="sfname" value="<?php echo $sfname ; ?>">
 	   </form>
-	   <a href="admin_add_edit_contact_1.php?id=<? echo $studentid; ?>&action=add" class="aform"><? echo _ADMIN_ADD_STUDENT_5_ADD_NEW?></a>
+	   <a href="admin_add_edit_contact_1.php?id=<?php echo $studentid; ?>&action=add" class="aform"><?php echo _ADMIN_ADD_STUDENT_5_ADD_NEW?></a>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

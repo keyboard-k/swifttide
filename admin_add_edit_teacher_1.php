@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_edit_teacher_1.php
 // Admin Section
@@ -61,7 +61,7 @@ $titles=$db->get_results("SELECT * FROM tbl_titles ORDER BY title_id");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -72,7 +72,7 @@ function submitform(fldName)
   if (t.value!="") 
     return true;
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
     return false;
 }
 
@@ -82,41 +82,41 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_EDIT_TEACHER_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_EDIT_TEACHER_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	   <h1><? echo $pag_header; ?></h1>
+	   <h1><?php echo $pag_header; ?></h1>
 	   <br>
 	   <table border="0" cellpadding="1" cellspacing="1" width="100%">
 	    <tr>
 		<form name="addteacher" method="POST"  
-action="admin_add_edit_teacher_2.php?action=<? echo $action; ?>">
+action="admin_add_edit_teacher_2.php?action=<?php echo $action; ?>">
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_TITLE?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_FIRST?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_LAST?></td>
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_MIDDLE?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_TITLE?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_FIRST?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_LAST?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_MIDDLE?></td>
 	            </tr>
 	            <tr>
 	              <td width="15%" class="tdinput">
 				  <select name="title">
-				   <?
+				   <?php
 				   //Display titles from table
 				   foreach($titles as $title){
 				   ?>
-			       <option value="<? echo $title->title_id; ?>" <? if ($title->title_id==$set_title){echo "selected=selected";};?>><? echo $title->title_desc; ?></option>
-				   <?
+			       <option value="<?php echo $title->title_id; ?>" <? if ($title->title_id==$set_title){echo "selected=selected";};?>><?php echo $title->title_desc; ?></option>
+				   <?php
 				   };
 				   ?>
 				   </select>
@@ -138,19 +138,19 @@ action="admin_add_edit_teacher_2.php?action=<? echo $action; ?>">
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="20%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_SCHOOL?></td>
-	              <td width="40%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_EMAIL?></td>
-		          <td width="40%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_ACCESS?></td>
+	              <td width="20%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_SCHOOL?></td>
+	              <td width="40%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_EMAIL?></td>
+		          <td width="40%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_ACCESS?></td>
 		    </tr>
 		    <tr>
 	              <td width="20%" class="tdinput">
 				  <select name="school">
-				   <?
+				   <?php
 				   //Display schools from table
 				   foreach($schools as $school){
 				   ?>
-			       <option value="<? echo $school->school_names_id; ?>" <? if ($school->school_names_id==$set_school){echo "selected=selected";};?>><? echo $school->school_names_desc; ?></option>
-				   <?
+			       <option value="<?php echo $school->school_names_id; ?>" <? if ($school->school_names_id==$set_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
+				   <?php
 				   };
 				   ?>
 				   </select>
@@ -173,8 +173,8 @@ if($action=="update"){echo " value=".strip($web->web_users_type);}; ?>>
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="50%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_USERNAME?></td>
-	              <td width="50%">&nbsp;<? echo _ADMIN_ADD_EDIT_TEACHER_1_PASSWORD?></td>
+	              <td width="50%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_USERNAME?></td>
+	              <td width="50%">&nbsp;<?php echo _ADMIN_ADD_EDIT_TEACHER_1_PASSWORD?></td>
 				</tr>
 				<tr>
 	              <td width="50%" class="tdinput">
@@ -194,21 +194,21 @@ value=".strip($web->web_users_password);}; ?>>
 	    </tr>		
     <tr>
 	<td width="50%">
-	   <input type="button" name="addp2" value="<? echo _ADMIN_ADD_EDIT_TEACHER_1_ADD_SCH?>" 
+	   <input type="button" name="addp2" value="<?php echo _ADMIN_ADD_EDIT_TEACHER_1_ADD_SCH?>" 
 class="frmbut" onclick="javascript: 
-window.location='admin_schedule_teach_1.php?teacherid=<? echo 
+window.location='admin_schedule_teach_1.php?teacherid=<?php echo 
 $teacherid?>';"><input 
 type="submit" 
-name="sumbit" value="<? echo $sub_button; ?>" class="frmbut">
-	   <input type="hidden" name="teacherid" value="<? echo $teacherid; ?>">	
-	   <input type="hidden" name="webid" value="<? echo $web->web_users_id; ?>">
-	   <input type="hidden" name="action" value="<? echo $action; ?>">	   
+name="sumbit" value="<?php echo $sub_button; ?>" class="frmbut">
+	   <input type="hidden" name="teacherid" value="<?php echo $teacherid; ?>">	
+	   <input type="hidden" name="webid" value="<?php echo $web->web_users_id; ?>">
+	   <input type="hidden" name="action" value="<?php echo $action; ?>">	   
 	</td>
     </tr>
   </form>
 </table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

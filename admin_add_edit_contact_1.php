@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_edit_contact_1.php
 // Admin Section
@@ -41,16 +41,16 @@ if ($action=="edit"){
 	$sub_button=_ADMIN_ADD_EDIT_CONTACT_1_UPDATE_SUB;
 	$pag_header=_ADMIN_ADD_EDIT_CONTACT_1_UPDATE_PAG;
 	$sSQL="SELECT studentcontact.studentcontact_state, 
-studentcontact.studentcontact_title, contact_to_students.contact_to_students_relation 
-FROM studentcontact 
-INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact 
-WHERE studentcontact_id='".$contactid."' 
-AND contact_to_students_student='".$studentid."' 
-AND contact_to_students_year=$current_year";
+	studentcontact.studentcontact_title, contact_to_students.contact_to_students_relation 
+	FROM studentcontact 
+	INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact 
+	WHERE studentcontact_id='".$contactid."' 
+	AND contact_to_students_student='".$studentid."' 
+	AND contact_to_students_year='".$current_year."'";
 	$contact=$db->get_row($sSQL);
 	$set_state=$contact->studentcontact_state;
 //Fix to display titles properly, doug 12-30-06
-	$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id=i'".$contact->studentcontact_title."'";
+	$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='".$contact->studentcontact_title."'";
 	$set_title=$db->get_var($sSQL);
 	// echo "set title is $set_title";
 	//$set_title=$contact->studentcontact_title;
@@ -87,7 +87,7 @@ $slname=$student->studentbio_lname;
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -98,7 +98,7 @@ function submitform(fldName)
   if (t.value!="") 
     return true;
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
     return false;
 }
 
@@ -108,40 +108,40 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_EDIT_CONTACT_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_EDIT_CONTACT_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	   <h1><? echo _ADMIN_ADD_EDIT_CONTACT_1_TITLE?></h1>
+	   <h1><?php echo _ADMIN_ADD_EDIT_CONTACT_1_TITLE?></h1>
 	   <br>
-	   <h2><? echo $sfname." ".$slname; ?></h2>
+	   <h2><?php echo $sfname." ".$slname; ?></h2>
 	   <br>
-	   <?
+	   <?php
 	   if ($action=="new"){
 	   ?>
-	   <p class="ltxt"><? echo _ADMIN_ADD_EDIT_CONTACT_1_DB_PRIMARY?>: </p>
+	   <p class="ltxt"><?php echo _ADMIN_ADD_EDIT_CONTACT_1_DB_PRIMARY?>: </p>
 	   <form name="srchcontact" method="POST" action="admin_add_edit_contact_3.php" onsubmit="return submitform('clname');">
-	   <p class="ltxt"><? echo _ADMIN_ADD_EDIT_CONTACT_1_LAST?> <input type = "text" name="clname" size="20">&nbsp;<input type="submit" name="submit" value="<? echo _ADMIN_ADD_EDIT_CONTACT_1_SEARCH?>" class="frmbut">
-	   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
-	   <input type="hidden" name="sfname" value="<? echo $sfname; ?>">
-	   <input type="hidden" name="slname" value="<? echo $slname; ?>">
-	   <?
+	   <p class="ltxt"><?php echo _ADMIN_ADD_EDIT_CONTACT_1_LAST?> <input type = "text" name="clname" size="20">&nbsp;<input type="submit" name="submit" value="<?php echo _ADMIN_ADD_EDIT_CONTACT_1_SEARCH?>" class="frmbut">
+	   <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
+	   <input type="hidden" name="sfname" value="<?php echo $sfname; ?>">
+	   <input type="hidden" name="slname" value="<?php echo $slname; ?>">
+	   <?php
 	   if($menustudent==1){
 	   ?>
 			<input type="hidden" name="rback" value="rback">	   
-	   <?
+	   <?php
 	   };
 	   ?>
 	   </form></p>
-	   <?
+	   <?php
 	   };
 	   ?>
 	   <table border="0" cellpadding="1" cellspacing="1" width="100%">
@@ -150,10 +150,10 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_P_TITLE?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_FIRST?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_LAST?></td>
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_RESIDENCE?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_P_TITLE?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_FIRST?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_LAST?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_RESIDENCE?></td>
 	            </tr>
 	            <tr>
 	              <td width="15%" class="tdinput">
@@ -185,10 +185,10 @@ function submitform(fldName)
 
 	              </td>
 	              <td width="35%" class="tdinput">
-	                  <input type="text" onChange="capitalizeMe(this)" name="cfname" size="25" <? if($action=="update"){echo " value=".strip($contact->studentcontact_fname);} else { echo " value='".$_POST['cfname_1']."'";} ?>>
+	                  <input type="text" onChange="capitalizeMe(this)" name="cfname" size="25" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_fname);} else { echo " value='".$_POST['cfname_1']."'";} ?>>
 	              </td>
 		          <td width="35%" class="tdinput">
-		              <input type="text" onChange="capitalizeMe(this)" name="clname" size="25" <? if($action=="update"){echo " value=".strip($contact->studentcontact_lname);}
+		              <input type="text" onChange="capitalizeMe(this)" name="clname" size="25" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_lname);}
 					  else { echo " value='".$_POST['clname_1']."'";}?>>
 	              </td>
 <?php
@@ -231,8 +231,8 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="20%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_RELATION?></td>
-	              <td width="40%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_ADDRESS?></td>
+	              <td width="20%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_RELATION?></td>
+	              <td width="40%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_ADDRESS?></td>
 		          <td width="40%">&nbsp;</td>
 				</tr>
 				<tr>
@@ -258,18 +258,18 @@ function submitform(fldName)
 							}
 						}				
 					?>
-				   <?
+				   <?php
 				   };
 				   ?>
 				   </select>
 		          </td>
 		          <td width="40%" class="tdinput">
-				    <input type="text" onChange="capitalizeMe(this)" name="address1" size="40" <? if($action=="update"){echo " value=".strip($contact->studentcontact_address1);} 
+				    <input type="text" onChange="capitalizeMe(this)" name="address1" size="40" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_address1);} 
 					else { echo " value='".$_POST['address1_1']."'";}
 					?>>
 	              </td>
 		          <td width="40%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="address2" size="40" <? if($action=="update"){echo " value=".strip($contact->studentcontact_address2);}
+					<input type="text" onChange="capitalizeMe(this)" name="address2" size="40" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_address2);}
 					else { echo " value='".$_POST['address2_1']."'";}
 					?>>
 		          </td>
@@ -281,10 +281,10 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_CITY?></td>
-	              <td width="10%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_STATE?></td>
-		          <td width="10%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_ZIP?></td>
-				  <td width="45%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_EMAIL?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_CITY?></td>
+	              <td width="10%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_STATE?></td>
+		          <td width="10%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_ZIP?></td>
+				  <td width="45%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_EMAIL?></td>
 				</tr>
 				<tr>
 	              <td width="35%" class="tdinput">
@@ -319,10 +319,10 @@ function submitform(fldName)
 					</select>
 	              </td>
 		          <td width="10%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="zip" size="10" <? if($action=="update"){echo " value=".strip($contact->studentcontact_zip);}else{echo " value=".$set_zip;}; ?>>
+					<input type="text" onChange="capitalizeMe(this)" name="zip" size="10" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_zip);}else{echo " value=".$set_zip;}; ?>>
 		          </td>
 		          <td width="45%" class="tdinput">
-					<input type="text" onchange="this.value=this.value.toLowerCase();" name="email" size="50" <? if($action=="update"){echo " value=".strip($contact->studentcontact_email);} else { echo " value='".$_POST['email_1']."'";} ?>>
+					<input type="text" onchange="this.value=this.value.toLowerCase();" name="email" size="50" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_email);} else { echo " value='".$_POST['email_1']."'";} ?>>
 		          </td>
 	            </tr>
 	          </table>
@@ -332,20 +332,20 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="30%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE1?></td>
-	              <td width="30%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE2?></td>
-		          <td width="30%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE3?></td>
-				  <td width="10%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_MAILINGS?></td>
+	              <td width="30%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE1?></td>
+	              <td width="30%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE2?></td>
+		          <td width="30%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_PHONE3?></td>
+				  <td width="10%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_MAILINGS?></td>
 				</tr>
 				<tr>
 	              <td width="30%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="phone1" size="20" <? if($action=="update"){echo " value=".strip($contact->studentcontact_phone1);} else { echo "value='".$_POST['phone1_1']."'"; }?>>
+					<input type="text" onChange="capitalizeMe(this)" name="phone1" size="20" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_phone1);} else { echo "value='".$_POST['phone1_1']."'"; }?>>
 		          </td>
 		          <td width="30%" class="tdinput">
-				    <input type="text" onChange="capitalizeMe(this)" name="phone2" size="20" <? if($action=="update"){echo " value=".strip($contact->studentcontact_phone2);} else { echo "value='".$_POST['phone2_1']."'"; }?>>
+				    <input type="text" onChange="capitalizeMe(this)" name="phone2" size="20" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_phone2);} else { echo "value='".$_POST['phone2_1']."'"; }?>>
 	              </td>
 		          <td width="30%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="phone3" size="20" <? if($action=="update"){echo " value=".strip($contact->studentcontact_phone3);} else { echo "value='".$_POST['phone3_1']."'"; }?>>
+					<input type="text" onChange="capitalizeMe(this)" name="phone3" size="20" <?php if($action=="update"){echo " value=".strip($contact->studentcontact_phone3);} else { echo "value='".$_POST['phone3_1']."'"; }?>>
 		          </td>
 		          <td width="10%" class="tdinput">
 					  <input type="checkbox" name="mailings"  
@@ -373,7 +373,7 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="100%">&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_1_OTHER?></td>
+	              <td width="100%">&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_1_OTHER?></td>
 				</tr>
 				<tr>
 	              <td width="30%" class="tdinput" align="center">
@@ -395,15 +395,15 @@ function submitform(fldName)
     </tr>
     <tr>
       <td width="100%" align="right">
-	   <input type="submit" name="sumbit" value="<? echo $sub_button; ?>" class="frmbut">
-	   <input type="hidden" name="contactid" value="<? echo $contactid; ?>">	
-   	   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">	
-	   <input type="hidden" name="action" value="<? echo $action; ?>">	   
-	   <?
+	   <input type="submit" name="sumbit" value="<?php echo $sub_button; ?>" class="frmbut">
+	   <input type="hidden" name="contactid" value="<?php echo $contactid; ?>">	
+   	   <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">	
+	   <input type="hidden" name="action" value="<?php echo $action; ?>">	   
+	   <?php
 	   if($menustudent==1){
 	   ?>
 			<input type="hidden" name="rback" value="rback">	   
-	   <?
+	   <?php
 	   };
 	   ?>
 	  </td>
@@ -411,7 +411,7 @@ function submitform(fldName)
   </form>
 </table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

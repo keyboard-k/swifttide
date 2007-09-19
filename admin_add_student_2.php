@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_student_2.php
 // Admin Section
@@ -100,7 +100,7 @@ if ($msgFormErr==""){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -111,7 +111,7 @@ function submitform(fldName)
   if (t.value!="") 
     return true;
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
     return false;
 }
 
@@ -121,64 +121,64 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_STUDENT_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_STUDENT_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	//Found errors validating fields
 	if ($msgFormErr!=""){
 	?>
-	   <h1><? echo _ADMIN_ADD_STUDENT_2_TITLE?></h1>
+	   <h1><?php echo _ADMIN_ADD_STUDENT_2_TITLE?></h1>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_STUDENT_2_ERROR_BACK?></h2>
+	   <h2><?php echo _ADMIN_ADD_STUDENT_2_ERROR_BACK?></h2>
 	   <br>
-	   <h3><? echo $msgFormErr; ?></h3>
-	<?
+	   <h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	//No errors found, add primary contact
 	}else{
 	?>
-	   <h1><? echo _ADMIN_ADD_STUDENT_2_TITLE_PRIMARY?></h1>
+	   <h1><?php echo _ADMIN_ADD_STUDENT_2_TITLE_PRIMARY?></h1>
 	   <br>
-	   <h2><? echo $sfname." ".$slname; ?></h2>
+	   <h2><?php echo $sfname." ".$slname; ?></h2>
 	   <br>
-	   <p class="ltxt"><? echo _ADMIN_ADD_STUDENT_2_DB_PRIMARY?>: </p>
+	   <p class="ltxt"><?php echo _ADMIN_ADD_STUDENT_2_DB_PRIMARY?>: </p>
 	   <form name="srchcontact" method="POST" action="admin_add_student_4.php" onsubmit="return submitform('clname');">
-	   <p class="ltxt"><? echo _ADMIN_ADD_STUDENT_2_LAST?> <input type = "text" name="clname" size="20">&nbsp;<input type="submit" name="submit" value="<? echo _ADMIN_ADD_STUDENT_2_SEARCH?>" class="frmbut">
-	   <input type="hidden" name="internalid" value="<? echo $internalid; ?>">	
-	   <input type="hidden" name="active" value="<? echo $active; ?>">
-	   <input type="hidden" name="slname" value="<? echo $slname; ?>">
-	   <input type="hidden" name="sfname" value="<? echo $sfname; ?>">
-	   <input type="hidden" name="mi" value="<? echo $mi; ?>">
-	   <input type="hidden" name="generation" value="<? echo $generation; ?>">
-	   <input type="hidden" name="sped" value="<? echo $sped; ?>">
-	   <input type="hidden" name="gender" value="<? echo $gender; ?>">
-	   <input type="hidden" name="ethnicity" value="<? echo $ethnicity; ?>">
-	   <input type="hidden" name="dob" value="<? echo $dob; ?>">
-	   <input type="hidden" name="bcity" value="<? echo $bcity; ?>">
-	   <input type="hidden" name="bstate" value="<? echo $bstate; ?>">
-	   <input type="hidden" name="bcountry" value="<? echo $bcountry; ?>">
-	   <input type="hidden" name="pschoolname" value="<? echo $pschoolname; ?>">
-	   <input type="hidden" name="pschooladdress" value="<? echo $pschooladdress; ?>">
-	   <input type="hidden" name="pschoolcity" value="<? echo $pschoolcity; ?>">
-	   <input type="hidden" name="pschoolstate" value="<? echo $pschoolstate; ?>">
-	   <input type="hidden" name="pschoolzip" value="<? echo $pschoolzip; ?>">
-	   <input type="hidden" name="pschoolcountry" value="<? echo $pschoolcountry; ?>">
-	   <input type="hidden" name="school" value="<? echo $school; ?>">
-	   <input type="hidden" name="homed" value="<? echo $homed; ?>">
-	   <input type="hidden" name="grade" value="<? echo $grade; ?>">
-	   <input type="hidden" name="current_year_id" value="<? echo $current_year_id; ?>">
-	   <input type="hidden" name="teacher" value="<? echo $teacher; ?>">
-	   <input type="hidden" name="homeroom" value="<? echo $homeroom; ?>">
-	   <input type="hidden" name="bus" value="<? echo $bus; ?>">
+	   <p class="ltxt"><?php echo _ADMIN_ADD_STUDENT_2_LAST?> <input type = "text" name="clname" size="20">&nbsp;<input type="submit" name="submit" value="<?php echo _ADMIN_ADD_STUDENT_2_SEARCH?>" class="frmbut">
+	   <input type="hidden" name="internalid" value="<?php echo $internalid; ?>">	
+	   <input type="hidden" name="active" value="<?php echo $active; ?>">
+	   <input type="hidden" name="slname" value="<?php echo $slname; ?>">
+	   <input type="hidden" name="sfname" value="<?php echo $sfname; ?>">
+	   <input type="hidden" name="mi" value="<?php echo $mi; ?>">
+	   <input type="hidden" name="generation" value="<?php echo $generation; ?>">
+	   <input type="hidden" name="sped" value="<?php echo $sped; ?>">
+	   <input type="hidden" name="gender" value="<?php echo $gender; ?>">
+	   <input type="hidden" name="ethnicity" value="<?php echo $ethnicity; ?>">
+	   <input type="hidden" name="dob" value="<?php echo $dob; ?>">
+	   <input type="hidden" name="bcity" value="<?php echo $bcity; ?>">
+	   <input type="hidden" name="bstate" value="<?php echo $bstate; ?>">
+	   <input type="hidden" name="bcountry" value="<?php echo $bcountry; ?>">
+	   <input type="hidden" name="pschoolname" value="<?php echo $pschoolname; ?>">
+	   <input type="hidden" name="pschooladdress" value="<?php echo $pschooladdress; ?>">
+	   <input type="hidden" name="pschoolcity" value="<?php echo $pschoolcity; ?>">
+	   <input type="hidden" name="pschoolstate" value="<?php echo $pschoolstate; ?>">
+	   <input type="hidden" name="pschoolzip" value="<?php echo $pschoolzip; ?>">
+	   <input type="hidden" name="pschoolcountry" value="<?php echo $pschoolcountry; ?>">
+	   <input type="hidden" name="school" value="<?php echo $school; ?>">
+	   <input type="hidden" name="homed" value="<?php echo $homed; ?>">
+	   <input type="hidden" name="grade" value="<?php echo $grade; ?>">
+	   <input type="hidden" name="current_year_id" value="<?php echo $current_year_id; ?>">
+	   <input type="hidden" name="teacher" value="<?php echo $teacher; ?>">
+	   <input type="hidden" name="homeroom" value="<?php echo $homeroom; ?>">
+	   <input type="hidden" name="bus" value="<?php echo $bus; ?>">
 	   </form></p>
 	   <table border="0" cellpadding="1" cellspacing="1" width="100%">
 	    <tr>
@@ -186,20 +186,20 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_P_TITLE?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_FIRST?></td>
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_LAST?></td>
-	              <td width="15%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_RESIDENCE?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_P_TITLE?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_FIRST?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_LAST?></td>
+	              <td width="15%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_RESIDENCE?></td>
 	            </tr>
 	            <tr>
 	              <td width="15%" class="tdinput">
 				  <select name="title">
-				   <?
+				   <?php
 				   //Display titles from table
 				   foreach($titles as $title){
 				   ?>
-			       <option value="<? echo $title->title_desc; ?>"><? echo $title->title_desc; ?></option>
-				   <?
+			       <option value="<?php echo $title->title_desc; ?>"><?php echo $title->title_desc; ?></option>
+				   <?php
 				   };
 				   ?>
 					</select>
@@ -221,19 +221,19 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="20%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_RELATION?></td>
-	              <td width="40%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_ADDRESS?></td>
+	              <td width="20%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_RELATION?></td>
+	              <td width="40%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_ADDRESS?></td>
 		          <td width="40%">&nbsp;</td>
 				</tr>
 				<tr>
 	              <td width="20%" class="tdinput">
 				  <select name="relation">
-				   <?
+				   <?php
 				   //Display relations from table
 				   foreach($relations as $relation){
 				   ?>
-			       <option value="<? echo $relation->relation_codes_id; ?>"><? echo $relation->relation_codes_desc; ?></option>
-				   <?
+			       <option value="<?php echo $relation->relation_codes_id; ?>"><?php echo $relation->relation_codes_desc; ?></option>
+				   <?php
 				   };
 				   ?>
 					</select>
@@ -252,29 +252,29 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="35%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_CITY?></td>
-	              <td width="10%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_STATE?></td>
-		          <td width="10%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_ZIP?></td>
-				  <td width="45%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_EMAIL?></td>
+	              <td width="35%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_CITY?></td>
+	              <td width="10%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_STATE?></td>
+		          <td width="10%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_ZIP?></td>
+				  <td width="45%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_EMAIL?></td>
 				</tr>
 				<tr>
 	              <td width="35%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="city" size="20" value="<? echo $set_city; ?>">
+					<input type="text" onChange="capitalizeMe(this)" name="city" size="20" value="<?php echo $set_city; ?>">
 		          </td>
 		          <td width="10%" class="tdinput">
 					<select name="state">
-				   <?
+				   <?php
 				   //Display states from table
 				   foreach($states as $state){
 				   ?>
-			       <option value="<? echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><? echo $state->state_name; ?></option>
-				   <?
+			       <option value="<?php echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
+				   <?php
 				   };
 				   ?>
 					</select>
 	              </td>
 		          <td width="10%" class="tdinput">
-					<input type="text" onChange="capitalizeMe(this)" name="zip" size="10" value="<? echo $set_zip; ?>">
+					<input type="text" onChange="capitalizeMe(this)" name="zip" size="10" value="<?php echo $set_zip; ?>">
 		          </td>
 		          <td width="45%" class="tdinput">
 					<input type="text" onchange="this.value=this.value.toLowerCase();" name="email" size="50">
@@ -287,10 +287,10 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="30%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_PHONE1?></td>
-	              <td width="30%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_PHONE2?></td>
-		          <td width="30%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_PHONE3?></td>
-				  <td width="10%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_MAILINGS?></td>
+	              <td width="30%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_PHONE1?></td>
+	              <td width="30%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_PHONE2?></td>
+		          <td width="30%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_PHONE3?></td>
+				  <td width="10%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_MAILINGS?></td>
 				</tr>
 				<tr>
 	              <td width="30%" class="tdinput">
@@ -313,7 +313,7 @@ function submitform(fldName)
 	      <td width="100%">
 	          <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	            <tr class="trform">
-	              <td width="100%">&nbsp;<? echo _ADMIN_ADD_STUDENT_2_OTHER?></td>
+	              <td width="100%">&nbsp;<?php echo _ADMIN_ADD_STUDENT_2_OTHER?></td>
 				</tr>
 				<tr>
 	              <td width="30%" class="tdinput" align="center">
@@ -327,43 +327,43 @@ function submitform(fldName)
     </tr>
     <tr>
       <td width="100%" align="right">
-	   <input type="submit" name="sumbit" value="<? echo _ADMIN_ADD_STUDENT_2_ADD?>" class="frmbut">
-	   <input type="hidden" name="internalid" value="<? echo $internalid; ?>">	
-	   <input type="hidden" name="active" value="<? echo $active; ?>">
-	   <input type="hidden" name="slname" value="<? echo $slname; ?>">
-	   <input type="hidden" name="sfname" value="<? echo $sfname; ?>">
-	   <input type="hidden" name="mi" value="<? echo $mi; ?>">
-	   <input type="hidden" name="generation" value="<? echo $generation; ?>">
-	   <input type="hidden" name="sped" value="<? echo $sped; ?>">
-	   <input type="hidden" name="gender" value="<? echo $gender; ?>">
-	   <input type="hidden" name="ethnicity" value="<? echo $ethnicity; ?>">
-	   <input type="hidden" name="dob" value="<? echo $dob; ?>">
-	   <input type="hidden" name="bcity" value="<? echo $bcity; ?>">
-	   <input type="hidden" name="bstate" value="<? echo $bstate; ?>">
-	   <input type="hidden" name="bcountry" value="<? echo $bcountry; ?>">
-	   <input type="hidden" name="pschoolname" value="<? echo $pschoolname; ?>">
-	   <input type="hidden" name="pschooladdress" value="<? echo $pschooladdress; ?>">
-	   <input type="hidden" name="pschoolcity" value="<? echo $pschoolcity; ?>">
-	   <input type="hidden" name="pschoolstate" value="<? echo $pschoolstate; ?>">
-	   <input type="hidden" name="pschoolzip" value="<? echo $pschoolzip; ?>">
-	   <input type="hidden" name="pschoolcountry" value="<? echo $pschoolcountry; ?>">
-	   <input type="hidden" name="school" value="<? echo $school; ?>">
-	   <input type="hidden" name="homed" value="<? echo $homed; ?>">
-	   <input type="hidden" name="grade" value="<? echo $grade; ?>">
-	   <input type="hidden" name="current_year_id" value="<? echo $current_year_id; ?>">
-	   <input type="hidden" name="teacher" value="<? echo $teacher; ?>">
-	   <input type="hidden" name="homeroom" value="<? echo $homeroom; ?>">
-	   <input type="hidden" name="bus" value="<? echo $bus; ?>">
+	   <input type="submit" name="sumbit" value="<?php echo _ADMIN_ADD_STUDENT_2_ADD?>" class="frmbut">
+	   <input type="hidden" name="internalid" value="<?php echo $internalid; ?>">	
+	   <input type="hidden" name="active" value="<?php echo $active; ?>">
+	   <input type="hidden" name="slname" value="<?php echo $slname; ?>">
+	   <input type="hidden" name="sfname" value="<?php echo $sfname; ?>">
+	   <input type="hidden" name="mi" value="<?php echo $mi; ?>">
+	   <input type="hidden" name="generation" value="<?php echo $generation; ?>">
+	   <input type="hidden" name="sped" value="<?php echo $sped; ?>">
+	   <input type="hidden" name="gender" value="<?php echo $gender; ?>">
+	   <input type="hidden" name="ethnicity" value="<?php echo $ethnicity; ?>">
+	   <input type="hidden" name="dob" value="<?php echo $dob; ?>">
+	   <input type="hidden" name="bcity" value="<?php echo $bcity; ?>">
+	   <input type="hidden" name="bstate" value="<?php echo $bstate; ?>">
+	   <input type="hidden" name="bcountry" value="<?php echo $bcountry; ?>">
+	   <input type="hidden" name="pschoolname" value="<?php echo $pschoolname; ?>">
+	   <input type="hidden" name="pschooladdress" value="<?php echo $pschooladdress; ?>">
+	   <input type="hidden" name="pschoolcity" value="<?php echo $pschoolcity; ?>">
+	   <input type="hidden" name="pschoolstate" value="<?php echo $pschoolstate; ?>">
+	   <input type="hidden" name="pschoolzip" value="<?php echo $pschoolzip; ?>">
+	   <input type="hidden" name="pschoolcountry" value="<?php echo $pschoolcountry; ?>">
+	   <input type="hidden" name="school" value="<?php echo $school; ?>">
+	   <input type="hidden" name="homed" value="<?php echo $homed; ?>">
+	   <input type="hidden" name="grade" value="<?php echo $grade; ?>">
+	   <input type="hidden" name="current_year_id" value="<?php echo $current_year_id; ?>">
+	   <input type="hidden" name="teacher" value="<?php echo $teacher; ?>">
+	   <input type="hidden" name="homeroom" value="<?php echo $homeroom; ?>">
+	   <input type="hidden" name="bus" value="<?php echo $bus; ?>">
 
 	  </td>
     </tr>
   </form>
 </table>
-<?
+<?php
 };
 ?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

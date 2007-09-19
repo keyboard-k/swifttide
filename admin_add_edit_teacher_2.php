@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_edit_teacher_2.php
 // Admin Section
@@ -140,47 +140,47 @@ if(strlen($rback)){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_EDIT_TEACHER_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_EDIT_TEACHER_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	//Found errors validating fields
 	if ($msgFormErr!=""){
 	?>
-	   <h1><? echo _ADMIN_ADD_EDIT_TEACHER_2_TITLE?> <? echo $msg_header; ?> <? echo _ADMIN_ADD_EDIT_TEACHER_2_TEACHER?></h1>
+	   <h1><?php echo _ADMIN_ADD_EDIT_TEACHER_2_TITLE?> <?php echo $msg_header; ?> <?php echo _ADMIN_ADD_EDIT_TEACHER_2_TEACHER?></h1>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_EDIT_TEACHER_2_ERROR_BACK?></h2>
+	   <h2><?php echo _ADMIN_ADD_EDIT_TEACHER_2_ERROR_BACK?></h2>
 	   <br>
-	   <h3><? echo $msgFormErr; ?></h3>
-	<?
+	   <h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 	?>
-	   <h1><? echo _ADMIN_ADD_EDIT_TEACHER_2_SUCCESSFULLY?> <? echo $msg_header; ?> <? echo _ADMIN_ADD_EDIT_TEACHER_2_TEACHER?></h1>
+	   <h1><?php echo _ADMIN_ADD_EDIT_TEACHER_2_SUCCESSFULLY?> <?php echo $msg_header; ?> <?php echo _ADMIN_ADD_EDIT_TEACHER_2_TEACHER?></h1>
 	   <br>
-	   <h2><? echo $tfname." ".$tlname; ?></h2>
+	   <h2><?php echo $tfname." ".$tlname; ?></h2>
 	   <br>
-	   <a href="admin_add_edit_teacher_1.php?action=new" class="aform"><? echo _ADMIN_ADD_EDIT_TEACHER_2_ADD_TEACHER?></a>
-	<?
+	   <a href="admin_add_edit_teacher_1.php?action=new" class="aform"><?php echo _ADMIN_ADD_EDIT_TEACHER_2_ADD_TEACHER?></a>
+	<?php
 	};
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

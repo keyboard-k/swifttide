@@ -1,4 +1,4 @@
-<?
+<?php
 //admin_add_contact_user.php
 //Admin section - add logins to web users table
 //Version 1.01 April 30,2005
@@ -92,57 +92,57 @@ if ($msgFormErr==""){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_CONTACT_USER_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_CONTACT_USER_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	//Found errors validating fields
 	if ($msgFormErr!=""){
 	?>
-	   <h1><? echo _ADMIN_ADD_CONTACT_USER_TITLE_ERROR?></h1>
+	   <h1><?php echo _ADMIN_ADD_CONTACT_USER_TITLE_ERROR?></h1>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_CONTACT_USER_ERROR_BACK?></h2>
+	   <h2><?php echo _ADMIN_ADD_CONTACT_USER_ERROR_BACK?></h2>
 	   <br>
-	   <h3><? echo $msgFormErr; ?></h3>
-	<?
+	   <h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 	?>
-	   <h1><? echo _ADMIN_ADD_CONTACT_USER_TITLE_SUCCESS?></h1>
+	   <h1><?php echo _ADMIN_ADD_CONTACT_USER_TITLE_SUCCESS?></h1>
 	   <br>
-	   <h2>Student : <? echo $sfname." ".$slname; ?></h2>
+	   <h2>Student : <?php echo $sfname." ".$slname; ?></h2>
 	   <br>
-	   <h2>User : <? echo $username; ?></h2>
+	   <h2>User : <?php echo $username; ?></h2>
 	   <br>
-	   <?
+	   <?php
 		if(!strlen($rback)){
 		?>
-	      <a href="admin_add_edit_contact_1.php?id=<? echo $studentid; ?>&action=add" class="aform"><? echo _ADMIN_ADD_CONTACT_USER_ADD?></a>
-		<?
+	      <a href="admin_add_edit_contact_1.php?id=<?php echo $studentid; ?>&action=add" class="aform"><?php echo _ADMIN_ADD_CONTACT_USER_ADD?></a>
+		<?php
 		}else{
 		?>
-		<a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_ADD_CONTACT_USER_BACK?></a>
-	    <?
+		<a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_ADD_CONTACT_USER_BACK?></a>
+	    <?php
 		};
 	};
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>
