@@ -112,6 +112,7 @@ function submitform(fldName)
 {
   var f = document.forms[0];
   var t = f.elements[fldName]; 
+  alert("Hi");
   if (t.value!="") 
     f.submit();
   else
@@ -220,10 +221,10 @@ function cnfremove(id) {
 	};
 	?>
 	<br>
-	<form action="admin_media_codes_2.php" method="post">
+	<form name="userdays" action="admin_media_codes_2.php" method="post">
 	<table>
 	<tr>
-	  <!-- link to check if media are due within 7 days -->
+	  <!-- ask user how many days (0-7) -->
 	  <td width="100%" align="left">
 	  <select name="days">
 	    <option value="0">0</option>
@@ -236,7 +237,7 @@ function cnfremove(id) {
 	    <option value="7" selected="selected">7</option>
 	  </select>
 	  <?php echo _ADMIN_MEDIA_CODES_DAYS; ?>
-	  &nbsp; &nbsp;<input type="submit" value="<?php echo _ADMIN_MEDIA_CODES_CHECK; ?>" name="submit" class="frmbut">
+	  &nbsp; &nbsp;<a class="aform" href="javascript: document.userdays.submit()"><? echo _ADMIN_MEDIA_CODES_CHECK; ?></a>
 	</tr>
 	</table>
 	</form>

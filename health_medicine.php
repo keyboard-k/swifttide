@@ -150,7 +150,7 @@ function cnfremove(id) {
 		<form name="addattendance" method="post" 
 action="health_medicine.php">						
 		  <p class="pform"><? echo _HEALTH_MEDICINE_ADD_MED?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20">&nbsp;<A class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_ADD?></a>
+	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20">&nbsp;<a class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_ADD?></a>
 	      <input type="hidden" name="action" value="add">
 	      </p>
 	    </form>
@@ -158,15 +158,12 @@ action="health_medicine.php">
 	}else{
 	?>
 		<br>
-		<form name="editattendance" method="post" 
-action="health_medicine.php">						
+		<form name="editattendance" method="post" action="health_medicine.php">						
 		  <p class="pform"><? echo _HEALTH_MEDICINE_UPDATE_MED?><br>
-	      <input type="text" onChange="capitalizeMe(this)" 
-name="healthname" size="20" value="<? echo $health_medicine_desc; 
-?>">&nbsp;<A class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_UPDATE?></a>					
+	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20" value="<? echo $health_medicine_desc; ?>">
+	      &nbsp;<a class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_UPDATE?></a>					
 	      <input type="hidden" name="action" value="update">
-		  <input type="hidden" name="id" value="<? echo 
-$health_medicine_id; ?>">
+		  <input type="hidden" name="id" value="<? echo $health_medicine_id; ?>">
 	      </p>
 	    </form>
 	<?
