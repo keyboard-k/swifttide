@@ -97,7 +97,7 @@ $days=get_param("days");
 	<?php
 	if(!strlen($msgFormErr)){
 	?>
-	<h1><?php echo _ADMIN_MEDIA_CODES_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_MEDIA_CODES_2_TITLE . $days . _ADMIN_MEDIA_CODES_2_TITLE2; ?></h1>
 	<br>
 	<?php
 	$ezr->display();
