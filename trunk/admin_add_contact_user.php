@@ -45,13 +45,13 @@ if (!$oEmail->valida($email))
 if ($msgFormErr==""){
 	$sSQL="UPDATE contact_to_students 
 	SET contact_to_students_internet=1 
-	WHERE contact_to_students_student='".$studentid."'" 
-	AND contact_to_students_contact='".$contactid."'" 
+	WHERE contact_to_students_student='".$studentid."' 
+	AND contact_to_students_contact='".$contactid."' 
 	AND contact_to_students_year='".$current_year."'";
 	$db->query($sSQL);
 	$sSQL="UPDATE studentcontact 
 	SET studentcontact_email=".tosql($email, "Text")." 
-	WHERE studentcontact_id='".$contactid."'" 
+	WHERE studentcontact_id='".$contactid."' 
 	AND studentcontact_year='".$current_year."'";
 	$db->query($sSQL);
 	//Check if it is new or coming from student screen (if it is coming from the student screen, it is an update of existing info)
@@ -65,14 +65,14 @@ if ($msgFormErr==""){
 		$db->query($sSQL);
 		if (!($web=$db->get_row("SELECT parent_id, student_id 
 			FROM parent_to_kids 
-			WHERE parent_id='".$contactid."'" 
+			WHERE parent_id='".$contactid."' 
 			AND student_id='".$studentid."'"))) {
 		$sSQL="INSERT INTO parent_to_kids (parent_id, student_id) VALUES ($contactid, $studentid)"; }
 		$db->query($sSQL);
 	//here, we're coming from student info, so it's an update
 	}else{
 		$menustudent=1;
-		if($web=$db->get_var("SELECT web_users_id FROM web_users WHERE web_users_type='C' AND web_users_relid='"$contactid."'")){
+		if($web=$db->get_var("SELECT web_users_id FROM web_users WHERE web_users_type='C' AND web_users_relid='".$contactid."'")){
 			$sSQL="UPDATE web_users SET web_users_username='".$username."', web_users_password='".$password."' WHERE web_users_id='".$web."'";
 			$db->query($sSQL);
 		}else{
