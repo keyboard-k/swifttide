@@ -47,9 +47,9 @@ if(!strlen($residence)){
 };
 
 //doug fix for titles to be stored and display correctly
-$sSQL="SELECT title_id FROM tbl_titles WHERE title_desc='$title'";
+$sSQL="SELECT title_id FROM tbl_titles WHERE title_desc='".$title."'";
 $title=$db->get_var($sSQL);
-echo "SQL is $sSQL and title is $title";
+// echo "SQL is $sSQL and title is $title";
 //end of fix
 
 //Validate mandatory fields
