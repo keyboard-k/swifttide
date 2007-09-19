@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_edit_student_1.php
 // Admin Section
@@ -139,20 +139,20 @@ if ($studentinfo->picturepath != NULL ) {
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_EDIT_PICTURE_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_EDIT_PICTURE_UPPER?></td>
   </tr>
 </table>
 </div>
@@ -163,25 +163,25 @@ if ($studentinfo->picturepath != NULL ) {
 			echo $error;
 	}
 	?>
-	<h1><? echo _ADMIN_ADD_EDIT_PICTURE_TITLE?></h1>
+	<h1><?php echo _ADMIN_ADD_EDIT_PICTURE_TITLE?></h1>
 	<br>
-	<h2><? echo $studentinfo1->studentbio_fname . " " . $studentinfo1->studentbio_mi . " " . $studentinfo1->studentbio_lname . " " .  $studentinfo1->generations_desc . " (" . $studentinfo1->studentbio_gender . ")"; ?>
+	<h2><?php echo $studentinfo1->studentbio_fname . " " . $studentinfo1->studentbio_mi . " " . $studentinfo1->studentbio_lname . " " .  $studentinfo1->generations_desc . " (" . $studentinfo1->studentbio_gender . ")"; ?>
 
 	<br>
-	<h2><? echo _ADMIN_ADD_EDIT_PICTURE_CURRENT?></h2>
+	<h2><?php echo _ADMIN_ADD_EDIT_PICTURE_CURRENT?></h2>
 	<?php if ($studentinfo->picturepath != NULL) { ?>
             <!-- pq - 2007-02-22 - fixed typos. used a relative path. the temp thingy wasnt working so i grab the whole picture -->
                 <a href="<?php echo $studentinfo->picturepath;?>"><img src="<?php echo $studentinfo->picturepath;?>"></a>
 		<br>
-		<i><a href="admin_edit_student_1.php?action=edit&studentid=<?php echo $studentid;?>"><? echo _ADMIN_ADD_EDIT_PICTURE_CLICK?></a></i>
+		<i><a href="admin_edit_student_1.php?action=edit&studentid=<?php echo $studentid;?>"><?php echo _ADMIN_ADD_EDIT_PICTURE_CLICK?></a></i>
 	<?php } else { ?>
-		<h2><? echo _ADMIN_ADD_EDIT_PICTURE_NONE?></h2>
+		<h2><?php echo _ADMIN_ADD_EDIT_PICTURE_NONE?></h2>
 	<?php } ?>
 	<form enctype="multipart/form-data" action="admin_add_edit_picture.php?studentid=<?php echo $studentid;?>" method="POST" name="picsubmit">
 	<table width="100%" cellspacing="1" cellpadding="1" border="1">
 		<tr>
 			<td>
-				<? echo _ADMIN_ADD_EDIT_PICTURE_PICNAME?>
+				<?php echo _ADMIN_ADD_EDIT_PICTURE_PICNAME?>
 			</td>
 			<td>
 				<input class="file" type="file" name="newpic">
@@ -189,7 +189,7 @@ if ($studentinfo->picturepath != NULL ) {
 		</tr>
 		<tr>
 			<td>
-				<? echo _ADMIN_ADD_EDIT_PICTURE_PICGRADE?>
+				<?php echo _ADMIN_ADD_EDIT_PICTURE_PICGRADE?>
 			</td>
 			<td>
 				<input type="text" size="2" name="grade">
@@ -197,11 +197,11 @@ if ($studentinfo->picturepath != NULL ) {
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: center;">
-				<input type="submit" name="picgo" value="<? echo _ADMIN_ADD_EDIT_PICTURE_EDITPIC?>" class="frmbut">
+				<input type="submit" name="picgo" value="<?php echo _ADMIN_ADD_EDIT_PICTURE_EDITPIC?>" class="frmbut">
 			</td>
 		</tr>
 	</table>
 	</form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>

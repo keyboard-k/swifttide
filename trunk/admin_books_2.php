@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 //* admin_books_2.php
 //* processes book order
@@ -26,7 +26,7 @@ $url = 'http://webservices.amazon.' . $ending[_LANG] . '/onca/xml?Service=AWSECo
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -37,7 +37,7 @@ function submitform(fldName)
   if (t.value!="")
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 </SCRIPT>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -45,21 +45,21 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_BOOKS_2_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_BOOKS_2_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_BOOKS_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_BOOKS_2_TITLE?></h1>
 	<br>
-	<h2><? echo _ADMIN_BOOKS_2_SUBTITLE?></h2>
+	<h2><?php echo _ADMIN_BOOKS_2_SUBTITLE?></h2>
 	<br>
 	<table border="0">
 	<?php
@@ -87,38 +87,38 @@ function submitform(fldName)
 	<form name="orderbooks" method="post" action="admin_books_3.php">
 	  <table cellpadding=0>
 	  <tr>
-	    <td colspan="2"><? echo "<b>" . _ADMIN_BOOKS_2_ISBN . ":</b> " . $isbn;?></td></tr>
+	    <td colspan="2"><?php echo "<b>" . _ADMIN_BOOKS_2_ISBN . ":</b> " . $isbn;?></td></tr>
 	  <tr>
-	    <td colspan="2"><? echo "<b>" . _ADMIN_BOOKS_2_BOOKTITLE . ":</b> " . $booktitle?></td></tr>
+	    <td colspan="2"><?php echo "<b>" . _ADMIN_BOOKS_2_BOOKTITLE . ":</b> " . $booktitle?></td></tr>
 	  <tr>
-	    <td colspan="2"><? echo "<b>" . _ADMIN_BOOKS_2_BOOKPUBLISHER . ":</b> " . $bookpublisher?></td></tr>
+	    <td colspan="2"><?php echo "<b>" . _ADMIN_BOOKS_2_BOOKPUBLISHER . ":</b> " . $bookpublisher?></td></tr>
 	  <tr>
-	    <td colspan="2"><? echo "<b>" . _ADMIN_BOOKS_2_BOOKSUMMARY . ":</b> " . $booksummary?></td></tr>
+	    <td colspan="2"><?php echo "<b>" . _ADMIN_BOOKS_2_BOOKSUMMARY . ":</b> " . $booksummary?></td></tr>
 	  </table>
 	  <table>
 	  <tr>
-	    <td><? echo _ADMIN_BOOKS_2_QUANTITY?></td>
+	    <td><?php echo _ADMIN_BOOKS_2_QUANTITY?></td>
 	    <td class=tdinput><input type="text" name="quantity" size="5" value="10"></td></tr>
 	  <tr>
-	    <td><? echo _ADMIN_BOOKS_2_SCHOOLNAME?></td>
+	    <td><?php echo _ADMIN_BOOKS_2_SCHOOLNAME?></td>
 	    <td class=tdinput><input type="text" name="schoolname" size="50" value=""></td></tr>
 	  <tr>
-	    <td><? echo _ADMIN_BOOKS_2_SCHOOLADDRESS?></td>
+	    <td><?php echo _ADMIN_BOOKS_2_SCHOOLADDRESS?></td>
 	    <td class=tdinput><input type="text" name="schooladdress" size="50" value=""></td></tr>
 	  <tr>
-	    <td><? echo _ADMIN_BOOKS_2_SCHOOLADDRESS2?></td>
+	    <td><?php echo _ADMIN_BOOKS_2_SCHOOLADDRESS2?></td>
 	    <td class=tdinput><input type="text" name="schooladdress2" size="50" value=""></td></tr>
 	  <tr>
-	    <td colspan="2"><a class="aform" href="javascript: submitform('isbn')"><? echo _ADMIN_BOOKS_2_ORDER?></a></td></tr>
+	    <td colspan="2"><a class="aform" href="javascript: submitform('isbn')"><?php echo _ADMIN_BOOKS_2_ORDER?></a></td></tr>
 	  </table>
-	<input type="hidden" name="isbn" value="<? echo $isbn?>">
-	<input type="hidden" name="booktitle" value="<? echo $booktitle?>">
-	<input type="hidden" name="bookpublisher" value="<? echo $bookpublisher?>">
-	<input type="hidden" name="booksummary" value="<? echo $booksummary?>">
-	<input type="hidden" name="sub_id" value="<? echo $sub_id?>">
+	<input type="hidden" name="isbn" value="<?php echo $isbn?>">
+	<input type="hidden" name="booktitle" value="<?php echo $booktitle?>">
+	<input type="hidden" name="bookpublisher" value="<?php echo $bookpublisher?>">
+	<input type="hidden" name="booksummary" value="<?php echo $booksummary?>">
+	<input type="hidden" name="sub_id" value="<?php echo $sub_id?>">
 	</form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

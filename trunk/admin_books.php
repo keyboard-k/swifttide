@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_books.php
 // Admin Section
@@ -43,7 +43,7 @@ $booksorder = $db->get_row($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -54,7 +54,7 @@ function submitform(fldName)
   if (t.value!="")
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 </SCRIPT>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -62,64 +62,64 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_BOOKS_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_BOOKS_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_BOOKS_TITLE?></h1>
+	<h1><?php echo _ADMIN_BOOKS_TITLE?></h1>
 	<br>
-	<h2><? echo _ADMIN_BOOKS_SUBTITLE?></h2>
+	<h2><?php echo _ADMIN_BOOKS_SUBTITLE?></h2>
 	<br>
 	<table border="0">
-	  <tr><td><b><? echo $booksorder->books_flname?></b></td></tr>
+	  <tr><td><b><?php echo $booksorder->books_flname?></b></td></tr>
 	  <tr><td>
-	  <? echo $booksorder->books_address . ", " .
+	  <?php echo $booksorder->books_address . ", " .
 	    $booksorder->books_zip . " " .
 	    $booksorder->books_city . ", " .
 	    $booksorder->books_country?></td></tr>
 	  </td></tr>
-	  <tr><td><? echo _ADMIN_BOOKS_PHONE . ": " . $booksorder->books_phone?></td></tr>
-	  <tr><td><? echo _ADMIN_BOOKS_FAX . ": " . $booksorder->books_fax?></td></tr>
-	  <tr><td><? echo _ADMIN_BOOKS_EMAIL . ": " . $booksorder->books_email?></td></tr>
-	  <tr><td><? echo $booksorder->books_notes?></td></tr>
-	  <tr><td><? echo _ADMIN_BOOKS_DISCOUNT . ": " . $booksorder->books_discount . "%"?></td></tr>
+	  <tr><td><?php echo _ADMIN_BOOKS_PHONE . ": " . $booksorder->books_phone?></td></tr>
+	  <tr><td><?php echo _ADMIN_BOOKS_FAX . ": " . $booksorder->books_fax?></td></tr>
+	  <tr><td><?php echo _ADMIN_BOOKS_EMAIL . ": " . $booksorder->books_email?></td></tr>
+	  <tr><td><?php echo $booksorder->books_notes?></td></tr>
+	  <tr><td><?php echo _ADMIN_BOOKS_DISCOUNT . ": " . $booksorder->books_discount . "%"?></td></tr>
 	</table>
 
 	<br>
 	<br>
-	<? echo _ADMIN_BOOKS_TEXT?>
+	<?php echo _ADMIN_BOOKS_TEXT?>
 	<br>
 	<br>
-	<? echo _ADMIN_BOOKS_TEXT2?>
+	<?php echo _ADMIN_BOOKS_TEXT2?>
 	<br>
 	<br>
-	<b><? echo _ADMIN_BOOKS_TEXT3?></b>
+	<b><?php echo _ADMIN_BOOKS_TEXT3?></b>
 	<br>
 	<br>
 	<form name="orderbooks" method="post" action="admin_books_2.php">
 	  <table cellpadding=0>
 	  <tr>
-	    <td><? echo _ADMIN_BOOKS_ISBN?></td>
+	    <td><?php echo _ADMIN_BOOKS_ISBN?></td>
 	    <td class=tdinput><input type="text" name="isbn" size="30"></td></tr>
 	  <tr><td colspan="2">&nbsp;</td></tr>
 	  <tr><td colspan="2">
-	      <a class="aform" href="javascript: submitform('isbn')"><? echo _ADMIN_BOOKS_LOOKUP?></a></td>
+	      <a class="aform" href="javascript: submitform('isbn')"><?php echo _ADMIN_BOOKS_LOOKUP?></a></td>
 	  </tr>
 	  </table>
-	  <input type="hidden" name="sub_id" value="<? echo $booksorder->subscription_id?>">
+	  <input type="hidden" name="sub_id" value="<?php echo $booksorder->subscription_id?>">
 	</form>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

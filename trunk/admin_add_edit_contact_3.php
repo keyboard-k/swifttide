@@ -78,7 +78,7 @@ studentcontact WHERE studentcontact_id NOT IN ($nlist) AND studentcontact_lname 
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and validate selection */
@@ -87,11 +87,11 @@ function submitform(id)
 {
   var f = document.forms[0];
   if (f.relation.selectedIndex==0){
-	  alert("<? echo _ADMIN_ADD_EDIT_CONTACT_3_ENTER_RELATION?>");
+	  alert("<?php echo _ADMIN_ADD_EDIT_CONTACT_3_ENTER_RELATION?>");
   }
   else {
       var answer;	
-      answer = window.confirm("<? echo _ADMIN_ADD_EDIT_CONTACT_3_CONFIRM?>");
+      answer = window.confirm("<?php echo _ADMIN_ADD_EDIT_CONTACT_3_CONFIRM?>");
       if (answer == 1) {
       f.contactid.value=id;
       f.submit();
@@ -105,68 +105,68 @@ function submitform(id)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ADD_EDIT_CONTACT_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ADD_EDIT_CONTACT_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	//No results found
 	if ($msgFormErr!=""){
 	?>
-	   <h1><? echo _ADMIN_ADD_EDIT_CONTACT_3_TITLE?></h1>
+	   <h1><?php echo _ADMIN_ADD_EDIT_CONTACT_3_TITLE?></h1>
 	   <br>
-	   <h3><? echo $msgFormErr; ?></h3>
-	<?
+	   <h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 	?>
-	   <h1><? echo _ADMIN_ADD_EDIT_CONTACT_3_CHOOSE?></h1>
+	   <h1><?php echo _ADMIN_ADD_EDIT_CONTACT_3_CHOOSE?></h1>
 	   <br>
-	   <h2><? echo _ADMIN_ADD_EDIT_CONTACT_3_STUDENT?>: <? echo $sfname." ".$slname; ?></h2>
+	   <h2><?php echo _ADMIN_ADD_EDIT_CONTACT_3_STUDENT?>: <?php echo $sfname." ".$slname; ?></h2>
 	   <br>
 	   <form name="addpcont" method="POST" action="admin_add_edit_contact_4.php">
 	   <p class="ltext">
 	   <select name="relation">
-	   <option selected=selected><? echo _ADMIN_ADD_EDIT_CONTACT_3_SEL_REL?></option>
-		  <?
+	   <option selected=selected><?php echo _ADMIN_ADD_EDIT_CONTACT_3_SEL_REL?></option>
+		  <?php
 		  //Display relations from table
 		  foreach($relations as $relation){
 		  ?>
-		  <option value="<? echo $relation->relation_codes_id; ?>"><? echo $relation->relation_codes_desc; ?></option>
-		   <?
+		  <option value="<?php echo $relation->relation_codes_id; ?>"><?php echo $relation->relation_codes_desc; ?></option>
+		   <?php
 		   };
 		   ?>
 		</select>
-		&nbsp;&nbsp;<? echo _ADMIN_ADD_EDIT_CONTACT_3_RESIDENCE?>: <input type="checkbox" name="residence" value="1"></p>
+		&nbsp;&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_3_RESIDENCE?>: <input type="checkbox" name="residence" value="1"></p>
 	   <?
    	   //Dislay results with paging options
 	   $ezr->display();
 	};
 	?>
 	<br>
-	<a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_ADD_EDIT_CONTACT_3_BACK?></a>
-	   <input type="hidden" name="internalid" value="<? echo $internalid; ?>">	
-	   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
-	   <input type="hidden" name="slname" value="<? echo $slname; ?>">
-	   <input type="hidden" name="sfname" value="<? echo $sfname; ?>">
+	<a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_ADD_EDIT_CONTACT_3_BACK?></a>
+	   <input type="hidden" name="internalid" value="<?php echo $internalid; ?>">	
+	   <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
+	   <input type="hidden" name="slname" value="<?php echo $slname; ?>">
+	   <input type="hidden" name="sfname" value="<?php echo $sfname; ?>">
 	   <input type="hidden" name="contactid" value="">
-	   <?
+	   <?php
 	   if($menustudent==1){
 	   ?>
 			<input type="hidden" name="rback" value="rback">	   
-	   <?
+	   <?php
 	   };
 	   ?>
 	   </form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

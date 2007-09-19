@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_attendance_codes.php
 // Admin Section
@@ -90,12 +90,12 @@ function submitform(fldName)
   if (t.value!="") 
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_ATTENDANCE_CODES_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_ATTENDANCE_CODES_SURE?>");
 	if (answer == 1) {
 		var url;
 		url = "admin_attendance_codes.php?action=remove&id=" + id;
@@ -111,49 +111,49 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ATTENDANCE_CODES_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ATTENDANCE_CODES_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_ATTENDANCE_CODES_TITLE?></h1>
+	<h1><?php echo _ADMIN_ATTENDANCE_CODES_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if ($action!="edit"){
 		//Dislay results with paging options
 		$ezr->display();
 		?>
 		<br>
 		<form name="addattendance" method="post" action="admin_attendance_codes.php">						
-		  <p class="pform"><? echo _ADMIN_ATTENDANCE_CODES_ADD_NEW?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="attendancename" size="20">&nbsp;<A class="aform" href="javascript: submitform('attendancename')"><? echo _ADMIN_ATTENDANCE_CODES_ADD?></a>
+		  <p class="pform"><?php echo _ADMIN_ATTENDANCE_CODES_ADD_NEW?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="attendancename" size="20">&nbsp;<A class="aform" href="javascript: submitform('attendancename')"><?php echo _ADMIN_ATTENDANCE_CODES_ADD?></a>
 	      <input type="hidden" name="action" value="add">
 	      </p>
 	    </form>
-	<?
+	<?php
 	}else{
 	?>
 		<br>
 		<form name="editattendance" method="post" action="admin_attendance_codes.php">						
-		  <p class="pform"><? echo _ADMIN_ATTENDANCE_CODES_UPDATE_ATT?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="attendancename" size="20" value="<? echo $attendance_codes_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform('attendancename')"><? echo _ADMIN_ATTENDANCE_CODES_UPDATE?></a>
+		  <p class="pform"><?php echo _ADMIN_ATTENDANCE_CODES_UPDATE_ATT?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="attendancename" size="20" value="<?php echo $attendance_codes_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform('attendancename')"><?php echo _ADMIN_ATTENDANCE_CODES_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
-		  <input type="hidden" name="id" value="<? echo $attendance_codes_id; ?>">
+		  <input type="hidden" name="id" value="<?php echo $attendance_codes_id; ?>">
 	      </p>
 	    </form>
-	<?
+	<?php
 	};
 	?>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 
 </html>
