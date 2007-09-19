@@ -1088,14 +1088,14 @@ CREATE TABLE IF NOT EXISTS `grades` (
 -- 
 
 INSERT INTO `grades` (`grades_id`, `grades_desc`) VALUES 
-(8, 'Grade 8'),
+(1, 'Grade 1'),
 (2, 'Grade 2'),
 (3, 'Grade 3'),
 (4, 'Grade 4'),
 (5, 'Grade 5'),
 (6, 'Grade 6'),
 (7, 'Grade 7'),
-(1, 'Grade 1'),
+(8, 'Grade 8'),
 (9, 'Grade 9'),
 (10, 'Grade 10');
 
@@ -1465,9 +1465,10 @@ INSERT INTO `infraction_codes` (`infraction_codes_id`, `infraction_codes_desc`) 
 
 DROP TABLE IF EXISTS `parent_to_kids`;
 CREATE TABLE IF NOT EXISTS `parent_to_kids` (
-  `parent_id` int(11) NOT NULL auto_increment,
+  `parent_to_kids_id` int(11) NOT NULL auto_increment,
+  `parent_id` int(11) NOT NULL default '0',
   `student_id` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`parent_id`)
+  PRIMARY KEY  (`parent_to_kids_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- 

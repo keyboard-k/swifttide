@@ -205,7 +205,7 @@ if ($msgFormErr==""){
 		  $contactid=mysql_insert_id();
 
 		  //Set primary contact in Student Bio table
-		  $sSQL="UPDATE studentbio SET studentbio_primarycontact=$contactid WHERE studentbio_id=$studentid";
+		  $sSQL="UPDATE studentbio SET studentbio_primarycontact=$contactid WHERE studentbio_id='".$studentid."'";
 		  $db->query($sSQL);
 
 		  //Set grade for current year
