@@ -3094,6 +3094,7 @@ DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
 DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
 DEFINE('_ADMIN_MEDIA_CODES_SURE', 'Are you sure?');
 DEFINE('_ADMIN_MEDIA_CODES_CHECK', 'Check all media');
+DEFINE('_ADMIN_MEDIA_CODES_DAYS', 'Day(s)');
 
 /** admin_media_codes_2.php */
 
