@@ -32,7 +32,7 @@ $password=tosql(get_param("password"), "Text");
 $sfname=tosql(get_param("sfname"), "Text");
 $slname=tosql(get_param("slname"), "Text");
 $rback=get_param("rback");
-$contact=$db->get_row("SELECT studentcontact_fname, studentcontact_lname FROM studentcontact WHERE studentcontact_id='$contactid'");
+$contact=$db->get_row("SELECT studentcontact_fname, studentcontact_lname FROM studentcontact WHERE studentcontact_id='".$contactid."'");
 $flname=$contact->studentcontact_fname." ".$contact->studentcontact_lname;
 
 //Validate email
@@ -45,44 +45,42 @@ if (!$oEmail->valida($email))
 if ($msgFormErr==""){
 	$sSQL="UPDATE contact_to_students 
 	SET contact_to_students_internet=1 
-	WHERE contact_to_students_student=$studentid 
-	AND contact_to_students_contact=$contactid 
-	AND contact_to_students_year='$current_year'";
+	WHERE contact_to_students_student='".$studentid."'" 
+	AND contact_to_students_contact='".$contactid."'" 
+	AND contact_to_students_year='".$current_year."'";
 	$db->query($sSQL);
 	$sSQL="UPDATE studentcontact 
 	SET studentcontact_email=".tosql($email, "Text")." 
-	WHERE studentcontact_id=$contactid 
-	AND studentcontact_year='$current_year'";
+	WHERE studentcontact_id='".$contactid."'" 
+	AND studentcontact_year='".$current_year."'";
 	$db->query($sSQL);
 	//Check if it is new or coming from student screen (if it is coming from the student screen, it is an update of existing info)
 	//Here, it's a new entry
 	if (!strlen($rback)){
 		//check to see if this user already exists in web_users
-		//$sSQL="SELECT web_users_username, web_users_password, web_users_flname FROM web_users WHERE web_users_username=$username
+		//$sSQL="SELECT web_users_username, web_users_password, web_users_flname FROM web_users WHERE web_users_username=i'".$username."'"; 
 		$sSQL="INSERT INTO web_users (web_users_type, web_users_relid, 
 		web_users_username, web_users_password, web_users_flname, active) 
 		VALUES ('C', $contactid, $username, $password, '$flname', 1)";
 		$db->query($sSQL);
 		if (!($web=$db->get_row("SELECT parent_id, student_id 
 			FROM parent_to_kids 
-			WHERE parent_id=$contactid 
-			AND student_id=$studentid"))) {
+			WHERE parent_id='".$contactid."'" 
+			AND student_id='".$studentid."'"))) {
 		$sSQL="INSERT INTO parent_to_kids (parent_id, student_id) VALUES ($contactid, $studentid)"; }
 		$db->query($sSQL);
 	//here, we're coming from student info, so it's an update
 	}else{
 		$menustudent=1;
-		if($web=$db->get_var("SELECT web_users_id FROM web_users WHERE web_users_type='C' AND web_users_relid=$contactid")){
-			$sSQL="UPDATE web_users SET web_users_username=$username, web_users_password=$password WHERE web_users_id=$web";
+		if($web=$db->get_var("SELECT web_users_id FROM web_users WHERE web_users_type='C' AND web_users_relid='"$contactid."'")){
+			$sSQL="UPDATE web_users SET web_users_username='".$username."', web_users_password='".$password."' WHERE web_users_id='".$web."'";
 			$db->query($sSQL);
 		}else{
-			$sSQL="INSERT INTO web_users (web_users_type, 
-web_users_relid, web_users_username, web_users_password, 
-web_users_flname, active) 
-VALUES ('C', $contactid, $username, $password, '$flname', 1)";
+			$sSQL="INSERT INTO web_users (web_users_type, web_users_relid, web_users_username, 
+			web_users_password, web_users_flname, active) 
+			VALUES ('C', $contactid, $username, $password, '$flname', 1)";
 			$db->query($sSQL);
-			$sSQL="INSERT INTO parent_to_kids (parent_id, 
-student_id) VALUES ($contactid, $studentid)";
+			$sSQL="INSERT INTO parent_to_kids (parent_id, student_id) VALUES ($contactid, $studentid)";
 			$db->query($sSQL);
 		};
 	};

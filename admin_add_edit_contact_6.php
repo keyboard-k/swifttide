@@ -78,22 +78,23 @@ if(strlen($email)){
 	};
 };
 if($residence==1){
-	$sSQL="SELECT contact_to_students_residence FROM 
-contact_to_students WHERE contact_to_students_student=$studentid AND 
-contact_to_students_residence=1 AND 
-contact_to_students_contact<>$contactid AND contact_to_students_year = 
-'$current_year'";
+	$sSQL="SELECT contact_to_students_residence 
+	FROM contact_to_students 
+	WHERE contact_to_students_student='".$studentid."'" 
+	AND contact_to_students_residence=1 
+	AND contact_to_students_contact<>'".$contactid."'" 
+	AND contact_to_students_year = '".$current_year."'";
 	if($db->get_results($sSQL)){
 		$msgFormErr.=_ADMIN_ADD_EDIT_CONTACT_6_RES_DEF . "<br>";
 	};
 };
 $sSQL="SELECT relations_codes.relation_codes_unique, 
-relations_codes.relation_codes_desc FROM contact_to_students INNER JOIN 
-relations_codes ON contact_to_students.contact_to_students_relation = 
-relations_codes.relation_codes_id WHERE 
-relations_codes.relation_codes_id=$relation AND 
-contact_to_students_student=$studentid AND 
-contact_to_students.contact_to_students_id<>$contacttostudentsid"; 
+relations_codes.relation_codes_desc 
+FROM contact_to_students 
+INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id 
+WHERE relations_codes.relation_codes_id='".$relation."'" 
+AND contact_to_students_student='".$studentid."'" 
+AND contact_to_students.contact_to_students_id<>'".$contacttostudentsid."'"; 
 if($relunique=$db->get_row($sSQL)){
 	if($relunique->relation_codes_unique==1){
 		$msgFormErr.=_ADMIN_ADD_EDIT_CONTACT_6_REL_DEF1 . $relunique->relation_codes_desc . _ADMIN_ADD_EDIT_CONTACT_6_REL_DEF2 . "<br>";
@@ -103,7 +104,7 @@ if($relunique=$db->get_row($sSQL)){
 //No errors on validation, insert/update record
 if ($msgFormErr==""){
 		  //Get student first and last name
-		  $student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid");
+		  $student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='".$studentid."'");
 		  $sfname=$student->studentbio_fname;
 		  $slname=$student->studentbio_lname;
 		  $msg_header=_ADMIN_ADD_EDIT_CONTACT_6_UPDATED;
@@ -122,21 +123,22 @@ if ($msgFormErr==""){
           "studentcontact_email=" .tosql($email, "Text") . "," .  
           "studentcontact_other=" .tosql($other, "Text") . "," . 
           "studentcontact_mailings=" .tosql($mailings, "Number") .
-		  " WHERE studentcontact_studentid=$contactid AND 
-studentcontact_year =$current_year";
+		  " WHERE studentcontact_studentid='".$contactid."'" 
+		  AND studentcontact_year='".$current_year."'"";
 		  $db->query($sSQL);
-		  $sSQL="UPDATE contact_to_students SET 
-contact_to_students_relation=$relation, 
-contact_to_students_residence=$residence WHERE 
-contact_to_students_id=$contacttostudentsid AND contact_to_students_year 
-= $current_year";
+		  $sSQL="UPDATE contact_to_students 
+		  SET contact_to_students_relation='".$relation."'", 
+		  contact_to_students_residence='".$residence."'" 
+		  WHERE contact_to_students_id='".$contacttostudentsid."'" 
+		  AND contact_to_students_year='".$current_year."'";
 		  $db->query($sSQL);
-		  $sSQL="SELECT contact_to_students_internet FROM 
-contact_to_students WHERE contact_to_students_id=$contacttostudentsid 
-AND contact_to_students_year = '$current_year'";
+		  $sSQL="SELECT contact_to_students_internet 
+		  FROM contact_to_students 
+		  WHERE contact_to_students_id='".$contacttostudentsid."'" 
+		  AND contact_to_students_year='".$current_year."'";
 		  $web=$db->get_var($sSQL);
 		  if($web==1){
-			  $sSQL="SELECT web_users_username, web_users_password FROM web_users WHERE web_users_type='C' AND web_users_relid=$contactid";
+			  $sSQL="SELECT web_users_username, web_users_password FROM web_users WHERE web_users_type='C' AND web_users_relid='".$contactid."'";
 			  $webuser=$db->get_row($sSQL);
 			  $username=$webuser->web_users_username;
 			  $password=$webuser->web_users_password;

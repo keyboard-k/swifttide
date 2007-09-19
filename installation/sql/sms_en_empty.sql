@@ -556,9 +556,10 @@ CREATE TABLE IF NOT EXISTS `infraction_codes` (
 
 DROP TABLE IF EXISTS `parent_to_kids`;
 CREATE TABLE IF NOT EXISTS `parent_to_kids` (
-  `parent_id` int(11) NOT NULL auto_increment,
+  `parent_to_kids_id` int(11) NOT NULL auto_increment,
+  `parent_id` int(11) NOT NULL default '0',
   `student_id` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`parent_id`)
+  PRIMARY KEY  (`parent_to_kids_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
