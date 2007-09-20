@@ -33,10 +33,10 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$ethnicity_id=get_param("id");
-		if($norem=$db->get_results("SELECT studentbio_ethnicity FROM studentbio WHERE studentbio_ethnicity=$ethnicity_id")){
+		if($norem=$db->get_results("SELECT studentbio_ethnicity FROM studentbio WHERE studentbio_ethnicity='".$ethnicity_id."'")){
 			$msgFormErr=_ADMIN_ETHNICITY_FORM_ERROR;
 		}else{
-			$sSQL="DELETE FROM ethnicity WHERE ethnicity_id=$ethnicity_id";
+			$sSQL="DELETE FROM ethnicity WHERE ethnicity_id='".$ethnicity_id."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -53,13 +53,13 @@ switch ($action){
 		break;
 	case "edit":
 		$ethnicity_id=get_param("id");
-		$sSQL="SELECT ethnicity_desc FROM ethnicity WHERE ethnicity_id=$ethnicity_id";
+		$sSQL="SELECT ethnicity_desc FROM ethnicity WHERE ethnicity_id='".$ethnicity_id."'";
 		$ethnicity_desc = $db->get_var($sSQL);
 		break;
 	case "update":
 		$ethnicity_id=get_param("id");
 		$ethnicity_desc=get_param("ethnicityname");
-		$sSQL="UPDATE ethnicity SET ethnicity_desc='$ethnicity_desc' WHERE ethnicity_id=$ethnicity_id";
+		$sSQL="UPDATE ethnicity SET ethnicity_desc='$ethnicity_desc' WHERE ethnicity_id='".$ethnicity_id."'";
 		$db->query($sSQL);
 		break;
 

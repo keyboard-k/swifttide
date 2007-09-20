@@ -37,7 +37,7 @@ if(!strlen($residence)){
 };
 
 //Validate Relation
-$sSQL="SELECT relations_codes.relation_codes_unique, relations_codes.relation_codes_desc FROM contact_to_students INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE relations_codes.relation_codes_id=$relation AND contact_to_students_student=$studentid";
+$sSQL="SELECT relations_codes.relation_codes_unique, relations_codes.relation_codes_desc FROM contact_to_students INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE relations_codes.relation_codes_id='".$relation."' AND contact_to_students_student='".$studentid."'";
 if($relunique=$db->get_row($sSQL)){
 	if($relunique->relation_codes_unique==1){
 		$msgFormErr.=_ADMIN_ADD_EDIT_CONTACT_4_REL_DEF1 . $relunique->relation_codes_desc . _ADMIN_ADD_EDIT_CONTACT_4_REL_DEF2 . "<br>";
@@ -46,7 +46,7 @@ if($relunique=$db->get_row($sSQL)){
 
 //Validate Residence
 if($residence==1){
-	$sSQL="SELECT contact_to_students_residence FROM contact_to_students WHERE contact_to_students_student=$studentid AND contact_to_students_residence=1 AND contact_to_students_contact<>$contactid";
+	$sSQL="SELECT contact_to_students_residence FROM contact_to_students WHERE contact_to_students_student='".$studentid."' AND contact_to_students_residence=1 AND contact_to_students_contact<>'".$contactid."'";
 	if($db->get_results($sSQL)){
 		$msgFormErr.=_ADMIN_ADD_EDIT_CONTACT_4_RES_DEF . "<br>";
 	};
@@ -60,8 +60,10 @@ if(strlen($rback)){
 
 
 //Get contact info from database
-$sSQL="SELECT studentcontact_lname, studentcontact_fname FROM studentcontact WHERE 
-studentcontact_id=$contactid AND studentcontact_year='$current_year'";
+$sSQL="SELECT studentcontact_lname, studentcontact_fname 
+FROM studentcontact 
+WHERE studentcontact_id='".$contactid."' 
+AND studentcontact_year='".$current_year."'";
 $contact=$db->get_row($sSQL);
 $cfname=$contact->studentcontact_fname;
 $clname=$contact->studentcontact_lname;

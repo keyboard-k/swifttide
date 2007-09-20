@@ -3081,21 +3081,21 @@ DEFINE('_ADMIN_BACKUP_2_UPPER', 'Administrator: Backup');
 DEFINE('_ADMIN_BACKUP_2_TITLE', 'Database Backup');
 DEFINE('_ADMIN_BACKUP_2_SUBTITLE', '');
 
-/** admin_media_codes.php */
+/** admin_media_codes_1.php */
 
-DEFINE('_ADMIN_MEDIA_CODES_UPPER', 'Media Area - Manage');
-DEFINE('_ADMIN_MEDIA_CODES_TITLE', 'Add, Delete, Edit Media');
-DEFINE('_ADMIN_MEDIA_CODES_ADD_NEW', 'Add New Media');
-DEFINE('_ADMIN_MEDIA_CODES_LINE_1', 'Title of Media');
-DEFINE('_ADMIN_MEDIA_CODES_LINE_2', 'Identifying Aspect #1');
-DEFINE('_ADMIN_MEDIA_CODES_LINE_3', 'Identifying Aspect #2');
-DEFINE('_ADMIN_MEDIA_CODES_ADD', 'Add to Media Library');
-DEFINE('_ADMIN_MEDIA_CODES_EDIT', 'Edit');
-DEFINE('_ADMIN_MEDIA_CODES_REMOVE', 'Remove');
-DEFINE('_ADMIN_MEDIA_CODES_UPDATE', 'Update Media');
-DEFINE('_ADMIN_MEDIA_CODES_SURE', 'Are you sure?');
-DEFINE('_ADMIN_MEDIA_CODES_CHECK', 'Check all media');
-DEFINE('_ADMIN_MEDIA_CODES_DAYS', 'Day(s)');
+DEFINE('_ADMIN_MEDIA_CODES_1_UPPER', 'Media Area - Manage');
+DEFINE('_ADMIN_MEDIA_CODES_1_TITLE', 'Add, Delete, Edit Media');
+DEFINE('_ADMIN_MEDIA_CODES_1_ADD_NEW', 'Add New Media');
+DEFINE('_ADMIN_MEDIA_CODES_1_LINE_1', 'Title of Media');
+DEFINE('_ADMIN_MEDIA_CODES_1_LINE_2', 'Identifying Aspect #1');
+DEFINE('_ADMIN_MEDIA_CODES_1_LINE_3', 'Identifying Aspect #2');
+DEFINE('_ADMIN_MEDIA_CODES_1_ADD', 'Add to Media Library');
+DEFINE('_ADMIN_MEDIA_CODES_1_EDIT', 'Edit');
+DEFINE('_ADMIN_MEDIA_CODES_1_REMOVE', 'Remove');
+DEFINE('_ADMIN_MEDIA_CODES_1_UPDATE', 'Update Media');
+DEFINE('_ADMIN_MEDIA_CODES_1_SURE', 'Are you sure?');
+DEFINE('_ADMIN_MEDIA_CODES_1_CHECK', 'Check all media');
+DEFINE('_ADMIN_MEDIA_CODES_1_DAYS', 'Day(s)');
 
 /** admin_media_codes_2.php */
 

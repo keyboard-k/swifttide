@@ -46,8 +46,8 @@ INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_na
 INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
 INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id) 
 INNER JOIN school_rooms ON school_rooms_id=studentbio_homeroom 
-WHERE studentbio.studentbio_id=$studentid AND 
-student_grade_year.student_grade_year_year = '$current_year'";
+WHERE studentbio.studentbio_id='".$studentid."' AND 
+student_grade_year.student_grade_year_year = '".$current_year."'";
 $studentinfo=$db->get_row($sSQL);
 
 //Gather all information for drop-downs from basic tables
@@ -67,7 +67,7 @@ $sSQL="SELECT teachers_id, teachers_fname, teachers_lname FROM teachers ORDER BY
 $teachers=$db->get_results($sSQL);
 
 //Get Current Year
-$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year";
+$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id='".$current_year."'";
 $current_year_desc = $db->get_var($sSQL);
 
 //get student's custom fields

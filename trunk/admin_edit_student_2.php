@@ -29,17 +29,17 @@ $contactid=get_param("contactid");
 $menustudent=1;
 
 //Get all info to display
-$sSQL="SELECT studentcontact.*, contact_to_students.contact_to_students_internet, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_id, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id=$contactid";
+$sSQL="SELECT studentcontact.*, contact_to_students.contact_to_students_internet, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_id, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id='".$contactid."'";
 $continfo=$db->get_row($sSQL);
 
-$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id=$studentid";
+$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id='".$studentid."'";
 $studentinfo=$db->get_row($sSQL);
 $slname=$studentinfo->studentbio_lname;
 $sfname=$studentinfo->studentbio_fname;
 
 //doug fix so titles are stored and displayed correctly
 $sSQL="SELECT title_desc FROM tbl_titles WHERE 
-title_id=$continfo->studentcontact_title";
+title_id='".$continfo->studentcontact_title."'";
 $studentcontact_title=$db->get_var($sSQL);
 //end of fix
 

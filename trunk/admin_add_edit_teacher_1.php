@@ -31,11 +31,11 @@ switch ($action) {
 		$action="update";
 		$sub_button=_ADMIN_ADD_EDIT_TEACHER_1_UPDATE_SUB;
 		$pag_header=_ADMIN_ADD_EDIT_TEACHER_1_UPDATE_PAG;
-		$sSQL="SELECT * FROM teachers WHERE teachers_id=$teacherid";
+		$sSQL="SELECT * FROM teachers WHERE teachers_id='".$teacherid."'";
 		$teacher=$db->get_row($sSQL);
 		$set_title=$teacher->teachers_title;
 		$set_school=$teacher->teachers_school;
-		$sSQL="SELECT * from web_users WHERE web_users_type <>'C' AND web_users_relid=$teacherid";
+		$sSQL="SELECT * from web_users WHERE web_users_type <>'C' AND web_users_relid='".$teacherid."'";
 		$web=$db->get_row($sSQL);
 		break;
     case "new":

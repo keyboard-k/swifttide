@@ -25,7 +25,7 @@ include_once "configuration.php";
 
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
-$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$cyear");
+$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='".$cyear."'");
 
 //Get action
 $action=get_param("action");
@@ -61,7 +61,7 @@ $teachers=$db->get_results($sSQL);
 
 if ($action=="remove") {
 	$id_to_delete = get_param("examid");
-	$sSQL="DELETE FROM exams WHERE exams_id=$id_to_delete";
+	$sSQL="DELETE FROM exams WHERE exams_id='".$id_to_delete."'";
 	$db->query($sSQL);
 }
 
@@ -75,7 +75,7 @@ INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id)
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
 INNER JOIN teachers ON exams_teacherid = teachers_id) 
-WHERE exams_year=$cyear ";
+WHERE exams_year='".$cyear."' ";
 switch ($sort) {
 case "room":
 	$order = "school_rooms_desc, exams_date";

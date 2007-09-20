@@ -44,7 +44,7 @@ if(strlen($rback)){
 //Search for contact
 //This is when we check only the contacts that are not already assigned to the student
 $sSQL="SELECT contact_to_students_contact FROM contact_to_students WHERE 
-contact_to_students_student=$studentid AND contact_to_students_year='$current_year'";
+contact_to_students_student='".$studentid."' AND contact_to_students_year='".$current_year."'";
 $non=$db->get_results($sSQL);
 $i=-1;
 foreach($non as $nlist){

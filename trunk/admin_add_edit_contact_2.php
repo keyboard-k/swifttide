@@ -135,7 +135,7 @@ if ($msgFormErr==""){
 		  $db->query($sSQL);
 		  $contactid=mysql_insert_id();
 		  //Get student first and last name
-		  $student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid");
+		  $student=$db->get_row("SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='".$studentid."'");
 		  $sfname=$student->studentbio_fname;
 		  $slname=$student->studentbio_lname;
 		  //Insert ids in relation table
@@ -162,12 +162,12 @@ $current_year)";
           "studentcontact_other=" .tosql($other, "Text") . "," .
           "studentcontact_year=" .tosql($current_year, "Number") . "," . 
           "studentcontact_mailings=" .tosql($mailings, "Number") .
-		  " WHERE studentcontact_id=$contactid AND 
-studentcontact_year='$current_year'";
+		  " WHERE studentcontact_id='".$contactid."' AND 
+studentcontact_year='".$current_year."'";
 		  $db->query($sSQL);
-		  $SQL="UPDATE contact_to_students SET contact_to_students_relation=$relation, 
-contact_to_students_residence=$residence WHERE contact_to_students_contact=$contactid AND 
-contact_to_students_student=$studentid AND contact_to_students_year='$current_year'";
+		  $SQL="UPDATE contact_to_students SET contact_to_students_relation='".$relation."', 
+contact_to_students_residence='".$residence."' WHERE contact_to_students_contact='".$contactid."' AND 
+contact_to_students_student='".$studentid."' AND contact_to_students_year='".$current_year."'";
 		  $db->query($sSQL);
 	};
 }else{

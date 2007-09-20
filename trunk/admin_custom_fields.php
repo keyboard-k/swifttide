@@ -45,15 +45,14 @@ switch ($action){
 		if ($used_studentbio || $used_discipline || $used_attendance) {
 			$msgFormErr=_ADMIN_CUSTOM_FIELDS_FORM_ERROR;
 		} else {
-			$sSQL="DELETE FROM custom_fields WHERE custom_field_id=$id_to_delete";
+			$sSQL="DELETE FROM custom_fields WHERE custom_field_id='".$id_to_delete."'";
 			$db->query($sSQL);
 		};
 		break;
 	case "add":
 		$name=get_param("name");
 		//Check for duplicates
-		$tot=$db->get_var("SELECT count(*) FROM custom_fields 
-WHERE name='$name'");
+		$tot=$db->get_var("SELECT count(*) FROM custom_fields WHERE name='".$name."'");
 		if($tot>0){
 			$msgFormErr=_ADMIN_CUSTOM_FIELDS_DUP;
 		}else{

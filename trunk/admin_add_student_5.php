@@ -53,7 +53,7 @@ $bus=get_param("bus");
 
 //Get contact info from database
 $contactid=get_param("contactid");
-$sSQL="SELECT studentcontact_lname, studentcontact_fname FROM studentcontact WHERE studentcontact_id=$contactid";
+$sSQL="SELECT studentcontact_lname, studentcontact_fname FROM studentcontact WHERE studentcontact_id='".$contactid."'";
 $contact=$db->get_row($sSQL);
 $cfname=$contact->studentcontact_fname;
 $clname=$contact->studentcontact_lname;
