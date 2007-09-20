@@ -213,7 +213,7 @@ if($action=="edit"){echo strip($health->health_history_sentby);};?>"></td>
 	//end custom fields
 	?>
 
-	<table>
+	</table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
@@ -224,6 +224,8 @@ if($action=="edit"){echo strip($health->health_history_sentby);};?>"></td>
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
+	</form>
+
 </div>
 <?php include "health_menu.inc.php"; ?>
 </body>

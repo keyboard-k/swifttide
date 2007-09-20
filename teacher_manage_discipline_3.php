@@ -217,7 +217,7 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	//end custom fields
 	?>
 
-	<table>
+	</table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
@@ -228,6 +228,8 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
+	</form>
+
 </div>
 <?php include "teacher_menu.inc.php"; ?>
 </body>

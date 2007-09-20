@@ -204,7 +204,7 @@ function submitform(fldName1, fldName2)
 	//end custom fields
 	?>
 
-	<table>
+	</table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
@@ -215,6 +215,8 @@ function submitform(fldName1, fldName2)
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
+	</form>
+
 </div>
 <?php include "teacher_menu.inc.php"; ?>
 </body>
