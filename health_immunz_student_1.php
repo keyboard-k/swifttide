@@ -45,8 +45,8 @@ disdate, health_immunz.health_immunz_desc FROM health_immunz_history
 INNER JOIN health_immunz ON 
 health_immunz_history.health_immunz_history_code = 
 health_immunz.health_immunz_id WHERE 
-health_immunz_history_student=$studentid 
-AND health_immunz_history_year=$current_year";
+health_immunz_history_student='".$studentid."' 
+AND health_immunz_history_year='".$current_year."'";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td 

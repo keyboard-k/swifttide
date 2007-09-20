@@ -36,10 +36,10 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$health_allergy_id=get_param("id");
-		if($norem=$db->get_results("SELECT health_allergy_history_code FROM health_allergy_history WHERE health_allergy_history_code=$health_allergy_id")){
+		if($norem=$db->get_results("SELECT health_allergy_history_code FROM health_allergy_history WHERE health_allergy_history_code='".$health_allergy_id."'")){
 			$msgFormErr=_HEALTH_ALLERGIES_NOT_REMOVED;
 		}else{
-			$sSQL="DELETE FROM health_allergy WHERE health_allergy_id=$health_allergy_id";
+			$sSQL="DELETE FROM health_allergy WHERE health_allergy_id='".$health_allergy_id."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -47,7 +47,7 @@ switch ($action){
 		$health_allergy_desc=get_param("healthname");
 		//Check for duplicates
 		$tot=$db->get_var("SELECT count(*) FROM health_allergy 
-WHERE health_allergy_desc='$health_allergy_desc'");
+WHERE health_allergy_desc='".$health_allergy_desc."'");
 		if($tot>0){
 			$msgFormErr=_HEALTH_ALLERGIES_DUP;
 		}else{
@@ -66,8 +66,8 @@ WHERE health_allergy_id=$health_allergy_id";
 		$health_allergy_id=get_param("id");
 		$health_allergy_desc=get_param("healthname");
 		$sSQL="UPDATE health_allergy SET 
-health_allergy_desc='$health_allergy_desc' WHERE 
-health_allergy_id=$health_allergy_id";
+health_allergy_desc='".$health_allergy_desc."' WHERE 
+health_allergy_id='".$health_allergy_id."'";
 		$db->query($sSQL);
 		break;
 
@@ -171,7 +171,7 @@ $health_allergy_id; ?>">
 	?>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
 	include "admin_maint_tables_menu.inc.php"; 
 	} else { 
 include "health_menu.inc.php"; 

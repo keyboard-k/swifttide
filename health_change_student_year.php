@@ -60,7 +60,7 @@ function confirmchange(id) {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -71,9 +71,9 @@ function confirmchange(id) {
 	<p class="ltext"><?echo _HEALTH_CHANGE_STUDENT_YEAR_SELECT?>:</p><br>
 	<?php
 	for ($i=1; $i<=$end_year; $i++){
-		$tyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$i");
+		$tyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='". $i ."'");
 	?>
-	<a href="#" onclick="javascript:confirmchange(<?php echo $i;?>);" class="aform"><? echo $tyear; ?></a><br>
+	<a href="#" onclick="javascript:confirmchange(<?php echo $i;?>);" class="aform"><?php echo $tyear; ?></a><br>
 	<?php
 	};
 	?>

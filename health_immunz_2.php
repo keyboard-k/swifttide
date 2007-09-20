@@ -53,7 +53,7 @@ JOIN health_immunz ON health_immunz_history.health_immunz_history_code =
 health_immunz.health_immunz_id) INNER JOIN web_users ON 
 health_immunz_history.health_immunz_history_user = web_users.web_users_id 
 WHERE 
-health_immunz_history.health_immunz_history_id=$disid";
+health_immunz_history.health_immunz_history_id='". $disid ."'";
 
 $discipline=$db->get_row($sSQL);
 
@@ -93,7 +93,7 @@ $discipline=$db->get_row($sSQL);
 	<br>
 	<h2><?php echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _HEALTH_IMMUNZ_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
+	<h2><?php echo _HEALTH_IMMUNZ_2_INSERTED?><?php echo $discipline->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _HEALTH_IMMUNZ_2_SCHOOL?></td>
@@ -127,7 +127,7 @@ $discipline->health_immunzhistory_reason ;?></td>
 $discipline->health_immunz_history_notes ; ?></td>
 	  </tr>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
 		?><tr><td colspan=2><h2><?php echo _HEALTH_IMMUNZ_2_CUSTMO_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -151,7 +151,7 @@ $discipline->health_immunz_history_notes ; ?></td>
 $studentid; ?>" class="aform"><?php echo _HEALTH_IMMUNZ_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="health_immunz_3.php?studentid=<?php echo $studentid; 
-?>&disid=<? 
+?>&disid=<?php 
 echo $disid; ?>&action=edit" class="aform"><?php echo _HEALTH_IMMUNZ_2_EDIT?></a></td>
 	  </tr>
 	</table>

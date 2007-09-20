@@ -36,10 +36,10 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$health_immunz_id=get_param("id");
-		if($norem=$db->get_results("SELECT health_immunz_history_code FROM health_immunz_history WHERE health_immunz_history_code=$health_immunz_id")){
+		if($norem=$db->get_results("SELECT health_immunz_history_code FROM health_immunz_history WHERE health_immunz_history_code='". $health_immunz_id ."'")){
 			$msgFormErr=_HEALTH_IMMUNZ_NOT_REMOVED;
 		}else{
-			$sSQL="DELETE FROM health_immunz WHERE health_immunz_id=$health_immunz_id";
+			$sSQL="DELETE FROM health_immunz WHERE health_immunz_id='". $health_immunz_id ."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -58,7 +58,7 @@ VALUES (".tosql($health_immunz_desc, "Text").")";
 		break;
 	case "edit":
 		$health_immunz_id=get_param("id");
-		$sSQL="SELECT health_immunz_desc FROM health_immunz WHERE health_immunz_id=$health_immunz_id";
+		$sSQL="SELECT health_immunz_desc FROM health_immunz WHERE health_immunz_id='". $health_immunz_id ."'";
 		$health_immunz_desc = $db->get_var($sSQL);
 		break;
 	case "update":
@@ -66,7 +66,7 @@ VALUES (".tosql($health_immunz_desc, "Text").")";
 		$health_immunz_desc=get_param("healthname");
 		$sSQL="UPDATE health_immunz SET 
 health_immunz_desc='$health_immunz_desc' WHERE 
-health_immunz_id=$health_immunz_id";
+health_immunz_id='". $health_immunz_id ."'";
 		$db->query($sSQL);
 		break;
 
@@ -169,7 +169,7 @@ $health_immunz_id; ?>">
 	?>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
 	include "admin_maint_tables_menu.inc.php"; 
 	} else { 
 include "health_menu.inc.php"; 

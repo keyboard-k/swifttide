@@ -28,10 +28,10 @@ $action=get_param("action");
 
 if($action=="update"){
 	$tpass=tosql(get_param("password"), "Text");
-	$sSQL="UPDATE web_users SET web_users_password=$tpass WHERE web_users_id=$user_id";
+	$sSQL="UPDATE web_users SET web_users_password='". $tpass ."' WHERE web_users_id='". $user_id ."'";
 	$db->query($sSQL);
 }else{
-	$sSQL="SELECT web_users_password FROM web_users WHERE web_users_id=$user_id";
+	$sSQL="SELECT web_users_password FROM web_users WHERE web_users_id='". $user_id ."'";
 	$tpass=$db->get_var($sSQL);
 };
 
@@ -66,7 +66,7 @@ function submitform(fldName)
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>

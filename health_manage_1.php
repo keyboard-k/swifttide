@@ -34,7 +34,7 @@ if(!strlen($studentid)){
 	$msgFormErr=_HEALTH_MANAGE_1_FORM_ERROR . "<br>";
 }else{
 	//Get Student Name
-	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
