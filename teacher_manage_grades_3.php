@@ -58,7 +58,7 @@ ON grade_history.grade_history_year = school_years.school_years_id) INNER JOIN
 grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) 
 INNER JOIN grade_terms ON grade_history.grade_history_quarter=grade_terms_id) INNER 
 JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = 
-grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id=$gradeid";	
+grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id='". $gradeid ."'";	
 	$grade=$db->get_row($sSQL);
 	$slname=$grade->studentbio_lname;
 	$sfname=$grade->studentbio_fname;
@@ -74,24 +74,24 @@ grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_h
 	//get the custom fields associated with this grade event added by Joshua
 	$custom_grade_sql = "SELECT * from custom_grade_history, custom_fields 
 		WHERE (custom_grade_history.custom_field_id = custom_fields.custom_field_id)
-		AND (custom_grade_history.grade_history_id = '$gradeid')";
+		AND (custom_grade_history.grade_history_id = '". $gradeid ."')";
 	$custom_grade_fields = $db->get_results($custom_grade_sql);
 
 }else{
 	//Get student names
-	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	$sschoolid=$student->studentbio_school;;
 	//Get user name
-	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id=$web_user";
+	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id='". $web_user ."'";
 	$user=$db->get_var($sSQL);
 	//Get Year
-	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year";
+	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id='". $current_year ."'";
 	$cyear=$db->get_var($sSQL);
 	//Get School
-	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
+	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id='". $sschoolid ."'";
 	$sschool=$db->get_var($sSQL);
 	$grade = "";
 	$custom_grade_fields = "";
@@ -131,7 +131,7 @@ $subject=$db->get_results("SELECT * FROM grade_subjects ORDER BY grade_subject_d
 	<br>
 	<h2><?php echo $sfname. " " .$slname ; ?></h2>
 	<br>
-	<h2><?php echo _TEACHER_MANAGE_GRADES_3_INSERTED?><?php echo $user; ?> for <? echo $sschool; ?></h2>
+	<h2><?php echo _TEACHER_MANAGE_GRADES_3_INSERTED?><?php echo $user; ?> for <?php echo $sschool; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	<form name="grade" method="POST" action="teacher_manage_grades_4.php">
 	  <tr class="trform">
@@ -147,11 +147,11 @@ $subject=$db->get_results("SELECT * FROM grade_subjects ORDER BY grade_subject_d
 		foreach($subject as $subjects){
 		?>
 		<option value="<?php echo $subjects->grade_subject_id; 
-?>" <? if 
+?>" <?php if 
 ($subjects->grade_subject_id==$grade->grade_history_subject){echo 
 "selected=selected";};?>><?php echo $subjects->grade_subject_desc; 
 ?></option>
-	<? }; ?></select>
+	<?php }; ?></select>
 	  </tr>
 	  <tr class="trform">
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_3_TERM?></td>
@@ -164,15 +164,15 @@ $subject=$db->get_results("SELECT * FROM grade_subjects ORDER BY grade_subject_d
 		//Display terms from table
 		foreach($termcodes as $termcode){
 		?>
-		<option value="<?php echo $termcode->grade_terms_id; ?>" <? if 
+		<option value="<?php echo $termcode->grade_terms_id; ?>" <?php if 
 ($termcode->grade_terms_id==$grade->grade_history_quarter){echo 
-"selected=selected";};?>> <? 
+"selected=selected";};?>> <?php 
 echo $termcode->grade_terms_desc; 
 ?></option>
-         <? }; ?></select>
+         <?php }; ?></select>
 		</td>
 		<td width="50%" class="tdinput">
-			<input type="text" name="grade" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_grade);};?>">
+			<input type="text" name="grade" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<?php if($action=="edit"){echo strip($grade->grade_history_grade);};?>">
 		</td>
 	  </tr>
 	  <tr class="trform">
@@ -181,10 +181,10 @@ echo $termcode->grade_terms_desc;
 	  </tr>
 	  <tr class="tblcont">
 		<td width="50%" class="tdinput">
-			<input type="text" name="effort" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_effort);};?>">
+			<input type="text" name="effort" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<?php if($action=="edit"){echo strip($grade->grade_history_effort);};?>">
 		</td>
 		<td width="50%" class="tdinput">
-			<input type="text" name="conduct" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_conduct);};?>">
+			<input type="text" name="conduct" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<?php if($action=="edit"){echo strip($grade->grade_history_conduct);};?>">
 		</td>	    
 	  </tr>
 	  <tr class="trform">
@@ -213,7 +213,7 @@ echo $termcode->grade_terms_desc;
 			   //Display grades codes from table
 			   foreach($gradecodes as $gradecode){
 			   ?>
-		       <option value="<?php echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment2){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+		       <option value="<?php echo $gradecode->grade_names_id; ?>" <?php if ($gradecode->grade_names_id==$grade->grade_history_comment2){echo "selected=selected";};?>><?php echo $gradecode->grade_names_desc; ?></option>
 			   <?php
 			   };
 			   ?>
@@ -227,7 +227,7 @@ echo $termcode->grade_terms_desc;
 			   //Display grades codes from table
 			   foreach($gradecodes as $gradecode){
 			   ?>
-		       <option value="<?php echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment3){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+		       <option value="<?php echo $gradecode->grade_names_id; ?>" <?php if ($gradecode->grade_names_id==$grade->grade_history_comment3){echo "selected=selected";};?>><?php echo $gradecode->grade_names_desc; ?></option>
 			   <?php
 			   };
 			   ?>
@@ -238,7 +238,7 @@ echo $termcode->grade_terms_desc;
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<textarea name="gradenotes" cols="40" rows="5"><? if($action=="edit"){echo strip($grade->grade_history_notes);};?></textarea></td>
+	    <td width="100%" colspan="2">&nbsp;<textarea name="gradenotes" cols="40" rows="5"><?php if($action=="edit"){echo strip($grade->grade_history_notes);};?></textarea></td>
 	  </tr>
 	  <?php
 	  if($action=="new"){
@@ -251,7 +251,7 @@ echo $termcode->grade_terms_desc;
 	  };
 	  ?>
 
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
@@ -297,11 +297,11 @@ echo $termcode->grade_terms_desc;
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_GRADES_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _TEACHER_MANAGE_GRADES_3_UPDATE;}else{echo _TEACHER_MANAGE_GRADES_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _TEACHER_MANAGE_GRADES_3_UPDATE;}else{echo _TEACHER_MANAGE_GRADES_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="gradeid" value="<?php echo $gradeid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 
 	</table>
 	</form>

@@ -38,7 +38,7 @@ $sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, '" . _EXAMS_D
 	      INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) 
 	      INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
 	      INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id 
-	      WHERE studentbio.studentbio_id='".$studentid."'";
+	      WHERE studentbio.studentbio_id='". $studentid ."'";
 $studentinfo=$db->get_row($sSQL);
 $primarycontact=$studentinfo->studentbio_primarycontact;
 //Primary Contact
@@ -48,33 +48,33 @@ relations_codes.relation_codes_desc, contact_to_students.contact_to_students_res
 FROM (studentcontact 
 INNER JOIN contact_to_students ON studentcontact.studentcontact_id =  contact_to_students.contact_to_students_contact) 
 INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id 
-WHERE studentcontact.studentcontact_id='".$primarycontact."' 
-AND contact_to_students.contact_to_students_student='".$studentid."'";
+WHERE studentcontact.studentcontact_id='". $primarycontact ."' 
+AND contact_to_students.contact_to_students_student='". $studentid ."'";
 $primcontinfo=$db->get_row($sSQL);
 
 //doug fix so titles are stored and displayed properly
-$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='".$primcontinfo->studentcontact_title."'";
+$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='". $primcontinfo->studentcontact_title ."'";
 $studentcontact_title=$db->get_var($sSQL);
 //end of fix
 
 //get the custom fields for this student by Joshua
 $scfSQL = "SELECT * FROM custom_studentbio, custom_fields 
  	WHERE (custom_fields.custom_field_id = custom_studentbio.custom_field_id) 
-  	AND (studentbio_id = '".$studentid."')";
+  	AND (studentbio_id = '". $studentid ."')";
 $student_custom_fields = $db->get_results($scfSQL);
 
 //get the entry action history for this student by Joshua
 $entries_sql = "SELECT * from entry_actions, school_names, school_years, tbl_config
 	WHERE (entry_actions.school_id = school_names.school_names_id)
 	AND (entry_actions.school_year_id = school_years.school_years_id)
-	AND (entry_actions.student_id = '".$studentid."') ";
+	AND (entry_actions.student_id = '". $studentid ."') ";
 $entries = $db->get_results($entries_sql);
 
 //Additional Contacts
 $sSQL="SELECT contact_to_students_contact 
 FROM contact_to_students 
-WHERE contact_to_students_contact<>'".$primarycontact."' 
-AND contact_to_students_student='".$studentid."'";
+WHERE contact_to_students_contact<>'". $primarycontact ."' 
+AND contact_to_students_student='". $studentid ."'";
 if($addcont=$db->get_results($sSQL)){
 	$ac=1;
 	$i=-1;
@@ -83,7 +83,7 @@ if($addcont=$db->get_results($sSQL)){
 		$list[$i]=$mlist->contact_to_students_contact;
 	}
 	$ylist=implode(",", $list);
-	$sSQL="SELECT studentcontact.studentcontact_id, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id IN (".$ylist.") AND contact_to_students_student='".$studentid."'";
+	$sSQL="SELECT studentcontact.studentcontact_id, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id IN (". $ylist .") AND contact_to_students_student='". $studentid ."'";
 	$addcontlist=$db->get_results($sSQL);	
 }else{
 	$ac=0;
@@ -141,9 +141,9 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_SPED?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? if($studentinfo->studentbio_active==1){echo _YES;}else{echo _NO;};?></td>
-		    <td width="33%">&nbsp;<? if($studentinfo->studentbio_homed==1){echo _YES;}else{echo _NO;};?></td>
-		    <td width="33%">&nbsp;<? if($studentinfo->studentbio_sped==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="34%">&nbsp;<?php if($studentinfo->studentbio_active==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<?php if($studentinfo->studentbio_homed==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<?php if($studentinfo->studentbio_sped==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 
 			<?		  
@@ -219,7 +219,7 @@ if($addcont=$db->get_results($sSQL)){
 		<table border="1" cellpadding="0" cellspacing="0" width="100%">
 		  <tr class="tblcont">
 		    <td width="100%" colspan="3">&nbsp;<?php echo $studentcontact_title . " " . $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname . " (" . $primcontinfo->relation_codes_desc . ")" ;?>
-			<? if ($primcontinfo->contact_to_students_residence==1){echo " <font color=#FF0000><b>" . _TEACHER_EDIT_STUDENT_1_RESIDENCE . "</b></font>";}; ?>
+			<?php if ($primcontinfo->contact_to_students_residence==1){echo " <font color=#FF0000><b>" . _TEACHER_EDIT_STUDENT_1_RESIDENCE . "</b></font>";}; ?>
 			</td>
 		  </tr>
 		  <tr class="tblhead">
@@ -254,7 +254,7 @@ if($addcont=$db->get_results($sSQL)){
 		  </tr>
 		  <tr class="tblcont">
 		    <td width="67%" colspan="2">&nbsp;<?php echo $primcontinfo->studentcontact_email ; ?></td>
-		    <td width="33%">&nbsp;<? if($primcontinfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<?php if($primcontinfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 	</table>
 	<?php
@@ -273,10 +273,10 @@ if($addcont=$db->get_results($sSQL)){
 			    <td width="30%">&nbsp;<?php echo $adc->studentcontact_fname; ?></td>
 				<td width="30%">&nbsp;<?php echo $adc->studentcontact_lname; if($adc->contact_to_students_residence==1){echo " <font color=#FF0000><b>R</b></font>";}?></td>
 				<td width="15%">&nbsp;<?php echo $adc->relation_codes_desc; ?></td>
-				<td width="15%">&nbsp;<? if($adc->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+				<td width="15%">&nbsp;<?php if($adc->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 				<td width="10%">&nbsp;<a href="teacher_edit_student_2.php?studentid=<?echo $studentid;?>&contactid=<?echo $adc->studentcontact_id; ?>" class="aform"><?php echo _TEACHER_EDIT_STUDENT_1_DETAILS?></a></td>
 			  </tr>
-		  <? };?>
+		  <?php };?>
 		</table>
 	<?php
 	};

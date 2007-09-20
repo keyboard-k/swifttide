@@ -71,7 +71,7 @@ function confirmchange(id) {
 	for ($i=1; $i<=$end_year; $i++){
 		$tyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$i");
 	?>
-	<a href="#" onclick="javascript:confirmchange(<?php echo $i;?>);" class="aform"><? echo $tyear; ?></a><br>
+	<a href="#" onclick="javascript:confirmchange(<?php echo $i;?>);" class="aform"><?php echo $tyear; ?></a><br>
 	<?php
 	};
 	?>

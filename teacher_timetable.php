@@ -32,7 +32,7 @@ $tlname=$_SESSION['tlname'];
 $msgteachers=$db->get_var("SELECT messageto_teachers FROM tbl_config WHERE id=1");
 
 $sschoolid=$_SESSION['tschool'];
-$id = $db->get_var("SELECT teachers_id FROM teachers WHERE teachers_fname='$tfname' AND teachers_lname='$tlname'");
+$id = $db->get_var("SELECT teachers_id FROM teachers WHERE teachers_fname='". $tfname ."' AND teachers_lname='". $tlname ."'");
 
 $sSQL="SELECT DISTINCT teacher_schedule_termid FROM teacher_schedule ORDER BY teacher_schedule_termid";
 $terms = $db->get_results($sSQL);
@@ -47,8 +47,8 @@ INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_s
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
-WHERE teacher_schedule_teacherid=$id AND 
-      school_names.school_names_id=$sschoolid 
+WHERE teacher_schedule_teacherid='". $id ."' AND 
+      school_names.school_names_id='". $sschoolid ."' 
 ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, grade_subjects.grade_subject_desc";
 
 if ($srch = $db->get_results($sSQL)){
@@ -101,7 +101,7 @@ $ezr->query_mysql($sSQL);
 <div id="Content">
 	<h1><?php echo _TEACHER_TIMETABLE_TITLE?></h1>
 	<br /><br />
-	<p><? $ezr->display();?></p>
+	<p><?php $ezr->display();?></p>
 	<p>&nbsp;</p>
 
 
@@ -122,13 +122,13 @@ INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_s
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
-WHERE teacher_schedule_teacherid=$id AND 
-      school_names.school_names_id=$sschoolid AND 
+WHERE teacher_schedule_teacherid='". $id ."' AND 
+      school_names.school_names_id='". $sschoolid ."' AND 
       teacher_schedule_termid=$term->teacher_schedule_termid 
 ORDER BY school_names_desc, grade_terms_desc, days_id, teacher_schedule_classperiod, grade_subjects.grade_subject_desc";
 $test = $db->get_results($sSQL);
 if ($test) {
-$term_desc = $db->get_row("SELECT grade_terms_desc FROM grade_terms WHERE grade_terms_id=$term->teacher_schedule_termid");
+$term_desc = $db->get_row("SELECT grade_terms_desc FROM grade_terms WHERE grade_terms_id='". $term->teacher_schedule_termid ."'");
 ?>
 
 <table width=100% cellpadding=2 cellspacing=0 border=1>
@@ -147,7 +147,7 @@ else echo '<td width=15% align=center>Error in table tbl_days</td>';
 </tr>
 
 <?php
-$max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE teacher_schedule_teacherid='$id'");
+$max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE teacher_schedule_teacherid='". $id ."'");
 
 for ($i=1; $i<=$max_period; $i++) {	// up to maximal number of periods a day
   echo '<tr><td align=center class=tblhead width=10%>' . $i . '</td>';
@@ -161,11 +161,11 @@ INNER JOIN grade_subjects ON teacher_schedule.teacher_schedule_subjectid=grade_s
 INNER JOIN school_names ON school_names.school_names_id=teacher_schedule.teacher_schedule_schoolid) 
 INNER JOIN tbl_days ON tbl_days.days_id=teacher_schedule.teacher_schedule_days) 
 INNER JOIN school_rooms ON school_rooms_id=teacher_schedule_room) 
-WHERE teacher_schedule_teacherid=$id AND 
-      school_names.school_names_id=$sschoolid AND 
-      teacher_schedule_termid=$term->teacher_schedule_termid AND 
-      teacher_schedule_classperiod=$i AND 
-      days_id='$j' 
+WHERE teacher_schedule_teacherid='". $id ."' AND 
+      school_names.school_names_id='". $sschoolid ."' AND 
+      teacher_schedule_termid='". $term->teacher_schedule_termid ."' AND 
+      teacher_schedule_classperiod='". $i ."' AND 
+      days_id='". $j ."' 
 ORDER BY days_id, teacher_schedule_classperiod, grade_subject_desc";
 
 if ($srch = $db->get_row($sSQL)) {

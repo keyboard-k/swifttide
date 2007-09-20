@@ -26,7 +26,7 @@ $msgFormErr="";
 
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
-$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$cyear");
+$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='". $cyear ."'");
 
 $teacherid=$_SESSION['teacherid'];
 $tfname=$_SESSION['tfname'];
@@ -51,8 +51,8 @@ if (!strlen($action))
 
 switch ($action) {
 	case "update":
-	$sSQL="UPDATE speak SET speak_teacherid='$teacherid', speak_day='$day', speak_period='$period' 
-	WHERE speak_id='$id'";
+	$sSQL="UPDATE speak SET speak_teacherid='". $teacherid ."', speak_day='". $day ."', speak_period='". $period ."' 
+	WHERE speak_id='". $id ."'";
 	$db->query($sSQL);
 	break;
 }
@@ -93,7 +93,7 @@ $ezr->results_row = "<tr>
 $sSQL = "SELECT speak_id, days_desc, speak_day, speak_period 
 FROM (speak 
 INNER JOIN tbl_days ON days_id = speak_day) 
-WHERE speak_teacherid='$teacherid'";
+WHERE speak_teacherid='". $teacherid ."'";
 $own = $db->get_row($sSQL);
 
 ?>
@@ -142,13 +142,13 @@ $own = $db->get_row($sSQL);
 <td><?php echo _TEACHER_SPEAK_DAY?>:</td>
 <td class="tdinput">
 <select name="day">
-	<? //Display teachers from table
+	<?php //Display teachers from table
 	foreach($days as $day){
 	?>
 		<option value="<?php echo $day->days_id; ?>"
-		<? if ($day->days_id==$own->speak_day){echo
+		<?php if ($day->days_id==$own->speak_day){echo
 		"selected=selected";};?>><?php echo $day->days_desc ?></option>
-	<? }; ?>
+	<?php }; ?>
 </select>
 </td>
 
@@ -157,12 +157,12 @@ $own = $db->get_row($sSQL);
 <td>&nbsp;<?php echo _TEACHER_SPEAK_PERIOD?>:</td>
 <td class="tdinput">
 <select name="period">
-<? for ($i=1; $i<=10; $i++) { ?>
+<?php for ($i=1; $i<=10; $i++) { ?>
 <option value="<?php echo $i; ?>" <?php
 if ($i==$own->speak_period) {echo
 "selected=selected";};?>>
 <?php echo $i; ?>
-<? }; ?>
+<?php }; ?>
 </select>
 </td>
 

@@ -36,7 +36,7 @@ $action=get_param("action");
 //Get subject
 $subject_id=get_param("subject");
 $sSQL="SELECT grade_subject_desc FROM grade_subjects WHERE 
-grade_subject_id=$subject_id";
+grade_subject_id='". $subject_id ."'";
 $subject_name=$db->get_var($sSQL);
 
 //Get info from form
@@ -83,10 +83,10 @@ if(!strlen($msgFormErr)){
 	if($action=="update"){
 		$msgheader="Updating";
 		$sSQL="UPDATE grade_history SET 
-grade_history_quarter=$quarter, grade_history_grade=$grade, 
-grade_history_effort=$effort, 
-grade_history_subject=$subject_id, grade_history_conduct=$conduct, 
-grade_history_comment1=$comment1, grade_history_comment2=$comment2, grade_history_comment3=$comment3, grade_history_notes=$gradenotes WHERE grade_history_id=$gradeid";
+grade_history_quarter='". $quarter ."', grade_history_grade='". $grade ."', 
+grade_history_effort='". $effort ."', 
+grade_history_subject='". $subject_id ."', grade_history_conduct='". $conduct ."', 
+grade_history_comment1='". $comment1 ."', grade_history_comment2='". $comment2 ."', grade_history_comment3='". $comment3 ."', grade_history_notes='". $gradenotes ."' WHERE grade_history_id='". $gradeid ."'";
 		$db->query($sSQL);
 
 		//update custom fields added by Joshua
@@ -95,11 +95,11 @@ grade_history_comment1=$comment1, grade_history_comment2=$comment2, grade_histor
 				if($custom_grade_id == '0') {
 					//delete the field if delete is selected
 					$custom_grade_update_sql = "DELETE from custom_grade_history 
-						WHERE custom_grade_history_id = '$custom_grade_id'";
+						WHERE custom_grade_history_id = '". $custom_grade_id ."'";
 				} else {
 					$custom_grade_update_sql = "UPDATE custom_grade_history SET custom_field_id = '";
 					$custom_grade_update_sql .= $custom_fields[$custom_grade_id];
-					$custom_grade_update_sql .= "', data = '$custom_grade_data' 
+					$custom_grade_update_sql .= "', data = '". $custom_grade_data ."' 
 						WHERE custom_grade_history_id = '";
 					$custom_grade_update_sql .= $custom_grade_id;
 					$custom_grade_update_sql .= "'";
@@ -110,9 +110,9 @@ grade_history_comment1=$comment1, grade_history_comment2=$comment2, grade_histor
 		//adding a new field if one has been entered
 		if($new_custom_field_id > 0 && $new_custom_field_data != '') {
 			$custom_grade_insert_sql = "INSERT into custom_grade_history SET 
-				custom_field_id = '$new_custom_field_id', 
-				grade_history_id = '$gradeid', 
-				data = '$new_custom_field_data'";
+				custom_field_id = '". $new_custom_field_id ."', 
+				grade_history_id = '". $gradeid ."', 
+				data = '". $new_custom_field_data ."'";
 			$db->query($custom_grade_insert_sql);
 		} //end custom fields
 
@@ -134,9 +134,9 @@ $web_user, $comment1, $comment2, $comment3, $subject_id)";
 
 		$db->query($sSQL);
 		if ($notify==1){
-			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student=$studentid";
+			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student='". $studentid ."'";
 			if($addresses=$db->get_results($sSQL)){
-				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid";
+				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 				$student=$db->get_row($sSQL);
 				$sfname=$student->studentbio_fname;
 				$slname=$student->studentbio_lname;
@@ -163,9 +163,9 @@ $web_user, $comment1, $comment2, $comment3, $subject_id)";
 		//adding a new field if one has been entered by Joshua
 		if($new_custom_field_id > 0 && $new_custom_field_data != '') {
 			$custom_grade_insert_sql = "INSERT into custom_grade_history SET 
-				custom_field_id = '$new_custom_field_id', 
-				grade_history_id = '$gradeid',
-				data = '$new_custom_field_data'";
+				custom_field_id = '". $new_custom_field_id ."', 
+				grade_history_id = '". $gradeid ."',
+				data = '". $new_custom_field_data ."'";
 			$db->query($custom_grade_insert_sql);
 		} //end custom fields
 

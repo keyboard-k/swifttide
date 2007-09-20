@@ -35,7 +35,7 @@ switch ($action){
 
 	case "srchid":
 		$internalid=get_param("internalid");
-		if($id = $db->get_var("SELECT studentbio_id FROM studentbio WHERE studentbio_internalid='$internalid' AND studentbio_school=$tschool")){
+		if($id = $db->get_var("SELECT studentbio_id FROM studentbio WHERE studentbio_internalid='". $internalid ."' AND studentbio_school='". $tschool ."'")){
 			$url="teacher_edit_student_1.php?studentid=".$id;
 			header("Location: $url");
 			exit();
@@ -47,7 +47,7 @@ switch ($action){
 		$slname=get_param("slname");
 		//remove the AND statement at the end, good if only 1 school.  needs to be fixed.
 		//$tot = $db->get_var("SELECT count(*) FROM studentbio WHERE studentbio_lname ='$slname' AND studentbio_school=$tschool");
-		$tot = $db->get_var("SELECT count(*) FROM studentbio WHERE studentbio_lname ='$slname'");
+		$tot = $db->get_var("SELECT count(*) FROM studentbio WHERE studentbio_lname ='". $slname ."'");
 
 			if ($tot > 0){
 				//Set paging appearence
@@ -59,7 +59,7 @@ width=24%>COL4</td><td class=paging width=20%>COL5</td><td class=paging width=10
 align=center><a 	href=teacher_edit_student_1.php?action=edit&studentid=COL1 
 class=aform>&nbsp;" . _TEACHER_STUDENT_2_SELECT . "</a></td></tr>";
 			//removed the AND statement at the end, good for 1 school, needs to be fixed.
-				$sSQL="SELECT studentbio.studentbio_id, studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, grades.grades_desc FROM ((studentbio INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id WHERE studentbio.studentbio_lname = '$slname' ORDER BY studentbio.studentbio_lname";
+				$sSQL="SELECT studentbio.studentbio_id, studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, grades.grades_desc FROM ((studentbio INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id WHERE studentbio.studentbio_lname = '". $slname ."' ORDER BY studentbio.studentbio_lname";
 				$ezr->query_mysql($sSQL);
 				$ezr->set_qs_val("slname", $slname);
 				$ezr->set_qs_val("action", "srchlname"); 
@@ -73,7 +73,7 @@ class=aform>&nbsp;" . _TEACHER_STUDENT_2_SELECT . "</a></td></tr>";
 		$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
 		$ezr->results_close = "</table>";
 		$ezr->results_row = "<tr><td class=paging width=23%>COL2</td><td class=paging width=23%>COL3</td><td class=paging width=24%>COL4</td><td class=paging width=20%>COL5</td><td class=paging width=10% align=center><a 	href=teacher_edit_student_1.php?action=edit&studentid=COL1 class=aform>&nbsp;" . _TEACHER_STUDENT_2_SELECT . "</a></td></tr>";
-		$sSQL="SELECT studentbio.studentbio_id, studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, grades.grades_desc FROM ((studentbio INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id WHERE studentbio.studentbio_lname LIKE '$letter%' AND studentbio.studentbio_school=$tschool ORDER BY studentbio.studentbio_lname";
+		$sSQL="SELECT studentbio.studentbio_id, studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, grades.grades_desc FROM ((studentbio INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id WHERE studentbio.studentbio_lname LIKE '$letter%' AND studentbio.studentbio_school='". $tschool ."' ORDER BY studentbio.studentbio_lname";
 		$ezr->query_mysql($sSQL);
 		$ezr->set_qs_val("letter", $letter);
 		$ezr->set_qs_val("action", "letter"); 
@@ -89,16 +89,16 @@ class=aform>&nbsp;" . _TEACHER_STUDENT_2_SELECT . "</a></td></tr>";
 		$sped=get_param("sped");
 		//Construct the search clause
 		if(strlen($school)){
-			$clause.=" AND studentbio.studentbio_school=$school";
+			$clause.=" AND studentbio.studentbio_school='". $school ."'";
 		};
 		if(strlen($grade)){
-			$clause.=" AND student_grade_year.student_grade_year_grade=$grade";
+			$clause.=" AND student_grade_year.student_grade_year_grade='". $grade ."'";
 		};
 		if(strlen($gender)){
-			$clause.=" AND studentbio.studentbio_gender='$gender'";
+			$clause.=" AND studentbio.studentbio_gender='". $gender ."'";
 		};
 		if(strlen($ethnicity)){
-			$clause.=" AND studentbio.studentbio_ethnicity=$ethnicity";
+			$clause.=" AND studentbio.studentbio_ethnicity='". $ethnicity ."'";
 		};
 		if(strlen($active)){
 			$clause.=" AND studentbio.studentbio_active=1";
@@ -160,7 +160,7 @@ class=aform>&nbsp;" . _TEACHER_STUDENT_2_SELECT . "</a></td></tr>";
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>

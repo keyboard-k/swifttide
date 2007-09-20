@@ -33,7 +33,7 @@ if(!strlen($studentid)){
 	$msgFormErr=_TEACHER_MANAGE_GRADES_1_FORM_ERROR . "<br>";
 }else{
 	//Get Student Name
-	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
@@ -51,7 +51,7 @@ grade_subjects.grade_subject_desc FROM ((grade_history INNER
 JOIN grade_terms ON grade_history.grade_history_quarter=grade_terms.grade_terms_id) INNER JOIN grade_subjects ON grade_history.grade_history_subject=grade_subjects.grade_subject_id) 
 WHERE 
 grade_history.grade_history_student = 
-'$studentid' ORDER BY grade_history.grade_history_quarter DESC";
+'". $studentid ."' ORDER BY grade_history.grade_history_quarter DESC";
 
 	//Set paging appearence
 	$ezr->results_open = "<table width=85% cellpadding=2 cellspacing=0 border=1>";
@@ -70,7 +70,7 @@ grade_history.grade_history_student =
 	<td class=paging width=15% align=center>COL3</td>
 	<td class=paging width=15% align=center>COL4</td>
 	<td class=paging width=20% align=center>COL6</td>
-	<td class=paging width=15% align=center><a href=teacher_manage_grades_2.php?studentid=$studentid&gradeid=COL5 class=aform>&nbsp;" . _TEACHER_MANAGE_GRADES_1_DETAILS . "</a></td>
+	<td class=paging width=15% align=center><a href=teacher_manage_grades_2.php?studentid=". $studentid ."&gradeid=COL5 class=aform>&nbsp;" . _TEACHER_MANAGE_GRADES_1_DETAILS . "</a></td>
 	</tr>";
 	$ezr->query_mysql($sSQL);
 };

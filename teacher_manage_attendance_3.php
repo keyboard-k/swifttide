@@ -34,7 +34,7 @@ if ($action=="edit"){
 	//Get attendace id
 	$attid=get_param("attid");
 	//Gather info from db
-	$sSQL="SELECT studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname, attendance_codes.attendance_codes_id FROM ((((attendance_history INNER JOIN studentbio ON attendance_history.attendance_history_student = studentbio.studentbio_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history.attendance_history_id=$attid";
+	$sSQL="SELECT studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname, attendance_codes.attendance_codes_id FROM ((((attendance_history INNER JOIN studentbio ON attendance_history.attendance_history_student = studentbio.studentbio_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history.attendance_history_id='". $attid ."'";
 	$attendance=$db->get_row($sSQL);
 	$slname=$attendance->studentbio_lname;
 	$sfname=$attendance->studentbio_fname;
@@ -50,19 +50,19 @@ if ($action=="edit"){
 
 }else{
 	//Get student names
-	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	$sschoolid=$student->studentbio_school;;
 	//Get user name
-	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id=$web_user";
+	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id='". $web_user ."'";
 	$user=$db->get_var($sSQL);
 	//Get Year
-	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year";
+	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id='". $current_year ."'";
 	$cyear=$db->get_var($sSQL);
 	//Get School
-	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
+	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id='". $sschoolid ."'";
 	$sschool=$db->get_var($sSQL);
 
 };
@@ -137,20 +137,20 @@ function submitform(fldName1, fldName2)
 			   //Display attendance codes from table
 			   foreach($attendancecodes as $attendancecode){
 			   ?>
-		       <option value="<?php echo $attendancecode->attendance_codes_id; ?>" <? if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><? echo $attendancecode->attendance_codes_desc; ?></option>
+		       <option value="<?php echo $attendancecode->attendance_codes_id; ?>" <?php if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><?php echo $attendancecode->attendance_codes_desc; ?></option>
 			   <?php
 			   };
 			   ?>
 			   </select>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="attdate" size="10" value="<? if($action=="edit"){echo $attendance->attdate;};?>" READONLY onclick="javascript:show_calendar('attendance.attdate');"><a href="javascript:show_calendar('attendance.attdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="attdate" size="10" value="<?php if($action=="edit"){echo $attendance->attdate;};?>" READONLY onclick="javascript:show_calendar('attendance.attdate');"><a href="javascript:show_calendar('attendance.attdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_ATTENDANCE_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<textarea name="attnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($attendance->attendance_history_notes);};?></textarea></td>
+	    <td width="100%" colspan="2">&nbsp;<textarea name="attnotes" cols="40" rows="5"><?php if($action=="edit"){echo strip($attendance->attendance_history_notes);};?></textarea></td>
 	  </tr>
 	  <?php
 	  if($action=="new"){
@@ -163,7 +163,7 @@ function submitform(fldName1, fldName2)
 	  };
 	  ?>
 
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
@@ -209,11 +209,11 @@ function submitform(fldName1, fldName2)
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_ATTENDANCE_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _TEACHER_MANAGE_ATTENDANCE_3_UPDATE;}else{echo _TEACHER_MANAGE_ATTENDANCE_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _TEACHER_MANAGE_ATTENDANCE_3_UPDATE;}else{echo _TEACHER_MANAGE_ATTENDANCE_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="attid" value="<?php echo $attid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 

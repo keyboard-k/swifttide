@@ -31,13 +31,13 @@ $studentid=get_param("studentid");
 $disid=get_param("attid");
 
 //Get info
-$sSQL="SELECT studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname FROM ((((studentbio INNER JOIN attendance_history ON studentbio.studentbio_id = attendance_history.attendance_history_student) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history_id=$attid";
+$sSQL="SELECT studentbio.studentbio_lname, studentbio.studentbio_fname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(attendance_history.attendance_history_date, '" . _EXAMS_DATE . "') as attdate, attendance_codes.attendance_codes_desc, attendance_history.attendance_history_notes, web_users.web_users_flname FROM ((((studentbio INNER JOIN attendance_history ON studentbio.studentbio_id = attendance_history.attendance_history_student) INNER JOIN school_names ON attendance_history.attendance_history_school = school_names.school_names_id) INNER JOIN school_years ON attendance_history.attendance_history_year = school_years.school_years_id) INNER JOIN attendance_codes ON attendance_history.attendance_history_code = attendance_codes.attendance_codes_id) INNER JOIN web_users ON attendance_history.attendance_history_user = web_users.web_users_id WHERE attendance_history_id='".$attid ."'";
 $attendance=$db->get_row($sSQL);
 
 //get the custom fields associated with this attendance event added by Joshua
 $custom_attendance_sql = "SELECT * from custom_attendance_history, custom_fields 
 	WHERE (custom_attendance_history.custom_field_id = custom_fields.custom_field_id)
-	AND (attendance_history_id = '$attid')";
+	AND (attendance_history_id = '". $attid ."')";
 $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -91,7 +91,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	    <td width="100%" colspan="2">&nbsp;<?php echo $attendance->attendance_history_notes ; ?></td>
 	  </tr>
 	
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_attendance_fields)) {
 		?><tr><td colspan=2><h2>Custom Fields</h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -112,7 +112,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_ATTENDANCE_2_BACK?></a></td>
-	    <td width="50%" align="right"><a href="teacher_manage_attendance_3.php?studentid=<?php echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_ATTENDANCE_2_EDIT?></a></td>
+	    <td width="50%" align="right"><a href="teacher_manage_attendance_3.php?studentid=<?php echo $studentid; ?>&attid=<?php echo $attid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_ATTENDANCE_2_EDIT?></a></td>
 	  </tr>
 	</table>
 </div>

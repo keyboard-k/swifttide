@@ -74,7 +74,7 @@ $sfname=$studentinfo->studentbio_fname;
 		  <tr class="tblcont">
 		    <td width="100%" colspan="3">&nbsp;<?php echo 
 $studentcontact_title . " " . $continfo->studentcontact_fname . " " .$continfo->studentcontact_lname . " (" . $continfo->relation_codes_desc . ")" ;?>
-			<? if ($continfo->contact_to_students_residence==1){echo " <b>i<?php echo _TEACHER_EDIT_STUDENT_2_RESIDENCE?></b>";}; ?>
+			<?php if ($continfo->contact_to_students_residence==1){echo " <b>i<?php echo _TEACHER_EDIT_STUDENT_2_RESIDENCE?></b>";}; ?>
 			</td>
 		  </tr>
 		  <tr class="tblhead">
@@ -109,7 +109,7 @@ $studentcontact_title . " " . $continfo->studentcontact_fname . " " .$continfo->
 		  </tr>
 		  <tr class="tblcont">
 		    <td width="67%" colspan="2">&nbsp;<?php echo $continfo->studentcontact_email ; ?></td>
-		    <td width="33%">&nbsp;<? if($continfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<?php if($continfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 	</table>
 	<a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_EDIT_STUDENT_2_BACK?></a>

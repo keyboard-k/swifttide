@@ -38,7 +38,7 @@ $typeid=get_param("typeid");
 $teacherid=get_param("teacherid");
 
 //Get school id from teacher
-$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id=$teacherid";
+$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id='". $teacherid ."'";
 	$teacher=$db->get_row($sSQL);
 	// $tlname=$teacher->teachers_lname;
 	// $tfname=$teacher->teachers_fname;
@@ -65,13 +65,13 @@ if(!$teacherid){
 		//Check for duplicates, we don't want dupe entries in the scheduler
 	if($action=="new"){	
 	$sSQL="SELECT count(*) FROM exams WHERE 
-	exams_year='$cyear' AND 
-	exams_schoolid='$schoolid' AND 
-	exams_roomid='$roomid' AND 
-	exams_date='$examdate' AND 
-	exams_subjectid='$subjectid' AND 
-	exams_typeid='$typeid' AND 
-	exams_teacherid='$teacherid'"; 
+	exams_year='". $cyear ."' AND 
+	exams_schoolid='". $schoolid ."' AND 
+	exams_roomid='". $roomid ."' AND 
+	exams_date='". $examdate ."' AND 
+	exams_subjectid='". $subjectid ."' AND 
+	exams_typeid='". $typeid ."' AND 
+	exams_teacherid='". $teacherid ."'"; 
 		$tot=$db->get_var($sSQL);
 		if($tot>0){
 			$msgFormErr=_TEACHER_EXAMS_4_DUP;
@@ -84,11 +84,11 @@ if(!strlen($msgFormErr)){
 	if($action=="update"){
 		$msgheader=_TEACHER_EXAMS_4_UPDATING;
 		$sSQL="UPDATE exams SET 
-		exams_year='$cyear', 
-		exams_schoolid='$schoolid', exams_roomid='$roomid', 
-		exams_date='$examdate', exams_subjectid='$subjectid', 
-		exams_typeid='$typeid', exams_teacherid='$teacherid' 
-		WHERE exams_id='$examid'";
+		exams_year='". $cyear ."', 
+		exams_schoolid='". $schoolid ."', exams_roomid='". $roomid ."', 
+		exams_date='". $examdate ."', exams_subjectid='". $subjectid ."', 
+		exams_typeid='". $typeid ."', exams_teacherid='". $teacherid ."' 
+		WHERE exams_id='". $examid ."'";
 		$db->query($sSQL);
 
 		$url="teacher_exams_2.php?examid=".$examid;
@@ -137,7 +137,7 @@ if(!strlen($msgFormErr)){
 </div>
 
 <div id="Content">
-	<h1><?php echo _ERROR?> <? echo $msgheader; ?> <? echo _TEACHER_EXAMS_4_TITLE?></h1>
+	<h1><?php echo _ERROR?> <?php echo $msgheader; ?> <?php echo _TEACHER_EXAMS_4_TITLE?></h1>
 	<br>
 	<h2><?php echo _TEACHER_EXAMS_4_TITLE?></h2>
 	<br>
