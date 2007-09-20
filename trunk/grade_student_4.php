@@ -49,9 +49,9 @@ $comment1=get_param("comment1");
 $comment2=get_param("comment2");
 $comment3=get_param("comment3");
 
-$sSQL="SELECT web_users_relid FROM web_users WHERE web_users_id=$web_user";
+$sSQL="SELECT web_users_relid FROM web_users WHERE web_users_id='".$web_user."'";
 $hold=$db->get_var($sSQL);
-$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id=$hold";
+$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id='".$hold."'";
 $sschool=$db->get_var($sSQL);
 
 //Validate fields
@@ -83,7 +83,7 @@ if(strlen($msgFormErr>0)){
 if(!strlen($msgFormErr)){
 //	if($action=="update"){
 //		$msgheader="Updating";
-//		$sSQL="UPDATE grade_history SET grade_history_quarter=$quarter, grade_history_grade=$grade, grade_history_effort=$effort, grade_history_conduct=$conduct, grade_history_comment1=$comment1, grade_history_comment2=$comment2, grade_history_comment3=$comment3, grade_history_notes=$gradenotes WHERE grade_history_id=$gradeid";
+//		$sSQL="UPDATE grade_history SET grade_history_quarter='".$quarter."', grade_history_grade='".$grade."', grade_history_effort='".$effort."', grade_history_conduct='".$conduct."', grade_history_comment1='".$comment1."', grade_history_comment2='".$comment2."', grade_history_comment3='".$comment3."', grade_history_notes='".$gradenotes."' WHERE grade_history_id='".$gradeid."'";
 //		$db->query($sSQL);
 //		$url="teacher_manage_grades_2.php?studentid=".$studentid."&gradeid=".$gradeid;
 //		header("Location: $url");
@@ -100,9 +100,9 @@ grade_history_notes, grade_history_user, grade_history_comment1,
 grade_history_comment2, grade_history_comment3, grade_history_subject) VALUES($studentid, $current_year, $sschool, $term2, $grade, $effort, $conduct, $gradenotes, $web_user, $comment1, $comment2, $comment3, $subject)";
 		$db->query($sSQL);
 		if ($notify==1){
-			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student=$studentid";
+			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student='".$studentid."'";
 			if($addresses=$db->get_results($sSQL)){
-				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid";
+				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='".$studentid."'";
 				$student=$db->get_row($sSQL);
 				$sfname=$student->studentbio_fname;
 				$slname=$student->studentbio_lname;
@@ -148,18 +148,18 @@ grade_history_comment2, grade_history_comment3, grade_history_subject) VALUES($s
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<h1> <?php echo $msgheader; ?> <? echo _GRADE_STUDENT_4_TITLE?></h1>
+	<h1> <?php echo $msgheader; ?> <?php echo _GRADE_STUDENT_4_TITLE?></h1>
 	<br>
 	<a href="javascript:window.close();"><h2><?php echo _GRADE_STUDENT_4_CONTINUE?></h2></a>
 	<br>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
         include "teacher_menu.inc.php";
