@@ -292,6 +292,7 @@ echo $termcode->grade_terms_desc;
 	//end custom fields
 	?>
 
+	</table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
@@ -301,10 +302,9 @@ echo $termcode->grade_terms_desc;
 	  <input type="hidden" name="gradeid" value="<?php echo $gradeid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
-	</table>
 
-	</form>
 	</table>
+	</form>
 </div>
 <?php include "teacher_menu.inc.php"; ?>
 </body>
