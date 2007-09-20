@@ -2,7 +2,7 @@
 //*
 // forgot_password.php
 // All Sections
-// Form to retreive forgot password
+// Form to retrieve forgot password
 //*
 
 //Include global functions
@@ -21,15 +21,15 @@ if ($action=="retrieve"){
 	if (!$oEmail->valida($forgotemail)){
 		$msgFormErr = _FORGOT_PASSWORD_FORM_ERROR . "<br>";
 	}else{
-		if($retreive=$db->get_row("SELECT studentcontact_id, studentcontact_lname, studentcontact_fname FROM studentcontact WHERE studentcontact_email='$forgotemail'")){
-			$name=$retreive->studentcontact_fname." ".$retreive->studentcontact_lname;
-			$id=$retreive->studentcontact_id;
-			$lostpassword=$db->get_var("SELECT web_users_password FROM web_users WHERE web_users_type='C' AND web_users_relid=$id");
+		if($retrieve=$db->get_row("SELECT studentcontact_id, studentcontact_lname, studentcontact_fname FROM studentcontact WHERE studentcontact_email='".$forgotemail."'")){
+			$name=$retrieve->studentcontact_fname." ".$retrieve->studentcontact_lname;
+			$id=$retrieve->studentcontact_id;
+			$lostpassword=$db->get_var("SELECT web_users_password FROM web_users WHERE web_users_type='C' AND web_users_relid='".$id."'");
 		}else{
-			if($retreive=$db->get_row("SELECT teachers_id, teachers_lname, teachers_fname FROM teachers WHERE teachers_email='$forgotemail'")){
-				$name=$retreive->teachers_fname." ".$retreive->teachers_lname;
-				$id=$retreive->teachers_id;
-				$lostpassword=$db->get_var("SELECT web_users_password FROM web_users WHERE web_users_type='T' AND web_users_relid=$id");
+			if($retrieve=$db->get_row("SELECT teachers_id, teachers_lname, teachers_fname FROM teachers WHERE teachers_email='".$forgotemail."'")){
+				$name=$retrieve->teachers_fname." ".$retrieve->teachers_lname;
+				$id=$retrieve->teachers_id;
+				$lostpassword=$db->get_var("SELECT web_users_password FROM web_users WHERE web_users_type='T' AND web_users_relid='".$id."'");
 			};
 		};
 	};
