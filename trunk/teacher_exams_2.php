@@ -52,8 +52,8 @@ INNER JOIN school_rooms ON exams_roomid=school_rooms_id)
 INNER JOIN grade_subjects ON exams_subjectid=grade_subject_id) 
 INNER JOIN exams_types ON exams_typeid=exams_types_id) 
 INNER JOIN tbl_days ON WEEKDAY(exams_date)+1 = days_id) 
-WHERE exams_year='$cyear' AND 
-      exams_id='$examid' 
+WHERE exams_year='". $cyear ."' AND 
+      exams_id='". $examid ."' 
 ORDER BY school_names_desc, school_rooms_desc, exams_date";
 $exam=$db->get_row($sSQL);
 
@@ -121,7 +121,7 @@ $exam=$db->get_row($sSQL);
 	    <td width="50%"><a 
 href="teacher_exams_1.php" class="aform"><?php echo _TEACHER_EXAMS_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
-href="teacher_exams_3.php?examid=<? 
+href="teacher_exams_3.php?examid=<?php 
 echo $examid; ?>&action=edit" 
 class="aform"><?php echo _TEACHER_EXAMS_2_EDIT?></a></td>
 	  </tr>

@@ -42,25 +42,25 @@ grade_history.grade_history_notes, web_users.web_users_flname,
 grade_history.grade_history_grade, grade_history.grade_history_effort, 
 grade_history.grade_history_conduct, 
 grade_history.grade_history_subject FROM ((((((studentbio INNER 
-JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grade_history ON studentbio.studentbio_id = grade_history.grade_history_student) INNER JOIN web_users ON grade_history.grade_history_user = web_users.web_users_id) INNER JOIN school_years ON grade_history.grade_history_year = school_years.school_years_id) INNER JOIN grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) INNER JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id=$gradeid";
+JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grade_history ON studentbio.studentbio_id = grade_history.grade_history_student) INNER JOIN web_users ON grade_history.grade_history_user = web_users.web_users_id) INNER JOIN school_years ON grade_history.grade_history_year = school_years.school_years_id) INNER JOIN grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) INNER JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id='". $gradeid ."'";
 $grade=$db->get_row($sSQL);
 
 //now do a little handy work to get the subject name
 $subj_id=$grade->grade_history_subject;
 $sSQL="SELECT grade_subject_desc FROM grade_subjects WHERE 
-grade_subject_id='$subj_id'";
+grade_subject_id='". $subj_id ."'";
 $subject=$db->get_var($sSQL);
 
 //And display a term we can all understand, not some number!
 $qtr=$grade->grade_history_quarter;
 $sSQL="SELECT grade_terms_desc FROM grade_terms WHERE 
-grade_terms_id='$qtr'";
+grade_terms_id='". $qtr ."'";
 $term_disp=$db->get_var($sSQL);
 
 //get the custom fields associated with this grade event added by Joshua
 $custom_grade_sql = "SELECT * from custom_grade_history, custom_fields 
 	WHERE (custom_grade_history.custom_field_id = custom_fields.custom_field_id)
-	AND (custom_grade_history.grade_history_id = '$gradeid')";
+	AND (custom_grade_history.grade_history_id = '". $gradeid ."')";
 $custom_grade_fields = $db->get_results($custom_grade_sql);
 
 ?>
@@ -90,7 +90,7 @@ $custom_grade_fields = $db->get_results($custom_grade_sql);
 	<br>
 	<h2><?php echo $grade->studentbio_fname. " " .$grade->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _TEACHER_MANAGE_GRADES_2_INSERTED?><?php echo $grade->web_users_flname; ?> <?php echo _TEACHER_MANAGE_GRADES_2_FOR?> <? 
+	<h2><?php echo _TEACHER_MANAGE_GRADES_2_INSERTED?><?php echo $grade->web_users_flname; ?> <?php echo _TEACHER_MANAGE_GRADES_2_FOR?> <?php 
 echo $subject ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
@@ -122,13 +122,13 @@ echo $subject ?></h2>
 	    <td width="50%">&nbsp;</td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_NOTES?></td>
@@ -138,7 +138,7 @@ echo $subject ?></h2>
 	  </tr>
 	<table>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_grade_fields)) {
 		?><tr><td colspan=2><h2><?php echo _TEACHER_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -158,7 +158,7 @@ echo $subject ?></h2>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_BACK?></a></td>
-	    <td width="50%" align="right"><a href="teacher_manage_grades_3.php?studentid=<?php echo $studentid; ?>&gradeid=<? echo $gradeid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_EDIT?></a></td>
+	    <td width="50%" align="right"><a href="teacher_manage_grades_3.php?studentid=<?php echo $studentid; ?>&gradeid=<?php echo $gradeid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_EDIT?></a></td>
 	  </tr>
 	</table>
 </div>

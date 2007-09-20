@@ -34,7 +34,7 @@ if ($action=="edit"){
 	//Get discipline id
 	$disid=get_param("disid");
 	//Gather info from db
-	$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, infraction_codes.infraction_codes_desc, infraction_codes.infraction_codes_id, DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, discipline_history.discipline_history_action, discipline_history.discipline_history_notes, discipline_history.discipline_history_reporter, web_users.web_users_flname FROM ((((discipline_history INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id WHERE discipline_history.discipline_history_id=$disid";
+	$sSQL="SELECT discipline_history.discipline_history_id, studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, infraction_codes.infraction_codes_desc, infraction_codes.infraction_codes_id, DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, discipline_history.discipline_history_action, discipline_history.discipline_history_notes, discipline_history.discipline_history_reporter, web_users.web_users_flname FROM ((((discipline_history INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id WHERE discipline_history.discipline_history_id='". $disid ."'";
 	$discipline=$db->get_row($sSQL);
 	$slname=$discipline->studentbio_lname;
 	$sfname=$discipline->studentbio_fname;
@@ -51,19 +51,19 @@ if ($action=="edit"){
 
 }else{
 	//Get student names
-	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_fname, studentbio_lname, studentbio_school FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	$sschoolid=$student->studentbio_school;;
 	//Get user name
-	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id=$web_user";
+	$sSQL="SELECT web_users_flname FROM web_users WHERE web_users_id='". $web_user ."'";
 	$user=$db->get_var($sSQL);
 	//Get Year
-	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year";
+	$sSQL="SELECT school_years_desc FROM school_years WHERE school_years_id='". $current_year ."'";
 	$cyear=$db->get_var($sSQL);
 	//Get School
-	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id=$sschoolid";
+	$sSQL="SELECT school_names_desc FROM school_names WHERE school_names_id='". $sschoolid ."'";
 	$sschool=$db->get_var($sSQL);
 
 };
@@ -128,13 +128,13 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 			   //Display discipline codes from table
 			   foreach($disciplinecodes as $disciplinecode){
 			   ?>
-		       <option value="<?php echo $disciplinecode->infraction_codes_id; ?>" <? if ($disciplinecode->infraction_codes_id==$discipline->infraction_codes_id){echo "selected=selected";};?>><? echo $disciplinecode->infraction_codes_desc; ?></option>
+		       <option value="<?php echo $disciplinecode->infraction_codes_id; ?>" <?php if ($disciplinecode->infraction_codes_id==$discipline->infraction_codes_id){echo "selected=selected";};?>><?php echo $disciplinecode->infraction_codes_desc; ?></option>
 			   <?php
 			   };
 			   ?>
 			   </select>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<? if($action=="edit"){echo $discipline->disdate;};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<?php if($action=="edit"){echo $discipline->disdate;};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
@@ -142,28 +142,28 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_DISCIPLINE_3_END_DATE?></td>
 	  </tr>
 	  <tr>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<? if($action=="edit"){echo $discipline->sdate;};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<?php if($action=="edit"){echo $discipline->sdate;};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<? if($action=="edit"){echo $discipline->edate;};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<?php if($action=="edit"){echo $discipline->edate;};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_DISCIPLINE_3_ACTION?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disaction" value="<? if($action=="edit"){echo strip($discipline->discipline_history_action);};?>"></td>
+	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disaction" value="<?php if($action=="edit"){echo strip($discipline->discipline_history_action);};?>"></td>
 	  </tr>	  
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_DISCIPLINE_3_WHO?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disreporter" value="<? if($action=="edit"){echo strip($discipline->discipline_history_reporter);};?>"></td>
+	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disreporter" value="<?php if($action=="edit"){echo strip($discipline->discipline_history_reporter);};?>"></td>
 	  </tr>	  
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_DISCIPLINE_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($discipline->discipline_history_notes);};?></textarea></td>
+	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><?php if($action=="edit"){echo strip($discipline->discipline_history_notes);};?></textarea></td>
 	  </tr>
 	  <?php
 	  if($action=="new"){
@@ -176,7 +176,7 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	  };
 	  ?>
 
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
@@ -222,11 +222,11 @@ $disciplinecodes=$db->get_results("SELECT * FROM infraction_codes ORDER BY infra
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_DISCIPLINE_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _TEACHER_MANAGE_DISCIPLINE_3_UPDATE;}else{echo _TEACHER_MANAGE_DISCIPLINE_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _TEACHER_MANAGE_DISCIPLINE_3_UPDATE;}else{echo _TEACHER_MANAGE_DISCIPLINE_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="disid" value="<?php echo $disid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 

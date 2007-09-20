@@ -54,32 +54,32 @@ if ($fixed_date_due) { $fixed_date_due = fix_date($date_due); }
 
 if($action == 'add') {
 	$new_homework_query = "INSERT into homework SET 
-		teacher_id = '$teacher->teachers_id', 
-		name = '$name', 
-		subjectid = '$subjectid', 
-		roomid = '$roomid', 
-		date_assigned = '$fixed_date_assigned', 
-		date_due = '$fixed_date_due', 
-		notes = '$notes'";
+		teacher_id = '". $teacher->teachers_id ."', 
+		name = '". $name ."', 
+		subjectid = '". $subjectid ."', 
+		roomid = '". $roomid ."', 
+		date_assigned = '". $fixed_date_assigned ."', 
+		date_due = '". $fixed_date_due ."', 
+		notes = '". $notes ."'";
 	$db->query($new_homework_query);
 	
 	unset($action);
 
 } else if($action == 'update') {
 	$update_homework_query = "UPDATE homework SET 
-		subjectid = '$subjectid',
-		roomid = '$roomid',
-		date_assigned = '$fixed_date_assigned',
-		date_due = '$fixed_date_due',
-		date_assigned = '$fixed_date_assigned',
-		notes = '$notes' 
-		WHERE homework_id = '$homework_id'";
+		subjectid = '". $subjectid ."',
+		roomid = '". $roomid ."',
+		date_assigned = '". $fixed_date_assigned ."',
+		date_due = '". $fixed_date_due ."',
+		date_assigned = '". $fixed_date_assigned ."',
+		notes = '". $notes ."' 
+		WHERE homework_id = '". $homework_id ."'";
 	$db->query($update_homework_query);	
 	unset($action);
 
 } else if($action == 'delete') {
 	
-	$homework_files_delete_query = "SELECT * FROM homework_files WHERE homework_id = '$homework_id'";
+	$homework_files_delete_query = "SELECT * FROM homework_files WHERE homework_id = '". $homework_id ."'";
 	$homework_files_to_delete = $db->get_results($homework_files_delete_query);
 	//foreach($homework_files_to_delete as $file_to_delete) {
 		if(file_exists($homework_files_to_delete->location)) {
@@ -87,13 +87,13 @@ if($action == 'add') {
 			if(unlink($homework_files_to_delete->location)) {
 				//remove the db entry
 				$homework_file_delete_query = "DELETE from 
-homework_files WHERE homework_file_id = '$homework_files_to_delete->homework_file_id'";
+homework_files WHERE homework_file_id = '". $homework_files_to_delete->homework_file_id ."'";
 				$db->query($homework_file_delete_query);
 			}
 		}
 	
 	
-	$delete_homework_query = "DELETE from homework WHERE homework_id = '$homework_id'";
+	$delete_homework_query = "DELETE from homework WHERE homework_id = '". $homework_id ."'";
 	$db->query($delete_homework_query);
 	unset($action);	
 
@@ -241,7 +241,7 @@ function deleteHomeworkFile(homework_form_name, homework_file_id) {
 <table width="95%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -268,12 +268,12 @@ function deleteHomeworkFile(homework_form_name, homework_file_id) {
   <td class="trtblhead"><?php echo _TEACHERS_HOMEWORK_NEW_SUBJECT?>:</td>
   <td class="tdinput">
   <select name="subjectid">
-  <? //Display subjects from table
+  <?php //Display subjects from table
   foreach($subjectcodes as $subject){
   ?>
   <option value="<?php echo $subject->grade_subject_id; ?>">
                  <?php echo $subject->grade_subject_desc; ?></option>
-  <? }; ?>
+  <?php }; ?>
   </select>
   </td>
 </tr>
@@ -281,12 +281,12 @@ function deleteHomeworkFile(homework_form_name, homework_file_id) {
   <td class="trtblhead"><?php echo _TEACHERS_HOMEWORK_NEW_ROOM?>:</td>
   <td class="tdinput">
   <select name="roomid">
-  <? //Display rooms from table
+  <?php //Display rooms from table
   foreach($schoolrooms as $room){
   ?>
     <option value="<?php echo $room->school_rooms_id; ?>">
                    <?php echo $room->school_rooms_desc; ?></option>
-  <? }; ?>
+  <?php }; ?>
   </select>
   </td>
 </tr>
@@ -400,7 +400,7 @@ if(is_array($homework)) {
 		onClick="javascript: validateHomework('homework_<?echo($assignment->homework_id);?>')" value="<?php echo _TEACHERS_HOMEWORK_UPD_ASSIGNMENT?>">
 		</td></tr>
 
-		<? //homework files
+		<?php //homework files
 			?><tr><td><h2><?php echo _TEACHERS_HOMEWORK_TITLE2?></h2></td></tr><tr><td><table width="100%"><tr>
 			
 			<!-- the form for adding a new homework file to this assignment -->

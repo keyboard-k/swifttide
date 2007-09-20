@@ -29,7 +29,7 @@ $date_due = get_param("date_due");
 $notes = get_param("notes");
 
 $teacher_query = "SELECT * FROM teachers, web_users 
-	WHERE (web_users.web_users_id = $_SESSION[UserId]) 
+	WHERE (web_users.web_users_id = '". $_SESSION[UserId] ."') 
 	AND (web_users.web_users_relid = teachers.teachers_id)";
 $teacher = $db->get_row($teacher_query);
 
@@ -39,12 +39,12 @@ if ($fixed_date_due) { $fixed_date_due = fix_date($date_due); }
 if($action == 'add') {
 	
 	$new_homework_query = "INSERT into homework SET 
-		teacher_id = '$teacher->teachers_id', 
-		name = '$name', 
-		subject = '$subject', 
-		date_assigned = '$fixed_date_assigned', 
-		date_due = '$fixed_date_due', 
-		notes = '$notes'";
+		teacher_id = '". $teacher->teachers_id ."', 
+		name = '". $name ."', 
+		subject = '". $subject ."', 
+		date_assigned = '". $fixed_date_assigned ."', 
+		date_due = '". $fixed_date_due ."', 
+		notes = '". $notes ."'";
 	$db->query($new_homework_query);
 	
 	unset($action);
@@ -52,17 +52,17 @@ if($action == 'add') {
 } else if($action == 'update') {
 
 	$update_homework_query = "UPDATE homework SET 
-		subject = '$subject',
-		date_assigned = '$fixed_date_assigned',
-		date_due = '$fixed_date_due',
-		date_assigned = '$fixed_date_assigned',
-		notes = '$notes' 
-		WHERE homework_id = '$homework_id'";
+		subject = '". $subject ."',
+		date_assigned = '". $fixed_date_assigned ."',
+		date_due = '". $fixed_date_due ."',
+		date_assigned = '". $fixed_date_assigned ."',
+		notes = '". $notes ."' 
+		WHERE homework_id = '". $homework_id ."'";
 	$db->query($update_homework_query);	
 	unset($action);
 
 } else if($action == 'delete') {
-	$delete_homework_query = "DELETE from homework WHERE homework_id = '$homework_id'";
+	$delete_homework_query = "DELETE from homework WHERE homework_id = '". $homework_id ."'";
 	$db->query($delete_homework_query);
 	unset($action);	
 
@@ -161,7 +161,7 @@ function deleteHomework(homework_form_name) {
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>

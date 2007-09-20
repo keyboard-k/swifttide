@@ -99,7 +99,7 @@ $ezr->query_mysql($sSQL);
 	
 	<h2><?php echo _TEACHERS_MENU_BIRTHDAY?></h2>
 	<br>
-	<p><? $ezr->display();?></p>
+	<p><?php $ezr->display();?></p>
 
 </div>
 <?php include "teacher_menu.inc.php"; ?>

@@ -25,7 +25,7 @@ include_once "configuration.php";
 
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
-$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$cyear");
+$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='". $cyear ."'");
 
 //Get action
 $action=get_param("action");
@@ -56,7 +56,7 @@ $examstypes=$db->get_results($sSQL);
 
 if ($action=="remove") {
 	$id_to_delete = get_param("examid");
-	$sSQL="DELETE FROM exams WHERE exams_id=$id_to_delete";
+	$sSQL="DELETE FROM exams WHERE exams_id='". $id_to_delete ."'";
 	$db->query($sSQL);
 }
 

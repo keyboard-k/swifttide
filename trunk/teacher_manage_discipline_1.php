@@ -38,12 +38,12 @@ if(!strlen($studentid)){
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
 	//Get discipline history
-	$sSQL="SELECT discipline_history.discipline_history_id, DATE_FORMAT(discipline_history.discipline_history_date, '" . _EXAMS_DATE . "') as disdate ,infraction_codes.infraction_codes_desc FROM discipline_history INNER JOIN infraction_codes ON  discipline_history.discipline_history_code = infraction_codes.infraction_codes_id WHERE discipline_history.discipline_history_student=$studentid AND discipline_history.discipline_history_year=$current_year ORDER BY  discipline_history.discipline_history_date DESC";
+	$sSQL="SELECT discipline_history.discipline_history_id, DATE_FORMAT(discipline_history.discipline_history_date, '" . _EXAMS_DATE . "') as disdate ,infraction_codes.infraction_codes_desc FROM discipline_history INNER JOIN infraction_codes ON  discipline_history.discipline_history_code = infraction_codes.infraction_codes_id WHERE discipline_history.discipline_history_student=$studentid AND discipline_history.discipline_history_year='". $current_year ."' ORDER BY  discipline_history.discipline_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
 	$ezr->results_heading = "<tr class=tblhead><td width=40% align=center>" . _TEACHER_MANAGE_DISCIPLINE_1_DATE . "</td><td width=40% align=center>" . _TEACHER_MANAGE_DISCIPLINE_1_CODE . "</td><td width=20% align=center>" . _TEACHER_MANAGE_DISCIPLINE_1_DETAILS . "</td></tr>"; 
 	$ezr->results_close = "</table>";
-	$ezr->results_row = "<tr><td class=paging width=40% align=center>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=teacher_manage_discipline_2.php?studentid=$studentid&disid=COL1 class=aform>&nbsp;" . _TEACHER_MANAGE_DISCIPLINE_1_DETAILS . "</a></td></tr>";
+	$ezr->results_row = "<tr><td class=paging width=40% align=center>COL2</td><td class=paging width=40% align=center>COL3</td><td class=paging width=20% align=center><a href=teacher_manage_discipline_2.php?studentid=". $studentid ."&disid=COL1 class=aform>&nbsp;" . _TEACHER_MANAGE_DISCIPLINE_1_DETAILS . "</a></td></tr>";
 	$ezr->query_mysql($sSQL);
 	$ezr->set_qs_val("studentid",$studentid);
 };

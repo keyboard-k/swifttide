@@ -22,7 +22,7 @@ include_once "configuration.php";
 
 $yearid=get_param("yearid");
 set_session("CurrentYear", $yearid);
-$year_name=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$yearid");
+$year_name=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='". $yearid ."'");
 set_session("YearName", $year_name);
 header("Location: teachers_menu.php");
 exit();

@@ -71,7 +71,7 @@ if(!strlen($disreporter)){
 
 if(!strlen($msgFormErr)){
 	if($action=="update"){
-		$sSQL="UPDATE discipline_history SET discipline_history_code=$discode, discipline_history_date='$disdate', discipline_history_sdate='$sdate', discipline_history_edate='$edate', discipline_history_action=".tosql($disaction, "Text").", discipline_history_reporter=".tosql($disreporter, "Text").", discipline_history_notes=".tosql($disnotes, "Text")." WHERE discipline_history_id=$disid";
+		$sSQL="UPDATE discipline_history SET discipline_history_code='". $discode ."', discipline_history_date='". $disdate ."', discipline_history_sdate='". $sdate ."', discipline_history_edate='". $edate ."', discipline_history_action=".tosql($disaction, "Text").", discipline_history_reporter=".tosql($disreporter, "Text").", discipline_history_notes=".tosql($disnotes, "Text")." WHERE discipline_history_id='". $disid ."'";
 		$db->query($sSQL);
 
 		//update custom fields added by Joshua
@@ -80,11 +80,11 @@ if(!strlen($msgFormErr)){
 				if($custom_discipline_id == '0') {
 					//delete the field if delete is selected
 					$custom_discipline_update_sql = "DELETE from custom_discipline_history 
-						WHERE custom_discipline_history_id = '$custom_discipline_id'";
+						WHERE custom_discipline_history_id = '". $custom_discipline_id ."'";
 				} else {
 					$custom_discipline_update_sql = "UPDATE custom_discipline_history SET custom_field_id = '";
 					$custom_discipline_update_sql .= $custom_fields[$custom_discipline_id];
-					$custom_discipline_update_sql .= "', data = '$custom_discipline_data' 
+					$custom_discipline_update_sql .= "', data = '". $custom_discipline_data ."' 
 						WHERE custom_discipline_history_id = '";
 					$custom_discipline_update_sql .= $custom_discipline_id;
 					$custom_discipline_update_sql .= "'";
@@ -110,9 +110,9 @@ if(!strlen($msgFormErr)){
 		$sSQL="INSERT INTO discipline_history (discipline_history_student, discipline_history_school, discipline_history_year, discipline_history_code, discipline_history_date, discipline_history_sdate, discipline_history_edate, discipline_history_action, discipline_history_notes, discipline_history_reporter, discipline_history_user) VALUES ($studentid, $sschool, $current_year, $discode, '$disdate', '$sdate', '$edate', ".tosql($disaction, "Text").", ".tosql($disnotes, "Text").", ".tosql($disreporter, "Text").", $web_user)";
 		$db->query($sSQL);
 		if ($notify==1){
-			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student=$studentid";
+			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student='". $studentid ."'";
 			if($addresses=$db->get_results($sSQL)){
-				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id=$studentid";
+				$sSQL="SELECT studentbio_fname, studentbio_lname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 				$student=$db->get_row($sSQL);
 				$sfname=$student->studentbio_fname;
 				$slname=$student->studentbio_lname;
