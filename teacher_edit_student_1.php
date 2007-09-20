@@ -38,7 +38,7 @@ $sSQL="SELECT studentbio.*, DATE_FORMAT(studentbio.studentbio_dob, '" . _EXAMS_D
 	      INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) 
 	      INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.student_grade_year_student) 
 	      INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id 
-	      WHERE studentbio.studentbio_id='$studentid'";
+	      WHERE studentbio.studentbio_id='".$studentid."'";
 $studentinfo=$db->get_row($sSQL);
 $primarycontact=$studentinfo->studentbio_primarycontact;
 //Primary Contact
@@ -48,31 +48,33 @@ relations_codes.relation_codes_desc, contact_to_students.contact_to_students_res
 FROM (studentcontact 
 INNER JOIN contact_to_students ON studentcontact.studentcontact_id =  contact_to_students.contact_to_students_contact) 
 INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id 
-WHERE studentcontact.studentcontact_id='$primarycontact' 
-AND contact_to_students.contact_to_students_student=$studentid";
+WHERE studentcontact.studentcontact_id='".$primarycontact."' 
+AND contact_to_students.contact_to_students_student='".$studentid."'";
 $primcontinfo=$db->get_row($sSQL);
 
 //doug fix so titles are stored and displayed properly
-$sSQL="SELECT title_desc FROM tbl_titles WHERE 
-title_id='$primcontinfo->studentcontact_title'";
+$sSQL="SELECT title_desc FROM tbl_titles WHERE title_id='".$primcontinfo->studentcontact_title."'";
 $studentcontact_title=$db->get_var($sSQL);
 //end of fix
 
 //get the custom fields for this student by Joshua
 $scfSQL = "SELECT * FROM custom_studentbio, custom_fields 
  	WHERE (custom_fields.custom_field_id = custom_studentbio.custom_field_id) 
-  	AND (studentbio_id = '$studentid')";
+  	AND (studentbio_id = '".$studentid."')";
 $student_custom_fields = $db->get_results($scfSQL);
 
 //get the entry action history for this student by Joshua
 $entries_sql = "SELECT * from entry_actions, school_names, school_years, tbl_config
 	WHERE (entry_actions.school_id = school_names.school_names_id)
 	AND (entry_actions.school_year_id = school_years.school_years_id)
-	AND (entry_actions.student_id = '$studentid') ";
+	AND (entry_actions.student_id = '".$studentid."') ";
 $entries = $db->get_results($entries_sql);
 
 //Additional Contacts
-$sSQL="SELECT contact_to_students_contact FROM contact_to_students WHERE contact_to_students_contact<>$primarycontact AND contact_to_students_student=$studentid";
+$sSQL="SELECT contact_to_students_contact 
+FROM contact_to_students 
+WHERE contact_to_students_contact<>'".$primarycontact."' 
+AND contact_to_students_student='".$studentid."'";
 if($addcont=$db->get_results($sSQL)){
 	$ac=1;
 	$i=-1;
@@ -81,7 +83,7 @@ if($addcont=$db->get_results($sSQL)){
 		$list[$i]=$mlist->contact_to_students_contact;
 	}
 	$ylist=implode(",", $list);
-	$sSQL="SELECT studentcontact.studentcontact_id, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id IN ($ylist) AND contact_to_students_student=$studentid";
+	$sSQL="SELECT studentcontact.studentcontact_id, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_relation, contact_to_students.contact_to_students_residence, relations_codes.relation_codes_desc FROM (studentcontact INNER JOIN contact_to_students ON studentcontact.studentcontact_id = contact_to_students.contact_to_students_contact) INNER JOIN relations_codes ON contact_to_students.contact_to_students_relation = relations_codes.relation_codes_id WHERE studentcontact.studentcontact_id IN (".$ylist.") AND contact_to_students_student='".$studentid."'";
 	$addcontlist=$db->get_results($sSQL);	
 }else{
 	$ac=0;

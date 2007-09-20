@@ -888,10 +888,10 @@ CREATE TABLE IF NOT EXISTS `generations` (
 -- 
 
 INSERT INTO `generations` (`generations_id`, `generations_desc`) VALUES 
-(1, '--'),
+(1, 'III'),
 (2, 'Sr.'),
 (3, 'Jr.'),
-(4, 'III');
+(4, '--');
 
 -- --------------------------------------------------------
 
