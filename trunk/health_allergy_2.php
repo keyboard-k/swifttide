@@ -55,7 +55,7 @@ JOIN health_allergy ON health_allergy_history.health_allergy_history_code =
 health_allergy.health_allergy_id) INNER JOIN web_users ON 
 health_allergy_history.health_allergy_history_user = web_users.web_users_id 
 WHERE 
-health_allergy_history.health_allergy_history_id=$disid";
+health_allergy_history.health_allergy_history_id='". $disid ."'";
 
 $discipline=$db->get_row($sSQL);
 
@@ -95,7 +95,7 @@ $discipline=$db->get_row($sSQL);
 	<br>
 	<h2><?php echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _HEALTH_ALLERGY_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
+	<h2><?php echo _HEALTH_ALLERGY_2_INSERTED?><?php echo $discipline->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _HEALTH_ALLERGY_2_SCHOOL?></td>
@@ -129,7 +129,7 @@ $discipline->health_allergy_history_reason ;?></td>
 $discipline->health_allergy_history_notes ; ?></td>
 	  </tr>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
 		?><tr><td colspan=2><h2><?php echo _HEALTH_ALLERGY_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -153,7 +153,7 @@ $discipline->health_allergy_history_notes ; ?></td>
 $studentid; ?>" class="aform"><?php echo _HEALTH_ALLERGY_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="health_allergy_3.php?studentid=<?php echo $studentid; 
-?>&disid=<? 
+?>&disid=<?php 
 echo $disid; ?>&action=edit" class="aform"><?php echo _HEALTH_ALLERGY_2_EDIT?></a></td>
 	  </tr>
 	</table>

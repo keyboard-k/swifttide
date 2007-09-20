@@ -44,13 +44,13 @@ $disnotes=get_param("disnotes");
 
 //Get school number (if a teacher)
 $sSQL="SELECT web_users_relid FROM web_users WHERE 
-web_users_id='$web_user'";
+web_users_id='". $web_user ."'";
 $hold=$db->get_var($sSQL);
-$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id=$hold";
+$sSQL="SELECT teachers_school FROM teachers WHERE teachers_id='". $hold ."'";
 $sschool=$db->get_var($sSQL);
 //If admin, schoolid will be student's school id
 if ($_SESSION['UserType'] == "A") {
-	$sSQL="SELECT studentbio_school FROM studentbio WHERE studentbio_id = $studentid";
+	$sSQL="SELECT studentbio_school FROM studentbio WHERE studentbio_id = '". $studentid ."'";
 	$sschool=$db->get_var($sSQL);
 };
 //get custom fields
@@ -77,10 +77,10 @@ if(!strlen($disreporter)){
 if(!strlen($msgFormErr)){
 	if($action=="update"){
 		$sSQL="UPDATE health_history SET 
-health_history_code=$discode, health_history_date='$disdate', 
+health_history_code=$discode, health_history_date='". $disdate ."', 
 health_history_action=".tosql($disaction, "Text").", 
 health_history_sentby=".tosql($disreporter, "Text").", 
-health_history_notes=".tosql($disnotes, "Text")." WHERE health_history_id=$disid";
+health_history_notes=".tosql($disnotes, "Text")." WHERE health_history_id='". $disid ."'";
 		$db->query($sSQL);
 
 		//update custom fields added by Joshua
@@ -89,11 +89,11 @@ health_history_notes=".tosql($disnotes, "Text")." WHERE health_history_id=$disid
 				if($custom_discipline_id == '0') {
 					//delete the field if delete is selected
 					$custom_discipline_update_sql = "DELETE from custom_health_history 
-						WHERE custom_health_history_id = '$custom_discipline_id'";
+						WHERE custom_health_history_id = '". $custom_discipline_id ."'";
 				} else {
 					$custom_discipline_update_sql = "UPDATE custom_health_history SET custom_field_id = '";
 					$custom_discipline_update_sql .= $custom_fields[$custom_discipline_id];
-					$custom_discipline_update_sql .= "', data = '$custom_discipline_data' 
+					$custom_discipline_update_sql .= "', data = '". $custom_discipline_data ."' 
 						WHERE custom_health_history_id = '";
 					$custom_discipline_update_sql .= $custom_discipline_id;
 					$custom_discipline_update_sql .= "'";
@@ -104,14 +104,14 @@ health_history_notes=".tosql($disnotes, "Text")." WHERE health_history_id=$disid
 		//adding a new field if one has been entered
 		if($new_custom_field_id > 0 && $new_custom_field_data != '') {
 			$custom_discipline_insert_sql = "INSERT into custom_health_history SET 
-				custom_field_id = '$new_custom_field_id', 
-				health_history_id = '$disid',
-				data = '$new_custom_field_data'";
+				custom_field_id = '". $new_custom_field_id ."', 
+				health_history_id = '". $disid ."',
+				data = '". $new_custom_field_data ."'";
 			$db->query($custom_discipline_insert_sql);
 		} //end custom fields
 
 		
-		$url="health_manage_2.php?studentid=".$studentid."&disid=".$disid;
+		$url="health_manage_2.php?studentid=". $studentid ."&disid=".$disid;
 		header("Location: $url");
 		exit();
 	}else{

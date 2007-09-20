@@ -44,13 +44,13 @@ $disnotes=get_param("disnotes");
 $disdate=date("Y/m/d", strtotime(get_param("disdate")));
 
 //Get other fields
-$sSQL="SELECT web_users_relid FROM web_users WHERE web_users_id=$web_user";
+$sSQL="SELECT web_users_relid FROM web_users WHERE web_users_id='". $web_user ."'";
 $rel_link=$db->get_var($sSQL);
-$sSQL="SELECT teachers_school from teachers WHERE teachers_id=$rel_link";
+$sSQL="SELECT teachers_school from teachers WHERE teachers_id='". $rel_link ."'";
 $sschool=$db->get_var($sSQL);
 //If admin, we don't have a school, so use student's school
 if($_SESSION['UserType'] == "A") {
-	$sSQL="SELECT studentbio_school FROM studentbio WHERE studentbio_id = $studentid";
+	$sSQL="SELECT studentbio_school FROM studentbio WHERE studentbio_id = '". $studentid ."'";
 	$sschool=$db->get_var($sSQL);
 };
 
@@ -67,11 +67,11 @@ if(!strlen($discode)){
 if(!strlen($msgFormErr)){
 	if($action=="update"){
 		$sSQL="UPDATE health_med_history SET 
-health_med_history_code=$discode, 
-health_med_history_date='$disdate', 
+health_med_history_code='". $discode ."', 
+health_med_history_date='". $disdate ."', 
 health_med_history_reason=".tosql($disaction, 
 "Text").", health_med_history_notes=".tosql($disnotes, "Text")." WHERE 
-health_med_history_id=$disid";
+health_med_history_id='". $disid ."'";
 		$db->query($sSQL);
 
 $url="health_med_student_2.php?studentid=".$studentid."&disid=".$disid;

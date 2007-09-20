@@ -36,7 +36,7 @@ if(!strlen($studentid)){
 	$msgFormErr=_HEALTH_MED_STUDENT_1_ERROR_FORM . "<br>";
 }else{
 	//Get Student Name
-	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
@@ -47,8 +47,8 @@ disdate, health_medicine.health_medicine_desc FROM health_med_history
 INNER JOIN health_medicine ON 
 health_med_history.health_med_history_code = 
 health_medicine.health_medicine_id WHERE 
-health_med_history_student=$studentid 
-AND health_med_history_year=$current_year ORDER BY 
+health_med_history_student='". $studentid ."' 
+AND health_med_history_year='". $current_year ."' ORDER BY 
 health_med_history.health_med_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";

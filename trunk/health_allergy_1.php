@@ -33,7 +33,7 @@ if(!strlen($studentid)){
 	$msgFormErr=_HEALTH_ALLERGY_1_FORM_ERROR . "<br>";
 }else{
 	//Get Student Name
-	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id=$studentid";
+	$sSQL="SELECT studentbio_lname, studentbio_fname FROM studentbio WHERE studentbio_id='". $studentid ."'";
 	$student=$db->get_row($sSQL);
 	$slname=$student->studentbio_lname;
 	$sfname=$student->studentbio_fname;
@@ -46,8 +46,8 @@ disdate
 INNER JOIN 
 health_allergy ON health_allergy_history.health_allergy_history_code = 
 health_allergy.health_allergy_id WHERE 
-health_allergy_history.health_allergy_history_student=$studentid AND 
-health_allergy_history.health_allergy_history_year=$current_year ORDER BY  
+health_allergy_history.health_allergy_history_student='". $studentid ."' AND 
+health_allergy_history.health_allergy_history_year='". $current_year ."' ORDER BY  
 health_allergy_history.health_allergy_history_date DESC";
 	//Set paging appearence
 	$ezr->results_open = "<table width=70% cellpadding=2 cellspacing=0 border=1>";
@@ -100,7 +100,7 @@ class=aform>&nbsp;" . _HEALTH_ALLERGY_1_DETAILS . "</a></td></tr>";
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="70%">
 	  <tr>
-	    <td width="50%"><a href="nurse_info_3.php?studentid=<? 
+	    <td width="50%"><a href="nurse_info_3.php?studentid=<?php 
 echo $studentid; ?>" class="aform"><?php echo _HEALTH_ALLERGY_1_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="health_allergy_3.php?studentid=<?php echo $studentid; 

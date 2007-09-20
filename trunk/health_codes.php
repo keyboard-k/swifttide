@@ -36,10 +36,10 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$health_codes_id=get_param("id");
-		if($norem=$db->get_results("SELECT health_history_code FROM health_history WHERE health_history_code=$health_codes_id")){
+		if($norem=$db->get_results("SELECT health_history_code FROM health_history WHERE health_history_code='". $health_codes_id ."'")){
 			$msgFormErr=_HEALTH_CODES_NOT_REMOVED;
 		}else{
-			$sSQL="DELETE FROM health_codes WHERE health_codes_id=$health_codes_id";
+			$sSQL="DELETE FROM health_codes WHERE health_codes_id='". $health_codes_id ."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -56,13 +56,13 @@ switch ($action){
 		break;
 	case "edit":
 		$health_codes_id=get_param("id");
-		$sSQL="SELECT health_codes_desc FROM health_codes WHERE health_codes_id=$health_codes_id";
+		$sSQL="SELECT health_codes_desc FROM health_codes WHERE health_codes_id='". $health_codes_id ."'";
 		$health_codes_desc = $db->get_var($sSQL);
 		break;
 	case "update":
 		$health_codes_id=get_param("id");
 		$health_codes_desc=get_param("healthname");
-		$sSQL="UPDATE health_codes SET health_codes_desc='$health_codes_desc' WHERE health_codes_id=$health_codes_id";
+		$sSQL="UPDATE health_codes SET health_codes_desc='$health_codes_desc' WHERE health_codes_id='". $health_codes_id ."'";
 		$db->query($sSQL);
 		break;
 
@@ -162,7 +162,7 @@ $health_codes_id; ?>">
 	?>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
 include "admin_maint_tables_menu.inc.php";
   } else {
  include "health_menu.inc.php"; 

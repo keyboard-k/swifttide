@@ -38,11 +38,11 @@ switch ($action){
 		$health_medicine_id=get_param("id");
 		if($norem=$db->get_results("SELECT health_med_history_code FROM 
 health_med_history 
-WHERE health_med_history_code=$health_medicine_id")){
+WHERE health_med_history_code='". $health_medicine_id ."'")){
 			$msgFormErr=_HEALTH_MEDICINE_NOT_REMOVED;
 		}else{
 			$sSQL="DELETE FROM health_medicine WHERE 
-health_medicine_id=$health_medicine_id";
+health_medicine_id='". $health_medicine_id ."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -50,7 +50,7 @@ health_medicine_id=$health_medicine_id";
 		$health_medicine_desc=get_param("healthname");
 		//Check for duplicates
 		$tot=$db->get_var("SELECT count(*) FROM health_medicine 
-WHERE health_medicine_desc='$health_medicine_desc'");
+WHERE health_medicine_desc='". $health_medicine_desc ."'");
 		if($tot>0){
 			$msgFormErr=_HEALTH_MEDICINE_DUP;
 		}else{
@@ -62,15 +62,15 @@ VALUES (".tosql($health_medicine_desc, "Text").")";
 	case "edit":
 		$health_medicine_id=get_param("id");
 		$sSQL="SELECT health_medicine_desc FROM health_medicine 
-WHERE health_medicine_id=$health_medicine_id";
+WHERE health_medicine_id='". $health_medicine_id ."'";
 		$health_medicine_desc = $db->get_var($sSQL);
 		break;
 	case "update":
 		$health_medicine_id=get_param("id");
 		$health_medicine_desc=get_param("healthname");
 		$sSQL="UPDATE health_medicine SET 
-health_medicine_desc='$health_medicine_desc' WHERE 
-health_medicine_id=$health_medicine_id";
+health_medicine_desc='". $health_medicine_desc ."' WHERE 
+health_medicine_id='". $health_medicine_id ."'";
 		$db->query($sSQL);
 		break;
 
@@ -171,7 +171,7 @@ action="health_medicine.php">
 	?>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
 	include "admin_maint_tables_menu.inc.php";
 	} else { 
 include "health_menu.inc.php"; 

@@ -39,7 +39,7 @@ DATE_FORMAT(health_immunz_history.health_immunz_history_date,'" . _EXAMS_DATE . 
 health_immunz.health_immunz_desc, 
 health_immunz_history.health_immunz_history_reason, 
 health_immunz_history.health_immunz_history_notes, 
-web_users.web_users_flname FROM ((((health_immunz_history INNER JOIN studentbio ON health_immunz_history.health_immunz_history_student = studentbio.studentbio_id) INNER JOIN school_names ON health_immunz_history.health_immunz_history_school = school_names.school_names_id) INNER JOIN school_years ON health_immunz_history.health_immunz_history_year = school_years.school_years_id) INNER JOIN health_immunz ON health_immunz_history.health_immunz_history_code = health_immunz.health_immunz_id) INNER JOIN web_users ON health_immunz_history.health_immunz_history_user = web_users.web_users_id WHERE health_immunz_history.health_immunz_history_id=$disid";
+web_users.web_users_flname FROM ((((health_immunz_history INNER JOIN studentbio ON health_immunz_history.health_immunz_history_student = studentbio.studentbio_id) INNER JOIN school_names ON health_immunz_history.health_immunz_history_school = school_names.school_names_id) INNER JOIN school_years ON health_immunz_history.health_immunz_history_year = school_years.school_years_id) INNER JOIN health_immunz ON health_immunz_history.health_immunz_history_code = health_immunz.health_immunz_id) INNER JOIN web_users ON health_immunz_history.health_immunz_history_user = web_users.web_users_id WHERE health_immunz_history.health_immunz_history_id='". $disid ."'";
 
 $discipline=$db->get_row($sSQL);
 
@@ -77,7 +77,7 @@ $discipline=$db->get_row($sSQL);
 	<br>
 	<h2><?php echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _HEALTH_IMMUNZ_STUDENT_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
+	<h2><?php echo _HEALTH_IMMUNZ_STUDENT_2_INSERTED?><?php echo $discipline->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _HEALTH_IMMUNZ_STUDENT_2_SCHOOL?></td>
@@ -129,12 +129,12 @@ $discipline=$db->get_row($sSQL);
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a 
-href="health_immunz_student_1.php?studentid=<? 
+href="health_immunz_student_1.php?studentid=<?php 
 echo 
 $studentid; ?>" class="aform"><?php echo _HEALTH_IMMUNZ_STUDENT_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="health_immunz_student_3.php?studentid=<?php echo $studentid; 
-?>&disid=<? 
+?>&disid=<?php 
 echo $disid; ?>&action=edit" class="aform"><?php echo _HEALTH_IMMUNZ_STUDENT_2_EDIT?></a></td>
 	  </tr>
 	</table>
