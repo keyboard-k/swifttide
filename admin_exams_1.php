@@ -142,7 +142,7 @@ function cnfremove(id) {
 	answer = window.confirm("<?php echo _ADMIN_ROOMS_SURE?>");
 	if (answer == 1) {
 	var url;
-	url = "admin_exams_1?action=remove&examid=" + id;
+	url = "admin_exams_1.php?action=remove&examid=" + id;
 	window.location = url; // other browsers
 	href_remove.href = url; // explorer
 	}
