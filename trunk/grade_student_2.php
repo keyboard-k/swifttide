@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // grade_student_2.php
 // Teacher Section
@@ -55,7 +55,7 @@ function openPop(){
 }
 </script>
 
-<?
+<?php
 //Now re-open php
 
 //Get search field info
@@ -101,40 +101,40 @@ switch ($action){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%" align="right"><? echo _GRADE_STUDENT_2_TEACHER_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="right"><?php echo _GRADE_STUDENT_2_TEACHER_AREA?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _GRADE_STUDENT_2_TITLE?></h1>
+	<h1><?php echo _GRADE_STUDENT_2_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if (strlen($msgFormErr)){
 		//No results
 	?>
-		<h3><? echo $msgFormErr; ?></h3>
-	<?
+		<h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 		//Dislay results with paging options
 		$ezr->display();
 	};
 	?>
 	<br>
-	<A class="aform" href="grade_student_1.php"><? echo _GRADE_STUDENT_2_NEW?></a>
+	<A class="aform" href="grade_student_1.php"><?php echo _GRADE_STUDENT_2_NEW?></a>
 </div>
 <? if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";

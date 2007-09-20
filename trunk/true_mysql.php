@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // true_mysql.php
 // Common.  Instantiates actual mysql functionality, bypassing ez_sql.

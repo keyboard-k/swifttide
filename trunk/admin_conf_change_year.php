@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_conf_change_year.php
 // Admin Section

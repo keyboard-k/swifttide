@@ -237,7 +237,7 @@ function cnfremove(id) {
 	    <option value="7" selected="selected">7</option>
 	  </select>
 	  <?php echo _ADMIN_MEDIA_CODES_DAYS; ?>
-	  &nbsp; &nbsp;<a class="aform" href="javascript: document.userdays.submit()"><? echo _ADMIN_MEDIA_CODES_CHECK; ?></a>
+	  &nbsp; &nbsp;<a class="aform" href="javascript: document.userdays.submit()"><?php echo _ADMIN_MEDIA_CODES_CHECK; ?></a>
 	</tr>
 	</table>
 	</form>

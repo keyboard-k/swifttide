@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_manage_grades_4.php
 // Admin Section
@@ -176,25 +176,25 @@ $comment3, $subject)";
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MANAGE_GRADES_4_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MANAGE_GRADES_4_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ERROR?> <? echo $msgheader; ?> <? echo _ADMIN_MANAGE_GRADES_4_TITLE?></h1>
+	<h1><?php echo _ERROR?> <?php echo $msgheader; ?> <? echo _ADMIN_MANAGE_GRADES_4_TITLE?></h1>
 	<br>
-	<h2><? echo _ADMIN_MANAGE_GRADES_4_SUBTITLE?>:</h2>
+	<h2><?php echo _ADMIN_MANAGE_GRADES_4_SUBTITLE?>:</h2>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

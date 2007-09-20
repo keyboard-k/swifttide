@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contact_speak.php
 // Admin Section
@@ -88,27 +88,27 @@ $ezr->results_row = "<tr>
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _CONTACT_SPEAK_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _CONTACT_SPEAK_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _CONTACT_SPEAK_TITLE?></h1>
+	<h1><?php echo _CONTACT_SPEAK_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	//Dislay results with paging options
 	$ezr->display();
 	?>
 	<br>
 </div>
-<? include "contact_menu.inc.php"; ?>
+<?php include "contact_menu.inc.php"; ?>
 </body>
 
 </html>

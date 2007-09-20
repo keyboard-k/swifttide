@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_ethnicity.php
 // Admin Section
@@ -79,7 +79,7 @@ $ezr->query_mysql("SELECT ethnicity_id, ethnicity_desc FROM ethnicity ORDER BY e
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -90,12 +90,12 @@ function submitform(fldName)
   if (t.value!="") 
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_ETHNICITY_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_ETHNICITY_SURE?>");
 	if (answer == 1) {
 		var url;
 		url = "admin_ethnicity.php?action=remove&id=" + id;
@@ -111,49 +111,49 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_ETHNICITY_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_ETHNICITY_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_ETHNICITY_TITLE?></h1>
+	<h1><?php echo _ADMIN_ETHNICITY_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if ($action!="edit"){
 		//Dislay results with paging options
 		$ezr->display();
 		?>
 		<br>
 		<form name="addethnicity" method="post" action="admin_ethnicity.php">						
-		  <p class="pform"><? echo _ADMIN_ETHNICITY_ADD_NEW?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="ethnicityname" size="20">&nbsp;<A class="aform" href="javascript: submitform('ethnicityname')"><? echo _ADMIN_ETHNICITY_ADD?></a>
+		  <p class="pform"><?php echo _ADMIN_ETHNICITY_ADD_NEW?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="ethnicityname" size="20">&nbsp;<A class="aform" href="javascript: submitform('ethnicityname')"><?php echo _ADMIN_ETHNICITY_ADD?></a>
 	      <input type="hidden" name="action" value="add">
 	      </p>
 	    </form>
-	<?
+	<?php
 	}else{
 	?>
 		<br>
 		<form name="editethnicity" method="post" action="admin_ethnicity.php">						
-		  <p class="pform"><? echo _ADMIN_ETHNICITY_UPDATE_ETH?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="ethnicityname" size="20" value="<? echo $ethnicity_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform('ethnicityname')"><? echo _ADMIN_ETHNICITY_UPDATE?></a>
+		  <p class="pform"><?php echo _ADMIN_ETHNICITY_UPDATE_ETH?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="ethnicityname" size="20" value="<?php echo $ethnicity_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform('ethnicityname')"><?php echo _ADMIN_ETHNICITY_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
-		  <input type="hidden" name="id" value="<? echo $ethnicity_id; ?>">
+		  <input type="hidden" name="id" value="<?php echo $ethnicity_id; ?>">
 	      </p>
 	    </form>
-	<?
+	<?php
 	};
 	?>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 
 </html>

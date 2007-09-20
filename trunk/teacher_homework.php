@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_change_password.php
 // Teachers Section
@@ -75,7 +75,7 @@ if($action == 'add') {
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <SCRIPT language="JavaScript">
@@ -160,13 +160,13 @@ function deleteHomework(homework_form_name) {
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 <!-- the homework content table -->
 <div id="Content">
 <h1><?php echo _TEACHER_HOMEWORK_TITLE?></h1>
@@ -219,7 +219,7 @@ function deleteHomework(homework_form_name) {
 
 <!-- end of new homework -->
 
-<?
+<?php
 //add date comparisons
 $homework_query = "SELECT * FROM homework WHERE homework.teacher_id = '$teacher->teachers_id'";
 $homework = $db->get_results($homework_query);
@@ -279,7 +279,7 @@ if(is_array($homework)) {
 
 		</table>
 		</form></td></tr></table></td></tr>
-		<!-- end of current homework table --><?
+		<!-- end of current homework table --><?php
 
 	}
 
@@ -291,7 +291,7 @@ if(is_array($homework)) {
 
 </table>
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

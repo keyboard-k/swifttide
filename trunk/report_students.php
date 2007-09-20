@@ -45,12 +45,12 @@ $q .= ", studentbio_lname ASC";
 $r = $db->get_results($q);
 
 ?>
-<html><title><? echo _REPORT_STUDENT_BROWSER_TITLE?></title>
+<html><title><?php echo _REPORT_STUDENT_BROWSER_TITLE?></title>
 <head>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 </head>
 <body>
-<?
+<?php
 if(is_array($r)) {
 	echo"<table align='center' width='80%' cellpadding=5>
 	     <th><h1>" . _REPORT_STUDENT_HEADER . "</h1></th>";
@@ -117,7 +117,7 @@ if(is_array($r)) {
 		if ($sorted_1 != "none") { $ps1 = $s->{$sorted_1}; }
 	}	
 
-	?></table></body></html><?
+	?></table></body></html><?php
 
 } else {
 	echo"<center><h1>" . _REPORT_STUDENT_NONE . "</h2></center>";

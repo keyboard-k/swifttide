@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_schedule_teach_2.php
 // Admin Section
@@ -95,55 +95,55 @@ class=aform>&nbsp;" . _ADMIN_SCHEDULE_TEACH_2_REMOVE . "</a></td>
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_SCHEDULE_TEACH_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_SCHEDULE_TEACH_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_SCHEDULE_TEACH_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_SCHEDULE_TEACH_2_TITLE?></h1>
 	<br>
-	<h2><? echo $tfname. " " .$tlname; ?></h2>
+	<h2><?php echo $tfname. " " .$tlname; ?></h2>
 	<br>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
-	    <td width="35%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_YEAR?></td>
-	    <td width="30%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_TERM?></td>
-	    <td width="35%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_DAYS?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_YEAR?></td>
+	    <td width="30%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_TERM?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_DAYS?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="35%">&nbsp;<? echo $sched->school_years_desc; ?></td>
-	    <td width="30%">&nbsp;<? echo $sched->grade_terms_desc; ?></td>
-	    <td width="35%">&nbsp;<? echo $sched->days_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $sched->school_years_desc; ?></td>
+	    <td width="30%">&nbsp;<?php echo $sched->grade_terms_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $sched->days_desc; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="35%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_PERIOD?></td>
-	    <td width="30%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_SUBJECT?></td>
-	    <td width="35%">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_ROOM?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_PERIOD?></td>
+	    <td width="30%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_SUBJECT?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_ROOM?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="35%">&nbsp;<? echo $sched->teacher_schedule_classperiod; ?></td>
-	    <td width="30%">&nbsp;<? echo $sched->grade_subject_desc; ?></td>
-	    <td width="35%">&nbsp;<? echo $sched->school_rooms_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $sched->teacher_schedule_classperiod; ?></td>
+	    <td width="30%">&nbsp;<?php echo $sched->grade_subject_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $sched->school_rooms_desc; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="3">&nbsp;<? echo _ADMIN_SCHEDULE_TEACH_2_NOTES?></td>
+	    <td width="100%" colspan="3">&nbsp;<?php echo _ADMIN_SCHEDULE_TEACH_2_NOTES?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="3">&nbsp;<? echo $grade->grade_history_notes ; ?></td>
+	    <td width="100%" colspan="3">&nbsp;<?php echo $grade->grade_history_notes ; ?></td>
 	  </tr>
 
 
@@ -153,25 +153,25 @@ class=aform>&nbsp;" . _ADMIN_SCHEDULE_TEACH_2_REMOVE . "</a></td>
 	  <tr>
 	    <td width="33%"><a 
 href="admin_schedule_teach_1.php?teacherid=<? 
-echo $teacherid; ?>" class="aform"><? echo _ADMIN_SCHEDULE_TEACH_2_BACK?></a></td>
+echo $teacherid; ?>" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_BACK?></a></td>
 	   <!--
 	   <td width="33%"><a 
 href="admin_schedule_students_1.php?schedid=<?echo 
-$schedid; ?>" class="aform"><? echo _ADMIN_SCHEDULE_TEACH_2_ADD?></a></td>
+$schedid; ?>" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_ADD?></a></td>
 	   -->
 	   <td width="33%">&nbsp;</td>
 	   <td width="34%" align="right"><a 
 href="admin_schedule_teach_3.php?teacherid=<? 
-echo $teacherid; ?>&schedid=<? echo $schedid; ?>&action=edit" 
-class="aform"><? echo _ADMIN_SCHEDULE_TEACH_2_EDIT?></a></td>
+echo $teacherid; ?>&schedid=<?php echo $schedid; ?>&action=edit" 
+class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_EDIT?></a></td>
 	  </tr>
 	</table><br><br>
 	<!--
-	<h2><? echo _ADMIN_SCHEDULE_TEACH_2_STUDENTS?></h2><align="center">
+	<h2><?php echo _ADMIN_SCHEDULE_TEACH_2_STUDENTS?></h2><align="center">
 	<? $ezr->display(); ?>
 	-->
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_export2.php
 // export mysql data to excel (for now)

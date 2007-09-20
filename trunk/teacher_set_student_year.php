@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_set_student_year.php
 // Teachers Section

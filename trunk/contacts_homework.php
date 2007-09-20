@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contacts_homework.php
 // Contacts Section
@@ -41,32 +41,32 @@ $sroom=$db->get_var("SELECT studentbio_homeroom FROM studentbio WHERE studentbio
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-contact.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 <script language="JavaScript" src="datepicker.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
 
 <!-- the homework content table -->
 <div id="Content">
-<h1><? echo _CONTACTS_HOMEWORK_TITLE?></h1>
+<h1><?php echo _CONTACTS_HOMEWORK_TITLE?></h1>
 <br>
 
 <table width="100%" border=1>
 
-<?
+<?php
 //add date comparisons
 $homework_query = "SELECT *, grade_subject_desc, school_rooms_desc, 
 	teachers_fname, teachers_lname, 
@@ -101,15 +101,15 @@ $dueday = $db->get_var($sSQL);
   <th align="left" colspan="3"><?echo($assignment->name);?></th>
   <tr>
     <td class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_SUBJECT?>:
+      <?php echo _CONTACTS_HOMEWORK_SUBJECT?>:
       <?echo($assignment->grade_subject_desc);?>
     </td>
     <td class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_ROOM?>:
+      <?php echo _CONTACTS_HOMEWORK_ROOM?>:
       <?echo($assignment->school_rooms_desc);?>
     </td>
     <td class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_TEACHER?>:
+      <?php echo _CONTACTS_HOMEWORK_TEACHER?>:
       <? if($assignment->teachers_email) { ?>
       <a href="mailto:<?echo($assignment->teachers_email);?>">
         <?echo("$assignment->teachers_fname $assignment->teachers_mi $assignment->teachers_lname");?>
@@ -123,40 +123,40 @@ $dueday = $db->get_var($sSQL);
   <tr><td colspan=3>&nbsp;</td></tr>
   <tr>
     <td align="left" width="20%" class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_ASSIGNED_ON?>:<br>
+      <?php echo _CONTACTS_HOMEWORK_ASSIGNED_ON?>:<br>
       <?echo $assignment->date_assigned  . " (" . $onday . ")";?>
     </td>
     <td align="left" width="20%" class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_DUE_ON?>:<br>
+      <?php echo _CONTACTS_HOMEWORK_DUE_ON?>:<br>
       <?echo $assignment->date_due . " (" . $dueday . ")";?>
     </td>
     <td align="left" width="60%" class="tblcont">
-      <? echo _CONTACTS_HOMEWORK_NOTES?>:<br>
+      <?php echo _CONTACTS_HOMEWORK_NOTES?>:<br>
       <?echo($assignment->notes);?>
     </td>
   </tr>
   <tr><td colspan=3>&nbsp;</td></tr>
 
-<?
+<?php
 $homework_files_query = "SELECT * FROM homework_files WHERE homework_id = '$assignment->homework_id'";
 $homework_files = $db->get_results($homework_files_query);
 if(is_array($homework_files)) { ?>
   <tr>
-    <td align="left" class="tblcont" colspan="3"><? echo _CONTACTS_HOMEWORK_FILES?>:
-      <?
+    <td align="left" class="tblcont" colspan="3"><?php echo _CONTACTS_HOMEWORK_FILES?>:
+      <?php
       foreach($homework_files as $hf) {
 	echo"&nbsp;&nbsp;<a href='$hf->location' target='_blank'>$hf->title</a>";
       } ?>
     </td>
   </tr>
-<?
+<?php
 }
 ?>
 
 
   <tr><td colspan=3>&nbsp;</td></tr>
 </table>
-<!-- end of current homework table --><?
+<!-- end of current homework table --><?php
 
 }
 
@@ -168,7 +168,7 @@ if(is_array($homework_files)) { ?>
 
 </table>
 </div>
-<? include "contact_menu.inc.php"; ?>
+<?php include "contact_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_edit_student_1.php
 // Teacher Section
@@ -99,20 +99,20 @@ if($addcont=$db->get_results($sSQL)){
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
 	<h1><?php echo _TEACHER_EDIT_STUDENT_1_TITLE?></h1>
 	<br>
-	<h2><? echo $studentinfo->studentbio_fname . " " . $studentinfo->studentbio_mi . " " . $studentinfo->studentbio_lname . " " .  $studentinfo->generations_desc . " (" . $studentinfo->studentbio_gender . ")"; ?></h2>	
+	<h2><?php echo $studentinfo->studentbio_fname . " " . $studentinfo->studentbio_mi . " " . $studentinfo->studentbio_lname . " " .  $studentinfo->generations_desc . " (" . $studentinfo->studentbio_gender . ")"; ?></h2>	
 	<br>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 		  <tr class="tblhead">
@@ -120,8 +120,8 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="66%" colspan="2">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_ETHNICITY?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $studentinfo->studentbio_internalid; ?></td>
-		    <td width="66%" colspan="2">&nbsp;<? echo $studentinfo->ethnicity_desc; ?></td>
+		    <td width="34%">&nbsp;<?php echo $studentinfo->studentbio_internalid; ?></td>
+		    <td width="66%" colspan="2">&nbsp;<?php echo $studentinfo->ethnicity_desc; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_BIRTHDATE?></td>
@@ -129,9 +129,9 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_GRADE?></td>
 		  </tr>
 		  <tr class="tblcont">
-			<td width="34%">&nbsp;<? echo $studentinfo->sdob; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->school_names_desc; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->grades_desc; ?></td>
+			<td width="34%">&nbsp;<?php echo $studentinfo->sdob; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->school_names_desc; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->grades_desc; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_ACTIVE?></td>
@@ -149,19 +149,19 @@ if($addcont=$db->get_results($sSQL)){
 		    if(count($entries) && $entries != NULL) {
 				?> <tr><td colspan=3><table cellpadding="0" cellspacing="1" width="100%">
 	    		<tr class="tblhead"><td><?php echo _TEACHER_EDIT_STUDENT_1_ENTRY_RECORD?></td>
-	    		<td><?php echo _TEACHER_EDIT_STUDENT_1_NOTES?></td></tr><?
+	    		<td><?php echo _TEACHER_EDIT_STUDENT_1_NOTES?></td></tr><?php
 		    		foreach($entries as $entry) {
-		    			?><tr class="tblcont"><td><?
+		    			?><tr class="tblcont"><td><?php
 		    			echo(ucwords($entry->action_code));
 		    			if($entry->action_code == 'entry') {echo" into ";}
 		    			if($entry->action_code == 'exit') {echo" from ";}
 		    			echo($entry->school_names_desc);
-		    			?> on <? echo($entry->action_date);
-		    			?> for year <? echo($entry->school_years_desc);
-		    			?></td><td><? echo($entry->action_notes);
-		    			?></td></tr><?
+		    			?> on <?php echo($entry->action_date);
+		    			?> for year <?php echo($entry->school_years_desc);
+		    			?></td><td><?php echo($entry->action_notes);
+		    			?></td></tr><?php
 		    		} 
-		    		?></table></td></tr><?
+		    		?></table></td></tr><?php
 		    } //end entry actions
 			?>
 
@@ -171,9 +171,9 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_BIRTHCOUNTRY?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $studentinfo->studentbio_birthcity; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_birthstate; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_birthcountry; ?></td>
+		    <td width="34%">&nbsp;<?php echo $studentinfo->studentbio_birthcity; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_birthstate; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_birthcountry; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PRVS_SCHOOLNAME?></td>
@@ -181,9 +181,9 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PRVS_SCHOOLCITY?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $studentinfo->studentbio_prevschoolname; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_prevschooladdress; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_prevschoolcity; ?></td>
+		    <td width="34%">&nbsp;<?php echo $studentinfo->studentbio_prevschoolname; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_prevschooladdress; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_prevschoolcity; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PRVS_SCHOOLSTATE?></td>
@@ -191,23 +191,23 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PRVS_SCHOOLCOUNTRY?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $studentinfo->studentbio_prevschoolstate; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_prevschoolzip; ?></td>
-		    <td width="33%">&nbsp;<? echo $studentinfo->studentbio_prevschoolcountry; ?></td>
+		    <td width="34%">&nbsp;<?php echo $studentinfo->studentbio_prevschoolstate; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_prevschoolzip; ?></td>
+		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_prevschoolcountry; ?></td>
 		  </tr>
-		  <?
+		  <?php
 		  //display custom field list by Joshua
             if(count($student_custom_fields)) {
 			?><tr><td colspan=3><h2><?php echo _TEACHER_EDIT_STUDENT_1_CUSTOM_FIELDS?></h2></td></tr>
-			<tr><td colspan=3><table width="100%"><?
+			<tr><td colspan=3><table width="100%"><?php
      	     foreach($student_custom_fields as $student_custom_field) {
-  				?><tr><td class="tblhead"><?
+  				?><tr><td class="tblhead"><?php
   				echo($student_custom_field->name);
-  				?>:</td><td class="tblcont"><?
+  				?>:</td><td class="tblcont"><?php
 				echo($student_custom_field->data);
-     	     	?></td></tr><?
+     	     	?></td></tr><?php
      	     }
-			?></table></td></tr><?
+			?></table></td></tr><?php
 		 } 
 		 //end of custom fields
 		 ?>
@@ -216,7 +216,7 @@ if($addcont=$db->get_results($sSQL)){
 		<h2><?php echo _TEACHER_EDIT_STUDENT_1_PRIMARY_CONTACT?></h2>
 		<table border="1" cellpadding="0" cellspacing="0" width="100%">
 		  <tr class="tblcont">
-		    <td width="100%" colspan="3">&nbsp;<? echo $studentcontact_title . " " . $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname . " (" . $primcontinfo->relation_codes_desc . ")" ;?>
+		    <td width="100%" colspan="3">&nbsp;<?php echo $studentcontact_title . " " . $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname . " (" . $primcontinfo->relation_codes_desc . ")" ;?>
 			<? if ($primcontinfo->contact_to_students_residence==1){echo " <font color=#FF0000><b>" . _TEACHER_EDIT_STUDENT_1_RESIDENCE . "</b></font>";}; ?>
 			</td>
 		  </tr>
@@ -224,7 +224,7 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="100%" colspan="3">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_ADDRESS?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="100%" colspan="3">&nbsp;<? echo $primcontinfo->studentcontact_address1 . " " . $primcontinfo->studentcontact_address2 ;?> </td>
+		    <td width="100%" colspan="3">&nbsp;<?php echo $primcontinfo->studentcontact_address1 . " " . $primcontinfo->studentcontact_address2 ;?> </td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_CITY?></td>
@@ -232,9 +232,9 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_ZIP?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $primcontinfo->studentcontact_city ; ?></td>
-		    <td width="33%">&nbsp;<? echo $primcontinfo->studentcontact_state ; ?></td>
-		    <td width="33%">&nbsp;<? echo $primcontinfo->studentcontact_zip ; ?></td>
+		    <td width="34%">&nbsp;<?php echo $primcontinfo->studentcontact_city ; ?></td>
+		    <td width="33%">&nbsp;<?php echo $primcontinfo->studentcontact_state ; ?></td>
+		    <td width="33%">&nbsp;<?php echo $primcontinfo->studentcontact_zip ; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="34%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PHONE1?></td>
@@ -242,20 +242,20 @@ if($addcont=$db->get_results($sSQL)){
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_PHONE3?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<? echo $primcontinfo->studentcontact_phone1 ; ?></td>
-		    <td width="33%">&nbsp;<? echo $primcontinfo->studentcontact_phone2 ; ?></td>
-		    <td width="33%">&nbsp;<? echo $primcontinfo->studentcontact_phone3 ; ?></td>
+		    <td width="34%">&nbsp;<?php echo $primcontinfo->studentcontact_phone1 ; ?></td>
+		    <td width="33%">&nbsp;<?php echo $primcontinfo->studentcontact_phone2 ; ?></td>
+		    <td width="33%">&nbsp;<?php echo $primcontinfo->studentcontact_phone3 ; ?></td>
 		  </tr>
 		  <tr class="tblhead">
 		    <td width="67%" colspan="2">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_EMAIL?></td>
 		    <td width="33%">&nbsp;<?php echo _TEACHER_EDIT_STUDENT_1_WEB_USER?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="67%" colspan="2">&nbsp;<? echo $primcontinfo->studentcontact_email ; ?></td>
+		    <td width="67%" colspan="2">&nbsp;<?php echo $primcontinfo->studentcontact_email ; ?></td>
 		    <td width="33%">&nbsp;<? if($primcontinfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 	</table>
-	<?
+	<?php
 	if ($ac==1){
 	?>
 		<h2><?php echo _TEACHER_EDIT_STUDENT_1_ADD_CONTACTS?></h2>
@@ -268,19 +268,19 @@ if($addcont=$db->get_results($sSQL)){
 		  </tr>
 		  <?foreach($addcontlist as $adc){?>
 			  <tr class="tblcont">
-			    <td width="30%">&nbsp;<? echo $adc->studentcontact_fname; ?></td>
-				<td width="30%">&nbsp;<? echo $adc->studentcontact_lname; if($adc->contact_to_students_residence==1){echo " <font color=#FF0000><b>R</b></font>";}?></td>
-				<td width="15%">&nbsp;<? echo $adc->relation_codes_desc; ?></td>
+			    <td width="30%">&nbsp;<?php echo $adc->studentcontact_fname; ?></td>
+				<td width="30%">&nbsp;<?php echo $adc->studentcontact_lname; if($adc->contact_to_students_residence==1){echo " <font color=#FF0000><b>R</b></font>";}?></td>
+				<td width="15%">&nbsp;<?php echo $adc->relation_codes_desc; ?></td>
 				<td width="15%">&nbsp;<? if($adc->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 				<td width="10%">&nbsp;<a href="teacher_edit_student_2.php?studentid=<?echo $studentid;?>&contactid=<?echo $adc->studentcontact_id; ?>" class="aform"><?php echo _TEACHER_EDIT_STUDENT_1_DETAILS?></a></td>
 			  </tr>
 		  <? };?>
 		</table>
-	<?
+	<?php
 	};
 	?>
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

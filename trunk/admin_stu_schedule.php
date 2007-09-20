@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_stu_schedule.php
 // Admin Section
@@ -131,13 +131,13 @@ class=aform>&nbsp;" . _ADMIN_STU_SCHEDULE_REMOVE . "</a></td></tr>";
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_STU_SCHEDULE_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_STU_SCHEDULE_SURE?>");
 	if (answer == 1) {
 		var url;
 		url = "admin_attendance_codes.php?action=remove&id=" + id;
@@ -153,22 +153,22 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date("l F j, Y"); ?></font></td>
-    <td width="50%"><? echo _ADMIN_STU_SCHEDULE_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date("l F j, Y"); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_STU_SCHEDULE_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_STU_SCHEDULE_TITLE?>&nbsp;<? echo $sfname; ?>&nbsp;<? 
+	<h1><?php echo _ADMIN_STU_SCHEDULE_TITLE?>&nbsp;<?php echo $sfname; ?>&nbsp;<? 
 echo $slname; ?></h1>
 	<br>
-	<?
+	<?php
 	if ($action!="edit"){
 		//Dislay results with paging options
 		$ezr->display();
@@ -179,14 +179,14 @@ echo $slname; ?></h1>
 <form name="addentry" method="POST"
 action="admin_stu_schedule.php?action=add">
 	      <input type="hidden" name="action" value="add">
-	      <input type="hidden" name="studentid" value="<? echo 
+	      <input type="hidden" name="studentid" value="<?php echo 
 $studentid; ?>">
 
                   <td width="100%" class="tdinput" colspan="4">
 <p class="pform"><? _ADMIN_STU_SCHEDULE_ADD_NEW?><br>
 
 <select name="sched_ntry">
-                <?
+                <?php
                 //Display name of subjects from table
                 foreach($schedposs as $schedposs1){
                 
@@ -199,13 +199,13 @@ $schedposs1->grade_terms_desc . " Days " .
 $schedposs1->teacher_schedule_days .
 "</option>\n"; } ?>
         </select>
-	<input type="submit" value="<? echo _ADMIN_STU_SCHEDULE_ADD?>">
+	<input type="submit" value="<?php echo _ADMIN_STU_SCHEDULE_ADD?>">
 	<?}else{
 	};
 ?>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_set_student_year.php
 // Admin Section

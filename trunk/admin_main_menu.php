@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_main_menu.php
 // Admin Section
@@ -30,7 +30,7 @@ if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 
 <?php
 if (file_exists("ads.php")) { include "ads.php"; }
@@ -39,7 +39,7 @@ if (file_exists("ads.php")) { include "ads.php"; }
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
     <td width="50%"><?php echo _ADMIN_MAIN_MENU_UPPER?></td>
   </tr>
 </table>
@@ -50,7 +50,7 @@ if (file_exists("ads.php")) { include "ads.php"; }
 	<p><?php echo _ADMIN_MAIN_MENU_SUBTITLE?></p>
 
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

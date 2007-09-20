@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contact_manage_grades_2.php
 // Contacts Section
@@ -64,59 +64,59 @@ $custom_grade_fields = $db->get_results($custom_grade_sql);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-contact.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<h1><? echo _CONTACT_MANAGE_GRADES_2_TITLE?></h1>
+	<h1><?php echo _CONTACT_MANAGE_GRADES_2_TITLE?></h1>
 	<br>
-	<h2><? echo $grade->studentbio_fname. " " .$grade->studentbio_lname; ?></h2>
+	<h2><?php echo $grade->studentbio_fname. " " .$grade->studentbio_lname; ?></h2>
 	<br>
-	<h2><? echo _CONTACT_MANAGE_GRADES_2_INSERTED?><? echo $grade->web_users_flname; ?></h2>
+	<h2><?php echo _CONTACT_MANAGE_GRADES_2_INSERTED?><? echo $grade->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_SUBJECT?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_SUBJECT?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $grade->school_names_desc ; ?></td>
-	    <td width="50%">&nbsp;<? echo $grade->grade_subject_desc ; 
+	    <td width="50%">&nbsp;<?php echo $grade->school_names_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $grade->grade_subject_desc ; 
 ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_QUARTER?></td>
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_GRADE?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_QUARTER?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_GRADE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $grade->grade_terms_desc ; 
+	    <td width="50%">&nbsp;<?php echo $grade->grade_terms_desc ; 
 ?></td>
-		<td width="50%">&nbsp;<? echo $grade->grade_history_grade 
+		<td width="50%">&nbsp;<?php echo $grade->grade_history_grade 
 ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_EFFORT?></td>
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_CONDUCT?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_EFFORT?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_CONDUCT?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $grade->grade_history_effort ; 
+	    <td width="50%">&nbsp;<?php echo $grade->grade_history_effort ; 
 ?></td>
-		<td width="50%">&nbsp;<? echo 
+		<td width="50%">&nbsp;<?php echo 
 $grade->grade_history_conduct ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_COMMENTS?></td>
+	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_COMMENTS?></td>
 	    <td width="50%">&nbsp;</td>
 	  </tr>
 	  <tr class="tblcont">
@@ -129,25 +129,25 @@ $grade->grade_history_conduct ; ?></td>
 	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="2">&nbsp;<? echo _CONTACT_MANAGE_GRADES_2_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_NOTES?></td>
 	  </tr>
 
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $grade->grade_history_notes ; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $grade->grade_history_notes ; ?></td>
 	  </tr>
 
 	<? //display custom fields added by Joshua
      if(count($custom_grade_fields)) {
-		?><tr><td colspan=2><h2><? echo _CONTACT_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
-		<tr><td colspan=2><table width="100%"><?
+		?><tr><td colspan=2><h2><?php echo _CONTACT_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
+		<tr><td colspan=2><table width="100%"><?php
      	foreach($custom_grade_fields as $custom_grade_field) {
-  			?><tr><td class="tblhead"><?
+  			?><tr><td class="tblhead"><?php
   			echo($custom_grade_field->name);
-  			?>:</td><td class="tblcont"><?
+  			?>:</td><td class="tblcont"><?php
 			echo($custom_grade_field->data);
-     	    	?></td></tr><?
+     	    	?></td></tr><?php
      	 }
-		 ?></table></td></tr><?
+		 ?></table></td></tr><?php
 	} 
 	//end of custom fields
 	?>
@@ -157,13 +157,13 @@ $grade->grade_history_conduct ; ?></td>
 <!--
          <table border="0" cellpadding="0" cellspacing="0" width="100%">
  	  <tr>
- 	    <td width="50%"><a href="contact_manage_grades_1.php?studentid=<? echo $studentid; ?>" class="aform"><?php echo _CONTACT_MANAGE_GRADES_2_BACK?></a></td>
- 	    <td width="50%" align="right"><a href="contact_manage_grades_1.php?studentid=<? echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_GRADES_2_EDIT?></a></td>
+ 	    <td width="50%"><a href="contact_manage_grades_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _CONTACT_MANAGE_GRADES_2_BACK?></a></td>
+ 	    <td width="50%" align="right"><a href="contact_manage_grades_1.php?studentid=<?php echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_GRADES_2_EDIT?></a></td>
  	  </tr>
  	</table>
 -->
 </div>
-<? include "contact_menu.inc.php"; ?>
+<?php include "contact_menu.inc.php"; ?>
 </body>
 
 </html>

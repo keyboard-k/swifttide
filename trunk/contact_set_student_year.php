@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contact_set_student_year.php
 // Contacts Section

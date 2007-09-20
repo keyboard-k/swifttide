@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // health_medicine.php
 // Health Section
@@ -95,7 +95,7 @@ health_medicine ORDER BY health_medicine_desc");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-health.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to submit form and check if field is empty */
@@ -106,12 +106,12 @@ function submitform(fldName)
   if (t.value!="") 
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _HEALTH_MEDICINE_SURE?>");
+	answer = window.confirm("<?php echo _HEALTH_MEDICINE_SURE?>");
 	if (answer == 1) {
 		var url;
 		url = "health_medicine.php?action=remove&id=" + id;
@@ -127,21 +127,21 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _HEALTH_MEDICINE_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _HEALTH_MEDICINE_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _HEALTH_MEDICINE_TITLE?></h1>
+	<h1><?php echo _HEALTH_MEDICINE_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if ($action!="edit"){
 		//Dislay results with paging options
 		$ezr->display();
@@ -149,27 +149,27 @@ function cnfremove(id) {
 		<br>
 		<form name="addattendance" method="post" 
 action="health_medicine.php">						
-		  <p class="pform"><? echo _HEALTH_MEDICINE_ADD_MED?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20">&nbsp;<a class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_ADD?></a>
+		  <p class="pform"><?php echo _HEALTH_MEDICINE_ADD_MED?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20">&nbsp;<a class="aform" href="javascript: submitform('healthname')"><?php echo _HEALTH_MEDICINE_ADD?></a>
 	      <input type="hidden" name="action" value="add">
 	      </p>
 	    </form>
-	<?
+	<?php
 	}else{
 	?>
 		<br>
 		<form name="editattendance" method="post" action="health_medicine.php">						
-		  <p class="pform"><? echo _HEALTH_MEDICINE_UPDATE_MED?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20" value="<? echo $health_medicine_desc; ?>">
-	      &nbsp;<a class="aform" href="javascript: submitform('healthname')"><? echo _HEALTH_MEDICINE_UPDATE?></a>					
+		  <p class="pform"><?php echo _HEALTH_MEDICINE_UPDATE_MED?><br>
+	      <input type="text" onChange="capitalizeMe(this)" name="healthname" size="20" value="<?php echo $health_medicine_desc; ?>">
+	      &nbsp;<a class="aform" href="javascript: submitform('healthname')"><?php echo _HEALTH_MEDICINE_UPDATE?></a>					
 	      <input type="hidden" name="action" value="update">
-		  <input type="hidden" name="id" value="<? echo $health_medicine_id; ?>">
+		  <input type="hidden" name="id" value="<?php echo $health_medicine_id; ?>">
 	      </p>
 	    </form>
-	<?
+	<?php
 	};
 	?>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
 <? if($_SESSION['UserType'] == "A") {
 	include "admin_maint_tables_menu.inc.php";

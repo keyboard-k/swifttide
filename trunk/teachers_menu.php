@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teachers_menu.php
 // Teachers Section
@@ -80,12 +80,12 @@ $ezr->query_mysql($sSQL);
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0" />
+<img src="images/<?php echo _LOGO?>" border="0" />
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -93,16 +93,16 @@ $ezr->query_mysql($sSQL);
 	<h1><?php echo _TEACHERS_MENU_TITLE?></h1>
 	<p><?php echo _TEACHERS_MENU_CHOOSE?></p>
 	<br /></br>
-	<p class="msgdisplay"><? echo $msgteachers; ?></p>
+	<p class="msgdisplay"><?php echo $msgteachers; ?></p>
 
 	<p>&nbsp;</p>
 	
-	<h2><? echo _TEACHERS_MENU_BIRTHDAY?></h2>
+	<h2><?php echo _TEACHERS_MENU_BIRTHDAY?></h2>
 	<br>
 	<p><? $ezr->display();?></p>
 
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

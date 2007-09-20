@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 //Inizialize database functions
 include_once "ez_sql.php";

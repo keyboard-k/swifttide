@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_exams_1.php
 // Admin Section
@@ -132,14 +132,14 @@ $ezr->query_mysql($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <SCRIPT>
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
         var answer;
-	answer = window.confirm("<? echo _ADMIN_ROOMS_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_ROOMS_SURE?>");
 	if (answer == 1) {
 	var url;
 	url = "admin_exams_1?action=remove&examid=" + id;
@@ -153,24 +153,24 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_EXAMS_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_EXAMS_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-        <?
+        <?php
 	if(!strlen($msgFormErr)){
 	?>
-	<h1><? echo _ADMIN_EXAMS_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_EXAMS_1_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	$ezr->display();
 	?>
 	<br>
@@ -178,21 +178,21 @@ function cnfremove(id) {
           <tr>
 	    <td width="50%">&nbsp;</td>
 	    <td width="50%" align="right"><a
-	    href="admin_exams_3.php?action=new" class="aform"><? echo _ADMIN_EXAMS_1_ADD?></a></td>
+	    href="admin_exams_3.php?action=new" class="aform"><?php echo _ADMIN_EXAMS_1_ADD?></a></td>
 	</tr>
 	</table>
-        <?
+        <?php
 	}else{
 	?>
-	<h1><? echo _ERROR?></h1>
+	<h1><?php echo _ERROR?></h1>
         <br>
-        <h3><? echo $msgFormErr; ?></h3>
+        <h3><?php echo $msgFormErr; ?></h3>
 	<br>
-	<?
+	<?php
 	}
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_schedule_students_2.php
 // Admin Section
@@ -104,42 +104,42 @@ $action=get_param("action");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><? echo 
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<b><?php echo 
 date(_DATE_FORMAT); ?></b></font></td>
-    <td width="50%"><b><? echo _ADMIN_SCHEDULE_STUDENT_2_UPPER?></b></td>
+    <td width="50%"><b><?php echo _ADMIN_SCHEDULE_STUDENT_2_UPPER?></b></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_SCHEDULE_STUDENT_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_SCHEDULE_STUDENT_2_TITLE?></h1>
 	<br>
-	<h2><? echo _ADMIN_SCHEDULE_STUDENT_2_CLASS?> <? echo $tfname. " " .$tlname. " " .$subj_desc. " " 
+	<h2><?php echo _ADMIN_SCHEDULE_STUDENT_2_CLASS?> <?php echo $tfname. " " .$tlname. " " .$subj_desc. " " 
 .$term . _ADMIN_SCHEDULE_STUDENT_2_PERIOD . $period ?></h2>
 
-<?
+<?php
 //This line is a bit of a mess, shows extraneous chars on the address line
 //but it does work.  Nice to clean it up at some point
 ?>
 	<form id="add" name="add" method="post" action="admin_student_5.php">
-	<?
+	<?php
 	if (strlen($msgFormErr)){
 		//No results
 	?>
-		<h3><? echo $msgFormErr; ?></h3>
-	<?
+		<h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 		//Dislay results with paging options
 		$ezr->display();
@@ -148,19 +148,19 @@ date(_DATE_FORMAT); ?></b></font></td>
 	<br>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>
-		<td><A class="aform" href="admin_student_1.php"><? echo _ADMIN_SCHEDULE_STUDENT_2_NEW?></a></td>
-		<td align="right"><input type="submit" name="submit" value="<? echo _ADMIN_SCHEDULE_STUDENT_2_ADD?>"></td>
+		<td><A class="aform" href="admin_student_1.php"><?php echo _ADMIN_SCHEDULE_STUDENT_2_NEW?></a></td>
+		<td align="right"><input type="submit" name="submit" value="<?php echo _ADMIN_SCHEDULE_STUDENT_2_ADD?>"></td>
 	  </tr>
 	</table>
 	
-<?
+<?php
 	echo('<input type="hidden" name="id" value="'.$schedid.'">');
 	echo('<input type="hidden" name="schoolid" 
 value="'.$tschool.'">');
 ?>
     </form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

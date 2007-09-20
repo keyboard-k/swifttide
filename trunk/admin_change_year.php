@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_change_year.php
 // Admin Section
@@ -33,13 +33,13 @@ $next_year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to ask confirmation before changing year */
 function confirmchange() {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_CHANGE_YEAR_CONFIRM?>");
+	answer = window.confirm("<?php echo _ADMIN_CHANGE_YEAR_CONFIRM?>");
 	if (answer == 1) {
 		var url;
 		url = "admin_conf_change_year.php"
@@ -53,29 +53,29 @@ function confirmchange() {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_CHANGE_YEAR_CONFIRM?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_CHANGE_YEAR_CONFIRM?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_CHANGE_YEAR_TITLE?></h1>
+	<h1><?php echo _ADMIN_CHANGE_YEAR_TITLE?></h1>
 	<br>
 	<p class="ltext">
-	<? echo _ADMIN_CHANGE_YEAR_TEXT1?><strong><? echo $year; ?></strong><? echo _ADMIN_CHANGE_YEAR_TO?><strong><? echo $next_year;?></strong> ?<br>
-	<? echo _ADMIN_CHANGE_YEAR_TEXT2?><strong><? echo $next_year;?></strong><? echo _ADMIN_CHANGE_YEAR_TEXT3?>
+	<?php echo _ADMIN_CHANGE_YEAR_TEXT1?><strong><?php echo $year; ?></strong><?php echo _ADMIN_CHANGE_YEAR_TO?><strong><?php echo $next_year;?></strong> ?<br>
+	<?php echo _ADMIN_CHANGE_YEAR_TEXT2?><strong><?php echo $next_year;?></strong><?php echo _ADMIN_CHANGE_YEAR_TEXT3?>
 	<br>
-	<? echo _ADMIN_CHANGE_YEAR_TEXT4?>
+	<?php echo _ADMIN_CHANGE_YEAR_TEXT4?>
 	<br><br>
-	<a href="#" onclick="javascript: confirmchange();" class="aform"><? echo _ADMIN_CHANGE_YEAR_CONFIRM2?></a>
+	<a href="#" onclick="javascript: confirmchange();" class="aform"><?php echo _ADMIN_CHANGE_YEAR_CONFIRM2?></a>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -28,7 +28,7 @@ $action = get_param("action");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to check if field is empty */
@@ -39,7 +39,7 @@ function submitform(fldName, frmNumb)
   if (t.value!="") 
 	return true;
   else
-	alert("<? echo _ENTER_VALUE?>");
+	alert("<?php echo _ENTER_VALUE?>");
 	return false;
 }
 
@@ -49,19 +49,19 @@ function submitform(fldName, frmNumb)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_WEBUSERS_TEACHERS_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_WEBUSERS_TEACHERS_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_WEBUSERS_TEACHERS_TITLE?></h1>
+	<h1><?php echo _ADMIN_WEBUSERS_TEACHERS_TITLE?></h1>
 	<br />
 <?php
 	switch ($action) {
@@ -98,8 +98,8 @@ function submitform(fldName, frmNumb)
 	}
 ?>
 <br>
-<a class="aform" href="admin_users_1.php"><? echo _ADMIN_WEBUSERS_TEACHERS_NEW?></a>
+<a class="aform" href="admin_users_1.php"><?php echo _ADMIN_WEBUSERS_TEACHERS_NEW?></a>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 </html>

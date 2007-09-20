@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_config.php
 // Admin Section
@@ -53,40 +53,40 @@ if ($action=="edit"){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script language="JavaScript" src="datepicker.js"></script>
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_CONFIG_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_CONFIG_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_CONFIG_TITLE?></h1>
+	<h1><?php echo _ADMIN_CONFIG_TITLE?></h1>
 	<br>
 <table border="0" cellpadding="1" cellspacing="1" width="100%">
 <form name="config" method="POST" action="admin_config.php">
   <tr class="trform">
-    <td width="100%"><? echo _ADMIN_CONFIG_CURRENT?>: <? echo $cyear; ?> <a href="admin_change_year.php" class="aform"><? echo _ADMIN_CONFIG_NEXT?></a></td>
+    <td width="100%"><?php echo _ADMIN_CONFIG_CURRENT?>: <?php echo $cyear; ?> <a href="admin_change_year.php" class="aform"><?php echo _ADMIN_CONFIG_NEXT?></a></td>
   </tr>
   <tr>
     <td width="100%">
       <table border="1" cellpadding="0" cellspacing="0" width="100%">
         <tr class="trform">
-          <td width="100%">&nbsp;<? echo _ADMIN_CONFIG_LOGIN?></td>
+          <td width="100%">&nbsp;<?php echo _ADMIN_CONFIG_LOGIN?></td>
         </tr>
         <tr>
-          <td width="100%" class="tdinput"><textarea name="messageto_all" cols="46" rows="4"><? echo strip($config->messageto_all); ?></textarea></td>
+          <td width="100%" class="tdinput"><textarea name="messageto_all" cols="46" rows="4"><?php echo strip($config->messageto_all); ?></textarea></td>
         </tr>
       </table>
     </td>
@@ -95,10 +95,10 @@ if ($action=="edit"){
     <td width="100%">
       <table border="1" cellpadding="0" cellspacing="0" width="100%">
         <tr class="trform">
-          <td width="100%">&nbsp;<? echo _ADMIN_CONFIG_TEACHERS?></td>
+          <td width="100%">&nbsp;<?php echo _ADMIN_CONFIG_TEACHERS?></td>
         </tr>
         <tr>
-          <td width="100%" class="tdinput"><textarea name="messageto_teachers" cols="46" rows="4"><? echo strip($config->messageto_teachers); ?></textarea></td>
+          <td width="100%" class="tdinput"><textarea name="messageto_teachers" cols="46" rows="4"><?php echo strip($config->messageto_teachers); ?></textarea></td>
         </tr>
       </table>
     </td>
@@ -107,10 +107,10 @@ if ($action=="edit"){
     <td width="100%">
       <table border="1" cellpadding="0" cellspacing="0" width="100%">
         <tr class="trform">
-          <td width="100%">&nbsp;<? echo _ADMIN_CONFIG_PARENTS?></td>
+          <td width="100%">&nbsp;<?php echo _ADMIN_CONFIG_PARENTS?></td>
         </tr>
         <tr>
-          <td width="100%" class="tdinput"><textarea name="messageto_parents" cols="46" rows="4"><? echo strip($config->messageto_parents); ?> </textarea></td>
+          <td width="100%" class="tdinput"><textarea name="messageto_parents" cols="46" rows="4"><?php echo strip($config->messageto_parents); ?> </textarea></td>
         </tr>
       </table>
     </td>
@@ -120,40 +120,40 @@ if ($action=="edit"){
     <table border=0 cellspacing="3">
     <tr>
       <td>
-      <? echo _ADMIN_CONFIG_DEF_CITY?>:</td>
-      <td><input type="text" onChange="capitalizeMe(this)" name="default_city" size="20" value="<? echo strip($config->default_city); ?>"></td> 
+      <?php echo _ADMIN_CONFIG_DEF_CITY?>:</td>
+      <td><input type="text" onChange="capitalizeMe(this)" name="default_city" size="20" value="<?php echo strip($config->default_city); ?>"></td> 
       <td>
-      <? echo _ADMIN_CONFIG_DEF_STATE?>:</td>
+      <?php echo _ADMIN_CONFIG_DEF_STATE?>:</td>
       <td><select name="default_state">
-	   <?
+	   <?php
 	   //Display states from table
 	   foreach($states as $state){
 	   ?>
-	   <option value="<? echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><? echo $state->state_name; ?></option>
-	   <?
+	   <option value="<?php echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
+	   <?php
 	   };
 	   ?>
 	  </select></td></tr>
     <tr>
       <td>
-      <? echo _ADMIN_CONFIG_DEF_ZIP?>:</td>
-      <td><input type="text" onChange="capitalizeMe(this)" name="default_zip" size="12" value="<? echo strip($config->default_zip); ?>"></td>
+      <?php echo _ADMIN_CONFIG_DEF_ZIP?>:</td>
+      <td><input type="text" onChange="capitalizeMe(this)" name="default_zip" size="12" value="<?php echo strip($config->default_zip); ?>"></td>
       <td>
-      <? echo _ADMIN_CONFIG_DEF_DATE?>:</td>
-      <td><input type="text" size=10 name="default_entry_date" value="<? echo($config->default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('config.default_entry_date');"><a href="javascript:show_calendar('config.default_entry_date');"><img src="images/cal.gif" border="0" class="imma"></a>
+      <?php echo _ADMIN_CONFIG_DEF_DATE?>:</td>
+      <td><input type="text" size=10 name="default_entry_date" value="<?php echo($config->default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('config.default_entry_date');"><a href="javascript:show_calendar('config.default_entry_date');"><img src="images/cal.gif" border="0" class="imma"></a>
     </td></tr>
     </table>
  </td>
   </tr>
   <tr>
-    <td width="100%" align="right"><input type="submit" name="submit" value="<? echo _ADMIN_CONFIG_DEF_UPDATE?>" class="frmbut"></td>
+    <td width="100%" align="right"><input type="submit" name="submit" value="<?php echo _ADMIN_CONFIG_DEF_UPDATE?>" class="frmbut"></td>
 	<input type="hidden" name="action" value="update">
 	</form>
   </tr>
 </table>
 
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 
 </html>

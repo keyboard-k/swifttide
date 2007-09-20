@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_manage_attendance_4.php
 // Teachers Section

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_reports.php
 // Admin Section
@@ -29,7 +29,7 @@ include_once "configuration.php";
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 
 <script language="JavaScript" src="datepicker.js"></script>
@@ -83,63 +83,63 @@ function displayReport() {
 </script>
 
 </head>
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%" align="right"><? echo _ADMIN_REPORTS_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="right"><?php echo _ADMIN_REPORTS_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-<h1><? echo _ADMIN_REPORTS_TITLE?></h1>
+<h1><?php echo _ADMIN_REPORTS_TITLE?></h1>
 <br>
 <form name="report_selection" method="POST" action="<?echo($_SERVER['PHP_SELF']);?>">
 <table border="0" cellpadding="1" cellspacing="1" width="100%">
 <tr class="trform">
 <td>
 <select name="report" onChange="javascript: changeReport()">
-<option value="students"><? echo _ADMIN_REPORTS_STUDENTS?></option>
-<option value="attendance"><? echo _ADMIN_REPORTS_ATTENDANCE?></option>
-<option value="discipline"><? echo _ADMIN_REPORTS_DISCIPLINE?></option>
-<!-- <option value="grades"><? echo _ADMIN_REPORTS_GRADES?></option> -->
+<option value="students"><?php echo _ADMIN_REPORTS_STUDENTS?></option>
+<option value="attendance"><?php echo _ADMIN_REPORTS_ATTENDANCE?></option>
+<option value="discipline"><?php echo _ADMIN_REPORTS_DISCIPLINE?></option>
+<!-- <option value="grades"><?php echo _ADMIN_REPORTS_GRADES?></option> -->
 </select>
-<? echo _ADMIN_REPORTS_SORTED?>
+<?php echo _ADMIN_REPORTS_SORTED?>
 <select name="sorted_1" onChange="javascript: changeSorted_1()">
-<option value="school_names_desc"><? echo _ADMIN_REPORTS_SCHOOL?></option>
-<option value="grades_id"><? echo _ADMIN_REPORTS_GRADES?></option>
-<option value="studentbio_ethnicity"><? echo _ADMIN_REPORTS_ETH?></option>
-<option value="studentbio_gender"><? echo _ADMIN_REPORTS_GENDER?></option>
-<option value="studentbio_bus"><? echo _ADMIN_REPORTS_ROUTE?></option>
-<option value="studentbio_homeroom"><? echo _ADMIN_REPORTS_HOME?></option>
+<option value="school_names_desc"><?php echo _ADMIN_REPORTS_SCHOOL?></option>
+<option value="grades_id"><?php echo _ADMIN_REPORTS_GRADES?></option>
+<option value="studentbio_ethnicity"><?php echo _ADMIN_REPORTS_ETH?></option>
+<option value="studentbio_gender"><?php echo _ADMIN_REPORTS_GENDER?></option>
+<option value="studentbio_bus"><?php echo _ADMIN_REPORTS_ROUTE?></option>
+<option value="studentbio_homeroom"><?php echo _ADMIN_REPORTS_HOME?></option>
 </select>
-<? echo _ADMIN_REPORTS_BY?>
+<?php echo _ADMIN_REPORTS_BY?>
 <select name="sorted_2" onChange="javascript: changeSorted_2()">
-<option value="none"><? echo _ADMIN_REPORTS_NONE?></option>
-<option value="school_names_desc"><? echo _ADMIN_REPORTS_SCHOOL?></option>
-<option value="grades_id"><? echo _ADMIN_REPORTS_GRADES?></option>
-<option value="studentbio_ethnicity"><? echo _ADMIN_REPORTS_ETH?></option>
-<option value="studentbio_gender"><? echo _ADMIN_REPORTS_GENDER?></option>
-<option value="studentbio_bus"><? echo _ADMIN_REPORTS_ROUTE?></option>
-<option value="studentbio_homeroom"><? echo _ADMIN_REPORTS_HOME?></option>
+<option value="none"><?php echo _ADMIN_REPORTS_NONE?></option>
+<option value="school_names_desc"><?php echo _ADMIN_REPORTS_SCHOOL?></option>
+<option value="grades_id"><?php echo _ADMIN_REPORTS_GRADES?></option>
+<option value="studentbio_ethnicity"><?php echo _ADMIN_REPORTS_ETH?></option>
+<option value="studentbio_gender"><?php echo _ADMIN_REPORTS_GENDER?></option>
+<option value="studentbio_bus"><?php echo _ADMIN_REPORTS_ROUTE?></option>
+<option value="studentbio_homeroom"><?php echo _ADMIN_REPORTS_HOME?></option>
 </select>
 </td>
 </tr>
-<tr class="trform"><td><? echo _ADMIN_REPORTS_FROM?> <input type="text" size=10 name="start_date" READONLY onclick="javascript:show_calendar('report_selection.start_date');"><a href="javascript:show_calendar('report_selection.start_date');"><img src="cal.gif" border="0" class="imma"></a> 
-<? echo _ADMIN_REPORTS_TO?> <input type="text" size=10 name="end_date" READONLY onclick="javascript:show_calendar('report_selection.end_date');"><a href="javascript:show_calendar('report_selection.end_date');"><img src="cal.gif" border="0" class="imma"></a>
+<tr class="trform"><td><?php echo _ADMIN_REPORTS_FROM?> <input type="text" size=10 name="start_date" READONLY onclick="javascript:show_calendar('report_selection.start_date');"><a href="javascript:show_calendar('report_selection.start_date');"><img src="cal.gif" border="0" class="imma"></a> 
+<?php echo _ADMIN_REPORTS_TO?> <input type="text" size=10 name="end_date" READONLY onclick="javascript:show_calendar('report_selection.end_date');"><a href="javascript:show_calendar('report_selection.end_date');"><img src="cal.gif" border="0" class="imma"></a>
 </td></tr>
 
 <tr class="trform">
-<td align="left"><input type="submit" name="submit" onClick="return displayReport()" value="<? echo _ADMIN_REPORTS_DOWNLOAD?>" class="frmbut">
+<td align="left"><input type="submit" name="submit" onClick="return displayReport()" value="<?php echo _ADMIN_REPORTS_DOWNLOAD?>" class="frmbut">
 </td></tr>
 </table>
 </form>
 
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

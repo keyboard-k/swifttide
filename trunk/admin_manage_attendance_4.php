@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_manage_attendance_4.php
 // Admin Section

@@ -58,12 +58,12 @@ $q .= " , studentbio_lname ASC";
 $r = $db->get_results($q);
 
 ?>
-<html><title><? echo _REPORT_ATTENDANCE_BROWSER_TITLE?></title>
+<html><title><?php echo _REPORT_ATTENDANCE_BROWSER_TITLE?></title>
 <head>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 </head>
 <body>
-<?
+<?php
 if(is_array($r)) {
 	echo"<table align='center' width='80%' cellpadding=5><th align='center'><h1>" . _REPORT_ATTENDANCE_TITLE . "$start_db_date</h1></th>";
 	$ps1 = "";
@@ -134,7 +134,7 @@ if(is_array($r)) {
 		$ps1 = $s->{$sorted_1};
 	}	
 		
-	?></table></body></html><?
+	?></table></body></html><?php
 } else {
 	echo"<center><h1>" . _REPORT_ATTENDANCE_NONE . "</h2></center>";
 }

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contact_exams.php
 // Contacts Section
@@ -110,33 +110,33 @@ $ezr->query_mysql($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-contact.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"></link><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
 
-	<h1><? echo _CONTACT_EXAMS_TITLE?></h1>
+	<h1><?php echo _CONTACT_EXAMS_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname; ?></h2>
+	<h2><?php echo $sfname. " " .$slname; ?></h2>
 	<br>
 
         <p><? $ezr->display();?></p>
 	<p>&nbsp;</p>
 
 </div>
-<? include "contact_menu.inc.php"; ?>
+<?php include "contact_menu.inc.php"; ?>
 </body>
 
 </html>

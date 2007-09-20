@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_exams_2.php
 // Teacher Section
@@ -64,53 +64,53 @@ $exam=$db->get_row($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _TEACHER_EXAMS_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _TEACHER_EXAMS_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _TEACHER_EXAMS_2_TITLE?></h1>
+	<h1><?php echo _TEACHER_EXAMS_2_TITLE?></h1>
 	<br>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
-	    <td width="35%">&nbsp;<? echo _TEACHER_EXAMS_2_YEAR?></td>
-	    <td width="30%">&nbsp;<? echo _TEACHER_EXAMS_2_SCHOOL?></td>
-	    <td width="35%">&nbsp;<? echo _TEACHER_EXAMS_2_ROOM?></td>
+	    <td width="35%">&nbsp;<?php echo _TEACHER_EXAMS_2_YEAR?></td>
+	    <td width="30%">&nbsp;<?php echo _TEACHER_EXAMS_2_SCHOOL?></td>
+	    <td width="35%">&nbsp;<?php echo _TEACHER_EXAMS_2_ROOM?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="35%">&nbsp;<? echo $exam->school_years_desc; ?></td>
-	    <td width="30%">&nbsp;<? echo $exam->school_names_desc; ?></td>
-	    <td width="35%">&nbsp;<? echo $exam->school_rooms_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $exam->school_years_desc; ?></td>
+	    <td width="30%">&nbsp;<?php echo $exam->school_names_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $exam->school_rooms_desc; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="35%">&nbsp;<? echo _TEACHER_EXAMS_2_DATE?></td>
-	    <td width="30%">&nbsp;<? echo _TEACHER_EXAMS_2_SUBJECT?></td>
-	    <td width="35%">&nbsp;<? echo _TEACHER_EXAMS_2_TYPE?></td>
+	    <td width="35%">&nbsp;<?php echo _TEACHER_EXAMS_2_DATE?></td>
+	    <td width="30%">&nbsp;<?php echo _TEACHER_EXAMS_2_SUBJECT?></td>
+	    <td width="35%">&nbsp;<?php echo _TEACHER_EXAMS_2_TYPE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="35%">&nbsp;<? echo date(_DATE_FORMAT, strtotime($exam->examdate)); ?></td>
-	    <td width="30%">&nbsp;<? echo $exam->grade_subject_desc; ?></td>
-	    <td width="35%">&nbsp;<? echo $exam->exams_types_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo date(_DATE_FORMAT, strtotime($exam->examdate)); ?></td>
+	    <td width="30%">&nbsp;<?php echo $exam->grade_subject_desc; ?></td>
+	    <td width="35%">&nbsp;<?php echo $exam->exams_types_desc; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="3">&nbsp;<? echo _TEACHER_EXAMS_2_TEACHER?></td>
+	    <td width="100%" colspan="3">&nbsp;<?php echo _TEACHER_EXAMS_2_TEACHER?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="3">&nbsp;<? echo $tfname . " " . $tlname; ?></td>
+	    <td width="100%" colspan="3">&nbsp;<?php echo $tfname . " " . $tlname; ?></td>
 	  </tr>
 
 
@@ -119,15 +119,15 @@ $exam=$db->get_row($sSQL);
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a 
-href="teacher_exams_1.php" class="aform"><? echo _TEACHER_EXAMS_2_BACK?></a></td>
+href="teacher_exams_1.php" class="aform"><?php echo _TEACHER_EXAMS_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="teacher_exams_3.php?examid=<? 
 echo $examid; ?>&action=edit" 
-class="aform"><? echo _TEACHER_EXAMS_2_EDIT?></a></td>
+class="aform"><?php echo _TEACHER_EXAMS_2_EDIT?></a></td>
 	  </tr>
 	</table><br><br>
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

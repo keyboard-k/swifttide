@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_manage_attendance_2.php
 // Admin Section
@@ -44,65 +44,65 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MANAGE_ATTENDANCE_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MANAGE_ATTENDANCE_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_MANAGE_ATTENDANCE_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_MANAGE_ATTENDANCE_2_TITLE?></h1>
 	<br>
-	<h2><? echo $attendance->studentbio_fname. " " .$attendance->studentbio_lname; ?></h2>
+	<h2><?php echo $attendance->studentbio_fname. " " .$attendance->studentbio_lname; ?></h2>
 	<br>
-	<h2><? echo _ADMIN_MANAGE_ATTENDANCE_2_INSERTED?><? echo $attendance->web_users_flname; ?></h2>
+	<h2><?php echo _ADMIN_MANAGE_ATTENDANCE_2_INSERTED?><?php echo $attendance->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_2_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_2_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_2_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_2_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $attendance->school_names_desc ; ?></td>
-	    <td width="50%">&nbsp;<? echo $attendance->school_years_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $attendance->school_names_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $attendance->school_years_desc ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_2_CODE?></td>
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_2_DATE?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_2_CODE?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_2_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $attendance->attendance_codes_desc ; ?></td>
-		<td width="50%">&nbsp;<? echo $attendance->attdate ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $attendance->attendance_codes_desc ; ?></td>
+		<td width="50%">&nbsp;<?php echo $attendance->attdate ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="2">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_2_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_2_NOTES?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $attendance->attendance_history_notes ; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $attendance->attendance_history_notes ; ?></td>
 	  </tr>
 	<? //display custom fields added by Joshua
      if(count($custom_attendance_fields)) {
-		?><tr><td colspan=2><h2><? echo _ADMIN_MANAGE_ATTENDANCE_2_CUSTOM_FIELDS?></h2></td></tr>
-		<tr><td colspan=2><table width="100%"><?
+		?><tr><td colspan=2><h2><?php echo _ADMIN_MANAGE_ATTENDANCE_2_CUSTOM_FIELDS?></h2></td></tr>
+		<tr><td colspan=2><table width="100%"><?php
      	foreach($custom_attendance_fields as $custom_attendance_field) {
-  			?><tr><td class="tblhead"><?
+  			?><tr><td class="tblhead"><?php
   			echo($custom_attendance_field->name);
-  			?>:</td><td class="tblcont"><?
+  			?>:</td><td class="tblcont"><?php
 			echo($custom_attendance_field->data);
-     	    	?></td></tr><?
+     	    	?></td></tr><?php
      	 }
-		 ?></table></td></tr><?
+		 ?></table></td></tr><?php
 	} 
 	//end of custom fields
 	?>
@@ -110,12 +110,12 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	<br>	
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_MANAGE_ATTENDANCE_2_BACK?></a></td>
-	    <td width="50%" align="right"><a href="admin_manage_attendance_3.php?studentid=<? echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><? echo _ADMIN_MANAGE_ATTENDANCE_2_EDIT?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_MANAGE_ATTENDANCE_2_BACK?></a></td>
+	    <td width="50%" align="right"><a href="admin_manage_attendance_3.php?studentid=<?php echo $studentid; ?>&attid=<?php echo $attid; ?>&action=edit" class="aform"><?php echo _ADMIN_MANAGE_ATTENDANCE_2_EDIT?></a></td>
 	  </tr>
 	</table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

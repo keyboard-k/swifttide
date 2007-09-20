@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_teacher_1.php
 // Admin Section
@@ -68,7 +68,7 @@ $action=get_param("action");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 
 <SCRIPT language="JavaScript">
@@ -80,7 +80,7 @@ function submitform(fldName, frmNumb)
   if (t.value!="") 
 	return true;
   else
-	alert("<? echo _ENTER_VALUE?>");
+	alert("<?php echo _ENTER_VALUE?>");
 	return false;
 }
 
@@ -90,54 +90,54 @@ function submitform(fldName, frmNumb)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
 
-    <td width="50%"><? echo _ADMIN_TEACHER_1_UPPER?></td>
+    <td width="50%"><?php echo _ADMIN_TEACHER_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_TEACHER_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_TEACHER_1_TITLE?></h1>
 	<br>
-	<a href="admin_add_edit_teacher_1.php?action=new" class="ahead"><? echo _ADMIN_TEACHER_1_ADD_NEW?></a>
+	<a href="admin_add_edit_teacher_1.php?action=new" class="ahead"><?php echo _ADMIN_TEACHER_1_ADD_NEW?></a>
 	<br>
-	<h2><? echo _ADMIN_TEACHER_1_SUBTITLE?></h2>
+	<h2><?php echo _ADMIN_TEACHER_1_SUBTITLE?></h2>
 	<br>
 	<table border="0" cellpadding="1" cellspacing="1" width="100%">
 	  <tr>
 	    <td width="100%" height="45">
 	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	        <tr class="trform">
-	          <td width="50%">&nbsp;<? echo _ADMIN_TEACHER_1_BY_SCHOOL?></td>
-	          <td width="50%">&nbsp;<? echo _ADMIN_TEACHER_1_BY_NAME?></td>
+	          <td width="50%">&nbsp;<?php echo _ADMIN_TEACHER_1_BY_SCHOOL?></td>
+	          <td width="50%">&nbsp;<?php echo _ADMIN_TEACHER_1_BY_NAME?></td>
 		    </tr>
 	        <tr>
 			   <form name="srchid" method="POST" action="admin_teacher_2.php">
 		       <td width="50%" class="tdinput">
 			    <select size="1" name="school">
-				   <option value="" selected=selected><? echo _ADMIN_TEACHER_1_ALL?></option>
-				   <?
+				   <option value="" selected=selected><?php echo _ADMIN_TEACHER_1_ALL?></option>
+				   <?php
 				   //Display Schools from table
 				   foreach($schools as $school){
 				   ?>
-                    <option value="<? echo $school->school_names_id; ?>"><? echo $school->school_names_desc; ?></option>
-				   <?
+                    <option value="<?php echo $school->school_names_id; ?>"><?php echo $school->school_names_desc; ?></option>
+				   <?php
 				   };
 				   ?>
                 </select>
-				<input type="submit" value="<? echo _ADMIN_TEACHER_1_SEARCH?>" name="submit" class="frmbut">
+				<input type="submit" value="<?php echo _ADMIN_TEACHER_1_SEARCH?>" name="submit" class="frmbut">
 			   <input type="hidden" name="action" value="srchschool">
 	          </td>
 			  </form>
 			  <form name="srchlname" method="POST" action="admin_teacher_2.php" onsubmit="return submitform('tlname', 1);">
 		      <td width="50%" class="tdinput">
-		        <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25"><input type="submit" value="<? echo _ADMIN_TEACHER_1_SEARCH?>" name="submit" class="frmbut">
+		        <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25"><input type="submit" value="<?php echo _ADMIN_TEACHER_1_SEARCH?>" name="submit" class="frmbut">
 			    <input type="hidden" name="action" value="srchlname">
 	          </td>
 				</form>
@@ -149,11 +149,11 @@ function submitform(fldName, frmNumb)
 	    <td width="100%">
 	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
 		    <tr class="trform">
-	          <td width="100%" colspan="4">&nbsp;<? echo _ADMIN_TEACHER_1_BY_LAST?></td>
+	          <td width="100%" colspan="4">&nbsp;<?php echo _ADMIN_TEACHER_1_BY_LAST?></td>
 	        </tr>
 			<tr>
 				<td width="100%" align="center">
-				<?
+				<?php
 				for($letters = 'A'; $letters != 'AA'; $letters++)
 				{
 				    echo "<a href='admin_teacher_2.php?action=letter&letter=$letters' class='aform'>$letters</a> &nbsp;";
@@ -166,7 +166,7 @@ function submitform(fldName, frmNumb)
 	</tr>
 	</table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>
