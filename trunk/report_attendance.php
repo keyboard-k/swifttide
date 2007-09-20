@@ -94,7 +94,7 @@ if(is_array($r)) {
 		//display the students name
 		echo"<tr><td align='center'><table border=1 width='100%'>
 			<tr><td><table width='100%'><tr><td><table width='100%'><tr><td class='record_heading'>
-			$s->attendance_codes_desc for $s->studentbio_fname $s->studentbio_lname</td>";
+			$s->attendance_codes_desc " . _REPORT_ATTENDANCE_FOR . " $s->studentbio_fname $s->studentbio_lname</td>";
 		
 		//display the students gender
 		if($sorted_1 != 'studentbio_gender' && $sorted_2 != 'studentbio_gender') 

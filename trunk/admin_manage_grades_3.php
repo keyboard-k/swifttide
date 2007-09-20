@@ -223,7 +223,7 @@ if($termcode->grade_terms_id==$grade->grade_history_quarter){echo
 	  if($action=="new"){
 	  ?>
 	  <tr>
-	    <td width="100%" colspan="2" class="tdinput">&nbsp;Notify Contacts :<input type="checkbox" name="notify" value="1" checked=checked></td>
+	    <td width="100%" colspan="2" class="tdinput">&nbsp;<?php echo _ADMIN_MANAGE_GRADES_3_NOTIFY; ?>:<input type="checkbox" name="notify" value="1" checked=checked></td>
 		<input type="hidden" name="sschool" value="<?php echo $sschoolid; ?>">
 	  </tr>
 	  <?php
