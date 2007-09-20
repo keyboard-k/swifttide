@@ -1,4 +1,4 @@
-<?
+<?php
 /* 
  * encryption and decryption algorythm class
  * for use in any database

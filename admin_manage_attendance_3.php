@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_manage_attendance_3.php
 // Admin Section
@@ -91,7 +91,7 @@ $attendancecodes=$db->get_results("SELECT * FROM attendance_codes ORDER BY atten
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 <SCRIPT language="JavaScript">
@@ -101,7 +101,7 @@ function submitform(fldName1, fldName2)
   var f = document.forms[0];
   var t = f.elements[fldName1]; 
   var y = f.elements[fldName2];
-  if(t.value=="<? echo _ADMIN_MANAGE_ATTENDANCE_3_FORM_ERROR?>" || y.selectedIndex==0){
+  if(t.value=="<?php echo _ADMIN_MANAGE_ATTENDANCE_3_FORM_ERROR?>" || y.selectedIndex==0){
 	  alert('Code and Date should be entered');
 	  return false;
   }
@@ -116,47 +116,47 @@ function submitform(fldName1, fldName2)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MANAGE_ATTENDANCE_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MANAGE_ATTENDANCE_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_MANAGE_ATTENDANCE_3_TITLE?></h1>
+	<h1><?php echo _ADMIN_MANAGE_ATTENDANCE_3_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname ; ?></h2>
+	<h2><?php echo $sfname. " " .$slname ; ?></h2>
 	<br>
-	<h2><? echo _ADMIN_MANAGE_ATTENDANCE_3_INSERTED?><? echo $user; ?></h2>
+	<h2><?php echo _ADMIN_MANAGE_ATTENDANCE_3_INSERTED?><?php echo $user; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	<form name="attendance" method="POST" action="admin_manage_attendance_4.php" onsubmit="return submitform('attdate','attcode');">
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
-	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $sschool ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $cyear ; ?></td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_CODE?></td>
-	    <td width="50%">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_DATE?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_CODE?></td>
+	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%" class="tdinput">
 			  <select name="attcode">
-			  <option><? echo _ADMIN_MANAGE_ATTENDANCE_3_SELECT?></option>
-			   <?
+			  <option><?php echo _ADMIN_MANAGE_ATTENDANCE_3_SELECT?></option>
+			   <?php
 			   //Display attendance codes from table
 			   foreach($attendancecodes as $attendancecode){
 			   ?>
-		       <option value="<? echo $attendancecode->attendance_codes_id; ?>" <? if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><? echo $attendancecode->attendance_codes_desc; ?></option>
-			   <?
+		       <option value="<?php echo $attendancecode->attendance_codes_id; ?>" <? if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><?php echo $attendancecode->attendance_codes_desc; ?></option>
+			   <?php
 			   };
 			   ?>
 			   </select>
@@ -165,19 +165,19 @@ function submitform(fldName1, fldName2)
 		</td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<textarea name="attnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($attendance->attendance_history_notes);};?></textarea></td>
 	  </tr>
-	  <?
+	  <?php
 	  if($action=="new"){
 	  ?>
 	  <tr>
-	    <td width="100%" colspan="2" class="tdinput">&nbsp;<? echo _ADMIN_MANAGE_ATTENDANCE_3_NOTIFY?>:<input type="checkbox" name="notify" value="1" checked=checked></td>
-		<input type="hidden" name="sschool" value="<? echo $sschoolid; ?>">
+	    <td width="100%" colspan="2" class="tdinput">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_NOTIFY?>:<input type="checkbox" name="notify" value="1" checked=checked></td>
+		<input type="hidden" name="sschool" value="<?php echo $sschoolid; ?>">
 	  </tr>
-	  <?
+	  <?php
 	  };
 	  ?>
 	
@@ -186,39 +186,39 @@ function submitform(fldName1, fldName2)
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
 
-	?> <tr class="trform"><td colspan=2><? echo _ADMIN_MANAGE_ATTENDANCE_3_CUSTOM_FIELDS?></td></tr>
-	<tr><td colspan=2><table width="100%"> <?
+	?> <tr class="trform"><td colspan=2><?php echo _ADMIN_MANAGE_ATTENDANCE_3_CUSTOM_FIELDS?></td></tr>
+	<tr><td colspan=2><table width="100%"> <?php
 
     	if($custom_attendance_fields) {
 		foreach($custom_attendance_fields as $custom_attendance_field) {
-			?> <tr><td><select name="custom_fields[<?
+			?> <tr><td><select name="custom_fields[<?php
 			echo($custom_attendance_field->custom_attendance_history_id);
-			?>]"><option value="0"><? echo _ADMIN_MANAGE_ATTENDANCE_3_DELETE?>...</option><?
+			?>]"><option value="0"><?php echo _ADMIN_MANAGE_ATTENDANCE_3_DELETE?>...</option><?php
 			foreach($custom_fields as $custom_field) {
-				?><option value="<? echo($custom_field->custom_field_id);
-				?>" <?
+				?><option value="<?php echo($custom_field->custom_field_id);
+				?>" <?php
 				if($custom_field->custom_field_id == $custom_attendance_field->custom_field_id) {
 					echo" selected";
 				}
-				?>><?
+				?>><?php
 				echo($custom_field->name);
-				?></option><?
+				?></option><?php
 			}
-			?></select></td><td><input type="text" name="custom_attendance_fields[<?
+			?></select></td><td><input type="text" name="custom_attendance_fields[<?php
 	    		echo($custom_attendance_field->custom_attendance_history_id);
-	    		?>]" value="<? echo($custom_attendance_field->data);
-	    		?>" size=70></td></tr> <?
+	    		?>]" value="<?php echo($custom_attendance_field->data);
+	    		?>" size=70></td></tr> <?php
 		} 
 	}
 	?><tr><td><select name="new_custom_field_id">
-	<option value="0" selected><? echo _ADMIN_MANAGE_ATTENDANCE_3_ADD_NEW?>...</option><?
+	<option value="0" selected><?php echo _ADMIN_MANAGE_ATTENDANCE_3_ADD_NEW?>...</option><?php
 	foreach($custom_fields as $custom_field) {
 		?><option value="<?echo($custom_field->custom_field_id);
-		?>"><? echo($custom_field->name);
-		?></option><?
+		?>"><?php echo($custom_field->name);
+		?></option><?php
 	} 
 	?></td><td><input type="text" name="new_custom_field_data" size=70>
-	</td></tr></table></td></tr><?
+	</td></tr></table></td></tr><?php
 	//end custom fields
 	?>
 	
@@ -226,16 +226,16 @@ function submitform(fldName1, fldName2)
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_MANAGE_ATTENDANCE_3_BACK?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_MANAGE_ATTENDANCE_3_BACK?></a></td>
 	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_MANAGE_ATTENDANCE_3_UPDATE;}else{echo _ADMIN_MANAGE_ATTENDANCE_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
-	  <input type="hidden" name="attid" value="<? echo $attid; ?>">
-	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+	  <input type="hidden" name="attid" value="<?php echo $attid; ?>">
+	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

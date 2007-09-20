@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_student_2.php
 // Admin Section
@@ -173,42 +173,42 @@ student_grade_year_year='$current_year' AND studentbio.studentbio_id >0";
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_STUDENT_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_STUDENT_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_STUDENT_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_STUDENT_2_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if (strlen($msgFormErr)){
 		//No results
 	?>
-		<h3><? echo $msgFormErr; ?></h3>
-	<?
+		<h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 		//Dislay results with paging options
 		$ezr->display();
 	};
 	?>
 	<br>
-	<A class="aform" href="admin_student_1.php"><? echo _ADMIN_STUDENT_2_NEW?></a>
+	<A class="aform" href="admin_student_1.php"><?php echo _ADMIN_STUDENT_2_NEW?></a>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

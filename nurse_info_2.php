@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // nurse_info_2.php
 // Health Section
@@ -146,37 +146,37 @@ switch ($action){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-health.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<h1><? echo _NURSE_INFO_2_TITLE?></h1>
+	<h1><?php echo _NURSE_INFO_2_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if (strlen($msgFormErr)){
 		//No results
 	?>
-		<h3><? echo $msgFormErr; ?></h3>
-	<?
+		<h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 		//Dislay results with paging options
 		$ezr->display();
 	};
 	?>
 	<br>
-	<a class="aform" href="nurse_info_1.php"><? echo _NURSE_INFO_2_NEW?></a>					
+	<a class="aform" href="nurse_info_1.php"><?php echo _NURSE_INFO_2_NEW?></a>					
 </div>
 <? if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";

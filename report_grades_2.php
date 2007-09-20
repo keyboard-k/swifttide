@@ -151,7 +151,7 @@ if(is_array($r)) {
 	$pdf=new RCPDF();
 	$pdf->AliasNbPages();
 
-	//echo"<table align='center' width='80%' cellpadding=5><th><? echo _REPORT_GRADES_2_HEADER?></th>";
+	//echo"<table align='center' width='80%' cellpadding=5><th><?php echo _REPORT_GRADES_2_HEADER?></th>";
 	foreach($r as $s) {
 
 		$current_student = $s->studentbio_id;

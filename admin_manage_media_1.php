@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_manage_media_1.php
 // Admin Section
@@ -90,58 +90,58 @@ if(!strlen($studentid)){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MANAGE_MEDIA_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MANAGE_MEDIA_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	if(!strlen($msgFormErr)){
 	?>
-	<h1><? echo _ADMIN_MANAGE_MEDIA_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_MANAGE_MEDIA_1_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname; ?></h2>
+	<h2><?php echo $sfname. " " .$slname; ?></h2>
 	<br>
-	<?
+	<?php
 	$ezr->display();
 	?>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="90%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform">
-	      <? echo _ADMIN_MANAGE_MEDIA_1_BACK?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform">
+	      <?php echo _ADMIN_MANAGE_MEDIA_1_BACK?></a></td>
 	    <td width="50%" align="right">
-	    <a href="admin_manage_media_3.php?studentid=<? echo $studentid; ?>&action=new" class="aform">
-	    <? echo _ADMIN_MANAGE_MEDIA_1_ADD?></a></td>
+	    <a href="admin_manage_media_3.php?studentid=<?php echo $studentid; ?>&action=new" class="aform">
+	    <?php echo _ADMIN_MANAGE_MEDIA_1_ADD?></a></td>
 	  </tr>
 	</table>
 
-	<?
+	<?php
 	}else{
 	?>
-	<h1><? echo _ERROR?></h1>
+	<h1><?php echo _ERROR?></h1>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 	<br>
-	<?
+	<?php
 	};
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

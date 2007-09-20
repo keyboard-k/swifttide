@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_manage_grades_3.php
 // Teachers Section
@@ -62,50 +62,50 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<h1><? echo _GRADE_STUDENT_3_TITLE?></h1>
+	<h1><?php echo _GRADE_STUDENT_3_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname ; ?></h2>
+	<h2><?php echo $sfname. " " .$slname ; ?></h2>
 	<br>
-	<h2><? echo _GRADE_STUDENT_3_TITLE2?>Grade for Term <? echo $term_disp; ?></h2>
+	<h2><?php echo _GRADE_STUDENT_3_TITLE2?>Grade for Term <? echo $term_disp; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="70%">
 	<form name="attendance" method="POST" action="grade_student_4.php">
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
-	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $sschool ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $cyear ; ?></td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_SUBJECT?></td>
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_OVERALL?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_SUBJECT?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_OVERALL?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $subject_disp ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $subject_disp ; ?></td>
 	    <td width="50%" class="tdinput">
             <input type="text" name="overall" onchange="this.value=this.value.toUpperCase();" maxlength="5" size="10" value="<? if($action=="edit"){echo strip($grade->grade_history_effort);};?>">
 	     </td>
           </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_EFFORT?></td>
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_CONDUCT?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_EFFORT?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_CONDUCT?></td>
 	  </tr>
 	  <tr class="tblcont">
 		<td width="50%" class="tdinput">
@@ -116,18 +116,18 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 		</td>	    
 	  </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _GRADE_STUDENT_3_COMMENTS?></td>
+	    <td width="50%">&nbsp;<?php echo _GRADE_STUDENT_3_COMMENTS?></td>
 	    <td width="50%">&nbsp;</td>
 	  </tr>
 	  <tr class="tblcont">
 		<td width="100%" class="tdinput" colspan="2">
 			  <select name="comment1">
-			   <?
+			   <?php
 			   //Display grades codes from table
 			   foreach($gradecodes as $gradecode){
 			   ?>
-		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment1){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
-			   <?
+		       <option value="<?php echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment1){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?php
 			   };
 			   ?>
 			   </select>
@@ -136,12 +136,12 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 		<tr class="tblcont">
 		<td width="100%" class="tdinput" colspan="2">
 			  <select name="comment2">
-			   <?
+			   <?php
 			   //Display grades codes from table
 			   foreach($gradecodes as $gradecode){
 			   ?>
-		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment2){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
-			   <?
+		       <option value="<?php echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment2){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?php
 			   };
 			   ?>
 			   </select>
@@ -150,42 +150,42 @@ $gradecodes=$db->get_results("SELECT * FROM grade_names ORDER BY grade_names_des
 	  <tr class="tblcont">
 	    <td width="100%" class="tdinput" colspan="2">
 			  <select name="comment3">
-			   <?
+			   <?php
 			   //Display grades codes from table
 			   foreach($gradecodes as $gradecode){
 			   ?>
-		       <option value="<? echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment3){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
-			   <?
+		       <option value="<?php echo $gradecode->grade_names_id; ?>" <? if ($gradecode->grade_names_id==$grade->grade_history_comment3){echo "selected=selected";};?>><? echo $gradecode->grade_names_desc; ?></option>
+			   <?php
 			   };
 			   ?>
 			   </select>
 		</td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _GRADE_STUDENT_3_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _GRADE_STUDENT_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<textarea name="gradenotes" cols="40" rows="5"><? if($action=="edit"){echo strip($grade->grade_history_notes);};?></textarea></td>
 	  </tr>
-	  <?
+	  <?php
 	  if($action=="new"){
 	  ?>
 	  <tr>
-	    <td width="100%" colspan="2" class="tdinput">&nbsp;<? echo _GRADE_STUDENT_3_NOTIFY?>:<input type="checkbox" name="notify" value="1" checked=checked></td>
-		<input type="hidden" name="sschool" value="<? echo $sschoolid; ?>">
+	    <td width="100%" colspan="2" class="tdinput">&nbsp;<?php echo _GRADE_STUDENT_3_NOTIFY?>:<input type="checkbox" name="notify" value="1" checked=checked></td>
+		<input type="hidden" name="sschool" value="<?php echo $sschoolid; ?>">
 	  </tr>
-	  <?
+	  <?php
 	  };
 	  ?>
 	<table>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _GRADE_STUDENT_3_BACK?></a></td>
+	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><? echo _GRADE_STUDENT_3_BACK?></a></td>
 	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _GRADE_STUDENT_3_UPDATE;}else{echo _GRADE_STUDENT_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
-	  <input type="hidden" name="gradeid" value="<? echo $gradeid; ?>">
-	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+	  <input type="hidden" name="gradeid" value="<?php echo $gradeid; ?>">
+	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // index.php
 // All Sections
@@ -56,18 +56,18 @@ $msgall=$db->get_var("SELECT messageto_all FROM tbl_config WHERE id=1");
 </head>
 
 <body onLoad="document.forms.login.username.focus()">
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 <div id="Header">
 <table width="100%">
   <tr>
-      <td align="left" width="100%"><? echo "Version " . $release; ?></td>
-      <td align="right" width="100%"><? echo $reldate; ?></td>
+      <td align="left" width="100%"><?php echo "Version " . $release; ?></td>
+      <td align="right" width="100%"><?php echo $reldate; ?></td>
   </tr>
 </table>
 </div>
 
 <div id="loginerr">
-<? echo $msgLogin; ?>
+<?php echo $msgLogin; ?>
 </div>
 <div id="login">
 	<form name="login" method="POST" action="login.php">	
@@ -96,7 +96,7 @@ $msgall=$db->get_var("SELECT messageto_all FROM tbl_config WHERE id=1");
 	<input type="submit" name="submit" value="<?php echo _INDEX_LOGIN?>" class="frmlogin"></form><br><a class="forgot" href="forgot_password.php"><?php echo _INDEX_FORGOT_PASSWORD?> ?</a>
 </div>
 <div id="loginmsg">
-<? echo $msgall; ?>
+<?php echo $msgall; ?>
 </div>
 </body>
 

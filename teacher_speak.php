@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_speak.php
 // Teacher Section
@@ -111,57 +111,57 @@ $own = $db->get_row($sSQL);
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _TEACHER_SPEAK_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _TEACHER_SPEAK_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _TEACHER_SPEAK_TITLE?></h1>
+	<h1><?php echo _TEACHER_SPEAK_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	//Dislay results with paging options
 	$ezr->display();
 	?>
 	<br>
 
 <form name="editspeak" method="post" action="teacher_speak.php">
-<p class="pform"><? echo _TEACHER_SPEAK_UPDATE_SUBJECT?>
+<p class="pform"><?php echo _TEACHER_SPEAK_UPDATE_SUBJECT?>
 <table border="0" cellpadding="0" cellspacing="0"><tr>
 
-<td><b><? echo $tfname . " " . $tlname . ": " ; ?></b></td>
+<td><b><?php echo $tfname . " " . $tlname . ": " ; ?></b></td>
 
 <td>&nbsp;</td>
 
-<td><? echo _TEACHER_SPEAK_DAY?>:</td>
+<td><?php echo _TEACHER_SPEAK_DAY?>:</td>
 <td class="tdinput">
 <select name="day">
 	<? //Display teachers from table
 	foreach($days as $day){
 	?>
-		<option value="<? echo $day->days_id; ?>"
+		<option value="<?php echo $day->days_id; ?>"
 		<? if ($day->days_id==$own->speak_day){echo
-		"selected=selected";};?>><? echo $day->days_desc ?></option>
+		"selected=selected";};?>><?php echo $day->days_desc ?></option>
 	<? }; ?>
 </select>
 </td>
 
 <td>&nbsp;</td>
 
-<td>&nbsp;<? echo _TEACHER_SPEAK_PERIOD?>:</td>
+<td>&nbsp;<?php echo _TEACHER_SPEAK_PERIOD?>:</td>
 <td class="tdinput">
 <select name="period">
 <? for ($i=1; $i<=10; $i++) { ?>
-<option value="<? echo $i; ?>" <?
+<option value="<?php echo $i; ?>" <?php
 if ($i==$own->speak_period) {echo
 "selected=selected";};?>>
-<? echo $i; ?>
+<?php echo $i; ?>
 <? }; ?>
 </select>
 </td>
@@ -169,18 +169,18 @@ if ($i==$own->speak_period) {echo
 <td>&nbsp;</td>
 
 <td>
-&nbsp;<input type=submit value="<? echo _TEACHER_SPEAK_UPDATE?>">
+&nbsp;<input type=submit value="<?php echo _TEACHER_SPEAK_UPDATE?>">
 </td>
 
 </tr></table>
 <input type="hidden" name="action" value="update">
-<input type="hidden" name="id" value="<? echo $own->speak_id; ?>">
+<input type="hidden" name="id" value="<?php echo $own->speak_id; ?>">
 </p>
 </form>
 
 
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

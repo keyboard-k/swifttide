@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // grade_student_4.php
 // Teacher Section
@@ -137,27 +137,27 @@ grade_history_comment2, grade_history_comment3, grade_history_subject) VALUES($s
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<h1> <? echo $msgheader; ?> <? echo _GRADE_STUDENT_4_TITLE?></h1>
+	<h1> <?php echo $msgheader; ?> <? echo _GRADE_STUDENT_4_TITLE?></h1>
 	<br>
-	<a href="javascript:window.close();"><h2><? echo _GRADE_STUDENT_4_CONTINUE?></h2></a>
+	<a href="javascript:window.close();"><h2><?php echo _GRADE_STUDENT_4_CONTINUE?></h2></a>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
 <? if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";

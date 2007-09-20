@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_maint_menu.php
 // Admin Section
@@ -23,7 +23,7 @@ include_once "configuration.php";
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
@@ -31,22 +31,22 @@ include_once "configuration.php";
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MAINT_MENU_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MAINT_MENU_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_MAINT_MENU_TITLE?></h1>
-	<p><? echo _ADMIN_MAINT_MENU_SUBTITLE?></p>
+	<h1><?php echo _ADMIN_MAINT_MENU_TITLE?></h1>
+	<p><?php echo _ADMIN_MAINT_MENU_SUBTITLE?></p>
 
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 
  </html>

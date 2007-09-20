@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_edit_student_3.php
 // Admin Section
@@ -90,7 +90,7 @@ $entries = $db->get_results($entries_sql);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script language="JavaScript" src="datepicker.js"></script>
@@ -105,19 +105,19 @@ $entries = $db->get_results($entries_sql);
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_EDIT_STUDENT_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_EDIT_STUDENT_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_EDIT_STUDENT_3_TITLE?></h1>
+	<h1><?php echo _ADMIN_EDIT_STUDENT_3_TITLE?></h1>
 	<br>
   <table border="0" cellpadding="1" cellspacing="1" width="100%">
     <tr>
@@ -125,29 +125,29 @@ $entries = $db->get_results($entries_sql);
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="35%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_FIRST?></td>
-              <td width="15%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_MIDDLE?></td>
-              <td width="35%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_LAST?></td>
-              <td width="15%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_GEN?></td>
+              <td width="35%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_FIRST?></td>
+              <td width="15%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_MIDDLE?></td>
+              <td width="35%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_LAST?></td>
+              <td width="15%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_GEN?></td>
             </tr>
             <tr>
               <td width="35%" class="tdinput">
-                  <input type="text" onChange="capitalizeMe(this)" name="sfname" size="24" value="<? echo strip($studentinfo->studentbio_fname); ?>">
+                  <input type="text" onChange="capitalizeMe(this)" name="sfname" size="24" value="<?php echo strip($studentinfo->studentbio_fname); ?>">
               </td>
               <td width="15%" class="tdinput">
-                  <input type="text" onChange="capitalizeMe(this)" name="mi" size="8" value="<? echo strip($studentinfo->studentbio_mi); ?>">
+                  <input type="text" onChange="capitalizeMe(this)" name="mi" size="8" value="<?php echo strip($studentinfo->studentbio_mi); ?>">
               </td>
               <td width="35%" class="tdinput">
-                  <input type="text" onChange="capitalizeMe(this)" name="slname" size="24" value="<? echo strip($studentinfo->studentbio_lname); ?>">
+                  <input type="text" onChange="capitalizeMe(this)" name="slname" size="24" value="<?php echo strip($studentinfo->studentbio_lname); ?>">
               </td>
               <td width="15%" class="tdinput">
                   <select size="1" name="generation">
-				   <?
+				   <?php
 				   //Display Generations from table
 				   foreach($generations as $generation){
 				   ?>
-                    <option value="<? echo $generation->generations_id; ?>" <?if ($generation->generations_id==$studentinfo->studentbio_generation){echo "selected=selected";};?>><? echo $generation->generations_desc; ?></option>
-				   <?
+                    <option value="<?php echo $generation->generations_id; ?>" <?if ($generation->generations_id==$studentinfo->studentbio_generation){echo "selected=selected";};?>><?php echo $generation->generations_desc; ?></option>
+				   <?php
 				   };
 				   ?>
                   </select>
@@ -160,27 +160,27 @@ $entries = $db->get_results($entries_sql);
       <td width="100%">
          <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="20%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_GENDER?></td>
-              <td width="35%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_ETHNICITY?></td>
-	      <td width="15%" align="center"><? echo _ADMIN_EDIT_STUDENT_3_ACTIVE?></td>
-              <td width="15%" align="center"><? echo _ADMIN_EDIT_STUDENT_3_HOMED?></td>
-              <td width="15%" align="center"><? echo _ADMIN_EDIT_STUDENT_3_SPED?></td>
+              <td width="20%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_GENDER?></td>
+              <td width="35%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_ETHNICITY?></td>
+	      <td width="15%" align="center"><?php echo _ADMIN_EDIT_STUDENT_3_ACTIVE?></td>
+              <td width="15%" align="center"><?php echo _ADMIN_EDIT_STUDENT_3_HOMED?></td>
+              <td width="15%" align="center"><?php echo _ADMIN_EDIT_STUDENT_3_SPED?></td>
             </tr>
             <tr>
               <td width="20%" class="tdinput">
 			     <select size="1" name="gender">
-			      <option value="<? echo _MALE?>" <? if($studentinfo->studentbio_gender==_MALE){echo "selected=selected";};?>><? echo _MALE?></option>
-                  <option value="<? echo _FEMALE?>" <? if($studentinfo->studentbio_gender==_FEMALE){echo "selected=selected";};?>><? echo _FEMALE?></option>
+			      <option value="<?php echo _MALE?>" <? if($studentinfo->studentbio_gender==_MALE){echo "selected=selected";};?>><?php echo _MALE?></option>
+                  <option value="<?php echo _FEMALE?>" <? if($studentinfo->studentbio_gender==_FEMALE){echo "selected=selected";};?>><?php echo _FEMALE?></option>
                  </select>
               </td>
               <td width="35%" class="tdinput">
 			     <select size="1" name="ethnicity">
-				   <?
+				   <?php
 				   //Display Ethnicities from table
 				   foreach($ethnicities as $ethnicity){
 				   ?>
-                    <option value="<? echo $ethnicity->ethnicity_id; ?>" <?if ($ethnicity->ethnicity_id==$studentinfo->studentbio_ethnicity){echo "selected=selected";};?>><? echo $ethnicity->ethnicity_desc; ?></option>
-				   <?
+                    <option value="<?php echo $ethnicity->ethnicity_id; ?>" <?if ($ethnicity->ethnicity_id==$studentinfo->studentbio_ethnicity){echo "selected=selected";};?>><?php echo $ethnicity->ethnicity_desc; ?></option>
+				   <?php
 				   };
 				   ?>
                  </select>
@@ -196,84 +196,84 @@ $entries = $db->get_results($entries_sql);
 		 </td>
 	   </tr>
 	   <!-- student entry and exit actions by Joshua -->
-	   <tr><td><table cellpadding="0" cellspacing="0" width="100%"><?
+	   <tr><td><table cellpadding="0" cellspacing="0" width="100%"><?php
 	   //display existing entry actions
 	    if(count($entries)) {
-	    		?><tr class="trform"><td><? echo _ADMIN_EDIT_STUDENT_3_ENTRY_RECORD?></td>
-	    		<td><? echo _ADMIN_EDIT_STUDENT_3_NOTES?></td>
-	    		<td align="right"><? echo _ADMIN_EDIT_STUDENT_3_DELETE?></td></tr><?
+	    		?><tr class="trform"><td><?php echo _ADMIN_EDIT_STUDENT_3_ENTRY_RECORD?></td>
+	    		<td><?php echo _ADMIN_EDIT_STUDENT_3_NOTES?></td>
+	    		<td align="right"><?php echo _ADMIN_EDIT_STUDENT_3_DELETE?></td></tr><?php
 	    		foreach($entries as $entry) {
-	    			?><tr class="tblcont"><td><?
+	    			?><tr class="tblcont"><td><?php
 	    			echo(ucwords($entry->action_code));
 	    			if($entry->action_code == 'entry') {echo _ADMIN_EDIT_STUDENT_3_INTO;}
 		    		if($entry->action_code == 'exit') {echo _ADMIN_EDIT_STUDENT_3_FROM;}
 				echo($entry->school_names_desc);
-	    			?> on <? echo($entry->action_date);
-	    			?> for year <? echo($entry->school_years_desc);
-	    			?></td><td><? echo($entry->action_notes);
+	    			?> on <?php echo($entry->action_date);
+	    			?> for year <?php echo($entry->school_years_desc);
+	    			?></td><td><?php echo($entry->action_notes);
 	    			?></td><td align="right">
-	    			<input type="checkbox" name="delete_entry_actions[]" value="<?
+	    			<input type="checkbox" name="delete_entry_actions[]" value="<?php
 	    			echo($entry->entry_actions_id);
-	    			?>"></td></tr><?
+	    			?>"></td></tr><?php
 	    		} 
 	    } else {
-	    		?><tr class="tblhead"><td><? echo _ADMIN_EDIT_STUDENT_3_ENTRY_RECORD?></td><?
+	    		?><tr class="tblhead"><td><?php echo _ADMIN_EDIT_STUDENT_3_ENTRY_RECORD?></td><?php
 	    }
          ?></table></td></tr><tr><td><table border="1" cellpadding="0" cellspacing="0" width="100%">
-	   <tr><td class="tblcont" align="center"><? echo _NEW?> 
+	   <tr><td class="tblcont" align="center"><?php echo _NEW?> 
 	   <input type="checkbox" name="do_new_action" value="1"></td><td class="tblcont">
 	   <select name="new_action_code">
-		   <option value="entry" <?if ($studentinfo->studentbio_active == "0") {echo" selected";}?>><? echo _ADMIN_EDIT_STUDENT_3_ENTRY?>
-		   <option value="exit" <?if($studentinfo->studentbio_active == "1")  {echo" selected";}?>><? echo _ADMIN_EDIT_STUDENT_3_EXIT?>
-	   </select> from <select name="new_action_school"> <?
+		   <option value="entry" <?if ($studentinfo->studentbio_active == "0") {echo" selected";}?>><?php echo _ADMIN_EDIT_STUDENT_3_ENTRY?>
+		   <option value="exit" <?if($studentinfo->studentbio_active == "1")  {echo" selected";}?>><?php echo _ADMIN_EDIT_STUDENT_3_EXIT?>
+	   </select> from <select name="new_action_school"> <?php
 	    	$sq = "SELECT * from school_names";
 	    	$all_schools = $db->get_results($sq);
 	    	foreach($all_schools as $s) {
-	    		?><option value="<? echo($s->school_names_id); ?>" <?
+	    		?><option value="<?php echo($s->school_names_id); ?>" <?php
 	    		if($s->school_names_id == $studentinfo->studentbio_school) {echo" selected";}?>>
-	    	<?echo($s->school_names_desc);?></option><?
+	    	<?echo($s->school_names_desc);?></option><?php
 	    	}
 	   ?> </select>
 	   <br>
-	   <? echo _ADMIN_EDIT_STUDENT_3_ON?> <input type="text" name="new_action_date" size=10 value="<?
+	   <?php echo _ADMIN_EDIT_STUDENT_3_ON?> <input type="text" name="new_action_date" size=10 value="<?php
 	   $default_date_sql = "SELECT default_entry_date FROM tbl_config";
 	   $default_entry_date = $db->get_var($default_date_sql);
 	   echo($default_entry_date); ?>"  READONLY onclick="javascript:show_calendar('addstudent.new_action_date');"><a href="javascript:show_calendar('addstudent.new_action_date');"><img src="images/cal.gif" border="0" class="imma"></a>
-	   <? echo _ADMIN_EDIT_STUDENT_3_FOR_YEAR?><select name="new_action_school_year"><?
+	   <?php echo _ADMIN_EDIT_STUDENT_3_FOR_YEAR?><select name="new_action_school_year"><?php
 	   $syq = "SELECT * FROM school_years";
 	   $all_school_years = $db->get_results($syq);
 	   foreach($all_school_years as $sy) {
-	   	?><option value="<?echo($sy->school_years_id);?>"<?
-	   	if($sy->school_years_id == $current_year) {echo" selected";} ?>><?
+	   	?><option value="<?echo($sy->school_years_id);?>"<?php
+	   	if($sy->school_years_id == $current_year) {echo" selected";} ?>><?php
 	   	echo($sy->school_years_desc);
-	   	?></option><?
+	   	?></option><?php
 	   }
-	   ?></select></td><td class="tblcont"><? echo _ADMIN_EDIT_STUDENT_3_NOTES?>: <input type="text" name="new_action_notes">
+	   ?></select></td><td class="tblcont"><?php echo _ADMIN_EDIT_STUDENT_3_NOTES?>: <input type="text" name="new_action_notes">
 	   	</td></tr></table></td></tr>
 	<tr>
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_SCHOOL; ?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_INTERNAL_ID; ?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHDATE . " (" . _STUDENT_DATE . ")"; ?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_SCHOOL; ?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_INTERNAL_ID; ?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_BIRTHDATE . " (" . _STUDENT_DATE . ")"; ?></td>
 			</tr>
 			<tr>
               <td width="50%" class="tdinput">
 			    <select size="1" name="school">
-				   <?
+				   <?php
 				   //Display Schools from table
 				   foreach($schools as $school){
 				   ?>
-                    <option value="<? echo $school->school_names_id; ?>" <? if($school->school_names_id==$studentinfo->studentbio_school){echo "selected=selected";};?>><? echo $school->school_names_desc; ?></option>
-				   <?
+                    <option value="<?php echo $school->school_names_id; ?>" <? if($school->school_names_id==$studentinfo->studentbio_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
+				   <?php
 				   };
 				   ?>
                 </select>
               </td>
-              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="internalid" size="13" value="<? echo strip($studentinfo->studentbio_internalid); ?>">
+              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="internalid" size="13" value="<?php echo strip($studentinfo->studentbio_internalid); ?>">
               </td>
-              <td width="25%" class="tdinput"><input type="text" name="dob" size="18" value="<? echo $studentinfo->sdob; ?>">
+              <td width="25%" class="tdinput"><input type="text" name="dob" size="18" value="<?php echo $studentinfo->sdob; ?>">
               </td>
             </tr>
           </table>
@@ -283,14 +283,14 @@ $entries = $db->get_results($entries_sql);
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_HOME?></td>
-              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_TEACHER?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_ROUTE?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_HOME?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_TEACHER?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_ROUTE?></td>
 			</tr>
 			<tr>
               <!--
 	      <td width="25%" class="tdinput"><input type="text" 
-onchange="this.value=this.value.toUpperCase();" name="homeroom" size="13" value="<? echo 
+onchange="this.value=this.value.toUpperCase();" name="homeroom" size="13" value="<?php echo 
 strip($studentinfo->school_rooms_desc); ?>">
               </td>
 	      -->
@@ -300,25 +300,25 @@ strip($studentinfo->school_rooms_desc); ?>">
 		//Display rooms from table
 		foreach($rooms as $room){
 		?>
-		<option value="<? echo $room->school_rooms_id; ?>" <? if ($room->school_rooms_id==$studentinfo->studentbio_homeroom){echo "selected=selected";};?>><? echo $room->school_rooms_desc; ?></option>
-		<?
+		<option value="<?php echo $room->school_rooms_id; ?>" <? if ($room->school_rooms_id==$studentinfo->studentbio_homeroom){echo "selected=selected";};?>><?php echo $room->school_rooms_desc; ?></option>
+		<?php
 		}
 		?>
 		</select>
 		</td>
               <td width="50%" class="tdinput">
 			    <select size="1" name="teacher">
-				   <?
+				   <?php
 				   //Display teachers from table
 				   foreach($teachers as $teacher){
 				   ?>
-                    <option value="<? echo $teacher->teachers_id; ?>" <? if($teacher->teachers_id==$studentinfo->studentbio_teacher){echo "selected=selected";};?>><? echo $teacher->teachers_fname." ".$teacher->teachers_lname; ?></option>
-				   <?
+                    <option value="<?php echo $teacher->teachers_id; ?>" <? if($teacher->teachers_id==$studentinfo->studentbio_teacher){echo "selected=selected";};?>><?php echo $teacher->teachers_fname." ".$teacher->teachers_lname; ?></option>
+				   <?php
 				   };
 				   ?>
                 </select>
               </td>
-              <td width="25%" class="tdinput"><input type="text" name="bus" size="18" value="<? echo $studentinfo->studentbio_bus; ?>">
+              <td width="25%" class="tdinput"><input type="text" name="bus" size="18" value="<?php echo $studentinfo->studentbio_bus; ?>">
               </td>
             </tr>
           </table>
@@ -328,16 +328,16 @@ strip($studentinfo->school_rooms_desc); ?>">
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="33%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHCITY?></td>
-              <td width="33%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHSTATE?></td>
-              <td width="34%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_BIRTHCOUNTRY?></td>
+              <td width="33%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_BIRTHCITY?></td>
+              <td width="33%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_BIRTHSTATE?></td>
+              <td width="34%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_BIRTHCOUNTRY?></td>
             </tr>
             <tr>
-              <td width="33%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bcity" size="26" value="<? echo strip($studentinfo->studentbio_birthcity); ?>">
+              <td width="33%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bcity" size="26" value="<?php echo strip($studentinfo->studentbio_birthcity); ?>">
               </td>
-              <td width="33%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bstate" size="24" value="<? echo strip($studentinfo->studentbio_birthstate); ?>">
+              <td width="33%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bstate" size="24" value="<?php echo strip($studentinfo->studentbio_birthstate); ?>">
               </td>
-              <td width="34%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bcountry" size="24" value="<? echo strip($studentinfo->studentbio_birthcountry); ?>">
+              <td width="34%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="bcountry" size="24" value="<?php echo strip($studentinfo->studentbio_birthcountry); ?>">
               </td>
             </tr>
           </table>
@@ -347,13 +347,13 @@ strip($studentinfo->school_rooms_desc); ?>">
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLNAME?></td>
-              <td width="50%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLADDRESS?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLNAME?></td>
+              <td width="50%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLADDRESS?></td>
             </tr>
             <tr>
-              <td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolname" size="33" value="<? echo strip($studentinfo->studentbio_prevschoolname); ?>">
+              <td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolname" size="33" value="<?php echo strip($studentinfo->studentbio_prevschoolname); ?>">
               </td>
-              <td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschooladdress" size="42" value="<? echo strip($studentinfo->studentbio_prevschooladdress); ?>">
+              <td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschooladdress" size="42" value="<?php echo strip($studentinfo->studentbio_prevschooladdress); ?>">
               </td>
             </tr>
           </table>
@@ -363,19 +363,19 @@ strip($studentinfo->school_rooms_desc); ?>">
       <td width="100%">
           <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tr class="trform">
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLCITY?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLSTATE?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLZIP?></td>
-              <td width="25%">&nbsp;<? echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLCOUNTRY?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLCITY?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLSTATE?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLZIP?></td>
+              <td width="25%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_3_PRVS_SCHOOLCOUNTRY?></td>
             </tr>
             <tr>
-              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolcity" size="26" value="<? echo strip($studentinfo->studentbio_prevschoolcity); ?>">
+              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolcity" size="26" value="<?php echo strip($studentinfo->studentbio_prevschoolcity); ?>">
               </td>
-              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolstate" size="17" value="<? echo strip($studentinfo->studentbio_prevschoolstate); ?>">
+              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolstate" size="17" value="<?php echo strip($studentinfo->studentbio_prevschoolstate); ?>">
               </td>
-              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolzip" size="10" value="<? echo strip($studentinfo->studentbio_prevschoolzip); ?>">
+              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolzip" size="10" value="<?php echo strip($studentinfo->studentbio_prevschoolzip); ?>">
               </td>
-              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolcountry" size="24" value="<? echo strip($studentinfo->studentbio_prevschoolcountry); ?>">
+              <td width="25%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="pschoolcountry" size="24" value="<?php echo strip($studentinfo->studentbio_prevschoolcountry); ?>">
               </td>
             </tr>
           </table>
@@ -383,19 +383,19 @@ strip($studentinfo->school_rooms_desc); ?>">
     </tr>
     <tr class="trform">
       <td width="100%">
-		<? echo _ADMIN_EDIT_STUDENT_3_MESSAGE?> (<? echo $current_year_desc; ?>)&nbsp;
+		<?php echo _ADMIN_EDIT_STUDENT_3_MESSAGE?> (<?php echo $current_year_desc; ?>)&nbsp;
 		
 	   <select name="grade">
-	   <?
+	   <?php
 	   //Display grades from table
 	   foreach($grades as $grade){
 	   ?>
-       <option value="<? echo $grade->grades_id; ?>" <? if ($grade->grades_id==$studentinfo->student_grade_year_grade){echo "selected=selected";};?>><? echo $grade->grades_desc; ?></option>
-	   <?
+       <option value="<?php echo $grade->grades_id; ?>" <? if ($grade->grades_id==$studentinfo->student_grade_year_grade){echo "selected=selected";};?>><?php echo $grade->grades_desc; ?></option>
+	   <?php
 	   };
 	   ?>
 	   </select>
-	   <input type="hidden" name="current_year_id" value="<? echo $current_year_id; ?>">
+	   <input type="hidden" name="current_year_id" value="<?php echo $current_year_id; ?>">
 	  </td>
     </tr>
     
@@ -404,50 +404,50 @@ strip($studentinfo->school_rooms_desc); ?>">
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
 
-	?> <tr><td><h2><? echo _ADMIN_EDIT_STUDENT_3_CUSTOM_FIELDS?></h2></td></tr>
-	<tr><td><table width="100%"> <?
+	?> <tr><td><h2><?php echo _ADMIN_EDIT_STUDENT_3_CUSTOM_FIELDS?></h2></td></tr>
+	<tr><td><table width="100%"> <?php
 
     	if($student_custom_fields) {
 		foreach($student_custom_fields as $student_custom_field) {
-			?> <tr><td><select name="custom_fields[<?
+			?> <tr><td><select name="custom_fields[<?php
 			echo($student_custom_field->custom_studentbio_id);
-			?>]"><option value="0"><? echo _ADMIN_EDIT_STUDENT_3_DELETE?>...</option><?
+			?>]"><option value="0"><?php echo _ADMIN_EDIT_STUDENT_3_DELETE?>...</option><?php
 			foreach($custom_fields as $custom_field) {
-				?><option value="<? echo($custom_field->custom_field_id);
-				?>" <?
+				?><option value="<?php echo($custom_field->custom_field_id);
+				?>" <?php
 				if($custom_field->custom_field_id == $student_custom_field->custom_field_id) {
 					echo" selected";
 				}
-				?>><?
+				?>><?php
 				echo($custom_field->name);
-				?></option><?
+				?></option><?php
 			}
-			?></select></td><td><input type="text" name="student_custom_fields[<?
+			?></select></td><td><input type="text" name="student_custom_fields[<?php
 	    		echo($student_custom_field->custom_studentbio_id);
-	    		?>]" value="<? echo($student_custom_field->data);
-	    		?>" size=70></td></tr> <?
+	    		?>]" value="<?php echo($student_custom_field->data);
+	    		?>" size=70></td></tr> <?php
 		} 
 	}
 	?><tr><td><select name="new_custom_field_id">
-	<option value="0" selected><? echo _ADMIN_EDIT_STUDENT_3_ADD_NEW?>...</option><?
+	<option value="0" selected><?php echo _ADMIN_EDIT_STUDENT_3_ADD_NEW?>...</option><?php
 	foreach($custom_fields as $custom_field) {
 		?><option value="<?echo($custom_field->custom_field_id);
-		?>"><? echo($custom_field->name);
-		?></option><?
+		?>"><?php echo($custom_field->name);
+		?></option><?php
 	} 
 	?></td><td><input type="text" name="new_custom_field_data" size=70>
-	</td></tr></table></td></tr><?
+	</td></tr></table></td></tr><?php
 	//end custom fields
 	?>
     <tr>    
       <td width="100%" align="right">
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		  <tr>
-		    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _ADMIN_EDIT_STUDENT_3_BACK?></a>
+		    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_EDIT_STUDENT_3_BACK?></a>
 			</td>
 			<td width="50%" align="right">
-			   <input type="submit" name="submit" value="<? echo _ADMIN_EDIT_STUDENT_3_UPDATE?>" class="frmbut">
-			   <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+			   <input type="submit" name="submit" value="<?php echo _ADMIN_EDIT_STUDENT_3_UPDATE?>" class="frmbut">
+			   <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 			</td>
 		  </tr>
 	   </table>
@@ -456,7 +456,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 	</form>
   </table>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

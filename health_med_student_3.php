@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // health_med_student_3.php
 // Health Section
@@ -91,7 +91,7 @@ health_medicine_desc");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-health.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -106,51 +106,51 @@ health_medicine_desc");
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _HEALTH_MED_STUDENT_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _HEALTH_MED_STUDENT_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _HEALTH_MED_STUDENT_3_TITLE?></h1>
+	<h1><?php echo _HEALTH_MED_STUDENT_3_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname ; ?></h2>
+	<h2><?php echo $sfname. " " .$slname ; ?></h2>
 	<br>
-	<h2><? echo _HEALTH_MED_STUDENT_3_INSERTED?><? echo $user; ?></h2>
+	<h2><?php echo _HEALTH_MED_STUDENT_3_INSERTED?><? echo $user; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	<form name="health" method="POST" action="health_med_student_4.php">
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MED_STUDENT_3_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MED_STUDENT_3_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
-	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $sschool ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $cyear ; ?></td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MED_STUDENT_3_MED?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MED_STUDENT_3_DATE?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_MED?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%" class="tdinput">
 			  <select name="discode">
-			  <option><? echo _HEALTH_MED_STUDENT_3_MED?></option>
-			   <?
+			  <option><?php echo _HEALTH_MED_STUDENT_3_MED?></option>
+			   <?php
 			   //Display medications codes from table
 			   foreach($healthcodes as $healthcode){
 			   ?>
-		       <option value="<? echo 
+		       <option value="<?php echo 
 $healthcode->health_medicine_id; ?>" 
 <? if ($healthcode->health_medicine_id==$health->health_medicine_id){echo 
-"selected=selected";};?>><? echo $healthcode->health_medicine_desc; 
+"selected=selected";};?>><?php echo $healthcode->health_medicine_desc; 
 ?></option>
-			   <?
+			   <?php
 			   };
 			   ?>
 			   </select>
@@ -159,13 +159,13 @@ $healthcode->health_medicine_id; ?>"
 		</td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MED_STUDENT_3_REASON?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_REASON?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disaction" value="<? if($action=="edit"){echo strip($health->health_med_history_reason);};?>"></td>
 	  </tr>	  
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MED_STUDENT_3_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MED_STUDENT_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($health->health_med_history_notes);};?></textarea></td>
@@ -175,15 +175,15 @@ $healthcode->health_medicine_id; ?>"
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _HEALTH_MED_STUDENT_3_BACK?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><? echo _HEALTH_MED_STUDENT_3_BACK?></a></td>
 	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _HEALTH_MED_STUDENT_3_UPDATE_NOTE;}else{echo _HEALTH_MED_STUDENT_3_ADD_NOTE;};?>" class="frmbut"></td>
 	  </tr>
-	  <input type="hidden" name="disid" value="<? echo $disid; ?>">
-	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+	  <input type="hidden" name="disid" value="<?php echo $disid; ?>">
+	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 </div>
-<? include "health_menu.inc.php"; ?>
+<?php include "health_menu.inc.php"; ?>
 </body>
 
 </html>

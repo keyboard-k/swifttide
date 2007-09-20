@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_change_password.php
 // Admin Section
@@ -67,36 +67,36 @@ function submitform(fldName)
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0">
+<img src="images/<?php echo _LOGO?>" border="0">
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $web_users_flname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $web_users_flname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
-	<?
+	<?php
 	if($action=="update"){
 	?>
 	<h1><?php echo _ADMIN_CHANGE_PASSWORD_SUCCESSFUL?></h1>
-	<?
+	<?php
 	}else{
 	?>
 	<h1><?php echo _ADMIN_CHANGE_PASSWORD_TITLE?></h1>
 	<br>
 	<form name="changepass" method="POST" action="admin_change_password.php">
-	<input type="text" size="20" name="password" value="<? echo $tpass; ?>" onchange="this.value=this.value.toLowerCase();">
+	<input type="text" size="20" name="password" value="<?php echo $tpass; ?>" onchange="this.value=this.value.toLowerCase();">
 	<br>
 	<input type="hidden" name="action" value="update">
 	<a class="aform" href="javascript: submitform('password')"><?php echo _ADMIN_CHANGE_PASSWORD_UPDATE?></a>
 	</form>
-	<?
+	<?php
 	};
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

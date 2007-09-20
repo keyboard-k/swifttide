@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_media_codes_3.php
 // Admin Section
@@ -58,31 +58,31 @@ $action=get_param("action");
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_MEDIA_CODES_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_MEDIA_CODES_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	if(!strlen($msgFormErr)){
 	?>
-	<h1><? echo _ADMIN_MEDIA_CODES_2_TITLE?></h1>
+	<h1><?php echo _ADMIN_MEDIA_CODES_2_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	// $ezr->display();
 	// print_r($emails);
 
@@ -125,18 +125,18 @@ echo $mail->ErrorInfo;
 
 	</table>
 
-	<?
+	<?php
 	}else{
 	?>
-	<h1><? echo _ERROR?></h1>
+	<h1><?php echo _ERROR?></h1>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 	<br>
-	<?
+	<?php
 	};
 	?>
 </div>
-<? include "admin_maint_tables_menu.inc.php"; ?>
+<?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 
 </html>

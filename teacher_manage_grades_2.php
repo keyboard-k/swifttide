@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_manage_grades_2.php
 // Teacher Section
@@ -75,22 +75,22 @@ $custom_grade_fields = $db->get_results($custom_grade_sql);
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
 <div id="Content">
 	<h1><?php echo _TEACHER_MANAGE_GRADES_2_TITLE?></h1>
 	<br>
-	<h2><? echo $grade->studentbio_fname. " " .$grade->studentbio_lname; ?></h2>
+	<h2><?php echo $grade->studentbio_fname. " " .$grade->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _TEACHER_MANAGE_GRADES_2_INSERTED?><? echo $grade->web_users_flname; ?> <?php echo _TEACHER_MANAGE_GRADES_2_FOR?> <? 
+	<h2><?php echo _TEACHER_MANAGE_GRADES_2_INSERTED?><?php echo $grade->web_users_flname; ?> <?php echo _TEACHER_MANAGE_GRADES_2_FOR?> <? 
 echo $subject ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
@@ -98,24 +98,24 @@ echo $subject ?></h2>
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $grade->school_names_desc ; ?></td>
-	    <td width="50%">&nbsp;<? echo $grade->school_years_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $grade->school_names_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $grade->school_years_desc ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_TERM?></td>
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_GRADE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $term_disp ; ?></td>
-		<td width="50%">&nbsp;<? echo $grade->grade_history_grade ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $term_disp ; ?></td>
+		<td width="50%">&nbsp;<?php echo $grade->grade_history_grade ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_EFFORT?></td>
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_CONDUCT?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $grade->grade_history_effort ; ?></td>
-		<td width="50%">&nbsp;<? echo $grade->grade_history_conduct ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $grade->grade_history_effort ; ?></td>
+		<td width="50%">&nbsp;<?php echo $grade->grade_history_conduct ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_COMMENTS?></td>
@@ -134,22 +134,22 @@ echo $subject ?></h2>
 	    <td width="100%" colspan="2">&nbsp;<?php echo _TEACHER_MANAGE_GRADES_2_NOTES?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $grade->grade_history_notes ; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $grade->grade_history_notes ; ?></td>
 	  </tr>
 	<table>
 
 	<? //display custom fields added by Joshua
      if(count($custom_grade_fields)) {
 		?><tr><td colspan=2><h2><?php echo _TEACHER_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
-		<tr><td colspan=2><table width="100%"><?
+		<tr><td colspan=2><table width="100%"><?php
      	foreach($custom_grade_fields as $custom_grade_field) {
-  			?><tr><td class="tblhead"><?
+  			?><tr><td class="tblhead"><?php
   			echo($custom_grade_field->name);
-  			?>:</td><td class="tblcont"><?
+  			?>:</td><td class="tblcont"><?php
 			echo($custom_grade_field->data);
-     	    	?></td></tr><?
+     	    	?></td></tr><?php
      	 }
-		 ?></table></td></tr><?
+		 ?></table></td></tr><?php
 	} 
 	//end of custom fields
 	?>
@@ -157,12 +157,12 @@ echo $subject ?></h2>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_BACK?></a></td>
-	    <td width="50%" align="right"><a href="teacher_manage_grades_3.php?studentid=<? echo $studentid; ?>&gradeid=<? echo $gradeid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_EDIT?></a></td>
+	    <td width="50%"><a href="teacher_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_BACK?></a></td>
+	    <td width="50%" align="right"><a href="teacher_manage_grades_3.php?studentid=<?php echo $studentid; ?>&gradeid=<? echo $gradeid; ?>&action=edit" class="aform"><?php echo _TEACHER_MANAGE_GRADES_2_EDIT?></a></td>
 	  </tr>
 	</table>
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -21,17 +21,17 @@ if (!$act) {
 ?>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 </head>
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _GENERATE_REPORT_CARD_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _GENERATE_REPORT_CARD_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
@@ -156,7 +156,7 @@ grade_subject_id=$shemp1";
 if (!$_POST['genrep']) {
 ?>
 <div id="Content">
-<h1><? echo _GENERATE_REPORT_CARD_TITLE?></h1>
+<h1><?php echo _GENERATE_REPORT_CARD_TITLE?></h1>
 <br>
 <form name="stuid" action="generatereportcard.php" method="POST">Choose a Student <select name="studentid">
 <?php
@@ -166,7 +166,7 @@ if (!$_POST['genrep']) {
 	}
 ?>
 </select>
-<input type="submit" value="<? echo _GENERATE_REPORT_CARD_GENERATE?>" name="genrep" /></form>
+<input type="submit" value="<?php echo _GENERATE_REPORT_CARD_GENERATE?>" name="genrep" /></form>
 <?php
 }
 include "admin_menu.inc.php";

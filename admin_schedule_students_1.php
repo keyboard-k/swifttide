@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_schedule_students_1.php
 // Admin Section
@@ -75,7 +75,7 @@ $teachers=$db->get_results($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <SCRIPT language="JavaScript">
 /* Javascript function to check if field is empty */
@@ -86,7 +86,7 @@ function submitform(fldName)
   if (t.value == _ADMIN_SCHEDULE_STUDENT_1_CHOOSE) 
 	f.submit();
   else
-	alert("<? echo _ENTER_VALUE?>");
+	alert("<?php echo _ENTER_VALUE?>");
 }
 
 
@@ -95,50 +95,50 @@ function submitform(fldName)
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body> <img src="images/<? echo _LOGO?>" border="0">
+<body> <img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_SCHEDULE_STUDENT_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_SCHEDULE_STUDENT_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_SCHEDULE_STUDENT_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_SCHEDULE_STUDENT_1_TITLE?></h1>
 	<br>
-	<h2><? echo _ADMIN_SCHEDULE_STUDENT_1_SCHEDULE?>: </h2>
+	<h2><?php echo _ADMIN_SCHEDULE_STUDENT_1_SCHEDULE?>: </h2>
 	<h2><?echo $tfname. " " .$tlname ?></h2>
 	<h2><?echo $subject ?></h2>
 	<h2><?echo $term ?></h2>
-	<h2><? echo _ADMIN_SCHEDULE_STUDENT_1_PERIOD?><?echo $period ?></h2>
+	<h2><?php echo _ADMIN_SCHEDULE_STUDENT_1_PERIOD?><?echo $period ?></h2>
 	<br>
 	  <tr>
 	    <td width="50%" height="21">
 	      <table border="1" cellpadding="0" cellspacing="0" width="100%">
 		    <tr class="trform">
-	          <td width="50%" colspan="4">&nbsp;<? echo _ADMIN_SCHEDULE_STUDENT_1_CHOOSE?></td>
+	          <td width="50%" colspan="4">&nbsp;<?php echo _ADMIN_SCHEDULE_STUDENT_1_CHOOSE?></td>
 	        </tr>
 		    <tr>
 			  <form name="srchall" method="POST" 
 action="admin_schedule_students_2.php">
 	          <td width="50%" class="tdinput" colspan="4">
 			    <select name="grade">
-				   <option value="" selected=selected><? echo _ADMIN_SCHEDULE_STUDENT_1_CHOOSE?></option>
-				   <?
+				   <option value="" selected=selected><?php echo _ADMIN_SCHEDULE_STUDENT_1_CHOOSE?></option>
+				   <?php
 				   //Display grades from table
 				   foreach($grades as $grade){
 				   ?>
-			       <option value="<? echo $grade->grades_id; ?>"><? echo $grade->grades_desc; ?></option>
-				   <?
+			       <option value="<?php echo $grade->grades_id; ?>"><?php echo $grade->grades_desc; ?></option>
+				   <?php
 				   };
 				   ?>
 			    </select>
 		    <tr class="trform">
 			  <td width="25%" class="tdinput" align="center">			  
-	          <input type="submit" value="<? echo _ADMIN_SCHEDULE_STUDENT_1_BUILD?>" name="submit" 
+	          <input type="submit" value="<?php echo _ADMIN_SCHEDULE_STUDENT_1_BUILD?>" name="submit" 
 class="frmbut">
 			  <input type="hidden" name="action" value="srchall"></td>
 			  <input type="hidden" name="schedid" value=<? 
@@ -158,7 +158,7 @@ width="50%">
 	</tr>
 	</table></td> </tr>		
 </div>
-<? include "admin_menu.inc.php";
+<?php include "admin_menu.inc.php";
 ?>
 
 </body>

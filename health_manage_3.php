@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // health_manage_3.php
 // Health Section
@@ -85,7 +85,7 @@ $healthcodes=$db->get_results("SELECT * FROM health_codes ORDER BY health_codes_
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-health.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -100,50 +100,50 @@ $healthcodes=$db->get_results("SELECT * FROM health_codes ORDER BY health_codes_
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _HEALTH_MANAGE_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _HEALTH_MANAGE_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _HEALTH_MANAGE_3_TITLE?></h1>
+	<h1><?php echo _HEALTH_MANAGE_3_TITLE?></h1>
 	<br>
-	<h2><? echo $sfname. " " .$slname ; ?></h2>
+	<h2><?php echo $sfname. " " .$slname ; ?></h2>
 	<br>
-	<h2><? echo _HEALTH_MANAGE_3_INSERTED?><? echo $user; ?></h2>
+	<h2><?php echo _HEALTH_MANAGE_3_INSERTED?><? echo $user; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	<form name="health" method="POST" action="health_manage_4.php">
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_3_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_3_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_3_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_3_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $sschool ; ?></td>
-	    <td width="50%">&nbsp;<? echo $cyear ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $sschool ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $cyear ; ?></td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_3_REASON?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_3_DATE?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_3_REASON?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_3_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%" class="tdinput">
 			  <select name="discode">
-			  <option><? echo _HEALTH_MANAGE_3_SELECT?></option>
-			   <?
+			  <option><?php echo _HEALTH_MANAGE_3_SELECT?></option>
+			   <?php
 			   //Display health codes from table
 			   foreach($healthcodes as $healthcode){
 			   ?>
-		       <option value="<? echo $healthcode->health_codes_id; ?>" 
+		       <option value="<?php echo $healthcode->health_codes_id; ?>" 
 <? if ($healthcode->health_codes_id==$health->health_history_code){echo 
-"selected=selected";};?>><? echo $healthcode->health_codes_desc; 
+"selected=selected";};?>><?php echo $healthcode->health_codes_desc; 
 ?></option>
-			   <?
+			   <?php
 			   };
 			   ?>
 			   </select>
@@ -152,13 +152,13 @@ $healthcodes=$db->get_results("SELECT * FROM health_codes ORDER BY health_codes_
 		</td>
 	  </tr>
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_3_ACTION?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_3_ACTION?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<input type="text" onChange="capitalizeMe(this)" name="disaction" value="<? if($action=="edit"){echo strip($health->health_history_action);};?>"></td>
 	  </tr>	  
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_3_WHO?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_3_WHO?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<input type="text" 
@@ -166,7 +166,7 @@ onChange="capitalizeMe(this)" name="disreporter" value="<?
 if($action=="edit"){echo strip($health->health_history_sentby);};?>"></td>
 	  </tr>	  
 	  <tr class="trform">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_3_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
 	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($health->health_history_notes);};?></textarea></td>
@@ -177,39 +177,39 @@ if($action=="edit"){echo strip($health->health_history_sentby);};?>"></td>
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
 
-	?> <tr class="trform"><td colspan=2><? echo _HEALTH_MANAGE_3_CUSTOM_FIELDS?></td></tr>
-	<tr><td colspan=2><table width="100%"> <?
+	?> <tr class="trform"><td colspan=2><?php echo _HEALTH_MANAGE_3_CUSTOM_FIELDS?></td></tr>
+	<tr><td colspan=2><table width="100%"> <?php
 
     	if($custom_health_fields) {
 		foreach($custom_health_fields as $custom_health_field) {
-			?> <tr><td><select name="custom_fields[<?
+			?> <tr><td><select name="custom_fields[<?php
 			echo($custom_health_field->custom_health_history_id);
-			?>]"><option value="0"><? echo _HEALTH_MANAGE_3_DELETE?>...</option><?
+			?>]"><option value="0"><?php echo _HEALTH_MANAGE_3_DELETE?>...</option><?php
 			foreach($custom_fields as $custom_field) {
-				?><option value="<? echo($custom_field->custom_field_id);
-				?>" <?
+				?><option value="<?php echo($custom_field->custom_field_id);
+				?>" <?php
 				if($custom_field->custom_field_id == $custom_health_field->custom_field_id) {
 					echo" selected";
 				}
-				?>><?
+				?>><?php
 				echo($custom_field->name);
-				?></option><?
+				?></option><?php
 			}
-			?></select></td><td><input type="text" name="custom_health_fields[<?
+			?></select></td><td><input type="text" name="custom_health_fields[<?php
 	    		echo($custom_health_field->custom_health_history_id);
-	    		?>]" value="<? echo($custom_health_field->data);
-	    		?>" size=70></td></tr> <?
+	    		?>]" value="<?php echo($custom_health_field->data);
+	    		?>" size=70></td></tr> <?php
 		} 
 	}
 	?><tr><td><select name="new_custom_field_id">
-	<option value="0" selected><? echo _HEALTH_MANAGE_3_NEW?>...</option><?
+	<option value="0" selected><?php echo _HEALTH_MANAGE_3_NEW?>...</option><?php
 	foreach($custom_fields as $custom_field) {
 		?><option value="<?echo($custom_field->custom_field_id);
-		?>"><? echo($custom_field->name);
-		?></option><?
+		?>"><?php echo($custom_field->name);
+		?></option><?php
 	} 
 	?></td><td><input type="text" name="new_custom_field_data" size=70>
-	</td></tr></table></td></tr><?
+	</td></tr></table></td></tr><?php
 	//end custom fields
 	?>
 
@@ -217,15 +217,15 @@ if($action=="edit"){echo strip($health->health_history_sentby);};?>"></td>
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<? echo $studentid; ?>" class="aform"><? echo _HEALTH_MANAGE_3_BACK?></a></td>
+	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><? echo _HEALTH_MANAGE_3_BACK?></a></td>
 	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _HEALTH_MANAGE_3_UPDATE_NOTE;}else{echo _HEALTH_MANAGE_3_ADD_NOTE;};?>" class="frmbut"></td>
 	  </tr>
-	  <input type="hidden" name="disid" value="<? echo $disid; ?>">
-	  <input type="hidden" name="studentid" value="<? echo $studentid; ?>">
+	  <input type="hidden" name="disid" value="<?php echo $disid; ?>">
+	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 </div>
-<? include "health_menu.inc.php"; ?>
+<?php include "health_menu.inc.php"; ?>
 </body>
 
 </html>

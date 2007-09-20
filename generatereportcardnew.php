@@ -32,17 +32,17 @@ if (!$act) {
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 </head>
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><b><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></b></td>
-    <td width="50%" align="right"><b><? echo _GENERATE_REPORT_CARD_NEW_ADMIN_AREA?></b></td>
+    <td width="50%" align="left"><b><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></b></td>
+    <td width="50%" align="right"><b><?php echo _GENERATE_REPORT_CARD_NEW_ADMIN_AREA?></b></td>
   </tr>
 </table>
 </div>
@@ -368,9 +368,9 @@ if ($act && $studentid) {
 if (!$genrep && !$genbatch) {
 ?>
 <div id="Content">
-<h1><? echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1>
+<h1><?php echo _GENERATE_REPORT_CARD_NEW_TITLE?></h1>
 <br>
-<form name="stuid" action="generatereportcardnew.php" method="POST"><? echo _GENERATE_REPORT_CARD_NEW_CHOOSE?> <select name="studentid">
+<form name="stuid" action="generatereportcardnew.php" method="POST"><?php echo _GENERATE_REPORT_CARD_NEW_CHOOSE?> <select name="studentid">
 <?php
 	$q = mysql_query("select studentbio_id, studentbio_lname, studentbio_fname from studentbio order by studentbio_fname");
 	while ($r = mysql_fetch_array($q)) {
@@ -378,7 +378,7 @@ if (!$genrep && !$genbatch) {
 	}
 ?>
 </select>
-<input type="submit" value="<? echo _GENERATE_REPORT_CARD_NEW_GENERATE?>" name="genrep" class="frmbut" /></form>
+<input type="submit" value="<?php echo _GENERATE_REPORT_CARD_NEW_GENERATE?>" name="genrep" class="frmbut" /></form>
 <br /><br /><br />
 <?php
 }

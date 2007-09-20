@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // contact_chat.php
 // Contact Section
@@ -28,7 +28,7 @@ include_once "configuration.php";
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-contact.css";</style>
 
 <script language="JavaScript">
@@ -44,24 +44,24 @@ function display_chat() {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
 
-    <td width="50%"><? echo _CNOTACT_CHAT_UPPER?></td>
+    <td width="50%"><?php echo _CNOTACT_CHAT_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _CONTACT_CHAT_TITLE?></h1>
+	<h1><?php echo _CONTACT_CHAT_TITLE?></h1>
 	<br>
-	<h3><a href="javascript:display_chat();"><? echo _CONTACT_CHAT_TEXT?></a></h3>
+	<h3><a href="javascript:display_chat();"><?php echo _CONTACT_CHAT_TEXT?></a></h3>
 </div>
-<? include "contact_menu.inc.php"; ?>
+<?php include "contact_menu.inc.php"; ?>
 </body>
 
 </html>

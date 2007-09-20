@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_add_edit_contact_3.php
 // Admin Section
@@ -145,7 +145,7 @@ function submitform(id)
 		   ?>
 		</select>
 		&nbsp;&nbsp;<?php echo _ADMIN_ADD_EDIT_CONTACT_3_RESIDENCE?>: <input type="checkbox" name="residence" value="1"></p>
-	   <?
+	   <?php
    	   //Dislay results with paging options
 	   $ezr->display();
 	};

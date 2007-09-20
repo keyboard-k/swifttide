@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // health_set_student_year.php
 // Health Section

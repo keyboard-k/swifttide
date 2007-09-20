@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_schedule_teach_1.php
 // Admin Section
@@ -111,14 +111,14 @@ ORDER BY grade_terms.grade_terms_desc, days_id, teacher_schedule_classperiod, gr
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <SCRIPT language=JavaScript>
 /* Javascript function to ask confirmation before removing record */
 function cnfremove() {
         var answer;
-	answer = window.confirm("<? echo _ADMIN_ROOMS_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_ROOMS_SURE?>");
 	if (answer == 1) {
 		var url;
 		id = arguments[0];
@@ -136,26 +136,26 @@ function cnfremove() {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_SCHEDULE_TEACH_1_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_SCHEDULE_TEACH_1_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<?
+	<?php
 	if(!strlen($msgFormErr)){
 	?>
-	<h1><? echo _ADMIN_SCHEDULE_TEACH_1_TITLE?></h1>
+	<h1><?php echo _ADMIN_SCHEDULE_TEACH_1_TITLE?></h1>
 	<br>
-	<h2><? echo $tfname. " " .$tlname; ?></h2>
+	<h2><?php echo $tfname. " " .$tlname; ?></h2>
 	<br>
-	<?
+	<?php
 	$ezr->display();
 	?>
 	<br>
@@ -163,20 +163,20 @@ function cnfremove() {
 	  <tr>
 	    <td width="50%"><a 
 href="admin_add_edit_teacher_1.php?teacherid=<? 
-echo $teacherid; ?>&action=edit" class="aform"><? echo _ADMIN_SCHEDULE_TEACH_1_BACK?></a></td>
+echo $teacherid; ?>&action=edit" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_1_BACK?></a></td>
 	    <td width="50%" align="right"><a 
-href="admin_schedule_teach_3.php?teacherid=<? echo $teacherid; 
-?>&action=new" class="aform"><? echo _ADMIN_SCHEDULE_TEACH_1_ADD?></a></td>
+href="admin_schedule_teach_3.php?teacherid=<?php echo $teacherid; 
+?>&action=new" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_1_ADD?></a></td>
 	  </tr>
 	</table>
-	<?
+	<?php
 	}else{
 	?>
-	<h1><? echo _ERROR?></h1>
+	<h1><?php echo _ERROR?></h1>
 	<br>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 	<br>
-	<?
+	<?php
 	};
 	?>
 
@@ -186,7 +186,7 @@ href="admin_schedule_teach_3.php?teacherid=<? echo $teacherid;
 statistics: for each day and period, get the subject and room for the teacher
 -->
 
-<?
+<?php
 if ($terms) {
 foreach ($terms as $term) {
 
@@ -211,10 +211,10 @@ grade_terms_id=$term->teacher_schedule_termid");
 ?>
 
 <table width=100% cellpadding=2 cellspacing=0 border=1>
-<tr class=tblhead><td colspan=6 align=center><? echo $term_desc->grade_terms_desc?></td></tr>
+<tr class=tblhead><td colspan=6 align=center><?php echo $term_desc->grade_terms_desc?></td></tr>
 <tr class=tblhead>
 <td width=10% align=center>&nbsp;</td>
-<?
+<?php
 $weekdays = $db->get_results("SELECT * FROM tbl_days ORDER BY days_id");
 if(is_array($weekdays)) {
   foreach($weekdays as $day) {
@@ -225,7 +225,7 @@ else echo '<td width=15% align=center>Error in table tbl_days</td>';
 ?>
 </tr>
 
-<?
+<?php
 $max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE 
 teacher_schedule_teacherid='$teacherid'");
 
@@ -274,7 +274,7 @@ echo '<br/><br/>';
 
 
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_speak.php
 // Admin Section
@@ -131,7 +131,7 @@ $ezr->results_row = "<tr>
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 
 <SCRIPT language="JavaScript">
@@ -143,12 +143,12 @@ function submitform(fldName)
   if (t.value!="") 
     f.submit();
   else
-    alert("<? echo _ENTER_VALUE?>");
+    alert("<?php echo _ENTER_VALUE?>");
 }
 /* Javascript function to ask confirmation before removing record */
 function cnfremove(id) {
 	var answer;	
-	answer = window.confirm("<? echo _ADMIN_SPEAK_SURE?>");
+	answer = window.confirm("<?php echo _ADMIN_SPEAK_SURE?>");
 	if (answer == 1) {
 		var url;
 		url = "admin_speak.php?action=remove&id=" + id;
@@ -164,127 +164,127 @@ function cnfremove(id) {
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%" align="right"><? echo _ADMIN_SPEAK_ADMIN_AREA?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%" align="right"><?php echo _ADMIN_SPEAK_ADMIN_AREA?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_SPEAK_TITLE?></h1>
+	<h1><?php echo _ADMIN_SPEAK_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if ($action!="edit"){
 		//Dislay results with paging options
 		$ezr->display();
 		?>
 		<br>
 		<form name="addspeak" method="post" action="admin_speak.php">
-		<p class="pform"><? echo _ADMIN_SUBJECTS_ADD_NEW?><br>
+		<p class="pform"><?php echo _ADMIN_SUBJECTS_ADD_NEW?><br>
 		<table border="0" cellpadding="0" cellspacing="5"><tr>
-		<td><? echo _ADMIN_SPEAK_DAY?>:</td>
+		<td><?php echo _ADMIN_SPEAK_DAY?>:</td>
 		<td class="tdinput">
         	  <select name="day">
         	  <? //Display teachers from table
         	  foreach($days as $day){
         	  ?>
-        	    <option value="<? echo $day->days_id; ?>">
-		    <? echo $day->days_desc ?></option>
+        	    <option value="<?php echo $day->days_id; ?>">
+		    <?php echo $day->days_desc ?></option>
 		  <? }; ?>
         	  </select>
 		</td>
-		<td>&nbsp;<? echo _ADMIN_SPEAK_PERIOD?>:</td>
+		<td>&nbsp;<?php echo _ADMIN_SPEAK_PERIOD?>:</td>
 		<td class="tdinput">
 		  <select name="period">
 		  <? for ($i=1; $i<=10; $i++) { ?>
-		    <option value="<? echo $i; ?>">
-		    <? echo $i; ?>
+		    <option value="<?php echo $i; ?>">
+		    <?php echo $i; ?>
 		  <? }; ?>
 		  </select>
 		</td>
-		<td>&nbsp;<? echo _ADMIN_SPEAK_TEACHER?>:</td>
+		<td>&nbsp;<?php echo _ADMIN_SPEAK_TEACHER?>:</td>
 		<td class="tdinput">
         	  <select name="teacherid">
         	  <? //Display teachers from table
         	  foreach($teachers as $teach){
         	  ?>
-        	    <option value="<? echo $teach->teachers_id; ?>" <?
+        	    <option value="<?php echo $teach->teachers_id; ?>" <?php
 		    if ($teach->teachers_id==$teachers->teacherid){echo
-		    "selected=selected";};?>><? echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option>
+		    "selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option>
 		  <? }; ?>
         	  </select>
 		</td>
 		<td>
-		  &nbsp;<input type=submit value="<? echo _ADMIN_SPEAK_ADD?>">
+		  &nbsp;<input type=submit value="<?php echo _ADMIN_SPEAK_ADD?>">
 		</td>
 		</tr></table>
 		<input type="hidden" name="action" value="add">
-		<input type="hidden" name="id" value="<? echo $id; ?>">
+		<input type="hidden" name="id" value="<?php echo $id; ?>">
 		</p>
 		</form>
-	<?
+	<?php
 	}else{
 	?>
 	<br>
 
         <form name="editspeak" method="post" action="admin_speak.php">
-	<p class="pform"><? echo _ADMIN_SPEAK_UPDATE_SUBJECT?><br>
+	<p class="pform"><?php echo _ADMIN_SPEAK_UPDATE_SUBJECT?><br>
 	<table border="0" cellpadding="0" cellspacing="5"><tr>
-	<td><? echo _ADMIN_SPEAK_DAY?>:</td>
+	<td><?php echo _ADMIN_SPEAK_DAY?>:</td>
 	<td class="tdinput">
 	  <select name="day">
 	  <? //Display teachers from table
 	  foreach($days as $day){
 	  ?>
-	    <option value="<? echo $day->days_id; ?>"
+	    <option value="<?php echo $day->days_id; ?>"
 	    <? if ($day->days_id==$editspeak->speak_day){echo
-	    "selected=selected";};?>><? echo $day->days_desc ?></option>
+	    "selected=selected";};?>><?php echo $day->days_desc ?></option>
 	  <? }; ?>
 	  </select>
         </td>
-        <td>&nbsp;<? echo _ADMIN_SPEAK_PERIOD?>:</td>
+        <td>&nbsp;<?php echo _ADMIN_SPEAK_PERIOD?>:</td>
         <td class="tdinput">
 	  <select name="period">
 	  <? for ($i=1; $i<=10; $i++) { ?>
-            <option value="<? echo $i; ?>" <?
+            <option value="<?php echo $i; ?>" <?php
 	    if ($i==$editspeak->speak_period) {echo
 	    "selected=selected";};?>>
-            <? echo $i; ?>
+            <?php echo $i; ?>
           <? }; ?>
           </select>
         </td>
-        <td>&nbsp;<? echo _ADMIN_SPEAK_TEACHER?>:</td>
+        <td>&nbsp;<?php echo _ADMIN_SPEAK_TEACHER?>:</td>
         <td class="tdinput">
           <select name="teacherid">
           <? //Display teachers from table
           foreach($teachers as $teach){
           ?>
-            <option value="<? echo $teach->teachers_id; ?>" <?
+            <option value="<?php echo $teach->teachers_id; ?>" <?php
             if ($teach->teachers_id==$editspeak->speak_teacherid){echo
-            "selected=selected";};?>><? echo $teach->teachers_fname . " " . $teach->teachers_lname; 
+            "selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; 
 ?></option>
           <? }; ?>
           </select>
         </td>
         <td>
-	  &nbsp;<input type=submit value="<? echo _ADMIN_SPEAK_UPDATE?>">
+	  &nbsp;<input type=submit value="<?php echo _ADMIN_SPEAK_UPDATE?>">
         </td>
         </tr></table>
         <input type="hidden" name="action" value="update">
-	<input type="hidden" name="id" value="<? echo $id; ?>">
+	<input type="hidden" name="id" value="<?php echo $id; ?>">
         </p>
         </form>
-	<?
+	<?php
 	};
 	?>
-	<h3><? echo $msgFormErr; ?></h3>
+	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

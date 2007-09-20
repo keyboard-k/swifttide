@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // admin_exams_3.php
 // Admin Section
@@ -99,7 +99,7 @@ if ($action=="edit"){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <script language="JavaScript" src="datepicker.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -107,38 +107,38 @@ if ($action=="edit"){
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _ADMIN_EXAMS_3_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _ADMIN_EXAMS_3_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _ADMIN_EXAMS_3_TITLE?></h1>
+	<h1><?php echo _ADMIN_EXAMS_3_TITLE?></h1>
 	<br>
 
         <table border="1" cellpadding="0" cellspacing="0" width="100%">
 	<form name="exam" method="POST" action="admin_exams_4.php">
 	  <tr class="trform">
-	    <td width="35%">&nbsp;<? echo _ADMIN_EXAMS_3_YEAR?></td>
-	    <td width="30%">&nbsp;<? echo _ADMIN_EXAMS_3_SCHOOL?></td>
-	    <td width="35%">&nbsp;<? echo _ADMIN_EXAMS_3_ROOM?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_EXAMS_3_YEAR?></td>
+	    <td width="30%">&nbsp;<?php echo _ADMIN_EXAMS_3_SCHOOL?></td>
+	    <td width="35%">&nbsp;<?php echo _ADMIN_EXAMS_3_ROOM?></td>
 	  </tr>
 	<tr class="tblcont">
-	  <td width="35%">&nbsp;<? echo $year; ?></td>
+	  <td width="35%">&nbsp;<?php echo $year; ?></td>
 	  <td width="30%" class="tdinput">
 		  <select name="schoolid">
 		<? //Display rooms from table
 		foreach($schoolnames as $schoolname){
 		?>
-		<option value="<? echo $schoolname->school_names_id; ?>" <? 
+		<option value="<?php echo $schoolname->school_names_id; ?>" <? 
 if ($action=="edit" && $schoolname->school_names_id==$exam->exams_schoolid){echo 
-"selected=selected";};?>><? echo $schoolname->school_names_desc; ?></option> 
+"selected=selected";};?>><?php echo $schoolname->school_names_desc; ?></option> 
 <? }; ?>
 		   </select>
 	  </td>
@@ -147,17 +147,17 @@ if ($action=="edit" && $schoolname->school_names_id==$exam->exams_schoolid){echo
 		<? //Display rooms from table
 		foreach($schoolrooms as $room){
 		?>
-		<option value="<? echo $room->school_rooms_id; ?>" <? 
+		<option value="<?php echo $room->school_rooms_id; ?>" <? 
 if ($action=="edit" && $room->school_rooms_id==$exam->exams_roomid){echo 
-"selected=selected";};?>><? echo $room->school_rooms_desc; ?></option> 
+"selected=selected";};?>><?php echo $room->school_rooms_desc; ?></option> 
 <? }; ?>
 		   </select>
 	  </td>
 	</tr>
 	<tr class="tblhead">
-	  <td width="35%">&nbsp;<? echo _ADMIN_EXAMS_3_DATE?></td>
-	  <td width="30%">&nbsp;<? echo _ADMIN_EXAMS_3_SUBJECT?></td>
-	  <td width="35%">&nbsp;<? echo _ADMIN_EXAMS_3_TYPE?></td>
+	  <td width="35%">&nbsp;<?php echo _ADMIN_EXAMS_3_DATE?></td>
+	  <td width="30%">&nbsp;<?php echo _ADMIN_EXAMS_3_SUBJECT?></td>
+	  <td width="35%">&nbsp;<?php echo _ADMIN_EXAMS_3_TYPE?></td>
 	</tr>
 	<tr class="tblcont">
 	  <td width="35%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="examdate" size="10" value="<? if($action=="edit"){echo $exam->examdate;};?>" READONLY onclick="javascript:show_calendar('exam.examdate');"><a href="javascript:show_calendar('exam.examdate');"><img src="images/cal.gif" border="0" class="imma"></a>
@@ -167,9 +167,9 @@ if ($action=="edit" && $room->school_rooms_id==$exam->exams_roomid){echo
 		<? //Display subjects from table
 		foreach($subjectcodes as $subject){
 		?>
-		<option value="<? echo $subject->grade_subject_id; ?>" <? 
+		<option value="<?php echo $subject->grade_subject_id; ?>" <? 
 if ($action=="edit" && $subject->grade_subject_id==$exam->exams_subjectid){echo 
-"selected=selected";};?>><? echo $subject->grade_subject_desc; ?></option> 
+"selected=selected";};?>><?php echo $subject->grade_subject_desc; ?></option> 
 <? }; ?>
 		   </select>
 	  </td>
@@ -178,15 +178,15 @@ if ($action=="edit" && $subject->grade_subject_id==$exam->exams_subjectid){echo
 		<? //Display exams_types from table
 		foreach($examstypes as $type){
 		?>
-		<option value="<? echo $type->exams_types_id; ?>" <? 
+		<option value="<?php echo $type->exams_types_id; ?>" <? 
 if ($action=="edit" && $type->exams_types_id==$exam->exams_typeid){echo 
-"selected=selected";};?>><? echo $type->exams_types_desc; ?></option> 
+"selected=selected";};?>><?php echo $type->exams_types_desc; ?></option> 
 <? }; ?>
 		   </select>
 	  </td>
 	</tr>
 	<tr class="tblhead">
-	  <td colspan="3" width="100%">&nbsp;<? echo _ADMIN_EXAMS_3_TEACHER?></td>
+	  <td colspan="3" width="100%">&nbsp;<?php echo _ADMIN_EXAMS_3_TEACHER?></td>
 	</tr>
 	<tr class="tblcont">
 	  <td colspan="3" width="100%" class="tdinput">
@@ -194,17 +194,17 @@ if ($action=="edit" && $type->exams_types_id==$exam->exams_typeid){echo
 		<? //Display teachers from table
 		foreach($teachers as $teach){
 		?>
-		<option value="<? echo $teach->teachers_id; ?>" <? 
+		<option value="<?php echo $teach->teachers_id; ?>" <? 
 if ($action=="edit" && $teach->teachers_id==$exam->exams_teacherid){echo 
-"selected=selected";};?>><? echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option> 
+"selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option> 
 <? }; ?>
 		</select>
 	  </td>
 	</tr>
-	<?
+	<?php
 	if($action=="new"){
 	?>
-	<?
+	<?php
 	};
 	?>
 
@@ -213,15 +213,15 @@ if ($action=="edit" && $teach->teachers_id==$exam->exams_teacherid){echo
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a 
-href="admin_exams_1.php" class="aform"><? echo _ADMIN_EXAMS_3_BACK?></a></td>
+href="admin_exams_1.php" class="aform"><?php echo _ADMIN_EXAMS_3_BACK?></a></td>
 	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_EXAMS_3_UPDATE;}else{echo _ADMIN_EXAMS_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
-	  <input type="hidden" name="examid" value="<? echo $examid;?>">
+	  <input type="hidden" name="examid" value="<?php echo $examid;?>">
 	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // forgot_password.php
 // All Sections
@@ -63,7 +63,7 @@ if ($action=="retrieve"){
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student.css";</style>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" language="JavaScript" src="sms.js"></script>
@@ -71,13 +71,13 @@ if ($action=="retrieve"){
 
 <body onLoad="document.forms.login.username.focus()">
 <div id="loginerr">
-<? echo $msgFormErr; ?>
+<?php echo $msgFormErr; ?>
 </div>
 <div id="login">
 	<form name="login" method="POST" action="forgot_password.php">
-	<img src=<? echo _FORGOT_PASSWORD_PICTURE_SMALL?> border="0" class="smlogo"><br>
-	<p class="ltext"><? echo _FORGOT_PASSWORD_EMAIL?><br> <input type="text" onchange="this.value=this.value.toLowerCase();" name="forgotemail" size="40"><br>
-	<input type="submit" name="submit" value="<? echo _FORGOT_PASSWORD_SUBMIT?>" class="frmlogin">
+	<img src=<?php echo _FORGOT_PASSWORD_PICTURE_SMALL?> border="0" class="smlogo"><br>
+	<p class="ltext"><?php echo _FORGOT_PASSWORD_EMAIL?><br> <input type="text" onchange="this.value=this.value.toLowerCase();" name="forgotemail" size="40"><br>
+	<input type="submit" name="submit" value="<?php echo _FORGOT_PASSWORD_SUBMIT?>" class="frmlogin">
 	<input type="hidden" name="action" value="retrieve"></form>
 </div>
 </body>

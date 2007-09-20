@@ -112,7 +112,7 @@ $ezr->set_qs_val("schedid", $schedid2);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-admin.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link
 rel="shortcut ico$
@@ -122,27 +122,27 @@ src="sms.js"></script>
 
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-      <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-          <td width="50%"><? echo _ADMIN_STUDENT_5_UPPER?></td>
+      <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+          <td width="50%"><?php echo _ADMIN_STUDENT_5_UPPER?></td>
 	    </tr>
 	    </table>
 	    </div>
 
 <div id="Content">
-        <h1><? echo _ADMIN_STUDENT_5_TITLE?></h1>
+        <h1><?php echo _ADMIN_STUDENT_5_TITLE?></h1>
 	<br>
-	<?
+	<?php
 	if (strlen($msgFormErr)){
 
 		//They tried to add duplicates
 	?>
-		<h3><? echo $msgFormErr; ?></h3>
-	<?
+		<h3><?php echo $msgFormErr; ?></h3>
+	<?php
 	}else{
 		//This line is just a holder.  We want the error, but we
 		//still want the display
@@ -152,10 +152,10 @@ src="sms.js"></script>
 		$ezr->display();
 	?>
 	<br>
-	<A class="aform" href="admin_student_1.php"><? echo _ADMIN_STUDENT_5_BACK?></a>
+	<A class="aform" href="admin_student_1.php"><?php echo _ADMIN_STUDENT_5_BACK?></a>
 	<br>
 	<A class="aform" href="admin_schedule_teach_2.php&teacherid=$teacherid2&schedid=$schedid2">
-	<? echo _ADMIN_STUDENT_5_CHANGE?></a> </div>
-<? include "admin_menu.inc.php"; ?>
+	<?php echo _ADMIN_STUDENT_5_CHANGE?></a> </div>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 </html>

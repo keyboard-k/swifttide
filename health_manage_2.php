@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // health_manage_2.php
 // Health Section
@@ -55,78 +55,78 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title>
+<title><?php echo _BROWSER_TITLE?></title>
 <style type="text/css" media="all">@import "student-health.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
-<body><img src="images/<? echo _LOGO?>" border="0">
+<body><img src="images/<?php echo _LOGO?>" border="0">
 
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><? echo _HEALTH_MANAGE_2_UPPER?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _HEALTH_MANAGE_2_UPPER?></td>
   </tr>
 </table>
 </div>
 
 <div id="Content">
-	<h1><? echo _HEALTH_MANAGE_2_TITLE?></h1>
+	<h1><?php echo _HEALTH_MANAGE_2_TITLE?></h1>
 	<br>
-	<h2><? echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
+	<h2><?php echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
 	<br>
-	<h2><? echo _HEALTH_MANAGE_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
+	<h2><?php echo _HEALTH_MANAGE_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_2_SCHOOL?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_2_YEAR?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_2_SCHOOL?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_2_YEAR?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $discipline->school_names_desc ; ?></td>
-	    <td width="50%">&nbsp;<? echo $discipline->school_years_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $discipline->school_names_desc ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $discipline->school_years_desc ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_2_INCIDENT?></td>
-	    <td width="50%">&nbsp;<? echo _HEALTH_MANAGE_2_DATE?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_2_INCIDENT?></td>
+	    <td width="50%">&nbsp;<?php echo _HEALTH_MANAGE_2_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? echo $discipline->health_codes_desc ; ?></td>
-		<td width="50%">&nbsp;<? echo $discipline->disdate ; ?></td>
+	    <td width="50%">&nbsp;<?php echo $discipline->health_codes_desc ; ?></td>
+		<td width="50%">&nbsp;<?php echo $discipline->disdate ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_2_ACTION?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_2_ACTION?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $discipline->health_history_action ;?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->health_history_action ;?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_2_WHO?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_2_WHO?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $discipline->health_history_sentby ;?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->health_history_sentby ;?></td>
 	  </tr>
 	  <tr class="tblhead">
-	    <td width="100%" colspan="2">&nbsp;<? echo _HEALTH_MANAGE_2_NOTES?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo _HEALTH_MANAGE_2_NOTES?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? echo $discipline->health_history_notes ; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->health_history_notes ; ?></td>
 	  </tr>
 
 	<? //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
-		?><tr><td colspan=2><h2><? echo _HEALTH_MANAGE_2_CUSTOM_FIELDS?></h2></td></tr>
-		<tr><td colspan=2><table width="100%"><?
+		?><tr><td colspan=2><h2><?php echo _HEALTH_MANAGE_2_CUSTOM_FIELDS?></h2></td></tr>
+		<tr><td colspan=2><table width="100%"><?php
      	foreach($custom_discipline_fields as $custom_discipline_field) {
-  			?><tr><td class="tblhead"><?
+  			?><tr><td class="tblhead"><?php
   			echo($custom_discipline_field->name);
-  			?>:</td><td class="tblcont"><?
+  			?>:</td><td class="tblcont"><?php
 			echo($custom_discipline_field->data);
-     	    	?></td></tr><?
+     	    	?></td></tr><?php
      	 }
-		 ?></table></td></tr><?
+		 ?></table></td></tr><?php
 	} 
 	//end of custom fields
 	?>
@@ -135,16 +135,16 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	<br>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
-	    <td width="50%"><a href="health_manage_1.php?studentid=<? echo 
-$studentid; ?>" class="aform"><? echo _HEALTH_MANAGE_2_BACK?></a></td>
+	    <td width="50%"><a href="health_manage_1.php?studentid=<?php echo 
+$studentid; ?>" class="aform"><?php echo _HEALTH_MANAGE_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
-href="health_manage_3.php?studentid=<? echo $studentid; 
+href="health_manage_3.php?studentid=<?php echo $studentid; 
 ?>&disid=<? 
-echo $disid; ?>&action=edit" class="aform"><? echo _HEALTH_MANAGE_2_EDIT?></a></td>
+echo $disid; ?>&action=edit" class="aform"><?php echo _HEALTH_MANAGE_2_EDIT?></a></td>
 	  </tr>
 	</table>
 </div>
-<? include "health_menu.inc.php"; ?>
+<?php include "health_menu.inc.php"; ?>
 </body>
 
 </html>

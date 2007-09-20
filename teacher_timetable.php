@@ -1,4 +1,4 @@
-<?
+<?php
 //*
 // teacher_timetable.php
 // Teachers Section
@@ -83,18 +83,18 @@ $ezr->query_mysql($sSQL);
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title><? echo _BROWSER_TITLE?></title />
+<title><?php echo _BROWSER_TITLE?></title />
 <style type="text/css" media="all">@import "student-teacher.css";</style>
 <link rel="icon" href="favicon.ico" type="image/x-icon"></link><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"></link><script type="text/javascript" language="JavaScript" src="sms.js"></script>
 </head>
 
 <body>
-<img src="images/<? echo _LOGO?>" border="0" />
+<img src="images/<?php echo _LOGO?>" border="0" />
 <div id="Header">
 <table width="100%">
   <tr>
-    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<? echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -109,7 +109,7 @@ $ezr->query_mysql($sSQL);
 statistics: for each day and period, get the subject and room for the teacher
 -->
 
-<?
+<?php
 foreach ($terms as $term) {
 
 // get schedule data
@@ -132,10 +132,10 @@ $term_desc = $db->get_row("SELECT grade_terms_desc FROM grade_terms WHERE grade_
 ?>
 
 <table width=100% cellpadding=2 cellspacing=0 border=1>
-<tr class=tblhead><td colspan=6 align=center><? echo $term_desc->grade_terms_desc?></td></tr>
+<tr class=tblhead><td colspan=6 align=center><?php echo $term_desc->grade_terms_desc?></td></tr>
 <tr class=tblhead>
 <td width=10% align=center>&nbsp;</td>
-<?
+<?php
 $weekdays = $db->get_results("SELECT * FROM tbl_days ORDER BY days_id");
 if(is_array($weekdays)) {
   foreach($weekdays as $day) {
@@ -146,7 +146,7 @@ else echo '<td width=15% align=center>Error in table tbl_days</td>';
 ?>
 </tr>
 
-<?
+<?php
 $max_period = $db->get_var("SELECT MAX(teacher_schedule_classperiod) FROM teacher_schedule WHERE teacher_schedule_teacherid='$id'");
 
 for ($i=1; $i<=$max_period; $i++) {	// up to maximal number of periods a day
@@ -189,7 +189,7 @@ echo '<br/><br/>';
 ?>
 
 </div>
-<? include "teacher_menu.inc.php"; ?>
+<?php include "teacher_menu.inc.php"; ?>
 </body>
 
 </html>

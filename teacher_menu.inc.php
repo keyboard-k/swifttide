@@ -10,12 +10,12 @@ include_once "configuration.php";
 		<td>
 		<table>
 			<tr>
-			<?
+			<?php
 			    include_once "ez_sql.php";
 				$nyear=$_SESSION['CurrentYear'];
 				$cyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$nyear");
 				?>
-			   <td class ="year"><? echo _ADMIN_MAINT_TABLES_MENU_YEAR?> <? echo $cyear; ?></td>
+			   <td class ="year"><?php echo _ADMIN_MAINT_TABLES_MENU_YEAR?> <? echo $cyear; ?></td>
 			</tr>
 			<tr>
 			   <td><hr></td>
