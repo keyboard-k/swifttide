@@ -33,10 +33,10 @@ if (!strlen($action))
 switch ($action){
 	case "remove":
 		$attendance_codes_id=get_param("id");
-		if($norem=$db->get_results("SELECT attendance_history_code FROM attendance_history WHERE attendance_history_code=$attendance_codes_id")){
+		if($norem=$db->get_results("SELECT attendance_history_code FROM attendance_history WHERE attendance_history_code='".$attendance_codes_id."'")){
 			$msgFormErr=_ADMIN_ATTENDANCE_CODES_FORM_ERROR;
 		}else{
-			$sSQL="DELETE FROM attendance_codes WHERE attendance_codes_id=$attendance_codes_id";
+			$sSQL="DELETE FROM attendance_codes WHERE attendance_codes_id='".$attendance_codes_id."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -53,13 +53,13 @@ switch ($action){
 		break;
 	case "edit":
 		$attendance_codes_id=get_param("id");
-		$sSQL="SELECT attendance_codes_desc FROM attendance_codes WHERE attendance_codes_id=$attendance_codes_id";
+		$sSQL="SELECT attendance_codes_desc FROM attendance_codes WHERE attendance_codes_id='".$attendance_codes_id."'";
 		$attendance_codes_desc = $db->get_var($sSQL);
 		break;
 	case "update":
 		$attendance_codes_id=get_param("id");
 		$attendance_codes_desc=get_param("attendancename");
-		$sSQL="UPDATE attendance_codes SET attendance_codes_desc='$attendance_codes_desc' WHERE attendance_codes_id=$attendance_codes_id";
+		$sSQL="UPDATE attendance_codes SET attendance_codes_desc='$attendance_codes_desc' WHERE attendance_codes_id='".$attendance_codes_id."'";
 		$db->query($sSQL);
 		break;
 

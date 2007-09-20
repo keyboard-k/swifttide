@@ -27,7 +27,7 @@ $examid=get_param("examid");
 
 //Get current year
 $cyear=$_SESSION['CurrentYear'];
-// $year = $db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$cyear");
+// $year = $db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='".$cyear."'");
 
 //Get the action and studentid
 $action=get_param("action");

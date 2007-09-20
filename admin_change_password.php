@@ -28,16 +28,16 @@ $user_id=$_SESSION['UserId'];
 $action=get_param("action");
 
 $sSQL="SELECT web_users_flname FROM web_users WHERE 
-web_users_id=$user_id";
+web_users_id='".$user_id."'";
 $web_users_flname=$db->get_var($sSQL);
 
 
 if($action=="update"){
 	$tpass=tosql(get_param("password"), "Text");
-	$sSQL="UPDATE web_users SET web_users_password=$tpass WHERE web_users_id=$user_id";
+	$sSQL="UPDATE web_users SET web_users_password='".$tpass."' WHERE web_users_id='".$user_id."'";
 	$db->query($sSQL);
 }else{
-	$sSQL="SELECT web_users_password FROM web_users WHERE web_users_id=$user_id";
+	$sSQL="SELECT web_users_password FROM web_users WHERE web_users_id='".$user_id."'";
 	$tpass=$db->get_var($sSQL);
 };
 

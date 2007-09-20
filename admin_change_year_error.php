@@ -25,9 +25,9 @@ $error=get_param($msgFormErr);
 
 $current_year=$_SESSION['CurrentYear'];
 
-$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$current_year");
+$year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='".$current_year."'");
 $nextyear=$current_year+1;
-$next_year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$nextyear");
+$next_year=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='".$nextyear."'");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

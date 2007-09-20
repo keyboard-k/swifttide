@@ -64,7 +64,7 @@ include_once "configuration.php";
 				<TD><a href="admin_exams_types.php" title="<?php echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES?>"><?php echo _ADMIN_MAINT_TABLES_MENU_EXAMS_TYPES_TEXT?></a></TD>
 			</TR>
 			<TR>
-				<TD><a href="admin_media_codes.php" title="<?php echo _ADMIN_MAINT_TABLES_MENU_MEDIA?>"><?php echo _ADMIN_MAINT_TABLES_MENU_MEDIA_TEXT?></a></TD>
+				<TD><a href="admin_media_codes_1.php" title="<?php echo _ADMIN_MAINT_TABLES_MENU_MEDIA?>"><?php echo _ADMIN_MAINT_TABLES_MENU_MEDIA_TEXT?></a></TD>
 			</TR>
 			<tr><td><hr></td></tr>
 			<TR>

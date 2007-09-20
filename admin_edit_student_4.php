@@ -98,9 +98,9 @@ if (!strlen($msgFormErr)){
 	if ($dblid=$db->get_row($sSQL)){
 		$msgFormErr.="Internal ID already assigned to ".$dblid->studentbio_fname ." ".$dblid->studentbio_lname ."<br>";
 	}else{
-		$sSQL="UPDATE studentbio SET studentbio_internalid='$internalid', studentbio_active=$active, studentbio_lname=$slname, studentbio_fname=$sfname, studentbio_mi='$mi', studentbio_generation=$generation, studentbio_sped=$sped, studentbio_gender='$gender', studentbio_ethnicity=$ethnicity, studentbio_dob='$dob', studentbio_birthcity=$bcity, studentbio_birthstate=$bstate, studentbio_birthcountry=$bcountry, studentbio_prevschoolname=$pschoolname, studentbio_prevschoolcity=$pschoolcity, studentbio_prevschoolstate=$pschoolstate, studentbio_prevschoolzip=$pschoolzip, studentbio_prevschoolcountry=$pschoolcountry, studentbio_school=$school, studentbio_homed=$homed, studentbio_teacher=$teacher, studentbio_homeroom=$homeroom, studentbio_bus=$bus WHERE studentbio_id=$studentid";
+		$sSQL="UPDATE studentbio SET studentbio_internalid='$internalid', studentbio_active='".$active."', studentbio_lname='".$slname."', studentbio_fname='".$sfname."', studentbio_mi='".$mi."', studentbio_generation='".$generation."', studentbio_sped='".$sped."', studentbio_gender='".$gender."', studentbio_ethnicity='".$ethnicity."', studentbio_dob='".$dob."', studentbio_birthcity='".$bcity."', studentbio_birthstate='".$bstate."', studentbio_birthcountry='".$bcountry."', studentbio_prevschoolname='".$pschoolname."', studentbio_prevschoolcity='".$pschoolcity."', studentbio_prevschoolstate='".$pschoolstate."', studentbio_prevschoolzip='".$pschoolzip."', studentbio_prevschoolcountry='".$pschoolcountry."', studentbio_school='".$school."', studentbio_homed='".$homed."', studentbio_teacher='".$teacher."', studentbio_homeroom='".$homeroom."', studentbio_bus='".$bus."' WHERE studentbio_id='".$studentid."'";
 		$db->query($sSQL);
-		$sSQL="UPDATE student_grade_year SET student_grade_year_grade=$grade WHERE student_grade_year_student=$studentid";
+		$sSQL="UPDATE student_grade_year SET student_grade_year_grade='".$grade."' WHERE student_grade_year_student='".$studentid."'";
 		$db->query($sSQL);
 		
 		//update students custom fields added by Joshua

@@ -33,7 +33,7 @@ $next_year=($current_year+1);
 
 //Is the new year already created??  then don't create it, it will be a mess if we do!
 $tot = $db->get_var("SELECT count(*) FROM student_grade_year WHERE 
-student_grade_year_year=$next_year");
+student_grade_year_year='".$next_year."'");
 //if the new year already exists, error out of script.
 
 	if ($tot>0) {
@@ -83,7 +83,7 @@ mysql_query($sSQL) or die(mysql_error());
 
 //Now we need to "refresh" the contact_to_students table, since new IDs are in the 
 //studentcontact table (an automnumber field)
-//$sSQL="UPDATE contact_to_students, studentcontact SET contact_to_students_contact=studentcontact.studentcontact_id WHERE contact_to_students.contact_to_students_student= studentcontact.studentcontact_studentid AND contact_to_students_year=$next_year";
+//$sSQL="UPDATE contact_to_students, studentcontact SET contact_to_students_contact=studentcontact.studentcontact_id WHERE contact_to_students.contact_to_students_student= studentcontact.studentcontact_studentid AND contact_to_students_year='".$next_year."'";
 
 //mysql_query($sSQL) or die(mysql_error());
 
@@ -98,7 +98,7 @@ mysql_query($sSQL) or die(mysql_error());
 
 //Now all 3 tables should be updated with the new school year data.
 
-$db->query("UPDATE tbl_config SET current_year=$next_year WHERE id=1");
+$db->query("UPDATE tbl_config SET current_year='".$next_year."' WHERE id=1");
 set_session("CurrentYear", $next_year);
 header ("Location: admin_change_year_success.php");
 exit();

@@ -1,6 +1,6 @@
 <?php
 //*
-// admin_media_codes_3.php
+// admin_media_codes_4.php
 // Admin Section
 // Send notifications to contacts of media due within 7 days
 // Version 1.0 Sept 2007 Helmut
@@ -114,7 +114,7 @@ $mail->WordWrap = 70;     // set word wrap
 $mail->Subject  =  $subject;
 $mail->Body = $message;
 // if($mail->Send()){
-//         header("Location: admin_media_codes.php");
+//         header("Location: admin_media_codes_1.php");
 //         exit();
 // };
 echo $mail->ErrorInfo;

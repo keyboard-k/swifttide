@@ -101,7 +101,7 @@ VALUES ('$username', '$password', '$stype', $teacherid, '$flname', 1)";
 	}else{
 		$teacherid=get_param("teacherid");
 		$msg_header=_ADMIN_ADD_EDIT_TEACHER_2_UPDATED;
-		$sSQL="UPDATE teachers SET teachers_fname=".tosql($tfname, "Text").", teachers_lname=".tosql($tlname, "Text").", teachers_mi=".tosql($tmi, "Text").", teachers_school=$school, teachers_title=$title, teachers_email=".tosql($email, "text")."    WHERE teachers_id=$teacherid";
+		$sSQL="UPDATE teachers SET teachers_fname=".tosql($tfname, "Text").", teachers_lname=".tosql($tlname, "Text").", teachers_mi=".tosql($tmi, "Text").", teachers_school='".$school."', teachers_title='".$title."', teachers_email=".tosql($email, "text")."    WHERE teachers_id='".$teacherid."'";
 		$db->query($sSQL);
 		$webid=get_param("webid");
 		if($webid<>""){
@@ -110,7 +110,7 @@ VALUES ('$username', '$password', '$stype', $teacherid, '$flname', 1)";
 web_users_username=".tosql($username, "Text").", 
 web_users_password=".tosql($password, "Text").", 
 web_users_flname=".tosql($flname, "Text").", 
-web_users_type=".tosql($stype, "Text")." WHERE web_users_id=$webid";
+web_users_type=".tosql($stype, "Text")." WHERE web_users_id='".$webid."'";
 		}else{
 		//insert a new record.
 		$sSQL="INSERT INTO web_users (web_users_username, web_users_password, 

@@ -49,8 +49,8 @@ INNER JOIN student_grade_year ON studentbio.studentbio_id = student_grade_year.s
 INNER JOIN grades ON student_grade_year.student_grade_year_grade = grades.grades_id) 
 INNER JOIN teachers ON studentbio.studentbio_teacher = teachers.teachers_id) 
 INNER JOIN school_rooms ON school_rooms_id=studentbio_homeroom 
-WHERE studentbio.studentbio_id=$studentid AND 
-student_grade_year.student_grade_year_year = '$current_year'"; 
+WHERE studentbio.studentbio_id='".$studentid."' 
+AND student_grade_year.student_grade_year_year = '".$current_year."'"; 
 $studentinfo=$db->get_row($sSQL);
 
 $sSQL="SELECT studentcontact_primary FROM studentcontact WHERE studentcontact_studentid='$studentid' AND studentcontact_year='$current_year'";
@@ -102,7 +102,7 @@ $entries = $db->get_results($entries_sql);
 
 //Additional Contacts
 $sSQL="SELECT contact_to_students_contact FROM contact_to_students WHERE 
-contact_to_students_contact<>'$studentinfo->studentbio_primarycontact' AND contact_to_students_student='$studentid' AND contact_to_students_year=$current_year";
+contact_to_students_contact<>'$studentinfo->studentbio_primarycontact' AND contact_to_students_student='$studentid' AND contact_to_students_year='".$current_year."'";
 
 if($addcont=$db->get_results($sSQL)){
 	$ac=1;
@@ -123,8 +123,8 @@ contact_to_students ON studentcontact.studentcontact_id =
 contact_to_students.contact_to_students_contact) INNER JOIN 
 relations_codes ON contact_to_students.contact_to_students_relation = 
 relations_codes.relation_codes_id WHERE 
-contact_to_students_year=$current_year AND studentcontact.studentcontact_id 
-IN ($ylist) AND contact_to_students_student='$studentid'";
+contact_to_students_year='".$current_year."' AND studentcontact.studentcontact_id 
+IN ('".$ylist."') AND contact_to_students_student='".$studentid."'";
 	$addcontlist=$db->get_results($sSQL);	
 }else{
 	$ac=0;

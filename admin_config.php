@@ -25,7 +25,7 @@ $states=$db->get_results("SELECT * FROM tbl_states ORDER BY state_code");
 
 //Get current year
 $nyear=$_SESSION['CurrentYear'];
-$cyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id=$nyear");
+$cyear=$db->get_var("SELECT school_years_desc FROM school_years WHERE school_years_id='".$nyear."'");
 
 $action=get_param("action");
 
