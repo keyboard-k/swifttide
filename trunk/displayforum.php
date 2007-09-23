@@ -45,7 +45,7 @@ $myforum=new myphpforum();
 $myforum->display();
 ?>
 </div>
-<? 
+<?php 
 $usertype=$_SESSION['UserType'];
 switch ($usertype){
 	case "A":

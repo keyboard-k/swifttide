@@ -169,8 +169,8 @@ $entries = $db->get_results($entries_sql);
             <tr>
               <td width="20%" class="tdinput">
 			     <select size="1" name="gender">
-			      <option value="<?php echo _MALE?>" <? if($studentinfo->studentbio_gender==_MALE){echo "selected=selected";};?>><?php echo _MALE?></option>
-                  <option value="<?php echo _FEMALE?>" <? if($studentinfo->studentbio_gender==_FEMALE){echo "selected=selected";};?>><?php echo _FEMALE?></option>
+			      <option value="<?php echo _MALE?>" <?php if($studentinfo->studentbio_gender==_MALE){echo "selected=selected";};?>><?php echo _MALE?></option>
+                  <option value="<?php echo _FEMALE?>" <?php if($studentinfo->studentbio_gender==_FEMALE){echo "selected=selected";};?>><?php echo _FEMALE?></option>
                  </select>
               </td>
               <td width="35%" class="tdinput">
@@ -185,11 +185,11 @@ $entries = $db->get_results($entries_sql);
 				   ?>
                  </select>
               </td>
-              <td width="15%" align="center"><input type="checkbox" name="active" value="1" <? if($studentinfo->studentbio_active==1){echo "checked=checked";};?>>
+              <td width="15%" align="center"><input type="checkbox" name="active" value="1" <?php if($studentinfo->studentbio_active==1){echo "checked=checked";};?>>
               </td>
-              <td width="15%" align="center"><input type="checkbox" name="homed" value="1" <? if($studentinfo->studentbio_homed==1){echo "checked=checked";};?>>
+              <td width="15%" align="center"><input type="checkbox" name="homed" value="1" <?php if($studentinfo->studentbio_homed==1){echo "checked=checked";};?>>
               </td>
-              <td width="15%" align="center"><input type="checkbox" name="sped" value="1" <? if($studentinfo->studentbio_sped==1){echo "checked=checked";};?>>
+              <td width="15%" align="center"><input type="checkbox" name="sped" value="1" <?php if($studentinfo->studentbio_sped==1){echo "checked=checked";};?>>
               </td>
 		    </tr>
 		  </table>
@@ -265,7 +265,7 @@ $entries = $db->get_results($entries_sql);
 				   //Display Schools from table
 				   foreach($schools as $school){
 				   ?>
-                    <option value="<?php echo $school->school_names_id; ?>" <? if($school->school_names_id==$studentinfo->studentbio_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
+                    <option value="<?php echo $school->school_names_id; ?>" <?php if($school->school_names_id==$studentinfo->studentbio_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -300,7 +300,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 		//Display rooms from table
 		foreach($rooms as $room){
 		?>
-		<option value="<?php echo $room->school_rooms_id; ?>" <? if ($room->school_rooms_id==$studentinfo->studentbio_homeroom){echo "selected=selected";};?>><?php echo $room->school_rooms_desc; ?></option>
+		<option value="<?php echo $room->school_rooms_id; ?>" <?php if ($room->school_rooms_id==$studentinfo->studentbio_homeroom){echo "selected=selected";};?>><?php echo $room->school_rooms_desc; ?></option>
 		<?php
 		}
 		?>
@@ -312,7 +312,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 				   //Display teachers from table
 				   foreach($teachers as $teacher){
 				   ?>
-                    <option value="<?php echo $teacher->teachers_id; ?>" <? if($teacher->teachers_id==$studentinfo->studentbio_teacher){echo "selected=selected";};?>><?php echo $teacher->teachers_fname." ".$teacher->teachers_lname; ?></option>
+                    <option value="<?php echo $teacher->teachers_id; ?>" <?php if($teacher->teachers_id==$studentinfo->studentbio_teacher){echo "selected=selected";};?>><?php echo $teacher->teachers_fname." ".$teacher->teachers_lname; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -390,7 +390,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 	   //Display grades from table
 	   foreach($grades as $grade){
 	   ?>
-       <option value="<?php echo $grade->grades_id; ?>" <? if ($grade->grades_id==$studentinfo->student_grade_year_grade){echo "selected=selected";};?>><?php echo $grade->grades_desc; ?></option>
+       <option value="<?php echo $grade->grades_id; ?>" <?php if ($grade->grades_id==$studentinfo->student_grade_year_grade){echo "selected=selected";};?>><?php echo $grade->grades_desc; ?></option>
 	   <?php
 	   };
 	   ?>
@@ -399,7 +399,7 @@ strip($studentinfo->school_rooms_desc); ?>">
 	  </td>
     </tr>
     
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);

@@ -190,33 +190,33 @@ function cnfremove(id) {
 		<td><?php echo _ADMIN_SPEAK_DAY?>:</td>
 		<td class="tdinput">
         	  <select name="day">
-        	  <? //Display teachers from table
+        	  <?php //Display teachers from table
         	  foreach($days as $day){
         	  ?>
         	    <option value="<?php echo $day->days_id; ?>">
 		    <?php echo $day->days_desc ?></option>
-		  <? }; ?>
+		  <?php }; ?>
         	  </select>
 		</td>
 		<td>&nbsp;<?php echo _ADMIN_SPEAK_PERIOD?>:</td>
 		<td class="tdinput">
 		  <select name="period">
-		  <? for ($i=1; $i<=10; $i++) { ?>
+		  <?php for ($i=1; $i<=10; $i++) { ?>
 		    <option value="<?php echo $i; ?>">
 		    <?php echo $i; ?>
-		  <? }; ?>
+		  <?php }; ?>
 		  </select>
 		</td>
 		<td>&nbsp;<?php echo _ADMIN_SPEAK_TEACHER?>:</td>
 		<td class="tdinput">
         	  <select name="teacherid">
-        	  <? //Display teachers from table
+        	  <?php //Display teachers from table
         	  foreach($teachers as $teach){
         	  ?>
         	    <option value="<?php echo $teach->teachers_id; ?>" <?php
 		    if ($teach->teachers_id==$teachers->teacherid){echo
 		    "selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option>
-		  <? }; ?>
+		  <?php }; ?>
         	  </select>
 		</td>
 		<td>
@@ -238,37 +238,37 @@ function cnfremove(id) {
 	<td><?php echo _ADMIN_SPEAK_DAY?>:</td>
 	<td class="tdinput">
 	  <select name="day">
-	  <? //Display teachers from table
+	  <?php //Display teachers from table
 	  foreach($days as $day){
 	  ?>
 	    <option value="<?php echo $day->days_id; ?>"
-	    <? if ($day->days_id==$editspeak->speak_day){echo
+	    <?php if ($day->days_id==$editspeak->speak_day){echo
 	    "selected=selected";};?>><?php echo $day->days_desc ?></option>
-	  <? }; ?>
+	  <?php }; ?>
 	  </select>
         </td>
         <td>&nbsp;<?php echo _ADMIN_SPEAK_PERIOD?>:</td>
         <td class="tdinput">
 	  <select name="period">
-	  <? for ($i=1; $i<=10; $i++) { ?>
+	  <?php for ($i=1; $i<=10; $i++) { ?>
             <option value="<?php echo $i; ?>" <?php
 	    if ($i==$editspeak->speak_period) {echo
 	    "selected=selected";};?>>
             <?php echo $i; ?>
-          <? }; ?>
+          <?php }; ?>
           </select>
         </td>
         <td>&nbsp;<?php echo _ADMIN_SPEAK_TEACHER?>:</td>
         <td class="tdinput">
           <select name="teacherid">
-          <? //Display teachers from table
+          <?php //Display teachers from table
           foreach($teachers as $teach){
           ?>
             <option value="<?php echo $teach->teachers_id; ?>" <?php
             if ($teach->teachers_id==$editspeak->speak_teacherid){echo
             "selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; 
 ?></option>
-          <? }; ?>
+          <?php }; ?>
           </select>
         </td>
         <td>

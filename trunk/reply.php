@@ -54,7 +54,7 @@ $myforum->member=$forumuser;
 $myforum->reply_to_thread();
 ?>
 </div>
-<? 
+<?php 
 switch ($usertype){
 	case "A":
 		include "admin_menu_forum.inc.php";

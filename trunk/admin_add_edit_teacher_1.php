@@ -115,20 +115,20 @@ action="admin_add_edit_teacher_2.php?action=<?php echo $action; ?>">
 				   //Display titles from table
 				   foreach($titles as $title){
 				   ?>
-			       <option value="<?php echo $title->title_id; ?>" <? if ($title->title_id==$set_title){echo "selected=selected";};?>><?php echo $title->title_desc; ?></option>
+			       <option value="<?php echo $title->title_id; ?>" <?php if ($title->title_id==$set_title){echo "selected=selected";};?>><?php echo $title->title_desc; ?></option>
 				   <?php
 				   };
 				   ?>
 				   </select>
 	              </td>
 	              <td width="35%" class="tdinput">
-	                  <input type="text" onChange="capitalizeMe(this)" name="tfname" size="25" <? if($action=="update"){echo " value=".strip($teacher->teachers_fname);}; ?>>
+	                  <input type="text" onChange="capitalizeMe(this)" name="tfname" size="25" <?php if($action=="update"){echo " value=".strip($teacher->teachers_fname);}; ?>>
 	              </td>
 		          <td width="35%" class="tdinput">
-		              <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25" <? if($action=="update"){echo " value=".strip($teacher->teachers_lname);}; ?>>
+		              <input type="text" onChange="capitalizeMe(this)" name="tlname" size="25" <?php if($action=="update"){echo " value=".strip($teacher->teachers_lname);}; ?>>
 	              </td>
 	              <td width="15%" class="tdinput" align="center">
-					  <input type="text" onChange="capitalizeMe(this)" size="5" name="tmi" <? if($action=="update"){echo " value='".strip($teacher->teachers_mi)."'";}; ?>>
+					  <input type="text" onChange="capitalizeMe(this)" size="5" name="tmi" <?php if($action=="update"){echo " value='".strip($teacher->teachers_mi)."'";}; ?>>
 	              </td>
 	            </tr>
 		      </table>
@@ -149,7 +149,7 @@ action="admin_add_edit_teacher_2.php?action=<?php echo $action; ?>">
 				   //Display schools from table
 				   foreach($schools as $school){
 				   ?>
-			       <option value="<?php echo $school->school_names_id; ?>" <? if ($school->school_names_id==$set_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
+			       <option value="<?php echo $school->school_names_id; ?>" <?php if ($school->school_names_id==$set_school){echo "selected=selected";};?>><?php echo $school->school_names_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -157,12 +157,12 @@ action="admin_add_edit_teacher_2.php?action=<?php echo $action; ?>">
 		      </td>
 		      <td width="40%" class="tdinput">
 				    <input type="text" 
-onchange="this.value=this.value.toLowerCase();" name="email" size="40" <?  
+onchange="this.value=this.value.toLowerCase();" name="email" size="40" <?php  
 if($action=="update"){echo " value=".strip($teacher->teachers_email);}; ?>>
 		      </td>
 		      <td width="40%" class="tdinput">
 		        	    <input type="text" 
-name="health" size="10" <? 
+name="health" size="10" <?php 
 if($action=="update"){echo " value=".strip($web->web_users_type);}; ?>>
 		      </td>
 	            </tr>
@@ -180,12 +180,12 @@ if($action=="update"){echo " value=".strip($web->web_users_type);}; ?>>
 	              <td width="50%" class="tdinput">
 					<input type="text" 
 onchange="this.value=this.value.toLowerCase();" name="username" size="20" 
-<? if($action=="update"){echo " value=".strip($web->web_users_username);}; 
+<?php if($action=="update"){echo " value=".strip($web->web_users_username);}; 
 ?>>
 		          </td>
 	              <td width="50%" class="tdinput">
 					<input type="text" class="tolco" 
-name="password" size="20" <? if($action=="update"){echo " 
+name="password" size="20" <?php if($action=="update"){echo " 
 value=".strip($web->web_users_password);}; ?>>
 		          </td>
 	            </tr>

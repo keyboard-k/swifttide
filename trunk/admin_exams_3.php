@@ -133,24 +133,24 @@ if ($action=="edit"){
 	  <td width="35%">&nbsp;<?php echo $year; ?></td>
 	  <td width="30%" class="tdinput">
 		  <select name="schoolid">
-		<? //Display rooms from table
+		<?php //Display rooms from table
 		foreach($schoolnames as $schoolname){
 		?>
-		<option value="<?php echo $schoolname->school_names_id; ?>" <? 
+		<option value="<?php echo $schoolname->school_names_id; ?>" <?php 
 if ($action=="edit" && $schoolname->school_names_id==$exam->exams_schoolid){echo 
 "selected=selected";};?>><?php echo $schoolname->school_names_desc; ?></option> 
-<? }; ?>
+<?php }; ?>
 		   </select>
 	  </td>
 	  <td width="35%" class="tdinput">
 		  <select name="roomid">
-		<? //Display rooms from table
+		<?php //Display rooms from table
 		foreach($schoolrooms as $room){
 		?>
-		<option value="<?php echo $room->school_rooms_id; ?>" <? 
+		<option value="<?php echo $room->school_rooms_id; ?>" <?php 
 if ($action=="edit" && $room->school_rooms_id==$exam->exams_roomid){echo 
 "selected=selected";};?>><?php echo $room->school_rooms_desc; ?></option> 
-<? }; ?>
+<?php }; ?>
 		   </select>
 	  </td>
 	</tr>
@@ -160,28 +160,28 @@ if ($action=="edit" && $room->school_rooms_id==$exam->exams_roomid){echo
 	  <td width="35%">&nbsp;<?php echo _ADMIN_EXAMS_3_TYPE?></td>
 	</tr>
 	<tr class="tblcont">
-	  <td width="35%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="examdate" size="10" value="<? if($action=="edit"){echo $exam->examdate;};?>" READONLY onclick="javascript:show_calendar('exam.examdate');"><a href="javascript:show_calendar('exam.examdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+	  <td width="35%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="examdate" size="10" value="<?php if($action=="edit"){echo $exam->examdate;};?>" READONLY onclick="javascript:show_calendar('exam.examdate');"><a href="javascript:show_calendar('exam.examdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 	                  </td>
 	  <td width="30%" class="tdinput">
 		  <select name="subjectid">
-		<? //Display subjects from table
+		<?php //Display subjects from table
 		foreach($subjectcodes as $subject){
 		?>
-		<option value="<?php echo $subject->grade_subject_id; ?>" <? 
+		<option value="<?php echo $subject->grade_subject_id; ?>" <?php 
 if ($action=="edit" && $subject->grade_subject_id==$exam->exams_subjectid){echo 
 "selected=selected";};?>><?php echo $subject->grade_subject_desc; ?></option> 
-<? }; ?>
+<?php }; ?>
 		   </select>
 	  </td>
 	  <td width="35%" class="tdinput">
 		  <select name="typeid">
-		<? //Display exams_types from table
+		<?php //Display exams_types from table
 		foreach($examstypes as $type){
 		?>
-		<option value="<?php echo $type->exams_types_id; ?>" <? 
+		<option value="<?php echo $type->exams_types_id; ?>" <?php 
 if ($action=="edit" && $type->exams_types_id==$exam->exams_typeid){echo 
 "selected=selected";};?>><?php echo $type->exams_types_desc; ?></option> 
-<? }; ?>
+<?php }; ?>
 		   </select>
 	  </td>
 	</tr>
@@ -191,13 +191,13 @@ if ($action=="edit" && $type->exams_types_id==$exam->exams_typeid){echo
 	<tr class="tblcont">
 	  <td colspan="3" width="100%" class="tdinput">
 		<select name="teacherid">
-		<? //Display teachers from table
+		<?php //Display teachers from table
 		foreach($teachers as $teach){
 		?>
-		<option value="<?php echo $teach->teachers_id; ?>" <? 
+		<option value="<?php echo $teach->teachers_id; ?>" <?php 
 if ($action=="edit" && $teach->teachers_id==$exam->exams_teacherid){echo 
 "selected=selected";};?>><?php echo $teach->teachers_fname . " " . $teach->teachers_lname; ?></option> 
-<? }; ?>
+<?php }; ?>
 		</select>
 	  </td>
 	</tr>
@@ -214,10 +214,10 @@ if ($action=="edit" && $teach->teachers_id==$exam->exams_teacherid){echo
 	  <tr>
 	    <td width="50%"><a 
 href="admin_exams_1.php" class="aform"><?php echo _ADMIN_EXAMS_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_EXAMS_3_UPDATE;}else{echo _ADMIN_EXAMS_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _ADMIN_EXAMS_3_UPDATE;}else{echo _ADMIN_EXAMS_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="examid" value="<?php echo $examid;?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 </div>

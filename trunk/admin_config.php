@@ -129,7 +129,7 @@ if ($action=="edit"){
 	   //Display states from table
 	   foreach($states as $state){
 	   ?>
-	   <option value="<?php echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
+	   <option value="<?php echo $state->state_code; ?>" <?php if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
 	   <?php
 	   };
 	   ?>

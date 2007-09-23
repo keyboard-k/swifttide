@@ -54,7 +54,7 @@ $myforum=new myphpforum();
 $myforum->search();
 ?>
 </div>
-<? 
+<?php 
 switch ($usertype){
 	case "A":
 		include "admin_menu_forum.inc.php";

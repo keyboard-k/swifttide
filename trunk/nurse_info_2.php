@@ -157,7 +157,7 @@ switch ($action){
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -178,7 +178,7 @@ switch ($action){
 	<br>
 	<a class="aform" href="nurse_info_1.php"><?php echo _NURSE_INFO_2_NEW?></a>					
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
 	include "health_menu.inc.php";

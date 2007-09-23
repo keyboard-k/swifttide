@@ -113,7 +113,7 @@ function submitform(fldName, frmNumb)
 				   //Display Schools from table
 				   foreach($schools as $school){
 				   ?>
-                    <option value="<?php echo $school->school_names_id; ?>"><? echo $school->school_names_desc; ?></option>
+                    <option value="<?php echo $school->school_names_id; ?>"><?php echo $school->school_names_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -124,7 +124,7 @@ function submitform(fldName, frmNumb)
 				   //Display grades from table
 				   foreach($grades as $grade){
 				   ?>
-			       <option value="<?php echo $grade->grades_id; ?>"><? echo $grade->grades_desc; ?></option>
+			       <option value="<?php echo $grade->grades_id; ?>"><?php echo $grade->grades_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -135,7 +135,7 @@ function submitform(fldName, frmNumb)
 				   //Display Terms from table
 				   foreach($terms as $term){
 				   ?>
-			       <option value="<?php echo $term->grade_terms_id; ?>"><? echo $term->grade_terms_desc; ?></option>
+			       <option value="<?php echo $term->grade_terms_id; ?>"><?php echo $term->grade_terms_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -146,7 +146,7 @@ function submitform(fldName, frmNumb)
 				   //Display subjects from table
 				   foreach($subjects as $subject){
 				   ?>
-			       <option value="<?php echo $subject->grade_subject_id; ?>"><? echo $subject->grade_subject_desc; ?></option>
+			       <option value="<?php echo $subject->grade_subject_id; ?>"><?php echo $subject->grade_subject_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -171,7 +171,7 @@ width="80%">
 	</tr>
 	</table></td> </tr>		
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
 	        } else {
         include "teacher_menu.inc.php";

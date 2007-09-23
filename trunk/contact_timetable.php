@@ -104,7 +104,7 @@ $ezr->query_mysql($sSQL);
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
@@ -119,7 +119,7 @@ $ezr->query_mysql($sSQL);
 	<br>
 
 
-        <p><? $ezr->display();?></p>
+        <p><?php $ezr->display();?></p>
 	<p>&nbsp;</p>
 
 

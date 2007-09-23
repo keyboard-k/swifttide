@@ -160,13 +160,13 @@ $disciplinecodes=$db->get_results("SELECT * FROM media_codes ORDER BY media_code
 			   //Display discipline codes from table
 			   foreach($disciplinecodes as $disciplinecode){
 			   ?>
-		       <option value="<?php echo $disciplinecode->media_codes_id; ?>" <? if ($disciplinecode->media_codes_id==$discipline->media_codes_id){echo "selected=selected";};?>><?php echo $disciplinecode->media_codes_desc; ?></option>
+		       <option value="<?php echo $disciplinecode->media_codes_id; ?>" <?php if ($disciplinecode->media_codes_id==$discipline->media_codes_id){echo "selected=selected";};?>><?php echo $disciplinecode->media_codes_desc; ?></option>
 			   <?php
 			   };
 			   ?>
 			   </select>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<? if($action=="edit"){echo $discipline->disdate;};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="disdate" size="10" value="<?php if($action=="edit"){echo $discipline->disdate;};?>" READONLY onclick="javascript:show_calendar('discipline.disdate');"><a href="javascript:show_calendar('discipline.disdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
@@ -174,16 +174,16 @@ $disciplinecodes=$db->get_results("SELECT * FROM media_codes ORDER BY media_code
 	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_MEDIA_3_END_DATE?></td>
 	  </tr>
 	  <tr>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<? if($action=="edit"){echo $discipline->sdate;};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="sdate" size="10" value="<?php if($action=="edit"){echo $discipline->sdate;};?>" READONLY onclick="javascript:show_calendar('discipline.sdate');"><a href="javascript:show_calendar('discipline.sdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<? if($action=="edit"){echo $discipline->edate;};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="edate" size="10" value="<?php if($action=="edit"){echo $discipline->edate;};?>" READONLY onclick="javascript:show_calendar('discipline.edate');"><a href="javascript:show_calendar('discipline.edate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_MEDIA_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($discipline->media_history_notes);};?></textarea></td>
+	    <td width="100%" colspan="2">&nbsp;<textarea name="disnotes" cols="40" rows="5"><?php if($action=="edit"){echo strip($discipline->media_history_notes);};?></textarea></td>
 	  </tr>
 	  <?php
 	  if($action=="new"){
@@ -197,7 +197,7 @@ $disciplinecodes=$db->get_results("SELECT * FROM media_codes ORDER BY media_code
 	  ?>
 <?php
 /*comment out custom field stuff
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
@@ -245,11 +245,11 @@ Gosh I hope that is the end of that block
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_MANAGE_MEDIA_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_MANAGE_MEDIA_3_UPDATE;}else{echo _ADMIN_MANAGE_MEDIA_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _ADMIN_MANAGE_MEDIA_3_UPDATE;}else{echo _ADMIN_MANAGE_MEDIA_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="disid" value="<?php echo $disid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 
 	</table>
 	</form>

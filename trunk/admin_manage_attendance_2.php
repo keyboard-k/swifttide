@@ -91,7 +91,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	  <tr class="tblcont">
 	    <td width="100%" colspan="2">&nbsp;<?php echo $attendance->attendance_history_notes ; ?></td>
 	  </tr>
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_attendance_fields)) {
 		?><tr><td colspan=2><h2><?php echo _ADMIN_MANAGE_ATTENDANCE_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php

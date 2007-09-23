@@ -99,15 +99,15 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<?php echo $discipline->infraction_codes_desc ; ?></td>
-		<td width="50%">&nbsp;<? if ($discipline->disdate > 0) { echo $discipline->disdate; } ?></td>
+		<td width="50%">&nbsp;<?php if ($discipline->disdate > 0) { echo $discipline->disdate; } ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_DISCIPLINE_2_START_DATE?></td>
 	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_DISCIPLINE_2_END_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? if ($discipline->sdate > 0) { echo $discipline->sdate; } ?></td>
-		<td width="50%">&nbsp;<? if ($discipline->edate > 0) { echo $discipline->edate; } ?></td>
+	    <td width="50%">&nbsp;<?php if ($discipline->sdate > 0) { echo $discipline->sdate; } ?></td>
+		<td width="50%">&nbsp;<?php if ($discipline->edate > 0) { echo $discipline->edate; } ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_DISCIPLINE_2_ACTION?></td>
@@ -128,7 +128,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->discipline_history_notes ; ?></td>
 	  </tr>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
 		?><tr><td colspan=2><h2><?php echo _ADMIN_MANAGE_DISCIPLINE_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
