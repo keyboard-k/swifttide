@@ -54,7 +54,7 @@ $sroom=$db->get_var("SELECT studentbio_homeroom FROM studentbio WHERE studentbio
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
@@ -110,11 +110,11 @@ $dueday = $db->get_var($sSQL);
     </td>
     <td class="tblcont">
       <?php echo _CONTACTS_HOMEWORK_TEACHER?>:
-      <? if($assignment->teachers_email) { ?>
+      <?php if($assignment->teachers_email) { ?>
       <a href="mailto:<?echo($assignment->teachers_email);?>">
         <?echo("$assignment->teachers_fname $assignment->teachers_mi $assignment->teachers_lname");?>
       </a>
-      <? } else { 
+      <?php } else { 
       echo("$assignment->teachers_fname $assignment->teachers_mi $assignment->teachers_lname");
       }
       ?>

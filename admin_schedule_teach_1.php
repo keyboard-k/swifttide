@@ -162,7 +162,7 @@ function cnfremove() {
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a 
-href="admin_add_edit_teacher_1.php?teacherid=<? 
+href="admin_add_edit_teacher_1.php?teacherid=<?php 
 echo $teacherid; ?>&action=edit" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_1_BACK?></a></td>
 	    <td width="50%" align="right"><a 
 href="admin_schedule_teach_3.php?teacherid=<?php echo $teacherid; 

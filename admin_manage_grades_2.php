@@ -103,13 +103,13 @@ $custom_grade_fields = $db->get_results($custom_grade_sql);
 	    <td width="50%">&nbsp;</td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_GRADES_2_NOTES?></td>
@@ -118,7 +118,7 @@ $custom_grade_fields = $db->get_results($custom_grade_sql);
 	    <td width="100%" colspan="2">&nbsp;<?php echo $grade->grade_history_notes ; ?></td>
 	  </tr>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_grade_fields)) {
 		?><tr><td colspan=2><h2><?php echo _ADMIN_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php

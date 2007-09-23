@@ -39,7 +39,7 @@ $act = get_param("act");
 //}
 
 //if (($cid) AND ($tot<1)) {
-//	header("Location: admin_edit_student_1.php?action=edit&studentid="<? 
+//	header("Location: admin_edit_student_1.php?action=edit&studentid="<?php 
 //	echo $sSQL="SELECT * FROM web_users WHERE web_users_relid=$teacherid";
 //$teach=$db->get_row($sSQL);
 

@@ -57,7 +57,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
@@ -66,7 +66,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	<br>
 	<h2><?php echo $attendance->studentbio_fname. " " .$attendance->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _CONTACT_MANAGE_ATTENDANCE_2_INSERTED?><? echo $attendance->web_users_flname; ?></h2>
+	<h2><?php echo _CONTACT_MANAGE_ATTENDANCE_2_INSERTED?><?php echo $attendance->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_ATTENDANCE_2_SCHOOL?></td>
@@ -90,7 +90,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
 	  <tr class="tblcont">
 	    <td width="100%" colspan="2">&nbsp;<?php echo $attendance->attendance_history_notes ; ?></td>
 	  </tr>
-	  	<? //display custom fields added by Joshua
+	  	<?php //display custom fields added by Joshua
      if(count($custom_attendance_fields)) {
 		?><tr><td colspan=2><h2><?php echo _CONTACT_MANAGE_ATTENDANCE_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -112,7 +112,7 @@ $custom_attendance_fields = $db->get_results($custom_attendance_sql);
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
            <tr>
  	    <td width="50%"><a href="contact_manage_attendance_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _CONTACT_MANAGE_ATTENDANCE_2_BACK?></a></td>
- 	    <td width="50%" align="right"><a href="contact_manage_attendance_1.php?studentid=<?php echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_ATTENDANCE_2_EDIT?></a></td>
+ 	    <td width="50%" align="right"><a href="contact_manage_attendance_1.php?studentid=<?php echo $studentid; ?>&attid=<?php echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_ATTENDANCE_2_EDIT?></a></td>
            </tr>
         </table>
 -->

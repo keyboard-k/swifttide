@@ -121,7 +121,7 @@ $exam=$db->get_row($sSQL);
 	    <td width="50%"><a 
 href="admin_exams_1.php" class="aform"><?php echo _ADMIN_EXAMS_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
-href="admin_exams_3.php?examid=<? 
+href="admin_exams_3.php?examid=<?php 
 echo $examid; ?>&action=edit" 
 class="aform"><?php echo _ADMIN_EXAMS_2_EDIT?></a></td>
 	  </tr>

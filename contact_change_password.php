@@ -65,7 +65,7 @@ function submitform(fldName)
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>

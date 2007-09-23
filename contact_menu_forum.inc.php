@@ -19,35 +19,35 @@ include_once "configuration.php";
                         <tr>
                            <td><hr></td>
                         </tr>
-	<tr><td><a href="contacts_menu.php" title="<?php echo _CONTACT_MENU_FORUM_INC_TITLE?>"><? echo 
+	<tr><td><a href="contacts_menu.php" title="<?php echo _CONTACT_MENU_FORUM_INC_TITLE?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_TITLE_TEXT?></a></td></tr>
                         <tr>
                            <td><hr></td>
                         </tr>
-	<tr><td><a href="contact_manage_attendance_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_ATT?>"><? echo 
+	<tr><td><a href="contact_manage_attendance_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_ATT?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_ATT_TEXT?></a></td></tr>
-	<tr><td><a href="contact_manage_discipline_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_DIS?>"><? echo 
+	<tr><td><a href="contact_manage_discipline_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_DIS?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_DIS_TEXT?></a></td></tr>
-	<tr><td><a href="contact_manage_grades_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_GRADE?>"><? echo 
+	<tr><td><a href="contact_manage_grades_1.php" title="<?php echo _CONTACT_MENU_FORUM_INC_GRADE?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_GRADE_TEXT?></a></td></tr>
-	<tr><td><a href="contact_change_student_year.php" title="<?php echo _CONTACT_MENU_FORUM_INC_CHANGE?>"><? echo 
+	<tr><td><a href="contact_change_student_year.php" title="<?php echo _CONTACT_MENU_FORUM_INC_CHANGE?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_CHANGE_TEXT?></a></td></tr>
                         <tr>
                            <td><hr></td>
                         </tr>
-	<tr><td><a href="contacts_homework.php" title="<?php echo _CONTACT_MENU_FORUM_INC_HOMEWORK?>"><? echo 
+	<tr><td><a href="contacts_homework.php" title="<?php echo _CONTACT_MENU_FORUM_INC_HOMEWORK?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_HOMEWORK_TEXT?></a></td></tr>
 	<tr><td><a href="displayforum.php?forumid=SCHOOL&position=0&sort_by=date_posted&order=desc" title="<?php echo 
 _CONTACT_MENU_FORUM_INC_FORUM?>"><?php echo _CONTACT_MENU_FORUM_INC_FORUM_TEXT?></a></td></tr>
                         <tr>
                            <td><hr></td>
                         </tr>
-	<tr><td><a href="contact_change_password.php" title="<?php echo _CONTACT_MENU_FORUM_INC_PASS?>"><? echo 
+	<tr><td><a href="contact_change_password.php" title="<?php echo _CONTACT_MENU_FORUM_INC_PASS?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_PASS_TEXT?></a></td></tr>
                         <tr>
                            <td><hr></td>
                         </tr>
-	<tr><td><a href="logout.php" title="<?php echo _CONTACT_MENU_FORUM_INC_LOGOUT?>"><? echo 
+	<tr><td><a href="logout.php" title="<?php echo _CONTACT_MENU_FORUM_INC_LOGOUT?>"><?php echo 
 _CONTACT_MENU_FORUM_INC_LOGOUT_TEXT?></a></td></tr>
 
 

@@ -188,7 +188,7 @@ $comment3, $subject)";
 </div>
 
 <div id="Content">
-	<h1><?php echo _ERROR?> <?php echo $msgheader; ?> <? echo _ADMIN_MANAGE_GRADES_4_TITLE?></h1>
+	<h1><?php echo _ERROR?> <?php echo $msgheader; ?> <?php echo _ADMIN_MANAGE_GRADES_4_TITLE?></h1>
 	<br>
 	<h2><?php echo _ADMIN_MANAGE_GRADES_4_SUBTITLE?>:</h2>
 	<br>

@@ -65,7 +65,7 @@ function submitform(fldName, frmNumb)
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $tfname. " " .$tlname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $tfname. " " .$tlname; ?></td>
   </tr>
 </table>
 </div>
@@ -117,7 +117,7 @@ action="nurse_info_2.php">
 				   //Display grades from table
 				   foreach($grades as $grade){
 				   ?>
-			       <option value="<?php echo $grade->grades_id; ?>"><? echo $grade->grades_desc; ?></option>
+			       <option value="<?php echo $grade->grades_id; ?>"><?php echo $grade->grades_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -133,7 +133,7 @@ action="nurse_info_2.php">
 				   //Display Ethnicities from table
 				   foreach($ethnicities as $ethnicity){
 				   ?>
-                    <option value="<?php echo $ethnicity->ethnicity_id; ?>"><? echo $ethnicity->ethnicity_desc; ?></option>
+                    <option value="<?php echo $ethnicity->ethnicity_id; ?>"><?php echo $ethnicity->ethnicity_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -142,11 +142,11 @@ action="nurse_info_2.php">
 	        </tr>
 		    <tr class="trform">
 	          <td width="25%" class="tdinput">
-			  &nbsp;<?php echo _NURSE_INFO_1_ACTIVE?>: <input type="radio" value="1" name="active" checked=checked> <? echo _YES?> <input type="radio" value="" name="active"> <? echo _NO?></td>
+			  &nbsp;<?php echo _NURSE_INFO_1_ACTIVE?>: <input type="radio" value="1" name="active" checked=checked> <?php echo _YES?> <input type="radio" value="" name="active"> <?php echo _NO?></td>
 	          <td width="25%" class="tdinput">
-	          &nbsp;<?php echo _NURSE_INFO_1_HOMED?>: <input type="radio" value="1" name="homed"> <? echo _YES?> <input type="radio" value="" name="homed" checked=checked> <? echo _NO?></td>
+	          &nbsp;<?php echo _NURSE_INFO_1_HOMED?>: <input type="radio" value="1" name="homed"> <?php echo _YES?> <input type="radio" value="" name="homed" checked=checked> <?php echo _NO?></td>
 			  <td width="25%" class="tdinput">			  
-			  &nbsp;<?php echo _NURSE_INFO_1_SPED?>: <input type="radio" value="1" name="sped"> <? echo _YES?> <input type="radio" value="" name="sped" checked=checked> <? echo _NO?></td>
+			  &nbsp;<?php echo _NURSE_INFO_1_SPED?>: <input type="radio" value="1" name="sped"> <?php echo _YES?> <input type="radio" value="" name="sped" checked=checked> <?php echo _NO?></td>
 			  <td width="25%" class="tdinput" align="center">			  
 	          <input type="submit" value="<?php echo _NURSE_INFO_1_SEARCH?>" name="submit" class="frmbut">
 			  <input type="hidden" name="action" value="srchall"></td>
@@ -178,7 +178,7 @@ class='aform'>$letters</a> &nbsp;";
 	</tr>
 	</table>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
 	include "health_menu.inc.php";

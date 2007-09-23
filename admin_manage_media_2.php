@@ -101,15 +101,15 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="50%">&nbsp;<?php echo $discipline->media_codes_desc ; ?></td>
-	    <td width="50%">&nbsp;<? if ($discipline->disdate > 0) echo $discipline->disdate ; ?></td>
+	    <td width="50%">&nbsp;<?php if ($discipline->disdate > 0) echo $discipline->disdate ; ?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_MEDIA_2_START_DATE?></td>
 	    <td width="50%">&nbsp;<?php echo _ADMIN_MANAGE_MEDIA_2_END_DATE?></td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="50%">&nbsp;<? if ($discipline->sdate > 0) echo $discipline->sdate ; ?></td>
-	    <td width="50%">&nbsp;<? if ($discipline->edate > 0) echo $discipline->edate ; ?></td>
+	    <td width="50%">&nbsp;<?php if ($discipline->sdate > 0) echo $discipline->sdate ; ?></td>
+	    <td width="50%">&nbsp;<?php if ($discipline->edate > 0) echo $discipline->edate ; ?></td>
 	  </tr>
 	  <tr class="tblcont">
 	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->media_history_reporter ;?></td>
@@ -122,7 +122,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  </tr>
 
 <?/*comment out custom field work
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
 		?><tr><td colspan=2><h2><?php echo _ADMIN_MANAGE_MEDIA_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -144,7 +144,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	  <tr>
 	    <td width="50%"><a href="admin_manage_media_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_MANAGE_MEDIA_2_BACK?></a></td>
 	    <td width="50%" align="right"><a 
-href="admin_manage_media_3.php?studentid=<?php echo $studentid; ?>&disid=<? 
+href="admin_manage_media_3.php?studentid=<?php echo $studentid; ?>&disid=<?php 
 echo $disid; ?>&action=edit" class="aform"><?php echo _ADMIN_MANAGE_MEDIA_2_EDIT?></a></td>
 	  </tr>
 	</table>

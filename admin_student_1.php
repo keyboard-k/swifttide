@@ -151,11 +151,11 @@ function submitform(fldName, frmNumb)
 	        </tr>
 		    <tr class="trform">
 	          <td width="25%" class="tdinput">
-			  &nbsp;<?php echo _ADMIN_STUDENT_1_ACTIVE?>: <input type="radio" value="1" name="active" checked=checked> <?php echo _YES?> <input type="radio" value="" name="active"> <? echo _NO?></td>
+			  &nbsp;<?php echo _ADMIN_STUDENT_1_ACTIVE?>: <input type="radio" value="1" name="active" checked=checked> <?php echo _YES?> <input type="radio" value="" name="active"> <?php echo _NO?></td>
 	          <td width="25%" class="tdinput">
-	          &nbsp;<?php echo _ADMIN_STUDENT_1_HOMED?>: <input type="radio" value="1" name="homed"> <?php echo _YES?> <input type="radio" value="" name="homed" checked=checked> <? echo _NO?></td>
+	          &nbsp;<?php echo _ADMIN_STUDENT_1_HOMED?>: <input type="radio" value="1" name="homed"> <?php echo _YES?> <input type="radio" value="" name="homed" checked=checked> <?php echo _NO?></td>
 			  <td width="25%" class="tdinput">			  
-			  &nbsp;<?php echo _ADMIN_STUDENT_1_SPED?>: <input type="radio" value="1" name="sped"> <?php echo _YES?> <input type="radio" value="" name="sped" checked=checked> <? echo _NO?></td>
+			  &nbsp;<?php echo _ADMIN_STUDENT_1_SPED?>: <input type="radio" value="1" name="sped"> <?php echo _YES?> <input type="radio" value="" name="sped" checked=checked> <?php echo _NO?></td>
 			  <td width="25%" class="tdinput" align="center">			  
 	          <input type="submit" value="<?php echo _ADMIN_STUDENT_1_SEARCH?>" name="submit" class="frmbut">
 			  <input type="hidden" name="action" value="srchall"></td>

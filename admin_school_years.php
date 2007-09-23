@@ -160,7 +160,7 @@ function cnfremove(id) {
 	?>
 	<h3><?php echo $msgFormErr; ?></h3>
 </div>
-<? // include "admin_menu.inc.php"; ?>
+<?php // include "admin_menu.inc.php"; ?>
 <?php include "admin_maint_tables_menu.inc.php"; ?>
 </body>
 

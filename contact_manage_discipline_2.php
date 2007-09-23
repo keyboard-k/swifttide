@@ -58,7 +58,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 <table width="100%">
   <tr>
     <td width="50%" align="left"><font size="2">&nbsp;&nbsp;<?php echo date(_DATE_FORMAT); ?></font></td>
-    <td width="50%"><?php echo _WELCOME?>, <? echo $cfname. " " .$clname; ?></td>
+    <td width="50%"><?php echo _WELCOME?>, <?php echo $cfname. " " .$clname; ?></td>
   </tr>
 </table>
 </div>
@@ -67,7 +67,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	<br>
 	<h2><?php echo $discipline->studentbio_fname. " " .$discipline->studentbio_lname; ?></h2>
 	<br>
-	<h2><?php echo _CONTACT_MANAGE_DISCIPLINE_2_INSERTED?><? echo $discipline->web_users_flname; ?></h2>
+	<h2><?php echo _CONTACT_MANAGE_DISCIPLINE_2_INSERTED?><?php echo $discipline->web_users_flname; ?></h2>
 	<table border="1" cellpadding="0" cellspacing="0" width="100%">
 	  <tr class="tblhead">
 	    <td width="50%">&nbsp;<?php echo _CONTACT_MANAGE_DISCIPLINE_2_SCHOOL?></td>
@@ -112,7 +112,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	    <td width="100%" colspan="2">&nbsp;<?php echo $discipline->discipline_history_notes ; ?></td>
 	  </tr>
 
-	<? //display custom fields added by Joshua
+	<?php //display custom fields added by Joshua
      if(count($custom_discipline_fields)) {
 		?><tr><td colspan=2><h2><?php echo _CONTACT_MANAGE_DISCIPLINE_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php
@@ -134,7 +134,7 @@ $custom_discipline_fields = $db->get_results($custom_discipline_sql);
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
            <tr>
              <td width="50%"><a href="contact_manage_discipline_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _CONTACT_MANAGE_DISCIPLINE_2_BACK?></a></td>
-             <td width="50%" align="right"><a href="contact_manage_discipline_1.php?studentid=<?php echo $studentid; ?>&attid=<? echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_DISCIPLINE_2_EDIT?></a></td>
+             <td width="50%" align="right"><a href="contact_manage_discipline_1.php?studentid=<?php echo $studentid; ?>&attid=<?php echo $attid; ?>&action=edit" class="aform"><?php echo _CONTACT_MANAGE_DISCIPLINE_2_EDIT?></a></td>
            </tr>
          </table>
 -->
