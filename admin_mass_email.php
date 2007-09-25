@@ -15,6 +15,14 @@ if(!session_is_registered('UserId') || $_SESSION['UserType'] != "A")
 
 // config
 include_once "configuration.php";
+//Include global functions
+include_once "common.php";
+//Initiate database functions
+include_once "ez_sql.php";
+
+//Get list of rooms
+$sSQL="SELECT * FROM school_rooms ORDER BY school_rooms_id";
+$rooms=$db->get_results($sSQL);
 
 ?>
 
@@ -65,11 +73,21 @@ function submitform(fldName)
 		  <form name="massmail" method="post" action="admin_process_mass_mail.php">
 		<tr>
 		  <td class="tdinput"><?php echo _ADMIN_MASS_EMAIL_SEND?> : <br>
-			<input type="radio" value="studentcontact" checked name="mailto"> <?php echo _ADMIN_MASS_EMAIL_CONTACTS?>
-		    <input type="radio" value="teachers" name="mailto"> <?php echo _ADMIN_MASS_EMAIL_TEACHERS?>
-			<input type="radio" value="both" name="mailto"> <?php echo _ADMIN_MASS_EMAIL_BOTH?> <br>
-			<?php echo _ADMIN_MASS_EMAIL_SUBJECT?> :<br>
-			<input type="text" name="subject" size="50"><br>
+		    <input type="radio" value="studentcontact" checked name="mailto"> <?php echo _ADMIN_MASS_EMAIL_CONTACTS?>
+		    <?php echo _ADMIN_MASS_EMAIL_ROOM?>
+		    <select name="room">
+		    <?php
+		    echo "<option value=all selected='selected'>"._ADMIN_MASS_EMAIL_ALL."</option>";
+		    foreach($rooms as $room){
+		      echo "<option value=".$room->school_rooms_id.">".$room->school_rooms_desc."</option>";
+		    }
+		    ?>
+		    </select><br>
+
+		    <input type="radio" value="teachers" name="mailto"> <?php echo _ADMIN_MASS_EMAIL_TEACHERS?><br>
+		    <input type="radio" value="both" name="mailto"> <?php echo _ADMIN_MASS_EMAIL_BOTH?><br>
+		    <?php echo _ADMIN_MASS_EMAIL_SUBJECT?> :<br>
+		    <input type="text" name="subject" size="50"><br>
 		 </td>
 	  </tr>
 	  <tr> 
