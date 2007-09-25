@@ -12,15 +12,26 @@ include_once "configuration.php";
 $mailto=get_param("mailto");
 $message=stripslashes(get_param("message"));
 $subject=get_param("subject");
+$room=get_param("room");
 
-if ($mailto!="both"){
-	$sSQL="SELECT ".$mailto."_email AS email FROM $mailto";
-	$emails = $db->get_results($sSQL);
-}else{
+switch ($mailto) {
+case teachers:
+	$sSQL="SELECT teachers_email AS email FROM teachers";
+	break;
+case "studentcontact":
+	if ($room == "all") { $sSQL="SELECT studentcontact_email AS email FROM studentcontact"; }
+	else { // get all contacts from students in same homeroom ($room)
+	$sSQL = "SELECT studentcontact_email AS email 
+	FROM studentcontact 
+	INNER JOIN studentbio ON studentbio_primarycontact=studentcontact_id 
+	WHERE studentbio_homeroom='".$room."' AND studentcontact_email!=''"; }
+	break;
+case "both":
 	$sSQL1="SELECT teachers_email AS email FROM teachers";
 	$sSQL2="SELECT studentcontact_email AS email FROM studentcontact";
 	$emails_teach=$db->get_results($sSQL1);
 	$emails_conta=$db->get_results($sSQL2);
+	break;
 };
 
 require_once "class.phpmailer.php";
