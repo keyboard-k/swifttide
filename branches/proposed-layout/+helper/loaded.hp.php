@@ -3,7 +3,7 @@
 	
 	//following function goes through the language files and prints the translation
 	//if second parameter is true return the translation instead of printing
-	_($string, $return=false)
+	function _($string, $return=false)
 	{
 		global $E; //get the global $E variable inside function
 		//if the culture is set and also we have file for it!

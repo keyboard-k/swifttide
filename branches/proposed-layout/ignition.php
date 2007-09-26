@@ -2,6 +2,7 @@
 	//This file should always be the first one to be called by all files
 	
 	$E['path'] = dirname(__FILE__) . '/'; //absolute path to Swift Tide directory, note the trainling slash
+	$E['ly'] = $E['path'] . '+front_layer/'; //absolute path for layout files
 	
 	//always load loaded.php helper file from +helper
 	require_once($E['path'] . '+helper/loaded.hp.php');
