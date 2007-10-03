@@ -136,7 +136,7 @@ switch ($action){
 	<br>
 	<A class="aform" href="grade_student_1.php"><?php echo _GRADE_STUDENT_2_NEW?></a>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
         include "teacher_menu.inc.php";

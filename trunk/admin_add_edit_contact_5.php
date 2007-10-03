@@ -125,7 +125,7 @@ function submitform(fldName)
 				   //Display titles from table
 				   foreach($titles as $title){
 				   ?>
-			       <option value="<?php echo $title->title_desc; ?>" <? if ($title->title_desc==$set_title){echo "selected=selected";};?>><?php echo $title->title_desc; ?></option>
+			       <option value="<?php echo $title->title_desc; ?>" <?php if ($title->title_desc==$set_title){echo "selected=selected";};?>><?php echo $title->title_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -139,7 +139,7 @@ function submitform(fldName)
 		              <input type="text" onChange="capitalizeMe(this)" name="clname" size="25" <?php echo " value=\"".strip($contact->studentcontact_lname)."\""; ?>>
 	              </td>
 	              <td width="15%" class="tdinput" align="center">
-					  <input type="checkbox" name="residence" value="1" <? if($contact->contact_to_students_residence==1){echo "checked=checked";};?>>
+					  <input type="checkbox" name="residence" value="1" <?php if($contact->contact_to_students_residence==1){echo "checked=checked";};?>>
 	              </td>
 	            </tr>
 		      </table>
@@ -160,7 +160,7 @@ function submitform(fldName)
 				   //Display relations from table
 				   foreach($relations as $relation){
 				   ?>
-			       <option value="<?php echo $relation->relation_codes_id; ?>" <? if ($relation->relation_codes_id==$set_relation){echo "selected=selected";};?>><?php echo $relation->relation_codes_desc; ?></option>
+			       <option value="<?php echo $relation->relation_codes_id; ?>" <?php if ($relation->relation_codes_id==$set_relation){echo "selected=selected";};?>><?php echo $relation->relation_codes_desc; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -195,7 +195,7 @@ function submitform(fldName)
 				   //Display states from table
 				   foreach($states as $state){
 				   ?>
-			       <option value="<?php echo $state->state_code; ?>" <? if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
+			       <option value="<?php echo $state->state_code; ?>" <?php if ($state->state_code==$set_state){echo "selected=selected";};?>><?php echo $state->state_name; ?></option>
 				   <?php
 				   };
 				   ?>
@@ -231,7 +231,7 @@ function submitform(fldName)
 					<input type="text" onChange="capitalizeMe(this)" name="phone3" size="20" <?php echo " value=\"".strip($contact->studentcontact_phone3)."\""; ?>>
 		          </td>
 		          <td width="10%" class="tdinput">
-					  <input type="checkbox" name="mailings" value="1" <? if($contact->studentcontact_mailings==1){echo "checked=checked";}; ?>>
+					  <input type="checkbox" name="mailings" value="1" <?php if($contact->studentcontact_mailings==1){echo "checked=checked";}; ?>>
 		          </td>
 	            </tr>
 	          </table>

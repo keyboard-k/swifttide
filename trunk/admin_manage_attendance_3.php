@@ -155,20 +155,20 @@ function submitform(fldName1, fldName2)
 			   //Display attendance codes from table
 			   foreach($attendancecodes as $attendancecode){
 			   ?>
-		       <option value="<?php echo $attendancecode->attendance_codes_id; ?>" <? if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><?php echo $attendancecode->attendance_codes_desc; ?></option>
+		       <option value="<?php echo $attendancecode->attendance_codes_id; ?>" <?php if ($attendancecode->attendance_codes_id==$attendance->attendance_codes_id){echo "selected=selected";};?>><?php echo $attendancecode->attendance_codes_desc; ?></option>
 			   <?php
 			   };
 			   ?>
 			   </select>
 		</td>
-		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="attdate" size="10" value="<? if($action=="edit"){echo $attendance->attdate;};?>" READONLY onclick="javascript:show_calendar('attendance.attdate');"><a href="javascript:show_calendar('attendance.attdate');"><img src="images/cal.gif" border="0" class="imma"></a>
+		<td width="50%" class="tdinput"><input type="text" onChange="capitalizeMe(this)" name="attdate" size="10" value="<?php if($action=="edit"){echo $attendance->attdate;};?>" READONLY onclick="javascript:show_calendar('attendance.attdate');"><a href="javascript:show_calendar('attendance.attdate');"><img src="images/cal.gif" border="0" class="imma"></a>
 		</td>
 	  </tr>
 	  <tr class="trform">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _ADMIN_MANAGE_ATTENDANCE_3_NOTES?></td>
 	  </tr>
 	  <tr class="tdinput">
-	    <td width="100%" colspan="2">&nbsp;<textarea name="attnotes" cols="40" rows="5"><? if($action=="edit"){echo strip($attendance->attendance_history_notes);};?></textarea></td>
+	    <td width="100%" colspan="2">&nbsp;<textarea name="attnotes" cols="40" rows="5"><?php if($action=="edit"){echo strip($attendance->attendance_history_notes);};?></textarea></td>
 	  </tr>
 	  <?php
 	  if($action=="new"){
@@ -181,7 +181,7 @@ function submitform(fldName1, fldName2)
 	  };
 	  ?>
 	
-    <? //custom fields added by Joshua
+    <?php //custom fields added by Joshua
     	//get all the custom field names for the select loops
      $cfSQL = "SELECT * FROM custom_fields";
      $custom_fields = $db->get_results($cfSQL);
@@ -227,11 +227,11 @@ function submitform(fldName1, fldName2)
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a href="admin_edit_student_1.php?studentid=<?php echo $studentid; ?>" class="aform"><?php echo _ADMIN_MANAGE_ATTENDANCE_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_MANAGE_ATTENDANCE_3_UPDATE;}else{echo _ADMIN_MANAGE_ATTENDANCE_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _ADMIN_MANAGE_ATTENDANCE_3_UPDATE;}else{echo _ADMIN_MANAGE_ATTENDANCE_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="attid" value="<?php echo $attid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 	</form>
 </div>

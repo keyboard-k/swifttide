@@ -178,7 +178,7 @@ switch ($action){
 	<br>
 	<a class="aform" href="nurse_info_1.php"><?php echo _NURSE_INFO_2_NEW?></a>					
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
 	include "health_menu.inc.php";

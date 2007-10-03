@@ -178,7 +178,7 @@ class='aform'>$letters</a> &nbsp;";
 	</tr>
 	</table>
 </div>
-<? if($_SESSION['UserType'] == "A") {
+<?php if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
         } else {
 	include "health_menu.inc.php";
