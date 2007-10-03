@@ -3,7 +3,8 @@
 // admin_manage_discipline_3.php
 // Admin Section
 // Edit discipline record for student
-//v1.5 problem adding records
+// v1.5 problem adding records
+// doug 9-22-07 not properly filling in form, remove webusers from SQL
 //*
 
 //Check if admin is logged in
@@ -42,14 +43,13 @@ if ($action=="edit"){
 	discipline_history.discipline_history_sdate AS sdate, 
 	discipline_history.discipline_history_edate AS edate, 
 	discipline_history.discipline_history_action, discipline_history.discipline_history_notes, 
-	discipline_history.discipline_history_reporter, web_users.web_users_flname 
+	discipline_history.discipline_history_reporter 
 	FROM ((((discipline_history 
 	INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) 
 	INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) 
 	INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) 
 	INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) 
-	INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id 
-	WHERE discipline_history.discipline_history_id=$disid";
+	WHERE discipline_history.discipline_history_id='".$disid."'";
 	$discipline=$db->get_row($sSQL);
 	$slname=$discipline->studentbio_lname;
 	$sfname=$discipline->studentbio_fname;

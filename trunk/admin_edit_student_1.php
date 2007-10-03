@@ -278,10 +278,10 @@ name="addp" value="<?php echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" on
 		    <td width="33%">&nbsp;<?php echo _ADMIN_EDIT_STUDENT_1_SPED?></td>
 		  </tr>
 		  <tr class="tblcont">
-		    <td width="34%">&nbsp;<?php if($studentinfo->studentbio_active==1){echo _YES;}else{echo _NO;};
+		    <td width="34%">&nbsp;<? if($studentinfo->studentbio_active==1){echo _YES;}else{echo _NO;};
 		    ?></td>
-		    <td width="33%">&nbsp;<?php if($studentinfo->studentbio_homed==1){echo _YES;}else{echo _NO;};?></td>
-		    <td width="33%">&nbsp;<?php if($studentinfo->studentbio_sped==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<? if($studentinfo->studentbio_homed==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<? if($studentinfo->studentbio_sped==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 			<?		  
   		    //check for entry actions and display by Joshua
@@ -310,7 +310,7 @@ name="addp" value="<?php echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" on
 		  </tr>
 		  <tr class="tblcont">
 		    <td width="34%">&nbsp;<?php echo $studentinfo->school_rooms_desc; ?></td>
-		    <td width="33%">&nbsp;<?php if($studentinfo->teachers_fname=="Select"){echo "";}else{echo $studentinfo->teachers_fname." ".$studentinfo->teachers_lname;}; ?></td>
+		    <td width="33%">&nbsp;<? if($studentinfo->teachers_fname=="Select"){echo "";}else{echo $studentinfo->teachers_fname." ".$studentinfo->teachers_lname;}; ?></td>
 		    <td width="33%">&nbsp;<?php echo $studentinfo->studentbio_bus; ?></td>
 		  </tr>
 		  <tr class="tblhead">
@@ -368,7 +368,7 @@ name="addp" value="<?php echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" on
 		    <td width="100%" colspan="3">&nbsp;<?php echo $title_desc 
 . " " . 
 $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname . " (" . $primcontinfo->relation_codes_desc . ")" ;?>
-			<?php if ($primcontinfo->contact_to_students_residence==1){echo " <font color=#FF0000><b>" . _ADMIN_EDIT_STUDENT_1_RESIDENCE . "</b></font>";}; ?>
+			<? if ($primcontinfo->contact_to_students_residence==1){echo " <font color=#FF0000><b>" . _ADMIN_EDIT_STUDENT_1_RESIDENCE . "</b></font>";}; ?>
 			</td>
 		  </tr>
 		  <tr class="tblhead">
@@ -403,7 +403,7 @@ $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname .
 		  </tr>
 		  <tr class="tblcont">
 		    <td width="67%" colspan="2">&nbsp;<?php echo $primcontinfo->studentcontact_email ; ?></td>
-		    <td width="33%">&nbsp;<?php if($primcontinfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<? if($primcontinfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 		  <tr>
 		    <td width="100%" colspan="3" align="right"><a href="admin_add_edit_contact_5.php?&contactid=<?php echo $primarycontact; ?>&studentid=<?php echo $studentid; ?>&type=Primary&contacttostudentsid=<?php echo $primcontinfo->contact_to_students_id; ?>" class="aform"><?php echo _ADMIN_EDIT_STUDENT_1_EDIT_PRIMARY?></a>&nbsp;</td>
@@ -425,10 +425,10 @@ $primcontinfo->studentcontact_fname . " " .$primcontinfo->studentcontact_lname .
 			    <td width="30%">&nbsp;<?php echo $adc->studentcontact_fname; ?></td>
 				<td width="30%">&nbsp;<?php echo $adc->studentcontact_lname; if($adc->contact_to_students_residence==1){echo " <font color=#FF0000><b>R</b></font>";}?></td>
 				<td width="15%">&nbsp;<?php echo $adc->relation_codes_desc; ?></td>
-				<td width="15%">&nbsp;<?php if($adc->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+				<td width="15%">&nbsp;<? if($adc->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 				<td width="10%">&nbsp;<a href="admin_edit_student_2.php?studentid=<?echo $studentid;?>&contactid=<?echo $adc->studentcontact_id; ?>" class="aform"><?php echo _ADMIN_EDIT_STUDENT_1_DETAILS?></a></td>
 			  </tr>
-		  <?php };?>
+		  <? };?>
 		</table>
 	<?php
 	};

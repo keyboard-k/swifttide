@@ -56,6 +56,7 @@ $msgall=$db->get_var("SELECT messageto_all FROM tbl_config WHERE id=1");
 </head>
 
 <body onLoad="document.forms.login.username.focus()">
+<!--
 <img src="images/<?php echo _LOGO?>" border="0">
 <div id="Header">
 <table width="100%">
@@ -65,6 +66,11 @@ $msgall=$db->get_var("SELECT messageto_all FROM tbl_config WHERE id=1");
   </tr>
 </table>
 </div>
+-->
+
+<?php
+  if (file_exists("ads.php")) { include "ads.php"; }
+?>
 
 <div id="loginerr">
 <?php echo $msgLogin; ?>

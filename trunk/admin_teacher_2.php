@@ -40,13 +40,13 @@ switch ($action){
 	case "srchschool":
 		$school=get_param("school");
 		if($school==""){
-			$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active 
+			$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active, web_users_id 
 			FROM ((web_users 
 			INNER JOIN teachers ON teachers_id = web_users_relid) 
 			INNER JOIN school_names ON teachers_school = school_names_id) 
 			WHERE web_users_type = 'T'";
 		} else {
-			$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active 
+			$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active, web_users_id 
 			FROM ((web_users 
 			INNER JOIN teachers ON teachers_id = web_users_relid) 
 			INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -58,20 +58,20 @@ switch ($action){
 			$ezr->results_heading = "<tr class=tblhead>
 			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			  <td width=15%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
-			  <td width=15%>&nbsp;</td>
-			  <td width=15%>&nbsp;</td>
+			  <td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=20%>&nbsp;</td>
+			  <td width=20%>&nbsp;</td>
 			  <td width=15%>&nbsp;</td>
 			</tr>";
 			$ezr->results_row = "<tr>
 			<td class=paging width=20%>COL2</td>
 			<td class=paging width=20% align=center>COL3</td>
-			<td class=paging width=15% align=center>COL4</td>
-			<td class=paging width=15% align=center>
-			  <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+			<td class=paging width=5% align=center>COL4</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=1&teacherid=COL5&from=teach class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
-			<td class=paging width=15% align=center>
-			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=0&teacherid=COL5&from=teach class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
 			<td class=paging width=15% align=center>
 			  <a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1 class=aform>
@@ -87,9 +87,9 @@ switch ($action){
 			};
 		};
 		break;
-	case "srchlname":
+	case "searchlname":
 		$tlname=get_param("tlname");
-		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active 
+		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active, web_users_id 
                 FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -102,20 +102,20 @@ switch ($action){
                         $ezr->results_heading = "<tr class=tblhead>
 			  <td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			  <td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			  <td width=15%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
-			  <td width=15%>&nbsp;</td>
-			  <td width=15%>&nbsp;</td>
+			  <td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			  <td width=20%>&nbsp;</td>
+			  <td width=20%>&nbsp;</td>
 			  <td width=15%>&nbsp;</td>
 			</tr>";
                         $ezr->results_row = "<tr class=tblcont>
                         <td class=paging width=20%>COL2</td>
                         <td class=paging width=20% align=center>COL3</td>
-                        <td class=paging width=15% align=center>COL4</td>
-                        <td class=paging width=15% align=center>
-                          <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+                        <td class=paging width=5% align=center>COL4</td>
+                        <td class=paging width=20% align=center>
+                          <a href=admin_webusers_active.php?act=1&teacherid=COL5 class=aform>
                           &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
-                        <td class=paging width=15% align=center>
-                          <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+                        <td class=paging width=20% align=center>
+                          <a href=admin_webusers_active.php?act=0&teacherid=COL5 class=aform>
                           &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
 			<td class=paging width=15% align=center>
                           <a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1 class=aform>
@@ -131,7 +131,7 @@ switch ($action){
                 break;
 	case "letter":
                 $letter=get_param("letter");
-		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active
+		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active, web_users_id 
 		FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -144,20 +144,20 @@ switch ($action){
 			$ezr->results_heading = "<tr class=tblhead>
 			<td width=20%>" . _ADMIN_TEACHER_2_NAME . "</td>
 			<td width=20%>" . _ADMIN_TEACHER_2_SCHOOL . "</td>
-			<td width=15%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
-			<td width=15%>&nbsp;</td>
-			<td width=15%>&nbsp;</td>
+			<td width=5%>" . _ADMIN_TEACHER_2_ACTIVE . "</td>
+			<td width=20%>&nbsp;</td>
+			<td width=20%>&nbsp;</td>
 			<td width=15%>&nbsp;</td>
 			</tr>";
 			$ezr->results_row = "<tr class=tblcont>
 			<td class=paging width=20%>COL2</td>
 			<td class=paging width=20% align=center>COL3</td>
-			<td class=paging width=15% align=center>COL4</td>
-			<td class=paging width=15% align=center>
-			  <a href=admin_webusers_active.php?act=1&teacherid=COL1 class=aform>
+			<td class=paging width=5% align=center>COL4</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=1&teacherid=COL5 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_ACTIVATE . "</td>
-			<td class=paging width=15% align=center>
-			  <a href=admin_webusers_active.php?act=0&teacherid=COL1 class=aform>
+			<td class=paging width=20% align=center>
+			  <a href=admin_webusers_active.php?act=0&teacherid=COL5 class=aform>
 			  &nbsp;" . _ADMIN_TEACHER_2_DEACTIVATE . "</td>
 			<td class=paging width=15% align=center>
                           <a href=admin_add_edit_teacher_1.php?action=edit&teacherid=COL1 class=aform>

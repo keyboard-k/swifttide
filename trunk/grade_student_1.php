@@ -171,7 +171,7 @@ width="80%">
 	</tr>
 	</table></td> </tr>		
 </div>
-<?php if($_SESSION['UserType'] == "A") {
+<? if($_SESSION['UserType'] == "A") {
         include "admin_menu.inc.php";
 	        } else {
         include "teacher_menu.inc.php";

@@ -120,13 +120,13 @@ $grade->grade_history_conduct ; ?></td>
 	    <td width="50%">&nbsp;</td>
 	  </tr>
 	  <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
+	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc1!="Select Comment"){echo $grade->desc1;}; ?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc2!="Select Comment"){echo $grade->desc2;};?></td>
 	  </tr>
 	 <tr class="tblcont">
-	    <td width="100%" colspan="2">&nbsp;<?php if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
+	    <td width="100%" colspan="2">&nbsp;<? if($grade->desc3!="Select Comment"){echo $grade->desc3;};?></td>
 	  </tr>
 	  <tr class="tblhead">
 	    <td width="100%" colspan="2">&nbsp;<?php echo _CONTACT_MANAGE_GRADES_2_NOTES?></td>
@@ -136,7 +136,7 @@ $grade->grade_history_conduct ; ?></td>
 	    <td width="100%" colspan="2">&nbsp;<?php echo $grade->grade_history_notes ; ?></td>
 	  </tr>
 
-	<?php //display custom fields added by Joshua
+	<? //display custom fields added by Joshua
      if(count($custom_grade_fields)) {
 		?><tr><td colspan=2><h2><?php echo _CONTACT_MANAGE_GRADES_2_CUSTOM_FIELDS?></h2></td></tr>
 		<tr><td colspan=2><table width="100%"><?php

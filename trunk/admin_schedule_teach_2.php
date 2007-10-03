@@ -152,7 +152,7 @@ class=aform>&nbsp;" . _ADMIN_SCHEDULE_TEACH_2_REMOVE . "</a></td>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="33%"><a 
-href="admin_schedule_teach_1.php?teacherid=<?php 
+href="admin_schedule_teach_1.php?teacherid=<? 
 echo $teacherid; ?>" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_BACK?></a></td>
 	   <!--
 	   <td width="33%"><a 
@@ -161,14 +161,14 @@ $schedid; ?>" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_ADD?></a></td>
 	   -->
 	   <td width="33%">&nbsp;</td>
 	   <td width="34%" align="right"><a 
-href="admin_schedule_teach_3.php?teacherid=<?php 
+href="admin_schedule_teach_3.php?teacherid=<? 
 echo $teacherid; ?>&schedid=<?php echo $schedid; ?>&action=edit" 
 class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_2_EDIT?></a></td>
 	  </tr>
 	</table><br><br>
 	<!--
 	<h2><?php echo _ADMIN_SCHEDULE_TEACH_2_STUDENTS?></h2><align="center">
-	<?php $ezr->display(); ?>
+	<? $ezr->display(); ?>
 	-->
 </div>
 <?php include "admin_menu.inc.php"; ?>

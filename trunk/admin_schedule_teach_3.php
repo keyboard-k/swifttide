@@ -131,18 +131,18 @@ action="admin_schedule_teach_4.php">
 	    <td width="35%">&nbsp;<?php echo $sschool ; ?></td>
 	<td width="30%" class="tdinput"> 
 	<input type="text" onChange="capitalizeMe(this)" name="period" 
-size="20" <?php if($action=="edit"){echo " 
+size="20" <? if($action=="edit"){echo " 
 value=".strip($schedule->teacher_schedule_classperiod);}; ?>>
 	</td>
 	<td width="35%" class="tdinput">
 		  <select name="days">
-		<?php //Display days from table
+		<? //Display days from table
 		foreach($weekdays as $weekday){
 		?>
-		<option value="<?php echo $weekday->days_id; ?>" <?php 
+		<option value="<?php echo $weekday->days_id; ?>" <? 
 if ($weekday->days_id==$schedule->teacher_schedule_days){echo 
 "selected=selected";};?>><?php echo $weekday->days_desc; ?></option> 
-<?php }; ?>
+<? }; ?>
 		   </select>
 	</td>
 	</tr>
@@ -154,42 +154,42 @@ if ($weekday->days_id==$schedule->teacher_schedule_days){echo
 	  <tr class="tblcont">
 	    <td width="35%" class="tdinput">
 		  <select name="term2">
-		<?php //Display terms from table
+		<? //Display terms from table
 		foreach($termcodes as $termcode){
 		?>
-		<option value="<?php echo $termcode->grade_terms_id; ?>" <?php 
+		<option value="<?php echo $termcode->grade_terms_id; ?>" <? 
 if ($termcode->grade_terms_id==$schedule->teacher_schedule_termid){echo 
 "selected=selected";};?>><?php echo $termcode->grade_terms_desc; ?></option> 
-<?php }; ?>
+<? }; ?>
 		   </select>
 		</td>
 		<td width="30%" class="tdinput">
 			<select name="subject">
-		<?php //Display subjects from table
+		<? //Display subjects from table
 		foreach($subjectcodes as $subjectcode){
 		?>
 		<option value="<?php echo $subjectcode->grade_subject_id; ?>" 
-<?php 
+<? 
 if($subjectcode->grade_subject_id==$schedule->teacher_schedule_subjectid){echo 
 "selected=selected";};?>> <?echo $subjectcode->grade_subject_desc; 
-?></option> <?php }; ?> 
+?></option> <? }; ?> 
 		</select>
 		</td>
 		<!--
 		<td width="35%" class="tdinput"><input type="text" name="room" 
-size="15" <?php if($action=="edit"){echo " 
+size="15" <? if($action=="edit"){echo " 
 value=".strip($schedule->teacher_schedule_room);}; ?>> </td> 
 		-->
 		<td width="30%" class="tdinput">
 			<select name="room">
-		<?php //Display rooms from table
+		<? //Display rooms from table
 		foreach($rooms as $room){
 		?>
 		<option value="<?php echo $room->school_rooms_id; ?>" 
-<?php 
+<? 
 if($room->school_rooms_id==$schedule->teacher_schedule_room){echo 
 "selected=selected";};?>> <?echo $room->school_rooms_desc;
-?></option> <?php }; ?> 
+?></option> <? }; ?> 
 		</select>
 		</td>
 	  </tr>
@@ -206,14 +206,14 @@ if($room->school_rooms_id==$schedule->teacher_schedule_room){echo
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	  <tr>
 	    <td width="50%"><a 
-href="admin_schedule_teach_1.php?teacherid=<?php 
+href="admin_schedule_teach_1.php?teacherid=<? 
 echo $teacherid; ?>" class="aform"><?php echo _ADMIN_SCHEDULE_TEACH_3_BACK?></a></td>
-	    <td width="50%" align="right"><input type="submit" name="submit" value="<?php if($action=="edit"){echo _ADMIN_SCHEDULE_TEACH_3_UPDATE;}else{echo _ADMIN_SCHEDULE_TEACH_3_ADD;};?>" class="frmbut"></td>
+	    <td width="50%" align="right"><input type="submit" name="submit" value="<? if($action=="edit"){echo _ADMIN_SCHEDULE_TEACH_3_UPDATE;}else{echo _ADMIN_SCHEDULE_TEACH_3_ADD;};?>" class="frmbut"></td>
 	  </tr>
 	  <input type="hidden" name="teacherid" value="<?php echo $teacherid; ?>">
 	  <input type="hidden" name="schedid" value="<?php echo $schedid; ?>">
 	  <input type="hidden" name="studentid" value="<?php echo $studentid; ?>">
-	  <input type="hidden" name="action" value="<?php if($action=="edit"){echo "update";}else{echo "new";};?>">
+	  <input type="hidden" name="action" value="<? if($action=="edit"){echo "update";}else{echo "new";};?>">
 	</table>
 </div>
 <?php include "admin_menu.inc.php"; ?>

@@ -141,7 +141,7 @@ action="admin_schedule_students_2.php">
 	          <input type="submit" value="<?php echo _ADMIN_SCHEDULE_STUDENT_1_BUILD?>" name="submit" 
 class="frmbut">
 			  <input type="hidden" name="action" value="srchall"></td>
-			  <input type="hidden" name="schedid" value=<?php 
+			  <input type="hidden" name="schedid" value=<? 
 echo $schedid; ?></td>
 			  </form>
 	        </tr>

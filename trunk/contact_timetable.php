@@ -119,7 +119,7 @@ $ezr->query_mysql($sSQL);
 	<br>
 
 
-        <p><?php $ezr->display();?></p>
+        <p><? $ezr->display();?></p>
 	<p>&nbsp;</p>
 
 
