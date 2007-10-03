@@ -55,15 +55,17 @@ $days=get_param("days");
 	<td width=20%>" . _ADMIN_MEDIA_CODES_2_DATEOUT . "</td>
 	<td width=20%>" . _ADMIN_MEDIA_CODES_2_DATEDUE . "</td>
 	<td width=35%>" . _ADMIN_MEDIA_CODES_2_CODE . "</td>
-	<td width=25%>" . _ADMIN_MEDIA_CODES_2_NOTIFY . "</td>
+	<!-- <td width=25%>" . _ADMIN_MEDIA_CODES_2_NOTIFY . "</td> -->
 	</tr>"; 
 	$ezr->results_close = "</table>";
 	$ezr->results_row = "<tr>
 	<td align=center class=paging width=20%>COL2</td>
 	<td align=center class=paging width=20%>COL3</td>
 	<td class=paging width=35% align=center>COL4</td>
+	<!--
 	<td class=paging width=25% align=center>
 	  <a href=admin_manage_media_3.php?disid=COL1 class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_2_SEND . "</a>
+	-->
 	</td>
 	</tr>";
 	$ezr->query_mysql($sSQL);
