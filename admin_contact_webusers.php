@@ -134,7 +134,7 @@ $studentid; ?>" class="aform"><?php echo _ADMIN_CONTACT_WEBUSERS_BACK?></a>
 	};
 	?>
 </div>
-<? include "admin_menu.inc.php"; ?>
+<?php include "admin_menu.inc.php"; ?>
 </body>
 
 </html>

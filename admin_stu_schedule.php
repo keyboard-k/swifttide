@@ -165,7 +165,7 @@ function cnfremove(id) {
 </div>
 
 <div id="Content">
-	<h1><?php echo _ADMIN_STU_SCHEDULE_TITLE?>&nbsp;<?php echo $sfname; ?>&nbsp;<? 
+	<h1><?php echo _ADMIN_STU_SCHEDULE_TITLE?>&nbsp;<?php echo $sfname; ?>&nbsp;<?php 
 echo $slname; ?></h1>
 	<br>
 	<?php
@@ -183,7 +183,7 @@ action="admin_stu_schedule.php?action=add">
 $studentid; ?>">
 
                   <td width="100%" class="tdinput" colspan="4">
-<p class="pform"><? _ADMIN_STU_SCHEDULE_ADD_NEW?><br>
+<p class="pform"><?php _ADMIN_STU_SCHEDULE_ADD_NEW?><br>
 
 <select name="sched_ntry">
                 <?php

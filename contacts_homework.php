@@ -110,11 +110,11 @@ $dueday = $db->get_var($sSQL);
     </td>
     <td class="tblcont">
       <?php echo _CONTACTS_HOMEWORK_TEACHER?>:
-      <? if($assignment->teachers_email) { ?>
+      <?php if($assignment->teachers_email) { ?>
       <a href="mailto:<?echo($assignment->teachers_email);?>">
         <?echo("$assignment->teachers_fname $assignment->teachers_mi $assignment->teachers_lname");?>
       </a>
-      <? } else { 
+      <?php } else { 
       echo("$assignment->teachers_fname $assignment->teachers_mi $assignment->teachers_lname");
       }
       ?>
