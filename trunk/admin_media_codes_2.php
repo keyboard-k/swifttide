@@ -66,7 +66,7 @@ $days=get_param("days");
 	  <a href=admin_manage_media_3.php?disid=COL1 class=aform>&nbsp;" . _ADMIN_MEDIA_CODES_2_SEND . "</a>
 	</td>
 	</tr>";
-	$tmp = $ezr->query_mysql($sSQL);
+	$ezr->query_mysql($sSQL);
 	$ezr->set_qs_val("studentid",$studentid);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -103,19 +103,13 @@ $days=get_param("days");
 	$ezr->display();
 	?>
 	<br>
-        <?php
-	if ($tmp) {
-	?>
-	  <table>
-	  <tr>
-	    <!-- link to automatically notify all contacts where media are due -->
-	    <td width="100%" align="left">
-	    <a href="admin_media_codes_4.php" class="aform"><?php echo _ADMIN_MEDIA_CODES_2_NOTIFYALL?></a></td>
-	  </tr>
-	  </table>
-	<?php
-	}
-	?>
+	<table>
+	<tr>
+	  <!-- link to automatically notify all contacts where media are due -->
+	  <td width="100%" align="left">
+	  <a href="admin_media_codes_4.php" class="aform"><?php echo _ADMIN_MEDIA_CODES_2_NOTIFYALL?></a></td>
+	</tr>
+	</table>
 
 	<?php
 	}else{
