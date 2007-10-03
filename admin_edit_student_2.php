@@ -78,7 +78,7 @@ $studentcontact_title=$db->get_var($sSQL);
 		<table border="1" cellpadding="0" cellspacing="0" width="100%">
 		  <tr class="tblcont">
 		    <td width="100%" colspan="3">&nbsp;<?php echo $studentcontact_title . " " . $continfo->studentcontact_fname . " " .$continfo->studentcontact_lname . " (" . $continfo->relation_codes_desc . ")" ;?>
-			<?php if ($continfo->contact_to_students_residence==1){echo " <b>" . _ADMIN_EDIT_STUDENT_2_RESIDENCE . "</b>";}; ?>
+			<? if ($continfo->contact_to_students_residence==1){echo " <b>" . _ADMIN_EDIT_STUDENT_2_RESIDENCE . "</b>";}; ?>
 			</td>
 		  </tr>
 		  <tr class="tblhead">
@@ -113,7 +113,7 @@ $studentcontact_title=$db->get_var($sSQL);
 		  </tr>
 		  <tr class="tblcont">
 		    <td width="67%" colspan="2">&nbsp;<?php echo $continfo->studentcontact_email ; ?></td>
-		    <td width="33%">&nbsp;<?php if($continfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
+		    <td width="33%">&nbsp;<? if($continfo->contact_to_students_internet==1){echo _YES;}else{echo _NO;};?></td>
 		  </tr>
 		  <tr>
 		    <td width="100%" colspan="3" align="right"><a href="admin_add_edit_contact_5.php?&contactid=<?php echo $contactid; ?>&studentid=<?php echo $studentid; ?>&contacttostudentsid=<?php echo $continfo->contact_to_students_id; ?>" class="aform"><?php echo _ADMIN_EDIT_STUDENT_2_EDIT?></a>&nbsp;</td>

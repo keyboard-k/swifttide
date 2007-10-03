@@ -3,6 +3,7 @@
 // admin_manage_discipline_2.php
 // Admin Section
 // Display details on discipline record for student
+// Doug 9-23-07 not populating form when it should be
 //*
 
 //Check if admin is logged in
@@ -34,16 +35,15 @@ school_names.school_names_desc, school_years.school_years_desc,
 DATE_FORMAT(discipline_history.discipline_history_date,'" . _EXAMS_DATE . "') AS disdate, 
 infraction_codes.infraction_codes_desc, 
 DATE_FORMAT(discipline_history.discipline_history_sdate,'" . _EXAMS_DATE . "') AS sdate, 
-DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "')AS edate, 
+DATE_FORMAT(discipline_history.discipline_history_edate,'" . _EXAMS_DATE . "') AS edate, 
 discipline_history.discipline_history_action, discipline_history.discipline_history_notes, 
-discipline_history.discipline_history_reporter, web_users.web_users_flname 
+discipline_history.discipline_history_reporter 
 FROM ((((discipline_history 
 INNER JOIN studentbio ON discipline_history.discipline_history_student = studentbio.studentbio_id) 
 INNER JOIN school_names ON discipline_history.discipline_history_school = school_names.school_names_id) 
 INNER JOIN school_years ON discipline_history.discipline_history_year = school_years.school_years_id) 
 INNER JOIN infraction_codes ON discipline_history.discipline_history_code = infraction_codes.infraction_codes_id) 
-INNER JOIN web_users ON discipline_history.discipline_history_user = web_users.web_users_id 
-WHERE discipline_history.discipline_history_id=$disid";
+WHERE discipline_history.discipline_history_id='".$disid."'";
 
 $discipline=$db->get_row($sSQL);
 

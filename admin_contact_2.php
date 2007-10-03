@@ -5,6 +5,7 @@
 // Search and display list of results or redirect to page to display single result
 //*
 // Version 1.0, 2007-05-224
+// Doug allow editing, Yes or No for active, sep 07
 //
 //Check if admin is logged in
 session_start();
@@ -50,19 +51,22 @@ switch ($action){
 			$ezr->results_close = "</table>";
 			$ezr->results_heading = "<tr class=tblhead>
 			<td width=30%>" . _ADMIN_CONTACT_2_NAME . "</td>
-			<td width=30%>" . _ADMIN_CONTACT_2_ACTIVE . "</td>
+			<td width=10%>" . _ADMIN_CONTACT_2_ACTIVE . "</td>
+			<td width=20%>&nbsp;</td>
 			<td width=20%>&nbsp;</td>
 			<td width=20%>&nbsp;</td>
 			</tr>";
 			$ezr->results_row = "<tr class=tblcont>
 			<td class=paging width=30%>COL2</td>
-			<td class=paging width=30% align=center>COL3</td>
+			<td class=paging width=10% align=center>COL3</td>
 			<td class=paging width=20% align=center>
-			  <a href=admin_webusers_active.php?act=1&contactid=COL1 class=aform>
+			  <a href=admin_webusers_active.php?act=1&from=conta&contactid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_CONTACT_2_ACTIVATE . "</td>
 			<td class=paging width=20% align=center>
-			  <a href=admin_webusers_active.php?act=0&contactid=COL1 class=aform>
+			  <a href=admin_webusers_active.php?act=0&from=conta&contactid=COL1 class=aform>
 			  &nbsp;" . _ADMIN_CONTACT_2_DEACTIVATE . "</td>
+			<td class=paging width=20% align=center>
+			  <a href=admin_contact_webusers.php?act=edit&contactid=COL1 class=aform>&nbsp;" . _ADMIN_CONTACT_2_EDIT . "</td>
 			</tr>";
 			$ezr->query_mysql($sSQL);
 		}else{
