@@ -87,9 +87,10 @@ switch ($action){
 			};
 		};
 		break;
-	case "searchlname":
+	case "srchlname":
 		$tlname=get_param("tlname");
-		$sSQL = "SELECT web_users_relid, web_users_flname, school_names_desc, active, web_users_id 
+		$sSQL = "SELECT web_users_relid, web_users_flname, 
+school_names_desc, active, web_users_id 
                 FROM ((web_users 
 		INNER JOIN teachers ON teachers_id = web_users_relid) 
 		INNER JOIN school_names ON teachers_school = school_names_id) 
@@ -172,6 +173,9 @@ switch ($action){
 		};
 		break;
 }
+//hold this a minute please
+//                WHERE teachers_lname LIKE '%$tlname%' 
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 

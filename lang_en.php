@@ -2056,7 +2056,7 @@ DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_DETAILS', 'Details');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_TITLE', 'Attendance History for Student');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_BACK', 'Back to Student');
-DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_ADD', 'Add Discipline Note');
+DEFINE('_ADMIN_MANAGE_ATTENDANCE_1_ADD', 'Add Attendance Note');
 
 /** admin_manage_attendance_2.php */
 
@@ -2070,7 +2070,7 @@ DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_DATE', 'Date');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_NOTES', 'Notes');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_CUSTOM_FIELDS', 'Custom Fields');
 DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_BACK', 'Back to Student');
-DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_EDIT', 'Edit Attendancec Note');
+DEFINE('_ADMIN_MANAGE_ATTENDANCE_2_EDIT', 'Edit Attendance Note');
 
 /** admin_manage_attendance_3.php */
 
@@ -2621,7 +2621,7 @@ DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_TITLE', 'Title');
 DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_TEACHER', 'Teacher');
 DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_ERROR_BACK', 'Please use your browser \'back\' button to correct the following error(s):');
-DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_SUCCESFULLY', 'Successfully');
+DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_SUCCESSFULLY', 'Successfully');
 DEFINE('_ADMIN_ADD_EDIT_TEACHER_2_ADD_TEACHER', 'Add Teacher');
 
 /** admin_add_edit_contact_1.php */
