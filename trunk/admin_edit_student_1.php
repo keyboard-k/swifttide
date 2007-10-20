@@ -240,15 +240,10 @@ $studentinfo->studentbio_gender . ")"; ?><input type="button"
 name="addc" value="<?php echo _ADMIN_EDIT_STUDENT_1_ADD_CONTACT?>" class="frmbut" onclick="javascript:
 window.location='admin_add_edit_contact_1.php?studentid=<?php echo
 $studentid; ?>&action=new&rback=rback';">
-<!--
-// commented out by Helmut
-// the student's schedule is constructed by the homeroom he is in
 <input type="button"
 name="viewsched" value="<?php echo _ADMIN_EDIT_STUDENT_1_VIEW_SCHEDULE?>" class="frmbut"
 onclick="javascript:window.location='admin_stu_schedule.php?studentid=<?php
 echo $studentid; ?>';">
-//
--->
 <input
 type="button"
 name="addp" value="<?php echo _ADMIN_EDIT_STUDENT_1_ADD_PIC?>" class="frmbut" onclick="javascript:window.location='admin_add_edit_picture.php?studentid=<?php echo $studentid; ?>&action=new&rback=rback';"></h2>
