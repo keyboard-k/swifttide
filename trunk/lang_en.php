@@ -1610,7 +1610,7 @@ DEFINE('_ADMIN_SCHOOL_YEARS_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_SCHOOL_YEARS_TITLE', 'Manage School Years');
 DEFINE('_ADMIN_SCHOOL_YEARS_ADD_NEW', 'Add New School Year');
 DEFINE('_ADMIN_SCHOOL_YEARS_ADD', 'Add');
-DEFINE('_ADMIN_SCHOOL_YEARS_UPDATE_YEAR', 'Update Comment');
+DEFINE('_ADMIN_SCHOOL_YEARS_UPDATE_YEAR', 'Update School Year');
 DEFINE('_ADMIN_SCHOOL_YEARS_UPDATE', 'Update');
 
 /** admin_school_names.php */
@@ -2170,7 +2170,7 @@ DEFINE('_ADMIN_INFRACTION_CODES_UPPER', 'Administrator Area');
 DEFINE('_ADMIN_INFRACTION_CODES_TITLE', 'Manage Infraction Codes');
 DEFINE('_ADMIN_INFRACTION_CODES_ADD_NEW', 'Add New Infraction Code');
 DEFINE('_ADMIN_INFRACTION_CODES_ADD', 'Add');
-DEFINE('_ADMIN_INFRACTION_CODES_UPDATE_INFR', 'Update Infracrion Code');
+DEFINE('_ADMIN_INFRACTION_CODES_UPDATE_INFR', 'Update Infraction Code');
 DEFINE('_ADMIN_INFRACTION_CODES_UPDATE', 'Update');
 
 /** admin_grades.php */
@@ -2776,8 +2776,8 @@ DEFINE('_ADMIN_PROCESS_MASS_MAIL_GENERAL', 'General Email');
 
 /** admin_rooms.php */
 
-DEFINE('_ADMIN_ROOMS_FORM_ERROR', 'Custom Field cannot be removed, it\'s used in the system.');
-DEFINE('_ADMIN_ROOMS_DUP', 'Custom Field is already in the system and can\'t be duplicated.');
+DEFINE('_ADMIN_ROOMS_FORM_ERROR', 'Field cannot be removed, it\'s used in the system.');
+DEFINE('_ADMIN_ROOMS_DUP', 'Field is already in the system and can\'t be duplicated.');
 DEFINE('_ADMIN_ROOMS_EDIT', 'Edit');
 DEFINE('_ADMIN_ROOMS_REMOVE', 'Remove');
 DEFINE('_ADMIN_ROOMS_SURE', 'Are you sure you want to remove this record ?');
@@ -3098,6 +3098,7 @@ DEFINE('_ADMIN_MEDIA_CODES_1_UPDATE', 'Update Media');
 DEFINE('_ADMIN_MEDIA_CODES_1_SURE', 'Are you sure?');
 DEFINE('_ADMIN_MEDIA_CODES_1_CHECK', 'Check all media');
 DEFINE('_ADMIN_MEDIA_CODES_1_DAYS', 'Day(s)');
+DEFINE('_ADMIN_MEDIA_CODES_1_DELETE', 'That media is checked out and cannot be removed from the system');
 
 /** admin_media_codes_2.php */
 

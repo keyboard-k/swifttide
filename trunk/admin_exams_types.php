@@ -99,7 +99,7 @@ function cnfremove(id) {
 	answer = window.confirm("<?php echo _ADMIN_EXAMS_TYPES_SURE?>");
 	if (answer == 1) {
 		var url;
-		url = "admin_exams_types?action=remove&id=" + id;
+		url = "admin_exams_types.php?action=remove&id=" + id;
 		window.location = url; // other browsers
 		href_remove.href = url; // explorer 
 	}

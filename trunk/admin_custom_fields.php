@@ -107,7 +107,7 @@ function cnfremove(id) {
 	answer = window.confirm("<?php echo _ADMIN_CUSTOM_FIELDS_SURE?>");
 	if (answer == 1) {
 		var url;
-		url = "admin_custom_fields?action=remove&id=" + id;
+		url = "admin_custom_fields.php?action=remove&id=" + id;
 		window.location = url; // other browsers
 		href_remove.href = url; // explorer 
 	}
