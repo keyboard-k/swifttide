@@ -45,7 +45,7 @@ case "add":
 		//Check for duplicates
 		$tot=$db->get_var("SELECT count(*) FROM generations WHERE generations_desc='$generations_desc'");
 		if($tot>0){
-			$msgFormErr=_ADMIN_GENERATIONS_FORM_ERROR;
+			$msgFormErr=_ADMIN_GENERATIONS_DUP;
 		}else{
 			$sSQL="INSERT INTO generations (generations_desc) VALUES (".tosql($generations_desc, "Text").")"; 
 			$db->query($sSQL);

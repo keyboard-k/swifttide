@@ -37,7 +37,7 @@ switch ($action){
 	case "remove":
 		$media_codes_id=get_param("id");
 		if($norem=$db->get_results("SELECT media_history_code FROM media_history WHERE media_history_code='".$media_codes_id."'")){
-			$msgFormErr=_ADMIN_MEDIA_CODES_1_FORM_ERROR;
+			$msgFormErr=_ADMIN_MEDIA_CODES_1_DELETE;
 		}else{
 			$sSQL="DELETE FROM media_codes WHERE media_codes_id='".$media_codes_id."'";
 			$db->query($sSQL);

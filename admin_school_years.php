@@ -48,7 +48,6 @@ switch ($action){
 	case "add":
 		$school_years_desc=get_param("schoolyear");
 		$tot=$db->get_var("SELECT count(*) FROM school_years WHERE school_years_desc='$school_years_desc'");
-		// echo "total is $tot, school year desc is $school_years_desc";
 		if($tot>0){
 			$msgFormErr=_ADMIN_SCHOOL_YEARS_FORM_ERROR2;
 		}else{
@@ -64,7 +63,7 @@ switch ($action){
 	case "update":
 		$school_years_id=get_param("id");
 		$school_years_desc=get_param("schoolyear");
-		echo _ADMIN_SCHOOL_YEARS_SCHOOLYEAR . "$school_years_desc";
+		//echo _ADMIN_SCHOOL_YEARS_SCHOOLYEAR . "$school_years_desc";
 		$sSQL="UPDATE school_years SET school_years_desc='$school_years_desc' WHERE school_years_id=$school_years_id";
 		$db->query($sSQL);
 		break;
@@ -150,7 +149,10 @@ function cnfremove(id) {
 		<br>
 		<form name="edityear" method="post" action="admin_school_years.php">						
 		  <p class="pform"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE_YEAR?><br>
-	      <input type="text" onChange="capitalizeMe(this)" name="schoolyear" size="20" value="<?php echo $school_years_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform();"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE?></a>
+	      <input type="text" onChange="capitalizeMe(this)" 
+name="schoolyear" size="20" value="<?php echo $school_years_desc; 
+?>">&nbsp;<A class="aform" href="javascript: 
+submitform('schoolyear');"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
 		  <input type="hidden" name="id" value="<?php echo $school_years_id; ?>">
 	      </p>
