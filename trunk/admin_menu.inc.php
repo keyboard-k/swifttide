@@ -6,7 +6,7 @@
 <?php
 // config
 include_once "configuration.php";
- ?>
+?>
 
 <DIV id="menuSystem">
 <TABLE id="mainTable">
@@ -62,9 +62,9 @@ include_once "configuration.php";
 			<a href="admin_chat.php" title="<?php echo _ADMIN_MENU_INC_CHAT ?>"><?php echo _ADMIN_MENU_INC_CHAT_TEXT ?></a>
 		</TD>
 	</TR>
-	<TR>
 	//
 	-->
+	<TR>
 		<TD>
 			<a href="admin_change_password.php" title="<?php echo _ADMIN_MENU_INC_PASS ?>"><?php echo _ADMIN_MENU_INC_PASS_TEXT ?></a>
 		</TD>

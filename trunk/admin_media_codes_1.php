@@ -129,7 +129,6 @@ function submitform(fldName)
 {
   var f = document.forms[0];
   var t = f.elements[fldName]; 
-  alert("Hi");
   if (t.value!="") 
     f.submit();
   else

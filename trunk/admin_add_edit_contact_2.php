@@ -25,8 +25,8 @@ $current_year=$_SESSION['CurrentYear'];
 
 //Gather info from form
 $title=get_param("title");
-$fname=get_param("cfname");
-$lname=get_param("clname");
+$cfname=get_param("cfname");
+$clname=get_param("clname");
 $relation=get_param("relation");
 $address1=get_param("address1");
 $address2=get_param("address2");
@@ -117,8 +117,8 @@ if ($msgFormErr==""){
           " values (" . 
 		  tosql($studentid, "Number") . "," . 
   		  tosql($title, "Text") . "," . 
-		  tosql($fname, "Text") . "," . 
-		  tosql($lname, "Text") . "," . 
+		  tosql($cfname, "Text") . "," . 
+		  tosql($clname, "Text") . "," . 
 		  tosql($address1, "Text") . "," . 
 		  tosql($address2, "Text") . "," . 
 		  tosql($city, "Text") . "," . 

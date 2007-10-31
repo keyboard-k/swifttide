@@ -77,10 +77,10 @@ teacher_schedule_id=$schedule_codes_id";
 		//Check for duplicates
 		//$tot=$db->get_var("SELECT count(*) FROM attendance_codes WHERE attendance_codes_desc='$attendance_codes_desc'");
 		$tot=$db->get_var("SELECT count(*) FROM teacher_schedule 
-WHERE teacher_schedule_teacherid=$teacherid AND 
-teacher_schedule_subject=$subject AND teacher_schedule_term=$term AND 
-teacher_schedule_classperiod=$classperiod AND 
-teacher_schedule_year=$current_year");
+WHERE teacher_schedule_teacherid='".$teacherid."' AND 
+teacher_schedule_subject=$subject AND teacher_schedule_term='".$term."' AND 
+teacher_schedule_classperiod='".$classperiod."' AND 
+teacher_schedule_year='".$current_year."'");
 		if($tot>0){
 			$msgFormErr=_ADMIN_TEACHER_SCHEDULES_DUP;
 		}else{
@@ -105,11 +105,11 @@ teacher_schedule_id=$schedule_codes_id";
 		$schedule_desc=$db->get_row($sSQL);
 		//$sSQL="UPDATE attendance_codes SET attendance_codes_desc='$attendance_codes_desc' WHERE attendance_codes_id=$attendance_codes_id";
 		$sSQL="UPDATE teacher_schedule SET 
-teacher_schedule_year=$current_year, teacher_schedule_schoolid=$schoolid, 
-teacher_schedule_teacherid=$teacherid, 
-teacher_schedule_subjectid=$subject, 
-teacher_schedule_termid=$term, teacher_schedule_classperiod=$classperiod 
-WHERE teacher_schedule_id=$schedule_codes_id";
+teacher_schedule_year='".$current_year."', teacher_schedule_schoolid='".$schoolid."', 
+teacher_schedule_teacherid='".$teacherid."', 
+teacher_schedule_subjectid='".$subject."', 
+teacher_schedule_termid='".$term."', teacher_schedule_classperiod='".$classperiod."' 
+WHERE teacher_schedule_id='".$schedule_codes_id."'";
 		$db->query($sSQL);
 		break;
 
@@ -127,7 +127,7 @@ $ezr->query_mysql("SELECT classperiod, grade_subjects.grade_subject_desc
 FROM teacher_schedule 
 INNER JOIN grade_subjects ON grade_subject_id=$subjectid 
 ORDER BY teacher_schedule_classperiod");
-echo "Year is $current_year, school is $schoolid, teacher is $teacherid"; 
+// echo "Year is $current_year, school is $schoolid, teacher is $teacherid"; 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 

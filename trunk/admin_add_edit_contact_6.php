@@ -123,8 +123,8 @@ if ($msgFormErr==""){
           "studentcontact_email=" .tosql($email, "Text") . "," .  
           "studentcontact_other=" .tosql($other, "Text") . "," . 
           "studentcontact_mailings=" .tosql($mailings, "Number") .
-		  " WHERE studentcontact_studentid='".$contactid."'" 
-		  AND studentcontact_year='".$current_year."'"";
+		  " WHERE studentcontact_studentid='".$contactid."' 
+		  AND studentcontact_year='".$current_year."'";
 		  $db->query($sSQL);
 		  $sSQL="UPDATE contact_to_students 
 		  SET contact_to_students_relation='".$relation."', 
