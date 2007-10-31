@@ -3026,6 +3026,7 @@ DEFINE('_ADMIN_BOOKS_3_SCHOOLADDRESS2', 'ZIP and City');
 
 DEFINE('_ADMIN_CONTACT_2_ACTIVATE', 'Activate');
 DEFINE('_ADMIN_CONTACT_2_DEACTIVATE', 'Deactivate');
+DEFINE('_ADMIN_CONTACT_2_EDIT', 'Edit');
 DEFINE('_ADMIN_CONTACT_2_FORM_ERROR', 'Contact not found');
 DEFINE('_ADMIN_CONTACT_2_NAME', 'Name');
 DEFINE('_ADMIN_CONTACT_2_ACTIVE', 'Active');
@@ -3098,7 +3099,7 @@ DEFINE('_ADMIN_MEDIA_CODES_1_UPDATE', 'Update Media');
 DEFINE('_ADMIN_MEDIA_CODES_1_SURE', 'Are you sure?');
 DEFINE('_ADMIN_MEDIA_CODES_1_CHECK', 'Check all media');
 DEFINE('_ADMIN_MEDIA_CODES_1_DAYS', 'Day(s)');
-DEFINE('_ADMIN_MEDIA_CODES_1_DELETE', 'That media is checked out and cannot be removed from the system');
+DEFINE('_ADMIN_MEDIA_CODES_1_DELETE', 'Kann nicht gel&ouml;scht werden, wird im System verwendet.');
 
 /** admin_media_codes_2.php */
 

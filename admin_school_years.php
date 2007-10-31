@@ -149,10 +149,7 @@ function cnfremove(id) {
 		<br>
 		<form name="edityear" method="post" action="admin_school_years.php">						
 		  <p class="pform"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE_YEAR?><br>
-	      <input type="text" onChange="capitalizeMe(this)" 
-name="schoolyear" size="20" value="<?php echo $school_years_desc; 
-?>">&nbsp;<A class="aform" href="javascript: 
-submitform('schoolyear');"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE?></a>
+	      <input type="text" onChange="capitalizeMe(this)" name="schoolyear" size="20" value="<?php echo $school_years_desc; ?>">&nbsp;<A class="aform" href="javascript: submitform('schoolyear');"><?php echo _ADMIN_SCHOOL_YEARS_UPDATE?></a>
 	      <input type="hidden" name="action" value="update">
 		  <input type="hidden" name="id" value="<?php echo $school_years_id; ?>">
 	      </p>

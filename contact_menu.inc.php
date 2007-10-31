@@ -33,7 +33,9 @@ include_once "configuration.php";
 			</tr>
 	<tr><td><a href="contacts_homework.php" title="<?php echo _CONTACT_MENU_INC_HOMEWORK?>"><?php echo _CONTACT_MENU_INC_HOMEWORK_TEXT?></a></td></tr>
 	<tr><td><a href="displayforum.php?forumid=SCHOOL&position=0&sort_by=date_posted&order=desc" title="<?php echo _CONTACT_MENU_INC_FORUM?>"><?php echo _CONTACT_MENU_FORUM_INC_FORUM_TEXT?></a></td></tr>
+	<!--
 	<tr><td><a href="contact_chat.php" title="<?php echo _CONTACT_MENU_INC_CHAT?>"><?php echo _CONTACT_MENU_FORUM_INC_CHAT_TEXT?></a></td></tr>
+	-->
 			<tr>
 			   <td><hr></td>
 			</tr>

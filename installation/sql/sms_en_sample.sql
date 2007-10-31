@@ -2424,9 +2424,9 @@ CREATE TABLE IF NOT EXISTS `tbl_days` (
 
 INSERT INTO `tbl_days` (`days_id`, `days_desc`) VALUES 
 (1, 'Mo'),
-(2, 'Di'),
-(3, 'Mi'),
-(4, 'Do'),
+(2, 'Tu'),
+(3, 'We'),
+(4, 'Th'),
 (5, 'Fr');
 
 -- --------------------------------------------------------

@@ -33,19 +33,19 @@ if (!strlen($action))
 //Add or Remove School Name according to admin choice
 switch ($action){
 	case "remove":
-		$id_to_delete = get_param("id");
+		$id = get_param("id");
 		$used_studentbio = $db->get_results("SELECT custom_studentbio_id 
-			FROM custom_studentbio WHERE custom_field_id ='$id'");
+			FROM custom_studentbio WHERE custom_field_id ='".$id."'");
 		$used_discipline = $db->get_results("SELECT custom_discipline_history_id 
 			FROM custom_discipline_history 
-			WHERE custom_field_id = '$id'");
+			WHERE custom_field_id = '".$id."'");
 		$used_attendance = $db->get_results("SELECT custom_attendance_history_id
 			FROM custom_attendance_history
-			WHERE custom_field_id = '$id'");
+			WHERE custom_field_id = '".$id."'");
 		if ($used_studentbio || $used_discipline || $used_attendance) {
 			$msgFormErr=_ADMIN_CUSTOM_FIELDS_FORM_ERROR;
 		} else {
-			$sSQL="DELETE FROM custom_fields WHERE custom_field_id='".$id_to_delete."'";
+			$sSQL="DELETE FROM custom_fields WHERE custom_field_id='".$id."'";
 			$db->query($sSQL);
 		};
 		break;
@@ -107,7 +107,7 @@ function cnfremove(id) {
 	answer = window.confirm("<?php echo _ADMIN_CUSTOM_FIELDS_SURE?>");
 	if (answer == 1) {
 		var url;
-		url = "admin_custom_fields.php?action=remove&id=" + id;
+		url = "admin_custom_fields?action=remove&id=" + id;
 		window.location = url; // other browsers
 		href_remove.href = url; // explorer 
 	}

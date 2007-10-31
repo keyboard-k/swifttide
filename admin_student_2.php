@@ -50,8 +50,7 @@ switch ($action){
 		break;
 	case "srchlname":
 		$slname=get_param("slname");
-		$tot = $db->get_var("SELECT count(*) FROM studentbio 
-WHERE studentbio_lname = '$slname'");
+		$tot = $db->get_var("SELECT count(*) FROM studentbio WHERE studentbio_lname = '".$slname."'");
 			if ($tot > 0){
 				//Set paging appearence
 				$ezr->results_open = "<table width=100% cellpadding=2 cellspacing=0 border=1>";
