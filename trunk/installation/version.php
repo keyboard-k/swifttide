@@ -14,7 +14,7 @@ class joomlaVersion {
 	/** @var string Product */
 	var $PRODUCT 	= 'School Management System';
 	/** @var int Main Release Level */
-	var $RELEASE 	= '1.07';
+	var $RELEASE 	= '1.08';
 	/** @var string Development Status */
 	var $DEV_STATUS = 'Stable';
 	/** @var int Sub Release Level */
@@ -24,7 +24,7 @@ class joomlaVersion {
 	/** @var string Codename */
 	var $CODENAME 	= 'Sunset';
 	/** @var string Date */
-	var $RELDATE 	= '2007-11-21';
+	var $RELDATE 	= '2007-12-09';
 	/** @var string Time */
 	var $RELTIME 	= '12:00';
 	/** @var string Timezone */
