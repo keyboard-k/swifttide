@@ -109,7 +109,8 @@ if(!strlen($msgFormErr)){
 	}else{
 		$sschool=get_param("sschool");
 		$notify=get_param("notify");
-		$sSQL="INSERT INTO discipline_history (discipline_history_student, discipline_history_school, discipline_history_year, discipline_history_code, discipline_history_date, discipline_history_sdate, discipline_history_edate, discipline_history_action, discipline_history_notes, discipline_history_reporter, discipline_history_user) VALUES ($studentid, $sschool, $current_year, $discode, '$disdate', '$sdate', '$edate', ".tosql($disaction, "Text").", ".tosql($disnotes, "Text").", ".tosql($disreporter, "Text").", $web_user)";
+		$sSQL="INSERT INTO discipline_history (discipline_history_student, discipline_history_school, discipline_history_year, discipline_history_code, discipline_history_date, discipline_history_sdate, discipline_history_edate, discipline_history_action, discipline_history_notes, discipline_history_reporter, discipline_history_user) VALUES ('".$studentid."', '".$sschool."', '".$current_year."', $discode, '$disdate', '$sdate', '$edate', ".tosql($disaction, "Text").", ".tosql($disnotes, "Text").", ".tosql($disreporter, "Text").", '".$web_user."')";
+		// echo $sSQL; exit;
 		$db->query($sSQL);
 		if ($notify==1){
 			$sSQL="SELECT studentcontact.studentcontact_email, studentcontact.studentcontact_fname, studentcontact.studentcontact_lname, contact_to_students.contact_to_students_student FROM contact_to_students INNER JOIN studentcontact ON contact_to_students.contact_to_students_contact = studentcontact.studentcontact_id WHERE contact_to_students_student=$studentid";

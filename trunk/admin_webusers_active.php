@@ -46,15 +46,15 @@ $from = get_param("from");
 switch ($act) {
 	case 1:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='T' AND web_users_relid = '".$teacherid."'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='T' AND web_users_id = '".$teacherid."'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='C' AND web_users_relid = '".$contactid."'");
+			mysql_query("UPDATE web_users SET active = '1' WHERE web_users_type='C' AND web_users_id = '".$contactid."'");
 		break;
 	case 0:
 		if ($teacherid)
-			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='T' AND web_users_relid = '".$teacherid."'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='T' AND web_users_id = '".$teacherid."'");
 		if ($contactid)
-			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='C' AND web_users_relid = '".$contactid."'");
+			mysql_query("UPDATE web_users SET active = '0' WHERE web_users_type='C' AND web_users_id = '".$contactid."'");
 		break;
 }
 

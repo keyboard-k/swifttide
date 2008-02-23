@@ -33,7 +33,28 @@ $studentid=get_param("studentid");
 $gradeid=get_param("gradeid");
 
 //Get info
-$sSQL="SELECT studentbio.studentbio_fname, studentbio.studentbio_lname, school_names.school_names_desc, school_years.school_years_desc, grade_history.grade_history_quarter, grade_names.grade_names_desc AS desc1, grade_names_1.grade_names_desc AS desc2, grade_names_2.grade_names_desc AS desc3, grade_history.grade_history_notes, web_users.web_users_flname, grade_history.grade_history_grade, grade_history.grade_history_effort, grade_history.grade_history_conduct FROM ((((((studentbio INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) INNER JOIN grade_history ON studentbio.studentbio_id = grade_history.grade_history_student) INNER JOIN web_users ON grade_history.grade_history_user = web_users.web_users_id) INNER JOIN school_years ON grade_history.grade_history_year = school_years.school_years_id) INNER JOIN grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) INNER JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = grade_names_1.grade_names_id) INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id WHERE grade_history_id=$gradeid";
+$sSQL="SELECT studentbio.studentbio_fname, studentbio.studentbio_lname, 
+school_names.school_names_desc, school_years.school_years_desc, 
+grade_history.grade_history_quarter, grade_names.grade_names_desc AS desc1, 
+grade_names_1.grade_names_desc AS desc2, 
+grade_names_2.grade_names_desc AS desc3, 
+grade_history.grade_history_notes, 
+
+web_users.web_users_flname, grade_history.grade_history_grade, 
+grade_history.grade_history_effort, 
+grade_history.grade_history_conduct 
+
+FROM ((((((studentbio 
+INNER JOIN school_names ON studentbio.studentbio_school = school_names.school_names_id) 
+
+INNER JOIN grade_history ON studentbio.studentbio_id = grade_history.grade_history_student) 
+
+INNER JOIN web_users ON grade_history.grade_history_user = web_users.web_users_id) 
+INNER JOIN school_years ON grade_history.grade_history_year = school_years.school_years_id) 
+INNER JOIN grade_names ON grade_history.grade_history_comment1 = grade_names.grade_names_id) 
+INNER JOIN grade_names AS grade_names_1 ON grade_history.grade_history_comment2 = grade_names_1.grade_names_id) 
+INNER JOIN grade_names AS grade_names_2 ON grade_history.grade_history_comment3 = grade_names_2.grade_names_id 
+WHERE grade_history_id='".$gradeid."'";
 $grade=$db->get_row($sSQL);
 
 //get the custom fields associated with this grade event added by Joshua

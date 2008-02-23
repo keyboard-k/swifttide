@@ -2583,7 +2583,7 @@ DEFINE('_ADMIN_ADD_EDIT_PICTURE_CLICK', 'Click here to go back');
 DEFINE('_ADMIN_ADD_EDIT_PICTURE_NONE', 'No stored image found, please use the form below to upload an image.');
 DEFINE('_ADMIN_ADD_EDIT_PICTURE_PICNAME', 'Picture to upload:');
 DEFINE('_ADMIN_ADD_EDIT_PICTURE_PICGRADE', 'What grade was this picture taken in?');
-DEFINE('_ADMIN_ADD_EDIT_PICTURE_EDITPIC', 'Edit picture');
+DEFINE('_ADMIN_ADD_EDIT_PICTURE_EDITPIC', 'Add/Edit picture');
 
 /** admin_add_edit_teacher_1.php */
 
