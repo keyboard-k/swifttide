@@ -1,1 +1,0 @@
-show profile of teachers and students and other staff here

@@ -1,3 +1,0 @@
-Language files in language_country form, all in lowercase
-
-(is austrian german is de_as?)
