@@ -29,16 +29,10 @@ define("VERSION", "1.5.03");
 //-------------------------------
 function get_param($param_name)
 {
-  global $HTTP_POST_VARS;
-  global $HTTP_GET_VARS;
-
-  $param_value = "";
-  if(isset($HTTP_POST_VARS[$param_name])) {
-    $param_value = $HTTP_POST_VARS[$param_name];
-  } else if(isset($HTTP_GET_VARS[$param_name])) {
-    $param_value = $HTTP_GET_VARS[$param_name];
-  }
-  return $param_value;
+  if($_POST[$param_name])
+		return $_POST[$param_name];
+	else
+		return $_GET[$param_name];
 }
 //-------------------------------
 // Convert value for use with SQL statament
@@ -94,11 +88,7 @@ class email
 
 function set_session($param_name, $param_value)
 {
-  global ${$param_name};
-  if(session_is_registered($param_name)) 
-    session_unregister($param_name);
-  ${$param_name} = $param_value;
-  session_register($param_name);
+  $_SESSION[$param_name] = $param_value;
 }
 
 //for fixing the dates that the datepicker generates to something the db likes
