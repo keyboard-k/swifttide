@@ -19,7 +19,7 @@ include_once "ez_sql.php";
 // Include configuration
 include_once "configuration.php";
 // get version
-include_once "installation/version.php";
+//include_once "installation/version.php";
 
 $action=get_param("action");
 //Set errors if any

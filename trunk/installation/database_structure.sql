@@ -964,7 +964,8 @@ CREATE TABLE IF NOT EXISTS `web_users` (
   `web_users_flname` varchar(60) default NULL,
   `web_users_active` int(11) NOT NULL default '0',
   `active` tinyint(4) NOT NULL default '0',
-  PRIMARY KEY  (`web_users_id`)
+  PRIMARY KEY  (`web_users_id`),
+	UNIQUE KEY (`web_users_username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 --
@@ -972,7 +973,7 @@ CREATE TABLE IF NOT EXISTS `web_users` (
 -- entry #1 will be changed by installation routine (install4.php)
 --
 
-INSERT INTO `web_users` (web_users_id, web_users_type, web_users_relid, web_users_username, web_users_password, web_users_flname, web_users_active, active) VALUES (1, 'A', 1, 'admin', 'admin123', 'Doug Poulin', 0, 1);
+-- INSERT INTO `web_users` (web_users_id, web_users_type, web_users_relid, web_users_username, web_users_password, web_users_flname, web_users_active, active) VALUES (1, 'A', 1, 'admin', 'admin123', 'Doug Poulin', 0, 1);
 
 -- --------------------------------------------------------
 

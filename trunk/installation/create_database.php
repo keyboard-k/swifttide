@@ -10,7 +10,7 @@
 		mysql_escape_string($_POST['admin_id']) . 
 		'", web_users_password = "' . 
 		mysql_escape_string($_POST['admin_password']) .
-		'", web_users_type = "A" ');
+		'", web_users_type = "A", active = 1 ');
 	
 	/**
 	 * Following two functions populate_database() and split_sql() were taken from Joomla!
