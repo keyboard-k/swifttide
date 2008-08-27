@@ -11,7 +11,7 @@ Please refer to [en_Installation Installation Guide]
 
 === After The Initial Installation ===
 
-On the last step of the web based installation, you are presented with a username and password.  Write these down as these will be the ONLY active account in the system when you first login.  You can create more as you go.  Login with your account.
+Signin with your first aministrator account.
 
 You are presented with a screen and menu choices on the left.  Click Table Maintenance to further setup the software.
 

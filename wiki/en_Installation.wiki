@@ -5,7 +5,9 @@
 
 Basically, any operating system with Apache, MySQL and PHP will do.
 
-At least MySQL 4.1 and PHP 4.  Earlier versions will cause problems.  For the non-technical, try www.xammp.com, you get Apache/MySQL/PHP already done for you.
+At least MySQL 4.1 and PHP 4.  Earlier versions will cause problems.  
+
+For testing purposes on the local machine, you may try [http://www.apachefriends.org/en/xampp.html XAMPP], you get Apache/MySQL/PHP already done for you.
 
 You MUST ensure that PHP has been compiled with support for MySQL and Zlib
 in order to successfully run SMS.
@@ -14,12 +16,27 @@ We recommend Apache for running SMS on Windows.
 
 === Installing Swifttide ===
 
+==== For Windows Platform =====
+
 The school management system (SMS) comes with  an automated installation.
 
-== 1. DOWNLOAD SMS ==
+The following tutorial assumes that you are installing a php software for the first time at Windows platform for testing purposes.
+
+  * Download [htpp://www.apachefriends.org/en/xampp.html XAMPP], if you haven't already.
+	* Install XAMPP to `C:\xampp` folder.
+	* Start Apache and MySQL servers. For more information about installing XAMPP and starting Apache and MySQL server, please refer to [http://www.apachefriends.org/en/xampp.html XAMPP Documentations].
+	* Download the latest version of Swifttide from the [http://code.google.com/p/swifttide/downloads/list download section].
+  * Extract the files to the webrrot directory. (If you have been following so far, the default should be `C:\xampp\htdocs`).
+  * Create the database for Swifttide. (Please see `2. CREATE THE SMS DATABASE` later in this section).
+  * Now point your browser to [http://127.0.0.1/swifttide].
+  * The page presented should guide you for the rest.
+
+==== For Linux Platform ====
 
         You can obtain the latest SMS release from:
         http://code.google.com/p/swifttide/downloads/list
+				
+				Extract the compressed file to your web root folder. If you are on windows 
 
         Copy the tar.gz file into a working directory e.g.
 
@@ -93,7 +110,3 @@ The school management system (SMS) comes with  an automated installation.
 
         Note: Change 'localhost' with the correct location you have chosen
         to copy the SMS files to.
-
-Doug> I have run the web installation WITHOUT creating the database or user first, and it seems to work.
-
-Helmut> Correct, the DB does not have to be created if the MySQL user has CREATE privileges.
