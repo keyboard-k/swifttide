@@ -27,9 +27,9 @@
 		}
 		else
 		{
+			require(INST_PATH . 'create_database.php');
 			require(INST_PATH . 'create_config.php');
 			//@todo - if config.php is not writeable, print the config.php code in a <textarea> and let the user manually create it.
-			require(INST_PATH . 'create_database.php');
 			print("Swifttide is now installed. <a href=\"..\">Visit Homepage</a>");
 			exit();
 		}

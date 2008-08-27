@@ -1,4 +1,7 @@
 <?php
+
+if(!file_exists('config.php'))
+	die('file <tt>config.php</tt> does not exist. Please <a href="./installation/">install</a> Swifttide first.');
 //*
 // index.php
 // All Sections
